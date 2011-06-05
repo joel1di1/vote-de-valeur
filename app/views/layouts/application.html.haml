@@ -9,6 +9,18 @@
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
+
+    #header
+      #user_sign_in
+        - if user_signed_in?
+          = "signed in as #{current_user.email}"
+          = link_to "sign out", destroy_user_session_path
+        - else
+          = link_to "sign in", new_user_session_path
+          or
+          = link_to "sign up", new_user_registration_path
+
+
     %p.notice= notice
     %p.alert= alert
     = yield
