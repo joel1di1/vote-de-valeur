@@ -1,6 +1,10 @@
 VoteDeValeur::Application.routes.draw do
+
+  resources :votes
+
   devise_for :users
 
+  resource :votes
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

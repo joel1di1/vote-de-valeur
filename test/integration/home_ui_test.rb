@@ -6,4 +6,11 @@ class HomeUiTest < ActionDispatch::IntegrationTest
     visit '/'
     assert page.has_content? 'Vote De Valeur'
   end
+
+  test "user sign in" do
+    User.create
+    visit '/'
+
+    click_on 'Sign_'
+  end
 end
