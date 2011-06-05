@@ -1,10 +1,10 @@
 VoteDeValeur::Application.routes.draw do
 
-  resources :votes
-
   devise_for :users
 
-  resource :votes
+  get 'votes' => 'votes#index'
+  post 'votes' => 'votes#update'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -11,8 +11,9 @@ class VoteUiTestTest < ActionDispatch::IntegrationTest
 
   end
 
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "vote form should display candidates form" do
+    click_on 'Votez'
+
+    assert page.has_content? 'Votre vote'
   end
 end
