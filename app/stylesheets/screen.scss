@@ -1,0 +1,19 @@
+
+$user_sign_up_margin: 90px;
+
+#user_new{
+    .input{
+        label{
+            text-align: right;
+            display: inline-block;
+            width: $user_sign_up_margin;
+        }
+    }
+    #user_remember_me{
+        margin-left: $user_sign_up_margin;
+    }
+    #user_submit{
+        display: block;
+        margin-left: $user_sign_up_margin;
+    }
+}

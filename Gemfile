@@ -10,7 +10,11 @@ gem 'haml'
 
 gem 'sass'
 
+gem 'compass', ">= 0.11.1"
+
 gem 'simple_form'
+
+gem "jquery-rails"
 
 group :test do
   gem 'capybara'

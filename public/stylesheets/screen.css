@@ -1,0 +1,15 @@
+/* line 6, ../../app/stylesheets/screen.scss */
+#user_new .input label {
+  text-align: right;
+  display: inline-block;
+  width: 90px;
+}
+/* line 12, ../../app/stylesheets/screen.scss */
+#user_new #user_remember_me {
+  margin-left: 90px;
+}
+/* line 15, ../../app/stylesheets/screen.scss */
+#user_new #user_submit {
+  display: block;
+  margin-left: 90px;
+}

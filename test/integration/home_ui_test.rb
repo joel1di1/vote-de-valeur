@@ -10,6 +10,5 @@ class HomeUiTest < ActionDispatch::IntegrationTest
   test "user sign in" do
     User.create
     visit '/'
-
   end
 end
