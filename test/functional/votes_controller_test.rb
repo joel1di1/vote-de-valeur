@@ -2,7 +2,8 @@ require 'test_helper'
 
 class VotesControllerTest < ActionController::TestCase
   setup do
-    @vote = votes(:one)
+    @vote = Factory :vote
+    sign_in Factory(:user)
   end
 
   test "should get index" do

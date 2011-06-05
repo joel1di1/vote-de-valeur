@@ -11,6 +11,5 @@ class HomeUiTest < ActionDispatch::IntegrationTest
     User.create
     visit '/'
 
-    click_on 'Sign_'
   end
 end

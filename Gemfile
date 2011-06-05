@@ -10,7 +10,10 @@ gem 'haml'
 
 gem 'sass'
 
+gem 'simple_form'
+
 group :test do
   gem 'capybara'
   gem 'test-unit'
+  gem 'factory_girl_rails'
 end
