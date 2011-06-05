@@ -1,13 +1,13 @@
-require "integration_test_helper"
+require 'integration_test_helper'
 
 class VoteUiTestTest < ActionDispatch::IntegrationTest
 
   setup do
-    user = Factory :user
-    candidate_1 = Factory :candidate
-    candidate_2 = Factory :candidate
+    @user = Factory :user
+    @candidate_1 = Factory :candidate
+    @candidate_2 = Factory :candidate
 
-    ui_sign_in user
+    ui_sign_in @user
 
   end
 
@@ -15,5 +15,7 @@ class VoteUiTestTest < ActionDispatch::IntegrationTest
     click_on 'Votez'
 
     assert page.has_content? 'Votre vote'
+    assert page.has_content? @candidate_1.name
+    assert page.has_content? @candidate_2.name
   end
 end

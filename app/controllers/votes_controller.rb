@@ -2,10 +2,9 @@ class VotesController < ApplicationController
 
   before_filter :authenticate_user!
 
-  # GET /votes
-  # GET /votes.xml
   def index
-    @votes = Vote.all
+    @candidates = Candidate.all
+    @votes = current_user.votes
 
     respond_to do |format|
       format.html # index.html.erb

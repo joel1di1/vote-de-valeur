@@ -1,1 +1,7 @@
 %h2= 'Votre vote'
+
+
+%ul
+  - @candidates.each do |candidate|
+    %li
+      = candidate.name
