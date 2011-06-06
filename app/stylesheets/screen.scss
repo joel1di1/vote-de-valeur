@@ -7,7 +7,7 @@ $width: 800px;
     clear: both;
 }
 
-h2, h1{
+h2, h1, h4{
     text-align: center;
 }
 
@@ -45,7 +45,13 @@ h2, h1{
 #header{
     margin: 0 auto;
     width: $width;
-    text-align: right;
+    #logo{
+        float: left;
+    }
+    #user_sign_in{
+        float: right;
+        text-align: right;
+    }
 }
 
 #user_votes{
