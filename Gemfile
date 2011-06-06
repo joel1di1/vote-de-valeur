@@ -18,6 +18,8 @@ gem "jquery-rails"
 
 gem 'typus'
 
+gem 'hoptoad_notifier'
+
 group :test do
   gem 'capybara'
   gem 'test-unit'

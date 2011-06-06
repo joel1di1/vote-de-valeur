@@ -63,6 +63,9 @@ GEM
     ffi (1.0.9)
     fssm (0.2.7)
     haml (3.1.1)
+    hoptoad_notifier (2.4.11)
+      activesupport
+      builder
     i18n (0.5.0)
     jquery-rails (1.0.9)
       railties (~> 3.0)
@@ -132,6 +135,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   haml
+  hoptoad_notifier
   jquery-rails
   rails (= 3.0.7)
   sass
