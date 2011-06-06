@@ -20,7 +20,8 @@
           or
           = link_to "sign up", new_user_registration_path
 
-
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+    #messages
+      %p.notice= notice
+      %p.alert= alert
+    #container
+      = yield

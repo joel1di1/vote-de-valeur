@@ -1,6 +1,17 @@
 
 $user_sign_up_margin: 90px;
 
+$width: 800px;
+
+.clear{
+    clear: both;
+}
+
+h2, h1{
+    text-align: center;
+}
+
+
 #user_new{
     .input{
         label{
@@ -15,5 +26,66 @@ $user_sign_up_margin: 90px;
     #user_submit{
         display: block;
         margin-left: $user_sign_up_margin;
+    }
+}
+
+
+#container{
+    margin: 0 auto;
+    width: $width;
+}
+
+#messages{
+    margin: 0 auto;
+    width: $width;
+    text-align: center;
+}
+
+
+#header{
+    margin: 0 auto;
+    width: $width;
+    text-align: right;
+}
+
+#user_votes{
+    margin: 0 auto;
+    width: $width;
+    text-align: center;
+    .row{
+        width: $width;
+        label{
+            display: inline-block;
+            text-align: right;
+            width: $width/2 - 10px;
+        }
+        .input {
+            display: inline-block;
+            text-align: left;
+            width: $width/2 - 10px;
+            input{
+                width: 20px;
+            }
+        }
+    }
+    #user_submit{
+        margin: 30px;
+    }
+}
+
+.results{
+    margin: 0 auto;
+    width: $width;
+    text-align: center;
+    .candidate{
+        display: inline-block;
+        text-align: right;
+        width: $width/2 - 10px;
+    }
+    .count{
+        display: inline-block;
+        text-align: left;
+        width: $width/2 - 10px;
+        font-weight: bold;
     }
 }

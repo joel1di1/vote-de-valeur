@@ -1,15 +1,96 @@
 /* line 6, ../../app/stylesheets/screen.scss */
+.clear {
+  clear: both;
+}
+
+/* line 10, ../../app/stylesheets/screen.scss */
+h2, h1 {
+  text-align: center;
+}
+
+/* line 17, ../../app/stylesheets/screen.scss */
 #user_new .input label {
   text-align: right;
   display: inline-block;
   width: 90px;
 }
-/* line 12, ../../app/stylesheets/screen.scss */
+/* line 23, ../../app/stylesheets/screen.scss */
 #user_new #user_remember_me {
   margin-left: 90px;
 }
-/* line 15, ../../app/stylesheets/screen.scss */
+/* line 26, ../../app/stylesheets/screen.scss */
 #user_new #user_submit {
   display: block;
   margin-left: 90px;
+}
+
+/* line 33, ../../app/stylesheets/screen.scss */
+#container {
+  margin: 0 auto;
+  width: 800px;
+}
+
+/* line 38, ../../app/stylesheets/screen.scss */
+#messages {
+  margin: 0 auto;
+  width: 800px;
+  text-align: center;
+}
+
+/* line 45, ../../app/stylesheets/screen.scss */
+#header {
+  margin: 0 auto;
+  width: 800px;
+  text-align: right;
+}
+
+/* line 51, ../../app/stylesheets/screen.scss */
+#user_votes {
+  margin: 0 auto;
+  width: 800px;
+  text-align: center;
+}
+/* line 55, ../../app/stylesheets/screen.scss */
+#user_votes .row {
+  width: 800px;
+}
+/* line 57, ../../app/stylesheets/screen.scss */
+#user_votes .row label {
+  display: inline-block;
+  text-align: right;
+  width: 390px;
+}
+/* line 62, ../../app/stylesheets/screen.scss */
+#user_votes .row .input {
+  display: inline-block;
+  text-align: left;
+  width: 390px;
+}
+/* line 66, ../../app/stylesheets/screen.scss */
+#user_votes .row .input input {
+  width: 20px;
+}
+/* line 71, ../../app/stylesheets/screen.scss */
+#user_votes #user_submit {
+  margin: 30px;
+}
+
+/* line 76, ../../app/stylesheets/screen.scss */
+.results {
+  margin: 0 auto;
+  width: 800px;
+  text-align: center;
+}
+/* line 80, ../../app/stylesheets/screen.scss */
+.results .candidate {
+  display: inline-block;
+  text-align: right;
+  width: 390px;
+}
+/* line 85, ../../app/stylesheets/screen.scss */
+.results .count {
+  display: inline-block;
+  text-align: left;
+  width: 390px;
+  font-weight: bold;
 }

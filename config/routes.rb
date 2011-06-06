@@ -5,6 +5,8 @@ VoteDeValeur::Application.routes.draw do
   get 'votes' => 'votes#index'
   post 'votes' => 'votes#update'
 
+  resources :candidates, :only => [:index]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

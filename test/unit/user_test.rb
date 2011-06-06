@@ -1,8 +1,29 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+
+  setup do
+    @user = Factory :user
   end
+
+  test "method missing on vote_for_candidate should return nil if not define" do
+    assert_nil @user.vote_for_candidate_1
+    assert_nil @user.vote_for_candidate_13456
+  end
+
+  test "method missing on vote_for_candidate should return vote for candidate" do
+    candidate = Factory :candidate
+    vote = Factory :vote, :candidate => candidate, :user => @user, :vote => 2
+
+    @user.reload
+    assert_equal vote.vote, @user.send("vote_for_candidate_#{candidate.id}")
+
+    candidate = Factory :candidate
+    vote = Factory :vote, :candidate => candidate, :user => @user, :vote => 3
+
+    @user.reload
+    assert_equal vote.vote, @user.send("vote_for_candidate_#{candidate.id}")
+
+   end
+
 end

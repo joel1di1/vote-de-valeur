@@ -1,0 +1,10 @@
+%h2
+  Candidats
+
+.results
+  - @candidates.each do |candidate|
+    .candidate= candidate.name
+    .count= candidate.votes_total
+
+
+

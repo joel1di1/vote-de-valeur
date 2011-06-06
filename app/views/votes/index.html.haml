@@ -1,7 +1,10 @@
 %h2= 'Votre vote'
 
 
-%ul
+= simple_form_for @user, :url => '/votes', :html => {:method => :post, :id => 'user_votes'} do |f|
   - @candidates.each do |candidate|
-    %li
-      = candidate.name
+    .row
+      = f.label "vote_for_candidate_#{candidate.id}", candidate.name
+      = f.input "vote_for_candidate_#{candidate.id}", :label => false, :_input_html => {:tabindex => 1}
+  .clear
+  = f.submit :value => "update votes", :html => {:tabindex => 2}
