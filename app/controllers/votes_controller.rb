@@ -8,7 +8,6 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml { render :xml => @votes }
     end
   end
 
