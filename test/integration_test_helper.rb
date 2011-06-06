@@ -16,4 +16,17 @@ class ActionDispatch::IntegrationTest
     click_on 'user_submit'
   end
 
+
+  def ui_sign_out_admin
+    visit '/admin/session/'
+  end
+
+  def ui_sign_as_admin admin
+    ui_sign_out_admin
+    visit '/admin'
+    fill_in 'typus_user[email]', :with => @admin.email
+    fill_in 'typus_user[password]', :with => @admin.password
+    click_on 'Sign in'
+  end
+
 end

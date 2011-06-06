@@ -8,6 +8,13 @@ Factory.define :user do |u|
   u.after_build { |u| u.skip_confirmation! }
 end
 
+Factory.define :admin_user do |a|
+  a.email {Factory.next :email}
+  a.password "secret"
+  a.role 'admin'
+  a.status true
+end
+
 Factory.sequence :candidate_name do |n|
   "Candidate_#{n}"
 end

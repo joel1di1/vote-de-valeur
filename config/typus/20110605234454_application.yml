@@ -1,0 +1,34 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+Candidate:
+  fields:
+    default: name
+    form: name
+  order_by: 
+  relationships: 
+  filters: created_at
+  search: name
+  application: vote-de-valeur
+
+User:
+  fields:
+    default: email, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, confirmation_token, confirmed_at, confirmation_sent_at, failed_attempts, unlock_token, locked_at
+    form: email, reset_password_token, reset_password_sent_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, confirmation_token, confirmed_at, confirmation_sent_at, failed_attempts, unlock_token, locked_at
+  order_by: 
+  relationships: votes
+  filters: created_at
+  search: 
+  application: vote-de-valeur
+
+Vote:
+  fields:
+    default: candidate_id, user_id, vote, candidate, user
+    form: candidate_id, user_id, vote, candidate, user
+  order_by: 
+  relationships: candidate, user
+  filters: created_at
+  search: 
+  application: vote-de-valeur
+

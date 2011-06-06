@@ -16,6 +16,8 @@ gem 'simple_form'
 
 gem "jquery-rails"
 
+gem 'typus'
+
 group :test do
   gem 'capybara'
   gem 'test-unit'
