@@ -5,6 +5,8 @@
   - @candidates.each do |candidate|
     .row
       = f.label "vote_for_candidate_#{candidate.id}", candidate.name
-      = f.input "vote_for_candidate_#{candidate.id}", :label => false, :_input_html => {:tabindex => 1}
+      .input
+        = f.select "vote_for_candidate_#{candidate.id}", (-2..2).to_a.collect{|i| ["%+d" % i, i]}.reverse, :include_blank => true
+      -#= f.input "vote_for_candidate_#{candidate.id}", :label => false, :_input_html => {:tabindex => 1}
   .clear
   = f.submit :value => "update votes", :html => {:tabindex => 2}

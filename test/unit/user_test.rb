@@ -19,7 +19,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal vote.vote, @user.send("vote_for_candidate_#{candidate.id}")
 
     candidate = Factory :candidate
-    vote = Factory :vote, :candidate => candidate, :user => @user, :vote => 3
+    vote = Factory :vote, :candidate => candidate, :user => @user, :vote => -1
 
     @user.reload
     assert_equal vote.vote, @user.send("vote_for_candidate_#{candidate.id}")

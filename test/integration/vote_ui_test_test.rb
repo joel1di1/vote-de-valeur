@@ -21,51 +21,45 @@ class VoteUiTestTest < ActionDispatch::IntegrationTest
     assert page.has_field? "user[vote_for_candidate_#{@candidate_2.id}]"
   end
 
+
   test "user should create his vote" do
     click_on 'Votez'
 
     assert_difference ["Vote.find_all_by_candidate_id(#{@candidate_1.id}).count", "Vote.find_all_by_candidate_id(#{@candidate_2.id}).count"] do
       assert_difference ['Vote.count', "User.find(#{@user.id}).votes.count"], 2 do
-        fill_in "user[vote_for_candidate_#{@candidate_1.id}]", :with => 1
-        fill_in "user[vote_for_candidate_#{@candidate_2.id}]", :with => -2
+        select '+1', :from => "user[vote_for_candidate_#{@candidate_1.id}]"
+        select '-2', :from => "user[vote_for_candidate_#{@candidate_2.id}]"
         click_on 'update votes'
       end
     end
 
-    visit '/votes'
-    assert_equal "1", find_field("user[vote_for_candidate_#{@candidate_1.id}]").value
-    assert_equal "-2", find_field("user[vote_for_candidate_#{@candidate_2.id}]").value
-  end
-
-  test "test input should be considered as nil" do
-    click_on 'Votez'
-
-    fill_in "user[vote_for_candidate_#{@candidate_1.id}]", :with => 'youpi23'
-    fill_in "user[vote_for_candidate_#{@candidate_2.id}]", :with => '123t'
-    click_on 'update votes'
-
-    visit '/votes'
-    assert_nil find_field("user[vote_for_candidate_#{@candidate_1.id}]").value
-    assert_nil find_field("user[vote_for_candidate_#{@candidate_2.id}]").value
+    @user.reload
+    assert_equal +1, @user.vote_for_candidate(@candidate_1.id)
+    assert_equal -2, @user.vote_for_candidate(@candidate_2.id)
   end
 
 
   test "user with existing votes should update his votes" do
     click_on 'Votez'
 
-    fill_in "user[vote_for_candidate_#{@candidate_1.id}]", :with => 1
-    fill_in "user[vote_for_candidate_#{@candidate_2.id}]", :with => -2
+    select '+1', :from => "user[vote_for_candidate_#{@candidate_1.id}]"
+    select '-2', :from => "user[vote_for_candidate_#{@candidate_2.id}]"
+
     click_on 'update votes'
 
     assert_no_difference ["Vote.find_all_by_candidate_id(#{@candidate_1.id}).count",
                           "Vote.find_all_by_candidate_id(#{@candidate_2.id}).count",
                           'Vote.count', '@user.votes.count'] do
-      fill_in "user[vote_for_candidate_#{@candidate_1.id}]", :with => 5
-      fill_in "user[vote_for_candidate_#{@candidate_2.id}]", :with => -5
+      select '+0', :from => "user[vote_for_candidate_#{@candidate_1.id}]"
+      select '+2', :from => "user[vote_for_candidate_#{@candidate_2.id}]"
       click_on 'update votes'
     end
-  end
 
+    @user.reload
+    assert_equal 0, @user.vote_for_candidate(@candidate_1.id)
+    assert_equal 2, @user.vote_for_candidate(@candidate_2.id)
+
+  end
 
 
 end
