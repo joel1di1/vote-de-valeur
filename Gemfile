@@ -20,8 +20,6 @@ gem 'typus'
 
 gem 'hoptoad_notifier'
 
-gem "heroscale"
-
 group :test do
   gem 'capybara'
   gem 'test-unit'
