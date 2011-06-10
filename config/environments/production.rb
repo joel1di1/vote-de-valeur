@@ -50,4 +50,6 @@ VoteDeValeur::Application.configure do
   config.action_mailer.default_url_options = { :host => 'evening-moon-670.heroku.com' }
 
 
+  config.middleware.use "ForceSSL"
+
 end

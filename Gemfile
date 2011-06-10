@@ -20,6 +20,8 @@ gem 'typus'
 
 gem 'hoptoad_notifier'
 
+gem 'ssl_requirement'
+
 group :test do
   gem 'capybara'
   gem 'test-unit'
