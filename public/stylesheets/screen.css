@@ -1,101 +1,119 @@
-/* line 6, ../../app/stylesheets/screen.scss */
+/* line 8, ../../app/stylesheets/screen.scss */
 .clear {
   clear: both;
 }
 
-/* line 10, ../../app/stylesheets/screen.scss */
+/* line 12, ../../app/stylesheets/screen.scss */
 h2, h1, h4 {
   text-align: center;
 }
 
-/* line 17, ../../app/stylesheets/screen.scss */
+/* line 19, ../../app/stylesheets/screen.scss */
 #user_new .input label {
   text-align: right;
   display: inline-block;
   width: 90px;
 }
-/* line 23, ../../app/stylesheets/screen.scss */
+/* line 25, ../../app/stylesheets/screen.scss */
 #user_new #user_remember_me {
   margin-left: 90px;
 }
-/* line 26, ../../app/stylesheets/screen.scss */
+/* line 28, ../../app/stylesheets/screen.scss */
 #user_new #user_submit {
   display: block;
   margin-left: 90px;
 }
 
-/* line 33, ../../app/stylesheets/screen.scss */
+/* line 35, ../../app/stylesheets/screen.scss */
 #container {
   margin: 0 auto;
   width: 800px;
 }
 
-/* line 38, ../../app/stylesheets/screen.scss */
+/* line 40, ../../app/stylesheets/screen.scss */
 #messages {
   margin: 0 auto;
   width: 800px;
   text-align: center;
 }
 
-/* line 45, ../../app/stylesheets/screen.scss */
+/* line 47, ../../app/stylesheets/screen.scss */
 #header {
   margin: 0 auto;
   width: 800px;
 }
-/* line 48, ../../app/stylesheets/screen.scss */
+/* line 50, ../../app/stylesheets/screen.scss */
 #header #logo {
   float: left;
 }
-/* line 51, ../../app/stylesheets/screen.scss */
+/* line 53, ../../app/stylesheets/screen.scss */
 #header #user_sign_in {
   float: right;
   text-align: right;
 }
 
-/* line 57, ../../app/stylesheets/screen.scss */
+/* line 59, ../../app/stylesheets/screen.scss */
 #user_votes {
   margin: 0 auto;
   width: 800px;
   text-align: center;
 }
-/* line 61, ../../app/stylesheets/screen.scss */
+/* line 63, ../../app/stylesheets/screen.scss */
 #user_votes .row {
   width: 800px;
 }
-/* line 63, ../../app/stylesheets/screen.scss */
+/* line 65, ../../app/stylesheets/screen.scss */
 #user_votes .row label {
   display: inline-block;
   text-align: right;
   width: 390px;
 }
-/* line 68, ../../app/stylesheets/screen.scss */
+/* line 70, ../../app/stylesheets/screen.scss */
 #user_votes .row .input {
   display: inline-block;
   text-align: left;
   width: 390px;
 }
-/* line 72, ../../app/stylesheets/screen.scss */
+/* line 74, ../../app/stylesheets/screen.scss */
 #user_votes .row .input input {
   width: 20px;
 }
 /* line 77, ../../app/stylesheets/screen.scss */
+#user_votes .row .input label {
+  width: auto;
+  margin: 5px 15px 5px 0;
+  width: 22px;
+  height: 22px;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -o-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -khtml-border-radius: 12px;
+  border-radius: 12px;
+  border: 1px solid black;
+  font-size: 15px;
+  font-family: Verdana;
+  cursor: pointer;
+  text-align: center;
+}
+/* line 92, ../../app/stylesheets/screen.scss */
 #user_votes #user_submit {
   margin: 30px;
 }
 
-/* line 82, ../../app/stylesheets/screen.scss */
+/* line 97, ../../app/stylesheets/screen.scss */
 .results {
   margin: 0 auto;
   width: 800px;
   text-align: center;
 }
-/* line 86, ../../app/stylesheets/screen.scss */
+/* line 101, ../../app/stylesheets/screen.scss */
 .results .candidate {
   display: inline-block;
   text-align: right;
   width: 390px;
 }
-/* line 91, ../../app/stylesheets/screen.scss */
+/* line 106, ../../app/stylesheets/screen.scss */
 .results .count {
   display: inline-block;
   text-align: left;
