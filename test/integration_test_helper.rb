@@ -2,7 +2,7 @@ require 'test_helper'
 require 'capybara/rails'
 
 class ActionDispatch::IntegrationTest
-  include Capybara
+  include Capybara::DSL
 
   def ui_sign_out
     visit '/users/sign_out'

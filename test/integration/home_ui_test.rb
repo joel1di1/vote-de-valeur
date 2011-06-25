@@ -22,7 +22,6 @@ class HomeUiTest < ActionDispatch::IntegrationTest
 
     user = Factory :user
     ui_sign_in user
-    puts page.body
     assert page.has_content?("signed in as #{user.email}")
   end
 end
