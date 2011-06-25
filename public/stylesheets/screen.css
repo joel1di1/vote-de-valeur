@@ -54,31 +54,49 @@ h2, h1, h4 {
 
 /* line 59, ../../app/stylesheets/screen.scss */
 #user_votes {
+  border: 5px solid #26B19C;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
   margin: 0 auto;
-  width: 800px;
+  width: 400px;
   text-align: center;
 }
-/* line 63, ../../app/stylesheets/screen.scss */
-#user_votes .row {
-  width: 800px;
+/* line 68, ../../app/stylesheets/screen.scss */
+#user_votes h2 {
+  margin: 0 0 10px 0;
+  background: #26B19C;
+  color: white;
+  -moz-border-radius: 10px 10px 0px 0px;
+  -webkit-border-radius: 10px 10px 0px 0px;
+  -o-border-radius: 10px 10px 0px 0px;
+  -ms-border-radius: 10px 10px 0px 0px;
+  -khtml-border-radius: 10px 10px 0px 0px;
+  border-radius: 10px 10px 0px 0px;
 }
-/* line 65, ../../app/stylesheets/screen.scss */
+/* line 75, ../../app/stylesheets/screen.scss */
+#user_votes .row {
+  width: 400px;
+}
+/* line 77, ../../app/stylesheets/screen.scss */
 #user_votes .row label {
   display: inline-block;
   text-align: right;
-  width: 390px;
+  width: 150px;
 }
-/* line 70, ../../app/stylesheets/screen.scss */
+/* line 82, ../../app/stylesheets/screen.scss */
 #user_votes .row .input {
   display: inline-block;
   text-align: left;
-  width: 390px;
 }
-/* line 74, ../../app/stylesheets/screen.scss */
+/* line 85, ../../app/stylesheets/screen.scss */
 #user_votes .row .input input {
-  width: 20px;
+  display: none;
 }
-/* line 77, ../../app/stylesheets/screen.scss */
+/* line 88, ../../app/stylesheets/screen.scss */
 #user_votes .row .input label {
   width: auto;
   margin: 5px 15px 5px 0;
@@ -96,24 +114,24 @@ h2, h1, h4 {
   cursor: pointer;
   text-align: center;
 }
-/* line 92, ../../app/stylesheets/screen.scss */
+/* line 103, ../../app/stylesheets/screen.scss */
 #user_votes #user_submit {
   margin: 30px;
 }
 
-/* line 97, ../../app/stylesheets/screen.scss */
+/* line 108, ../../app/stylesheets/screen.scss */
 .results {
   margin: 0 auto;
   width: 800px;
   text-align: center;
 }
-/* line 101, ../../app/stylesheets/screen.scss */
+/* line 112, ../../app/stylesheets/screen.scss */
 .results .candidate {
   display: inline-block;
   text-align: right;
   width: 390px;
 }
-/* line 106, ../../app/stylesheets/screen.scss */
+/* line 117, ../../app/stylesheets/screen.scss */
 .results .count {
   display: inline-block;
   text-align: left;

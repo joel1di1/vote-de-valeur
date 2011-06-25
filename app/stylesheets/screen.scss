@@ -57,22 +57,33 @@ h2, h1, h4{
 }
 
 #user_votes{
+    $vote_width: 400px;
+
+    border: 5px solid #26B19C;
+    @include border-radius(20px);
     margin: 0 auto;
-    width: $width;
+    width: $vote_width;
     text-align: center;
+
+    h2{
+        margin: 0 0 10px 0;
+        background: #26B19C;
+        color: white;
+        @include border-radius(10px 10px 0px 0px);
+    }
+
     .row{
-        width: $width;
+        width: $vote_width;
         label{
             display: inline-block;
             text-align: right;
-            width: $width/2 - 10px;
+            width: 150px;
         }
         .input {
             display: inline-block;
             text-align: left;
-            width: $width/2 - 10px;
             input{
-                width: 20px;
+                display: none;
             }
             label{
                 $label_radius: 12px;
