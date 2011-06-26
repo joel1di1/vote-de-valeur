@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605234637) do
+ActiveRecord::Schema.define(:version => 20110626172535) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(:version => 20110605234637) do
 
   create_table "candidates", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "classic_votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "candidate_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

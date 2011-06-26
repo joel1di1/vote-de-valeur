@@ -23,6 +23,10 @@ class VotesController < ApplicationController
       current_user.votes << vote
     end
 
+    current_user.classic_vote = ClassicVote.create :user => current_user unless current_user.classic_vote
+    current_user.classic_vote.candidate = Candidate.find(params[:user][:classic_vote])
+    current_user.classic_vote.save
+
     redirect_to votes_url, :notice => "modifications prise en compte"
   end
 

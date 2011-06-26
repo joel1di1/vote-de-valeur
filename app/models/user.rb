@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
 
   has_many :votes, :dependent => :destroy
+  has_one :classic_vote, :dependent => :destroy
 
   def vote_for_candidate id
     tmp = votes.select { |v| v.candidate_id == id.to_i }

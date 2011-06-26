@@ -11,4 +11,8 @@
           - values = (-2..2).to_a.collect{|i| [i, (i==0) ? "%d" % i : "%+d" % i]}
           = f.collection_radio "vote_for_candidate_#{candidate.id}", values, :first, :last
     .clear
+  #classic_vote
+    - values = @candidates.to_a.collect{|c| [c.id, c.name]}
+    - classic_vote = current_user.classic_vote.candidate.id if (current_user.classic_vote && current_user.classic_vote.candidate)
+    = f.collection_radio "classic_vote", values, :first, :last, :checked => classic_vote
   = f.submit :value => "Valider", :html => {:tabindex => 2}
