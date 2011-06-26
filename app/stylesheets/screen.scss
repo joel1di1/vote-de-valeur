@@ -71,6 +71,7 @@ h2, h1, h4{
   display: none;
 }
 
+$name_width: 175px;
 .application{
   $row_height: 45px;
 
@@ -82,7 +83,7 @@ h2, h1, h4{
   }
 
   #classic_vote{
-    $classic_vote_width: 333px;
+    $classic_vote_width: 275px;
     color: #696969;
     float: right;
     background-color: #F6F6F6;
@@ -109,7 +110,7 @@ h2, h1, h4{
         float: left;
         display: inline-block;
         text-align: right;
-        width: $classic_vote_width / 2;
+        width: $name_width;
         margin: 11px 0 0 0;
 
         &.selected{
@@ -127,7 +128,8 @@ h2, h1, h4{
   }
 
   #user_votes{
-      $vote_width: 400px;
+      $vote_width: 475px;
+
       color: #696969;
       float: left;
       background-color: #F6F6F6;
@@ -145,11 +147,12 @@ h2, h1, h4{
       .row{
           width: $vote_width;
           height: $row_height;
+          vertical-align: top;
           > label{
               display: inline-block;
               text-align: right;
-              width: 100px;
-              padding-right: 20px;
+              width: $name_width;
+              padding-right: 10px;
           }
           .input {
               display: inline-block;
