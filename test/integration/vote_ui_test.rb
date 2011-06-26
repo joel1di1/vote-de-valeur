@@ -1,6 +1,6 @@
 require 'integration_test_helper'
 
-class VoteUiTestTest < ActionDispatch::IntegrationTest
+class VoteUiTest < ActionDispatch::IntegrationTest
 
   setup do
     @user = Factory :user
@@ -10,27 +10,44 @@ class VoteUiTestTest < ActionDispatch::IntegrationTest
     ui_sign_in @user
   end
 
-  test "vote form should display candidates form" do
+  def go_to_vote
     click_on 'Votez'
+  end
+
+  def select_vote_for candidate, vote
+    choose "user_vote_for_candidate_#{candidate.id}_#{vote}"
+  end
+
+  def submit_vote
+    click_on 'Valider'
+  end
+
+
+  test "vote form should display candidates form" do
+    go_to_vote
 
     assert page.has_content? 'Votre vote'
     assert page.has_content? @candidate_1.name
     assert page.has_content? @candidate_2.name
 
+    # vote de valeur
     assert page.has_field? "user[vote_for_candidate_#{@candidate_1.id}]"
     assert page.has_field? "user[vote_for_candidate_#{@candidate_2.id}]"
+
+    # vote classique
+
   end
 
 
   test "user should create his vote" do
-    click_on 'Votez'
+    go_to_vote
 
     assert_difference ["Vote.find_all_by_candidate_id(#{@candidate_1.id}).count", "Vote.find_all_by_candidate_id(#{@candidate_2.id}).count"] do
       assert_difference ['Vote.count', "User.find(#{@user.id}).votes.count"], 2 do
         select_vote_for @candidate_1, 1
         select_vote_for @candidate_2, -2
 
-        click_on 'update votes'
+        submit_vote
       end
     end
 
@@ -41,12 +58,12 @@ class VoteUiTestTest < ActionDispatch::IntegrationTest
 
 
   test "user with existing votes should update his votes" do
-    click_on 'Votez'
+   go_to_vote
 
     select_vote_for @candidate_1, 1
     select_vote_for @candidate_2, -2
 
-    click_on 'update votes'
+    submit_vote
 
     assert_no_difference ["Vote.find_all_by_candidate_id(#{@candidate_1.id}).count",
                           "Vote.find_all_by_candidate_id(#{@candidate_2.id}).count",
@@ -54,7 +71,7 @@ class VoteUiTestTest < ActionDispatch::IntegrationTest
       select_vote_for @candidate_1, 0
       select_vote_for @candidate_2, 2
 
-      click_on 'update votes'
+      submit_vote
     end
 
     @user.reload
@@ -64,9 +81,6 @@ class VoteUiTestTest < ActionDispatch::IntegrationTest
   end
 
 
-  def select_vote_for candidate, vote
-    choose "user_vote_for_candidate_#{candidate.id}_#{vote}"
-  end
 
 
 end

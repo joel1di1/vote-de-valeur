@@ -2,64 +2,64 @@
 html, body {
   margin: 0 0;
   padding: 0 0;
-  font-family: "Lucida Grande";
+  font-family: "Lucida Grande", Verdana;
 }
 
-/* line 19, ../../app/stylesheets/screen.scss */
+/* line 20, ../../app/stylesheets/screen.scss */
 .clear {
   clear: both;
 }
 
-/* line 23, ../../app/stylesheets/screen.scss */
+/* line 24, ../../app/stylesheets/screen.scss */
 h2, h1, h4 {
   text-align: center;
 }
 
-/* line 30, ../../app/stylesheets/screen.scss */
+/* line 31, ../../app/stylesheets/screen.scss */
 #user_new .input label {
   text-align: right;
   display: inline-block;
   width: 90px;
 }
-/* line 36, ../../app/stylesheets/screen.scss */
+/* line 37, ../../app/stylesheets/screen.scss */
 #user_new #user_remember_me {
   margin-left: 90px;
 }
-/* line 39, ../../app/stylesheets/screen.scss */
+/* line 40, ../../app/stylesheets/screen.scss */
 #user_new #user_submit {
   display: block;
   margin-left: 90px;
 }
 
-/* line 46, ../../app/stylesheets/screen.scss */
+/* line 47, ../../app/stylesheets/screen.scss */
 #container {
   margin: 0 auto;
   width: 800px;
 }
 
-/* line 51, ../../app/stylesheets/screen.scss */
+/* line 52, ../../app/stylesheets/screen.scss */
 #messages {
   margin: 0 auto;
   width: 800px;
   text-align: center;
 }
 
-/* line 57, ../../app/stylesheets/screen.scss */
+/* line 58, ../../app/stylesheets/screen.scss */
 #header {
   margin: 0 auto;
   width: 800px;
 }
-/* line 60, ../../app/stylesheets/screen.scss */
+/* line 61, ../../app/stylesheets/screen.scss */
 #header #logo {
   float: left;
 }
-/* line 63, ../../app/stylesheets/screen.scss */
+/* line 64, ../../app/stylesheets/screen.scss */
 #header #user_sign_in {
   float: right;
   text-align: right;
 }
 
-/* line 70, ../../app/stylesheets/screen.scss */
+/* line 71, ../../app/stylesheets/screen.scss */
 .application #user_votes {
   color: #696969;
   background-color: #F6F6F6;
@@ -75,7 +75,7 @@ h2, h1, h4 {
   text-align: center;
   padding-bottom: 10px;
 }
-/* line 81, ../../app/stylesheets/screen.scss */
+/* line 82, ../../app/stylesheets/screen.scss */
 .application #user_votes h2 {
   margin: 0 0 10px 0;
   background: #26B19C;
@@ -88,31 +88,31 @@ h2, h1, h4 {
   -khtml-border-radius: 10px 10px 0px 0px;
   border-radius: 10px 10px 0px 0px;
 }
-/* line 89, ../../app/stylesheets/screen.scss */
+/* line 90, ../../app/stylesheets/screen.scss */
 .application #user_votes .row {
   width: 400px;
 }
-/* line 91, ../../app/stylesheets/screen.scss */
+/* line 92, ../../app/stylesheets/screen.scss */
 .application #user_votes .row > label {
   display: inline-block;
   text-align: right;
   width: 100px;
   padding-right: 20px;
 }
-/* line 97, ../../app/stylesheets/screen.scss */
+/* line 98, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input {
   display: inline-block;
   text-align: left;
 }
-/* line 100, ../../app/stylesheets/screen.scss */
+/* line 101, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span {
   display: inline-block;
 }
-/* line 104, ../../app/stylesheets/screen.scss */
+/* line 105, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span input {
   margin: 0 -22px 0 0;
 }
-/* line 107, ../../app/stylesheets/screen.scss */
+/* line 108, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label {
   display: inline-block;
   margin: 5px 15px 5px 0;
@@ -133,68 +133,68 @@ h2, h1, h4 {
   z-index: 2;
   background-color: #EEE;
 }
-/* line 123, ../../app/stylesheets/screen.scss */
+/* line 124, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label.selected {
   font-weight: bold;
   color: black;
   border-color: black;
 }
-/* line 129, ../../app/stylesheets/screen.scss */
+/* line 130, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-2"] {
   border-color: #f43737;
   color: #f43737;
 }
-/* line 132, ../../app/stylesheets/screen.scss */
+/* line 133, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-2"].selected {
   background-color: #F43737;
   color: black;
   border-color: black;
 }
-/* line 138, ../../app/stylesheets/screen.scss */
+/* line 139, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-1"] {
   border-color: #e49f37;
   color: #e49f37;
 }
-/* line 141, ../../app/stylesheets/screen.scss */
+/* line 142, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-1"].selected {
   background-color: #E49F37;
   color: black;
   border-color: black;
 }
-/* line 147, ../../app/stylesheets/screen.scss */
+/* line 148, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="0"] {
   border-color: #d2d2d7;
   color: #d2d2d7;
 }
-/* line 150, ../../app/stylesheets/screen.scss */
+/* line 151, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="0"].selected {
   background-color: #D2D2D7;
   color: black;
   border-color: black;
 }
-/* line 156, ../../app/stylesheets/screen.scss */
+/* line 157, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_1"] {
   border-color: #b5d43b;
   color: #b5d43b;
 }
-/* line 159, ../../app/stylesheets/screen.scss */
+/* line 160, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_1"].selected {
   background-color: #B5D43B;
   color: black;
   border-color: black;
 }
-/* line 165, ../../app/stylesheets/screen.scss */
+/* line 166, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_2"] {
   border-color: #26b709;
   color: #26b709;
 }
-/* line 168, ../../app/stylesheets/screen.scss */
+/* line 169, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_2"].selected {
   background-color: #26B709;
   color: black;
   border-color: black;
 }
-/* line 180, ../../app/stylesheets/screen.scss */
+/* line 181, ../../app/stylesheets/screen.scss */
 .application #user_submit {
   margin-top: 30px;
   -moz-border-radius: 20px;
@@ -211,19 +211,19 @@ h2, h1, h4 {
   cursor: pointer;
 }
 
-/* line 193, ../../app/stylesheets/screen.scss */
+/* line 194, ../../app/stylesheets/screen.scss */
 .results {
   margin: 0 auto;
   width: 800px;
   text-align: center;
 }
-/* line 197, ../../app/stylesheets/screen.scss */
+/* line 198, ../../app/stylesheets/screen.scss */
 .results .candidate {
   display: inline-block;
   text-align: right;
   width: 390px;
 }
-/* line 202, ../../app/stylesheets/screen.scss */
+/* line 203, ../../app/stylesheets/screen.scss */
 .results .count {
   display: inline-block;
   text-align: left;
