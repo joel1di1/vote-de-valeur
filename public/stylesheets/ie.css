@@ -1,0 +1,29 @@
+/* line 1, ../../app/stylesheets/ie.scss */
+.application .hidden {
+  display: inherit;
+}
+
+/* line 5, ../../app/stylesheets/ie.scss */
+.application #user_votes .row .input span input.hidden {
+  z-index: 1;
+  margin-right: -25px;
+}
+
+/* line 10, ../../app/stylesheets/ie.scss */
+.application #classic_vote span input.hidden {
+  z-index: 1;
+}
+
+/* line 14, ../../app/stylesheets/ie.scss */
+.application #classic_vote span label.selected {
+  padding: inherit;
+  margin: 11px 0 0 0;
+  background: inherit;
+}
+
+/* line 19, ../../app/stylesheets/ie.scss */
+.application #classic_vote span label.unselected {
+  padding: inherit;
+  margin: 11px 0 0 0;
+  background: inherit;
+}

@@ -111,22 +111,26 @@ td.count, td.classic_count {
   padding-bottom: 10px;
 }
 /* line 109, ../../app/stylesheets/screen.scss */
+.application #classic_vote label {
+  cursor: pointer;
+}
+/* line 112, ../../app/stylesheets/screen.scss */
 .application #classic_vote h2 {
   background: #8D8D8D;
 }
-/* line 112, ../../app/stylesheets/screen.scss */
+/* line 115, ../../app/stylesheets/screen.scss */
 .application #classic_vote span {
   display: block;
   clear: both;
   height: 45px;
   text-align: center;
 }
-/* line 118, ../../app/stylesheets/screen.scss */
+/* line 121, ../../app/stylesheets/screen.scss */
 .application #classic_vote span input {
   float: right;
   margin: 15px 65px 0 0;
 }
-/* line 122, ../../app/stylesheets/screen.scss */
+/* line 125, ../../app/stylesheets/screen.scss */
 .application #classic_vote span label {
   float: left;
   display: inline-block;
@@ -134,19 +138,19 @@ td.count, td.classic_count {
   width: 175px;
   margin: 11px 0 0 0;
 }
-/* line 129, ../../app/stylesheets/screen.scss */
+/* line 132, ../../app/stylesheets/screen.scss */
 .application #classic_vote span label.selected {
   padding: 12px 70px 12px 0;
   margin: 0 0;
   background: url(/images/radio-selected.png) no-repeat 200px 7px;
 }
-/* line 134, ../../app/stylesheets/screen.scss */
+/* line 137, ../../app/stylesheets/screen.scss */
 .application #classic_vote span label.unselected {
   padding: 12px 70px 12px 0;
   margin: 0 0;
   background: url(/images/radio-unselected.png) no-repeat 200px 7px;
 }
-/* line 143, ../../app/stylesheets/screen.scss */
+/* line 146, ../../app/stylesheets/screen.scss */
 .application #user_votes {
   color: #696969;
   float: left;
@@ -162,37 +166,37 @@ td.count, td.classic_count {
   text-align: center;
   padding-bottom: 10px;
 }
-/* line 156, ../../app/stylesheets/screen.scss */
+/* line 159, ../../app/stylesheets/screen.scss */
 .application #user_votes h2 {
   background: #26B19C;
 }
-/* line 160, ../../app/stylesheets/screen.scss */
+/* line 163, ../../app/stylesheets/screen.scss */
 .application #user_votes .row {
   width: 475px;
   height: 45px;
   vertical-align: top;
 }
-/* line 164, ../../app/stylesheets/screen.scss */
+/* line 167, ../../app/stylesheets/screen.scss */
 .application #user_votes .row > label {
   display: inline-block;
   text-align: right;
   width: 175px;
   padding-right: 10px;
 }
-/* line 170, ../../app/stylesheets/screen.scss */
+/* line 173, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input {
   display: inline-block;
   text-align: left;
 }
-/* line 173, ../../app/stylesheets/screen.scss */
+/* line 176, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span {
   display: inline-block;
 }
-/* line 177, ../../app/stylesheets/screen.scss */
+/* line 180, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span input {
   margin: 0 0;
 }
-/* line 181, ../../app/stylesheets/screen.scss */
+/* line 184, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label {
   display: inline-block;
   margin: 5px 5px 5px 0;
@@ -213,73 +217,73 @@ td.count, td.classic_count {
   z-index: 2;
   background-color: #EEE;
 }
-/* line 197, ../../app/stylesheets/screen.scss */
+/* line 200, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label.selected {
   font-weight: bold;
   color: black;
   border-color: black;
   margin-right: 15px;
 }
-/* line 203, ../../app/stylesheets/screen.scss */
+/* line 206, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label.unselected {
   margin-right: 15px;
 }
-/* line 207, ../../app/stylesheets/screen.scss */
+/* line 210, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-2"] {
   border-color: #f43737;
   color: #f43737;
 }
-/* line 210, ../../app/stylesheets/screen.scss */
+/* line 213, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-2"].selected {
   background-color: #F43737;
   color: black;
   border-color: black;
 }
-/* line 216, ../../app/stylesheets/screen.scss */
+/* line 219, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-1"] {
   border-color: #e49f37;
   color: #e49f37;
 }
-/* line 219, ../../app/stylesheets/screen.scss */
+/* line 222, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-1"].selected {
   background-color: #E49F37;
   color: black;
   border-color: black;
 }
-/* line 225, ../../app/stylesheets/screen.scss */
+/* line 228, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="0"] {
   border-color: #d2d2d7;
   color: #d2d2d7;
 }
-/* line 228, ../../app/stylesheets/screen.scss */
+/* line 231, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="0"].selected {
   background-color: #D2D2D7;
   color: black;
   border-color: black;
 }
-/* line 234, ../../app/stylesheets/screen.scss */
+/* line 237, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_1"] {
   border-color: #b5d43b;
   color: #b5d43b;
 }
-/* line 237, ../../app/stylesheets/screen.scss */
+/* line 240, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_1"].selected {
   background-color: #B5D43B;
   color: black;
   border-color: black;
 }
-/* line 243, ../../app/stylesheets/screen.scss */
+/* line 246, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_2"] {
   border-color: #26b709;
   color: #26b709;
 }
-/* line 246, ../../app/stylesheets/screen.scss */
+/* line 249, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_2"].selected {
   background-color: #26B709;
   color: black;
   border-color: black;
 }
-/* line 258, ../../app/stylesheets/screen.scss */
+/* line 261, ../../app/stylesheets/screen.scss */
 .application #user_submit {
   margin-top: 30px;
   -moz-border-radius: 20px;
@@ -297,19 +301,19 @@ td.count, td.classic_count {
   cursor: pointer;
 }
 
-/* line 272, ../../app/stylesheets/screen.scss */
+/* line 275, ../../app/stylesheets/screen.scss */
 .results {
   margin: 0 auto;
   width: 800px;
   text-align: center;
 }
-/* line 276, ../../app/stylesheets/screen.scss */
+/* line 279, ../../app/stylesheets/screen.scss */
 .results .candidate {
   display: inline-block;
   text-align: right;
   width: 390px;
 }
-/* line 281, ../../app/stylesheets/screen.scss */
+/* line 284, ../../app/stylesheets/screen.scss */
 .results .count {
   display: inline-block;
   text-align: left;
