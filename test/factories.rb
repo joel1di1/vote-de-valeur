@@ -28,4 +28,8 @@ Factory.define :vote do |v|
   v.candidate {Factory :candidate}
 end
 
+Factory.define :classic_vote do |v|
+  v.user {Factory :user}
+  v.candidate {Factory :candidate}
+end
 

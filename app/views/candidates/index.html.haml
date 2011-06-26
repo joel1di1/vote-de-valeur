@@ -1,10 +1,17 @@
 %h2
   Candidats
 
-.results
-  - @candidates.each do |candidate|
-    .candidate= candidate.name
-    .count= candidate.votes_total
+%table
+  %thead
+    %td= "Candidat"
+    %td= "Résultat Vote de valeur"
+    %td= "Résultat Vote classique"
+  %tbody
+    - @candidates.each do |candidate|
+      %tr
+        %td.candidate= candidate.name
+        %td.count= candidate.votes_total
+        %td.classic_count= candidate.classic_votes_total
 
 
 

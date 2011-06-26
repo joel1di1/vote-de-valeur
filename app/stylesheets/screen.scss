@@ -25,6 +25,19 @@ h2, h1, h4{
     text-align: center;
 }
 
+table{
+  border-collapse: collapse;
+  td{
+    border: 1px solid;
+  }
+  thead{
+    font-weight: bold;
+  }
+}
+
+td.count, td.classic_count{
+  text-align: right;
+}
 
 #user_new{
     .input{
