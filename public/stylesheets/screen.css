@@ -59,26 +59,14 @@ h2, h1, h4 {
   text-align: right;
 }
 
-/* line 71, ../../app/stylesheets/screen.scss */
-.application #user_votes {
-  color: #696969;
-  background-color: #F6F6F6;
-  border: 5px solid #26B19C;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -o-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -khtml-border-radius: 20px;
-  border-radius: 20px;
-  margin: 0 auto;
-  width: 400px;
-  text-align: center;
-  padding-bottom: 10px;
+/* line 70, ../../app/stylesheets/screen.scss */
+.hidden {
+  display: none;
 }
-/* line 82, ../../app/stylesheets/screen.scss */
-.application #user_votes h2 {
+
+/* line 77, ../../app/stylesheets/screen.scss */
+.application h2 {
   margin: 0 0 10px 0;
-  background: #26B19C;
   color: white;
   font-weight: normal;
   -moz-border-radius: 10px 10px 0px 0px;
@@ -88,34 +76,107 @@ h2, h1, h4 {
   -khtml-border-radius: 10px 10px 0px 0px;
   border-radius: 10px 10px 0px 0px;
 }
-/* line 90, ../../app/stylesheets/screen.scss */
+/* line 84, ../../app/stylesheets/screen.scss */
+.application #classic_vote {
+  color: #696969;
+  float: right;
+  background-color: #F6F6F6;
+  border: 5px solid #8D8D8D;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  width: 333px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+/* line 95, ../../app/stylesheets/screen.scss */
+.application #classic_vote h2 {
+  background: #8D8D8D;
+}
+/* line 98, ../../app/stylesheets/screen.scss */
+.application #classic_vote span {
+  display: block;
+  clear: both;
+  height: 45px;
+  text-align: center;
+}
+/* line 104, ../../app/stylesheets/screen.scss */
+.application #classic_vote span input {
+  float: right;
+  margin: 15px 140px 0 0;
+}
+/* line 108, ../../app/stylesheets/screen.scss */
+.application #classic_vote span label {
+  float: left;
+  display: inline-block;
+  text-align: right;
+  width: 166.5px;
+  margin: 11px 0 0 0;
+}
+/* line 115, ../../app/stylesheets/screen.scss */
+.application #classic_vote span label.selected {
+  padding: 12px 70px 12px 0;
+  margin: 0 0;
+  background: url(/images/radio-selected.png) no-repeat 200px 7px;
+}
+/* line 120, ../../app/stylesheets/screen.scss */
+.application #classic_vote span label.unselected {
+  padding: 12px 70px 12px 0;
+  margin: 0 0;
+  background: url(/images/radio-unselected.png) no-repeat 200px 7px;
+}
+/* line 129, ../../app/stylesheets/screen.scss */
+.application #user_votes {
+  color: #696969;
+  float: left;
+  background-color: #F6F6F6;
+  border: 5px solid #26B19C;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  width: 400px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+/* line 141, ../../app/stylesheets/screen.scss */
+.application #user_votes h2 {
+  background: #26B19C;
+}
+/* line 145, ../../app/stylesheets/screen.scss */
 .application #user_votes .row {
   width: 400px;
+  height: 45px;
 }
-/* line 92, ../../app/stylesheets/screen.scss */
+/* line 148, ../../app/stylesheets/screen.scss */
 .application #user_votes .row > label {
   display: inline-block;
   text-align: right;
   width: 100px;
   padding-right: 20px;
 }
-/* line 98, ../../app/stylesheets/screen.scss */
+/* line 154, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input {
   display: inline-block;
   text-align: left;
 }
-/* line 101, ../../app/stylesheets/screen.scss */
+/* line 157, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span {
   display: inline-block;
 }
-/* line 105, ../../app/stylesheets/screen.scss */
+/* line 161, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span input {
-  margin: 0 -22px 0 0;
+  margin: 0 0;
 }
-/* line 108, ../../app/stylesheets/screen.scss */
+/* line 165, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label {
   display: inline-block;
-  margin: 5px 15px 5px 0;
+  margin: 5px 5px 5px 0;
   width: 30px;
   height: 25px;
   -moz-border-radius: 17px;
@@ -133,68 +194,73 @@ h2, h1, h4 {
   z-index: 2;
   background-color: #EEE;
 }
-/* line 124, ../../app/stylesheets/screen.scss */
+/* line 181, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label.selected {
   font-weight: bold;
   color: black;
   border-color: black;
+  margin-right: 15px;
 }
-/* line 130, ../../app/stylesheets/screen.scss */
+/* line 187, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label.unselected {
+  margin-right: 15px;
+}
+/* line 191, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-2"] {
   border-color: #f43737;
   color: #f43737;
 }
-/* line 133, ../../app/stylesheets/screen.scss */
+/* line 194, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-2"].selected {
   background-color: #F43737;
   color: black;
   border-color: black;
 }
-/* line 139, ../../app/stylesheets/screen.scss */
+/* line 200, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-1"] {
   border-color: #e49f37;
   color: #e49f37;
 }
-/* line 142, ../../app/stylesheets/screen.scss */
+/* line 203, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-1"].selected {
   background-color: #E49F37;
   color: black;
   border-color: black;
 }
-/* line 148, ../../app/stylesheets/screen.scss */
+/* line 209, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="0"] {
   border-color: #d2d2d7;
   color: #d2d2d7;
 }
-/* line 151, ../../app/stylesheets/screen.scss */
+/* line 212, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="0"].selected {
   background-color: #D2D2D7;
   color: black;
   border-color: black;
 }
-/* line 157, ../../app/stylesheets/screen.scss */
+/* line 218, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_1"] {
   border-color: #b5d43b;
   color: #b5d43b;
 }
-/* line 160, ../../app/stylesheets/screen.scss */
+/* line 221, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_1"].selected {
   background-color: #B5D43B;
   color: black;
   border-color: black;
 }
-/* line 166, ../../app/stylesheets/screen.scss */
+/* line 227, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_2"] {
   border-color: #26b709;
   color: #26b709;
 }
-/* line 169, ../../app/stylesheets/screen.scss */
+/* line 230, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_2"].selected {
   background-color: #26B709;
   color: black;
   border-color: black;
 }
-/* line 181, ../../app/stylesheets/screen.scss */
+/* line 242, ../../app/stylesheets/screen.scss */
 .application #user_submit {
   margin-top: 30px;
   -moz-border-radius: 20px;
@@ -204,6 +270,7 @@ h2, h1, h4 {
   -khtml-border-radius: 20px;
   border-radius: 20px;
   border: 5px solid #26B19C;
+  clear: both;
   float: right;
   width: 110px;
   height: 50px;
@@ -211,19 +278,19 @@ h2, h1, h4 {
   cursor: pointer;
 }
 
-/* line 194, ../../app/stylesheets/screen.scss */
+/* line 256, ../../app/stylesheets/screen.scss */
 .results {
   margin: 0 auto;
   width: 800px;
   text-align: center;
 }
-/* line 198, ../../app/stylesheets/screen.scss */
+/* line 260, ../../app/stylesheets/screen.scss */
 .results .candidate {
   display: inline-block;
   text-align: right;
   width: 390px;
 }
-/* line 203, ../../app/stylesheets/screen.scss */
+/* line 265, ../../app/stylesheets/screen.scss */
 .results .count {
   display: inline-block;
   text-align: left;

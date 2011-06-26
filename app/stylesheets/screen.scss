@@ -67,28 +67,84 @@ h2, h1, h4{
     }
 }
 
+.hidden{
+  display: none;
+}
+
 .application{
+  $row_height: 45px;
+
+  h2{
+    margin: 0 0 10px 0;
+    color: white;
+    font-weight: normal;
+    @include border-radius(10px 10px 0px 0px);
+  }
+
+  #classic_vote{
+    $classic_vote_width: 333px;
+    color: #696969;
+    float: right;
+    background-color: #F6F6F6;
+    border: 5px solid #8D8D8D;
+    @include border-radius(20px);
+    width: $classic_vote_width;
+    text-align: center;
+    padding-bottom: 10px;
+
+    h2{
+      background: #8D8D8D;
+    }
+    span{
+      display: block;
+      clear: both;
+      height: $row_height;
+      text-align: center;
+
+      input{
+        float: right;
+        margin: 15px 140px 0 0;
+      }
+      label{
+        float: left;
+        display: inline-block;
+        text-align: right;
+        width: $classic_vote_width / 2;
+        margin: 11px 0 0 0;
+
+        &.selected{
+          padding: 12px 70px 12px 0;
+          margin: 0 0;
+          background: url(/images/radio-selected.png) no-repeat 200px 7px;
+        }
+        &.unselected{
+          padding: 12px 70px 12px 0;
+          margin: 0 0;
+          background: url(/images/radio-unselected.png) no-repeat 200px 7px;
+        }
+      }
+    }
+  }
+
   #user_votes{
-      color: #696969;
       $vote_width: 400px;
+      color: #696969;
+      float: left;
       background-color: #F6F6F6;
       border: 5px solid #26B19C;
       @include border-radius(20px);
-      margin: 0 auto;
       width: $vote_width;
       text-align: center;
       padding-bottom: 10px;
 
+
       h2{
-          margin: 0 0 10px 0;
-          background: #26B19C;
-          color: white;
-          font-weight: normal;
-          @include border-radius(10px 10px 0px 0px);
+        background: #26B19C;
       }
 
       .row{
           width: $vote_width;
+          height: $row_height;
           > label{
               display: inline-block;
               text-align: right;
@@ -103,12 +159,13 @@ h2, h1, h4{
                 display: inline-block;
 
                 input{
-                   margin: 0 -22px 0 0;
+                   margin: 0 0;
+
                 }
                 label{
                     display: inline-block;
                     $label_radius: 17px;
-                    margin: 5px 15px 5px 0;
+                    margin: 5px 5px 5px 0;
                     width: (2 * $label_radius) - 4px;
                     height: (2 * $label_radius) - 4px - 5px;
                     @include border-radius($label_radius);
@@ -125,6 +182,10 @@ h2, h1, h4{
                       font-weight: bold;
                       color: black;
                       border-color: black;
+                      margin-right: 15px;
+                    }
+                    &.unselected{
+                      margin-right: 15px;
                     }
                 }
                 label[for$="-2"] {
@@ -182,6 +243,7 @@ h2, h1, h4{
       margin-top: 30px;
       @include border-radius(20px);
       border: 5px solid #26B19C;
+      clear: both;
       float: right;
       width: 110px;
       height: 50px;
