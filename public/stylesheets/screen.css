@@ -1,59 +1,68 @@
-/* line 8, ../../app/stylesheets/screen.scss */
+/* line 14, ../../app/stylesheets/screen.scss */
+html, body {
+  margin: 0 0;
+  padding: 0 0;
+  font-family: "Lucida Grande";
+}
+
+/* line 19, ../../app/stylesheets/screen.scss */
 .clear {
   clear: both;
 }
 
-/* line 12, ../../app/stylesheets/screen.scss */
+/* line 23, ../../app/stylesheets/screen.scss */
 h2, h1, h4 {
   text-align: center;
 }
 
-/* line 19, ../../app/stylesheets/screen.scss */
+/* line 30, ../../app/stylesheets/screen.scss */
 #user_new .input label {
   text-align: right;
   display: inline-block;
   width: 90px;
 }
-/* line 25, ../../app/stylesheets/screen.scss */
+/* line 36, ../../app/stylesheets/screen.scss */
 #user_new #user_remember_me {
   margin-left: 90px;
 }
-/* line 28, ../../app/stylesheets/screen.scss */
+/* line 39, ../../app/stylesheets/screen.scss */
 #user_new #user_submit {
   display: block;
   margin-left: 90px;
 }
 
-/* line 35, ../../app/stylesheets/screen.scss */
+/* line 46, ../../app/stylesheets/screen.scss */
 #container {
   margin: 0 auto;
   width: 800px;
 }
 
-/* line 40, ../../app/stylesheets/screen.scss */
+/* line 51, ../../app/stylesheets/screen.scss */
 #messages {
   margin: 0 auto;
   width: 800px;
   text-align: center;
 }
 
-/* line 47, ../../app/stylesheets/screen.scss */
+/* line 57, ../../app/stylesheets/screen.scss */
 #header {
   margin: 0 auto;
   width: 800px;
 }
-/* line 50, ../../app/stylesheets/screen.scss */
+/* line 60, ../../app/stylesheets/screen.scss */
 #header #logo {
   float: left;
 }
-/* line 53, ../../app/stylesheets/screen.scss */
+/* line 63, ../../app/stylesheets/screen.scss */
 #header #user_sign_in {
   float: right;
   text-align: right;
 }
 
-/* line 59, ../../app/stylesheets/screen.scss */
-#user_votes {
+/* line 70, ../../app/stylesheets/screen.scss */
+.application #user_votes {
+  color: #696969;
+  background-color: #F6F6F6;
   border: 5px solid #26B19C;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -64,12 +73,14 @@ h2, h1, h4 {
   margin: 0 auto;
   width: 400px;
   text-align: center;
+  padding-bottom: 10px;
 }
-/* line 68, ../../app/stylesheets/screen.scss */
-#user_votes h2 {
+/* line 81, ../../app/stylesheets/screen.scss */
+.application #user_votes h2 {
   margin: 0 0 10px 0;
   background: #26B19C;
   color: white;
+  font-weight: normal;
   -moz-border-radius: 10px 10px 0px 0px;
   -webkit-border-radius: 10px 10px 0px 0px;
   -o-border-radius: 10px 10px 0px 0px;
@@ -77,61 +88,142 @@ h2, h1, h4 {
   -khtml-border-radius: 10px 10px 0px 0px;
   border-radius: 10px 10px 0px 0px;
 }
-/* line 75, ../../app/stylesheets/screen.scss */
-#user_votes .row {
+/* line 89, ../../app/stylesheets/screen.scss */
+.application #user_votes .row {
   width: 400px;
 }
-/* line 77, ../../app/stylesheets/screen.scss */
-#user_votes .row label {
+/* line 91, ../../app/stylesheets/screen.scss */
+.application #user_votes .row > label {
   display: inline-block;
   text-align: right;
-  width: 150px;
+  width: 100px;
+  padding-right: 20px;
 }
-/* line 82, ../../app/stylesheets/screen.scss */
-#user_votes .row .input {
+/* line 97, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input {
   display: inline-block;
   text-align: left;
 }
-/* line 85, ../../app/stylesheets/screen.scss */
-#user_votes .row .input input {
-  display: none;
+/* line 100, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span {
+  display: inline-block;
 }
-/* line 88, ../../app/stylesheets/screen.scss */
-#user_votes .row .input label {
-  width: auto;
+/* line 104, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span input {
+  margin: 0 -22px 0 0;
+}
+/* line 107, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label {
+  display: inline-block;
   margin: 5px 15px 5px 0;
-  width: 22px;
-  height: 22px;
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -o-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -khtml-border-radius: 12px;
-  border-radius: 12px;
+  width: 30px;
+  height: 25px;
+  -moz-border-radius: 17px;
+  -webkit-border-radius: 17px;
+  -o-border-radius: 17px;
+  -ms-border-radius: 17px;
+  -khtml-border-radius: 17px;
+  border-radius: 17px;
   border: 1px solid black;
   font-size: 15px;
   font-family: Verdana;
   cursor: pointer;
   text-align: center;
+  padding: 5px 0 0 0;
+  z-index: 2;
+  background-color: #EEE;
 }
-/* line 103, ../../app/stylesheets/screen.scss */
-#user_votes #user_submit {
-  margin: 30px;
+/* line 123, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label.selected {
+  font-weight: bold;
+  color: black;
+  border-color: black;
+}
+/* line 129, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label[for$="-2"] {
+  border-color: #f43737;
+  color: #f43737;
+}
+/* line 132, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label[for$="-2"].selected {
+  background-color: #F43737;
+  color: black;
+  border-color: black;
+}
+/* line 138, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label[for$="-1"] {
+  border-color: #e49f37;
+  color: #e49f37;
+}
+/* line 141, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label[for$="-1"].selected {
+  background-color: #E49F37;
+  color: black;
+  border-color: black;
+}
+/* line 147, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label[for$="0"] {
+  border-color: #d2d2d7;
+  color: #d2d2d7;
+}
+/* line 150, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label[for$="0"].selected {
+  background-color: #D2D2D7;
+  color: black;
+  border-color: black;
+}
+/* line 156, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label[for$="_1"] {
+  border-color: #b5d43b;
+  color: #b5d43b;
+}
+/* line 159, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label[for$="_1"].selected {
+  background-color: #B5D43B;
+  color: black;
+  border-color: black;
+}
+/* line 165, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label[for$="_2"] {
+  border-color: #26b709;
+  color: #26b709;
+}
+/* line 168, ../../app/stylesheets/screen.scss */
+.application #user_votes .row .input span label[for$="_2"].selected {
+  background-color: #26B709;
+  color: black;
+  border-color: black;
+}
+/* line 180, ../../app/stylesheets/screen.scss */
+.application #user_submit {
+  margin-top: 30px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  border: 5px solid #26B19C;
+  float: right;
+  width: 110px;
+  height: 50px;
+  background-color: #DDDDDD;
+  cursor: pointer;
 }
 
-/* line 108, ../../app/stylesheets/screen.scss */
+/* line 193, ../../app/stylesheets/screen.scss */
 .results {
   margin: 0 auto;
   width: 800px;
   text-align: center;
 }
-/* line 112, ../../app/stylesheets/screen.scss */
+/* line 197, ../../app/stylesheets/screen.scss */
 .results .candidate {
   display: inline-block;
   text-align: right;
   width: 390px;
 }
-/* line 117, ../../app/stylesheets/screen.scss */
+/* line 202, ../../app/stylesheets/screen.scss */
 .results .count {
   display: inline-block;
   text-align: left;

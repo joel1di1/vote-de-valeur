@@ -5,6 +5,17 @@ $user_sign_up_margin: 90px;
 
 $width: 800px;
 
+$color_minus_2: #F43737;
+$color_minus_1: #E49F37;
+$color_0: #D2D2D7;
+$color_1: #B5D43B;
+$color_2: #26B709;
+
+html, body{
+  margin: 0 0;
+  padding: 0 0;
+  font-family: "Lucida Grande";
+}
 .clear{
     clear: both;
 }
@@ -43,7 +54,6 @@ h2, h1, h4{
     text-align: center;
 }
 
-
 #header{
     margin: 0 auto;
     width: $width;
@@ -56,54 +66,129 @@ h2, h1, h4{
     }
 }
 
-#user_votes{
-    $vote_width: 400px;
+.application{
+  #user_votes{
+      color: #696969;
+      $vote_width: 400px;
+      background-color: #F6F6F6;
+      border: 5px solid #26B19C;
+      @include border-radius(20px);
+      margin: 0 auto;
+      width: $vote_width;
+      text-align: center;
+      padding-bottom: 10px;
 
-    border: 5px solid #26B19C;
-    @include border-radius(20px);
-    margin: 0 auto;
-    width: $vote_width;
-    text-align: center;
+      h2{
+          margin: 0 0 10px 0;
+          background: #26B19C;
+          color: white;
+          font-weight: normal;
+          @include border-radius(10px 10px 0px 0px);
+      }
 
-    h2{
-        margin: 0 0 10px 0;
-        background: #26B19C;
-        color: white;
-        @include border-radius(10px 10px 0px 0px);
-    }
+      .row{
+          width: $vote_width;
+          > label{
+              display: inline-block;
+              text-align: right;
+              width: 100px;
+              padding-right: 20px;
+          }
+          .input {
+              display: inline-block;
+              text-align: left;
+              span {
 
-    .row{
-        width: $vote_width;
-        label{
-            display: inline-block;
-            text-align: right;
-            width: 150px;
-        }
-        .input {
-            display: inline-block;
-            text-align: left;
-            input{
-                display: none;
-            }
-            label{
-                $label_radius: 12px;
-                width: auto;
-                margin: 5px 15px 5px 0;
-                width: 2 * $label_radius - 2px;
-                height: 2 * $label_radius - 2px;
-                @include border-radius($label_radius);
-                border: 1px solid black;
-                font-size: 15px;
-                font-family: Verdana;
-                cursor: pointer;
-                text-align: center;
-            }
-        }
-    }
-    #user_submit{
-        margin: 30px;
-    }
+                display: inline-block;
+
+                input{
+                   margin: 0 -22px 0 0;
+                }
+                label{
+                    display: inline-block;
+                    $label_radius: 17px;
+                    margin: 5px 15px 5px 0;
+                    width: (2 * $label_radius) - 4px;
+                    height: (2 * $label_radius) - 4px - 5px;
+                    @include border-radius($label_radius);
+                    border: 1px solid black;
+                    font-size: 15px;
+                    font-family: Verdana;
+                    cursor: pointer;
+                    text-align: center;
+                    padding: 5px 0 0 0;
+                    z-index: 2;
+                    background-color: #EEE;
+
+                    &.selected{
+                      font-weight: bold;
+                      color: black;
+                      border-color: black;
+                    }
+                }
+                label[for$="-2"] {
+                    border-color: $color_minus_2;
+                    color: $color_minus_2;
+                    &.selected{
+                      background-color: #F43737;
+                      color: black;
+                      border-color: black;
+                    }
+                }
+                label[for$="-1"] {
+                    border-color: $color_minus_1;
+                    color: $color_minus_1;
+                    &.selected{
+                      background-color: #E49F37;
+                      color: black;
+                      border-color: black;
+                    }
+                }
+                label[for$="0"] {
+                    border-color: $color_0;
+                    color: $color_0;
+                    &.selected{
+                      background-color: #D2D2D7;
+                      color: black;
+                      border-color: black;
+                    }
+                }
+                label[for$="_1"] {
+                    border-color: $color_1;
+                    color: $color_1;
+                    &.selected{
+                      background-color: #B5D43B;
+                      color: black;
+                      border-color: black;
+                    }
+                }
+                label[for$="_2"] {
+                    border-color: $color_2;
+                    color: $color_2;
+                    &.selected{
+                      background-color: #26B709;
+                      color: black;
+                      border-color: black;
+                    }
+                }
+              }
+          }
+      }
+  }
+
+
+  #user_submit{
+      margin-top: 30px;
+      @include border-radius(20px);
+      border: 5px solid #26B19C;
+      float: right;
+      width: 110px;
+      height: 50px;
+      background-color: #DDDDDD;
+      cursor: pointer;
+  }
 }
+
 
 .results{
     margin: 0 auto;

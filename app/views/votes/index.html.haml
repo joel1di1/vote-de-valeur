@@ -1,13 +1,14 @@
 %h1= 'Votre vote'
 
 
-= simple_form_for @user, :url => '/votes', :html => {:method => :post} do |f|
+= simple_form_for @user, :url => '/votes', :html => {:method => :post, :class => "application"} do |f|
   #user_votes
     %h2= 'Vote de valeur'
     - @candidates.each do |candidate|
       .row
         = f.label "vote_for_candidate_#{candidate.id}", candidate.name
         .input
-          = f.collection_radio "vote_for_candidate_#{candidate.id}", (-2..2).to_a.collect{|i| [i, (i==0) ? "%d" % i : "%+d" % i]}, :first, :last, :label => false
+          - values = (-2..2).to_a.collect{|i| [i, (i==0) ? "%d" % i : "%+d" % i]}
+          = f.collection_radio "vote_for_candidate_#{candidate.id}", values, :first, :last
     .clear
-  = f.submit :value => "update votes", :html => {:tabindex => 2}
+  = f.submit :value => "Valider", :html => {:tabindex => 2}
