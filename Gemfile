@@ -24,6 +24,8 @@ gem 'ssl_requirement'
 
 gem 'delayed_job'
 
+gem 'heroku'
+
 group :test do
   gem 'mocha', :require => false
   gem 'capybara'
