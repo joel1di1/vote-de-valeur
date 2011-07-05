@@ -22,7 +22,10 @@ gem 'hoptoad_notifier'
 
 gem 'ssl_requirement'
 
+gem 'delayed_job'
+
 group :test do
+  gem 'mocha', :require => false
   gem 'capybara'
   gem 'test-unit'
   gem 'factory_girl_rails'
