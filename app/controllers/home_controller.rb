@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def add_user
-    if Rails.env.production?
+    if Rails.env.production? && (ENV['workers']=='auto')
       h = Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PWD'])
       h.set_workers("evening-moon-670", h.workers("evening-moon-670")+1)
     end

@@ -38,13 +38,14 @@ class User < ActiveRecord::Base
     user = User.new :email => "fake_#{DateTime.now.to_i}@test.test", :password => "secret"
     user.skip_confirmation!
 
-    sleep(3)
+    sleep(ENV['sleep']) unless !ENV['sleep']
     if user.save
+      puts 'user saved'
     else
-
+      puts 'error : user not saved'
     end
 
-    if Rails.env.production?
+    if Rails.env.production? && (ENV['workers']=='auto')
       Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PWD']).set_workers("evening-moon-670", Delayed::Backend::ActiveRecord::Job.count-1)
     end
   end
