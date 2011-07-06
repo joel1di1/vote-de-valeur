@@ -36,8 +36,11 @@ class User < ActiveRecord::Base
   def self.add_fake
     puts "toto"
     user = User.new :email => "fake_#{DateTime.now.to_i}@test.test", :password => "secret"
+    user.skip_confirmation!
+
     if user.save
     else
+
     end
   end
 
