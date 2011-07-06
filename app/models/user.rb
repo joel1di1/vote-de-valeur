@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     user = User.new :email => "fake_#{DateTime.now.to_i}@test.test", :password => "secret"
     user.skip_confirmation!
 
-    sleep(ENV['sleep']) unless !ENV['sleep']
+    sleep(ENV['sleep'].to_i) unless !ENV['sleep']
     if user.save
       puts 'user saved'
     else
