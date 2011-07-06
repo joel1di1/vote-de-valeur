@@ -33,9 +33,10 @@ class User < ActiveRecord::Base
   end
 
 
+
   def self.add_fake
     puts "toto"
-    user = User.new :email => "fake_#{DateTime.now.to_i}@test.test", :password => "secret"
+    user = User.new :email => "fake_#{rand(36**8).to_s(36)}@test.test", :password => "secret"
     user.skip_confirmation!
 
     sleep(ENV['sleep'].to_i) unless !ENV['sleep']
