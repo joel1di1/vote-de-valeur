@@ -42,7 +42,8 @@ class User < ActiveRecord::Base
     else
 
     end
-    Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PWD']).set_workers("evening-moon-670", 0)
+
+    Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PWD']).set_workers("evening-moon-670", Delayed::Backend::ActiveRecord::Job.count-1)
   end
 
 end
