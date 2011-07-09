@@ -74,6 +74,9 @@ GEM
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
       term-ansicolor (~> 1.0.5)
+    heroku_san (1.2.2)
+      heroku (>= 2)
+      rails (>= 2)
     hoptoad_notifier (2.4.11)
       activesupport
       builder
@@ -165,6 +168,7 @@ DEPENDENCIES
   factory_girl_rails
   haml
   heroku
+  heroku_san
   hoptoad_notifier
   jquery-rails
   mocha
