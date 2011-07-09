@@ -1,3 +1,4 @@
+# coding: utf-8
 require "integration_test_helper"
 
 class Admin::CandidatesUiTest < ActionDispatch::IntegrationTest
@@ -12,12 +13,12 @@ class Admin::CandidatesUiTest < ActionDispatch::IntegrationTest
     candidate = Factory.build :candidate
 
     click_on 'Candidates'
-    click_on 'Add new'
-    assert page.has_content? 'New Candidate'
+    click_link 'Ajouter nouveau'
+    assert page.has_content? 'Nouveau Candidate'
 
     assert_difference 'Candidate.count' do
       fill_in 'candidate_name', :with => candidate.name
-      click_on 'Create Candidate'
+      click_on 'Créer Candidate'
     end
 
   end
@@ -36,13 +37,12 @@ class Admin::CandidatesUiTest < ActionDispatch::IntegrationTest
     assert page.has_content? candidate.name
 
     visit "/admin/candidates/edit/#{candidate.id}"
-    assert page.has_content? "Edit Candidate"
 
     new_name = "new name"
     assert_difference "Candidate.find_all_by_name('#{new_name}').count" do
       assert_difference "Candidate.find_all_by_name('#{candidate.name}').count", -1 do
         fill_in 'candidate_name', :with => new_name
-        click_on 'Save Candidate'
+        click_button 'Sauvegarder Candidate'
       end
     end
   end

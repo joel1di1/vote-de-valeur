@@ -11,15 +11,13 @@
 
     #header
       #logo
-        = link_to "home", root_path
+        = link_to "Accueil", root_path
       #user_sign_in
         - if user_signed_in?
           = "signed in as #{current_user.email}"
           = link_to "sign out", destroy_user_session_path
         - else
-          = link_to "sign in", new_user_session_path
-          or
-          = link_to "sign up", new_user_registration_path
+          = link_to "Déjà enregistré ?", new_user_session_path
     .clear
     #messages
       %p.notice= notice

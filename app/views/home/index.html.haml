@@ -1,8 +1,14 @@
 %h1
   Vote De Valeur
 
-%h2
-  = link_to "Votez!", votes_path
+- if !user_signed_in?
+  %h2
+    Inscription
+  = render :partial => "devise/registrations/sign_up_form", :locals => { :user => @user }
 
-%h4
-  = link_to "Resultats", candidates_path
+- else
+  %h2
+    = link_to "Votez!", votes_path
+
+  %h4
+    = link_to "Resultats", candidates_path

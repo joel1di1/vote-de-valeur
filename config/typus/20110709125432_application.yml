@@ -1,0 +1,14 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+ClassicVote:
+  fields:
+    default: user_id, candidate_id, user, candidate
+    form: user_id, candidate_id, user, candidate
+  order_by: 
+  relationships: candidate, user
+  filters: created_at
+  search: 
+  application: vote-de-valeur
+

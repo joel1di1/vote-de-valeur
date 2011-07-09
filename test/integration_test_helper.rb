@@ -26,7 +26,7 @@ class ActionDispatch::IntegrationTest
     visit '/admin'
     fill_in 'typus_user[email]', :with => @admin.email
     fill_in 'typus_user[password]', :with => @admin.password
-    click_on 'Sign in'
+    click_on 'Entrer'
   end
 
 end

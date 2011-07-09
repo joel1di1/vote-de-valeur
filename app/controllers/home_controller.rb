@@ -1,6 +1,14 @@
 class HomeController < ApplicationController
 
   def index
+    if user_signed_in?
+
+    else
+      @user =  User.new
+    end
+  end
+
+  def to_confirmed
 
   end
 

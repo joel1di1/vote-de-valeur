@@ -2,33 +2,27 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.9'
 
-gem 'sqlite3'
-
-gem 'devise'
-
-gem 'haml'
-
-gem 'sass'
-
 gem 'compass', ">= 0.11.1"
-
-gem 'simple_form'
-
+gem 'delayed_job'
+gem 'devise'
+gem 'haml'
+gem 'heroku'
+gem 'hoptoad_notifier'
 gem "jquery-rails"
-
+gem 'sass'
+gem 'simple_form'
+gem 'sqlite3'
+gem 'ssl_requirement'
 gem 'typus'
 
-gem 'hoptoad_notifier'
-
-gem 'ssl_requirement'
-
-gem 'delayed_job'
-
-gem 'heroku'
 
 group :test do
-  gem 'mocha', :require => false
+  gem 'autotest-fsevent'
+  gem 'autotest-growl'
+  gem 'autotest-rails'
   gem 'capybara'
-  gem 'test-unit'
   gem 'factory_girl_rails'
+  gem 'mocha', :require => false
+  gem 'test-unit'
+  gem 'ZenTest'
 end

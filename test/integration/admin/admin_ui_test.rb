@@ -1,3 +1,4 @@
+# coding: utf-8
 require "integration_test_helper"
 
 class Admin::AdminUiTest < ActionDispatch::IntegrationTest
@@ -8,6 +9,6 @@ class Admin::AdminUiTest < ActionDispatch::IntegrationTest
 
   test "admin should access typus" do
     ui_sign_as_admin @admin
-    assert page.has_content? 'Dashboard'
+    assert page.has_content? 'Tableau de bord'
   end
 end
