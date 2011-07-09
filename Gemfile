@@ -26,7 +26,3 @@ group :test do
   gem 'test-unit'
   gem 'ZenTest'
 end
-
-group :development do
-  gem 'heroku_san'
-end
