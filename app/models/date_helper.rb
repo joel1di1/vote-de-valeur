@@ -46,4 +46,14 @@ class DateHelper
      current_configuration.update_attributes :start_date => start_date, :end_date => end_date
   end
 
+  def self.format datetime
+    I18n.l datetime, :locale => :fr
+  end
+  def self.format_start
+    self.format self.election_starts_at
+  end
+  def self.format_end
+    self.format self.election_ends_at
+  end
+
 end

@@ -22,7 +22,8 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     end
 
     mail = ActionMailer::Base.deliveries.last
-    assert_match /Le bureau de vote virtuel ouvrira le/, mail.encoded
+    assert ! mail.body.to_s.match(/#{User.find_by_email(user.email).access_token}/)
+    assert_match /Un mail vous sera envoy. . l'ouverture du bureau de vote/, mail.body
   end
 
 
@@ -41,7 +42,7 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     end
 
     mail = ActionMailer::Base.deliveries.last
-    assert_match /Le bureau de vote virtuel est ouvert/, mail.encoded
+    assert_match /http:\/\/.*\/users\/access\/#{User.find_by_email(user.email).access_token}/, mail.body
   end
 
 end

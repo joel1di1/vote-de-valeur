@@ -9,11 +9,7 @@ class ActionDispatch::IntegrationTest
   end
 
   def ui_sign_in user
-    ui_sign_out
-    visit '/users/sign_in'
-    fill_in 'user[email]', :with => user.email
-    fill_in 'user[password]', :with => user.password
-    click_on 'user_submit'
+    visit "/users/access/#{user.access_token}"
   end
 
 
@@ -31,8 +27,6 @@ class ActionDispatch::IntegrationTest
 
   def fill_sign_up_form(user)
     fill_in 'user[email]', :with => user.email
-    fill_in 'user[password]', :with => user.password
-    fill_in 'user[password_confirmation]', :with => user.password
     fill_in 'user[first_name]', :with => user.first_name.to_s
     fill_in 'user[last_name]', :with => user.last_name.to_s
     fill_in 'user[postal_code]', :with => user.postal_code.to_s

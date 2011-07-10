@@ -13,16 +13,10 @@
     #header
       #dev
         #date_election
-          L'élection commence le
-          - start = DateHelper.election_starts_at
-          = I18n.l(start.to_date, :format => :long, :locale => :fr)
-          à
-          = I18n.l(start.to_time, :format => :short, :locale => :fr)
+          L'élection commence
+          = DateHelper.format_start
           et se finit le
-          - end_date = DateHelper.election_ends_at
-          = I18n.l(end_date.to_date, :format => :long, :locale => :fr)
-          à
-          = I18n.l(end_date.to_time, :format => :short, :locale => :fr)
+          = DateHelper.format_end
         #configuration
           = link_to "configuration", configurations_path
 
@@ -32,11 +26,9 @@
         - if user_signed_in?
           = current_user.email
           |
-
           = link_to t(:sign_out), destroy_user_session_path
         - else
-          = link_to "Déjà enregistré ?", new_user_session_path
-
+          = link_to "Déjà enregistré ?"
 
     .clear
     #messages

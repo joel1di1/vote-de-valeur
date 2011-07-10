@@ -20,12 +20,11 @@ end
 
 Factory.define :user do |u|
   u.email {Factory.next :email}
-  u.password "secret"
   u.first_name {Factory.next :first_name}
   u.last_name {Factory.next :last_name}
   u.postal_code {Factory.next :postal_code}
   u.public {Factory.next :public}
-  u.after_build { |u| u.skip_confirmation! }
+  u.access_token {User.generate_access_token}
 end
 
 Factory.define :admin_user do |a|

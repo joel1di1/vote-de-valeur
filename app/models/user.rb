@@ -19,16 +19,24 @@ end
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable, :timeoutable
+  devise :database_authenticatable, :registerable, :trackable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :postal_code, :public
 
+  validates_presence_of :email, :first_name, :last_name, :postal_code
   validates_with NoJunkMailValidator
 
   has_many :votes, :dependent => :destroy
   has_one :classic_vote, :dependent => :destroy
+
+  after_create :send_confirmation_mail
+
+  before_save :add_access_token
+
+  def add_access_token
+    self.access_token = User.generate_access_token unless self.access_token
+  end
 
   def vote_for_candidate id
     tmp = votes.select { |v| v.candidate_id == id.to_i }
@@ -51,21 +59,16 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.add_fake
-    puts "toto"
-    user = User.new :email => "fake_#{rand(36**8).to_s(36)}@test.test", :password => "secret"
-    user.skip_confirmation!
+  def send_confirmation_mail
+    UserMailer.send_confirmation(self).deliver
+  end
 
-    sleep(ENV['sleep'].to_i) unless !ENV['sleep']
-    if user.save
-      puts 'user saved'
-    else
-      puts 'error : user not saved'
+  def self.generate_access_token
+    token = rand(36**64).to_s(36)
+    while User.find_by_access_token(token)
+      token = rand(36**64).to_s(36)
     end
-
-    if Rails.env.production? && (ENV['workers']=='auto')
-      Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PWD']).set_workers("evening-moon-670", Delayed::Backend::ActiveRecord::Job.count-1)
-    end
+    token
   end
 
 end

@@ -31,26 +31,12 @@ class HomeUiTest < ActionDispatch::IntegrationTest
 
   test "home should display inscription fields" do
     visit '/'
-    assert page.has_content? 'Inscription'
+    assert page.has_content? 'Enregistrement'
     assert page.has_field? 'user[email]'
-    assert page.has_field? 'user[password]'
-    assert page.has_field? 'user[password_confirmation]'
     assert page.has_field? 'user[first_name]'
     assert page.has_field? 'user[last_name]'
     assert page.has_field? 'user[postal_code]'
     assert page.has_field? 'user[public]'
-  end
-
-  test "registration should " do
-    visit '/'
-    assert page.has_content? 'Inscription'
-    assert page.has_field? 'user_email'
-    assert page.has_field? 'user_password'
-    assert page.has_field? 'user_password_confirmation'
-    assert page.has_field? 'user_first_name'
-    assert page.has_field? 'user_last_name'
-    assert page.has_field? 'user_postal_code'
-    assert page.has_field? 'user_public'
   end
 
   test "home should say vote de valeur" do

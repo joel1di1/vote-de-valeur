@@ -3,8 +3,6 @@
   Vote De Valeur
 
 - if !user_signed_in?
-  %h2
-    Inscription
   = render :partial => "devise/registrations/sign_up_form", :locals => { :user => @user }
 
 - else
