@@ -36,4 +36,20 @@ class UserMailerTest < ActionMailer::TestCase
   end
 
 
+
+  test 'election_open_mail ' do
+    # setup
+    user = Factory :user
+
+    # action
+    mail = UserMailer.election_open_mail(user).deliver
+
+    # assert
+    assert_equal 1, mail.to.count
+    assert mail.to.include?(user.email)
+
+    assert_match /http:\/\/.*\/users\/access\/#{user.access_token}/, mail.body
+  end
+
+
 end

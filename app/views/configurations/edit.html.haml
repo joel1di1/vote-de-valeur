@@ -1,7 +1,19 @@
-%h1
-  Configuration de l'élection (visible pour les tests uniquement)
+%h2
+  Configuration des dates de l'élection
+%p
+  (visible pour les tests uniquement)
 
 = simple_form_for @configuration do |f|
   = f.input :start_date
   = f.input :end_date
   = f.submit "Modifier la configuration"
+
+
+%br
+%br
+%h2
+  Test du mail envoyé lorsque l'élection commence
+
+%form(action='/test/start_mail' style='width: 400px; margin: 0 auto;' method='post')
+  %input(type='email' name='email' required='required' placeholder='le mail avec lequel vous vous êtes enregistré' size=45)
+  %input(type='submit' value='tester le mail')

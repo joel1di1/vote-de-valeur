@@ -1,20 +1,22 @@
 VoteDeValeur::Application.routes.draw do
 
-  devise_for :users, :skip => [:sessions] do
-    get 'users/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session
+  # very custom devise
+  devise_for :users, :only => [] do
+    post  '/users'            =>  'devise/registrations#create', :as => :user_registration
+    get   '/users/sign_up'    =>  'devise/registrations#new'   , :as => :new_user_registration
+    get   '/users/sign_out'   =>  'devise/sessions#destroy'    , :as => :destroy_user_session
   end
-  get 'users/access/:id' => 'users#access', :as => 'user_access'
+
+  get   'users/access/:id'  =>  'users#access', :as => 'user_access'
 
   get 'votes' => 'votes#index'
   post 'votes' => 'votes#update'
 
-  resources :candidates, :only => [:index]
-
-
-  resources :configurations
-
-  match '/home/to_confirmed' => "home#to_confirmed"
-
   root :to => "home#index"
+
+  # juste pour les tests
+  resources :configurations
+  resources :candidates, :only => [:index]
+  match '/test/start_mail' => 'configurations#start_mail'
 
 end

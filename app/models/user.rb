@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :postal_code, :public
 
   validates_presence_of :email, :first_name, :last_name, :postal_code
+  validates_uniqueness_of :email, :access_token
   validates_with NoJunkMailValidator
 
   has_many :votes, :dependent => :destroy

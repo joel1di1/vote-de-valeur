@@ -8,10 +8,6 @@ class HomeController < ApplicationController
     end
   end
 
-  def to_confirmed
-
-  end
-
   def add_user
     if Rails.env.production? && (ENV['workers']=='auto')
       h = Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PWD'])

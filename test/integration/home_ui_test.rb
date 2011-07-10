@@ -49,10 +49,6 @@ class HomeUiTest < ActionDispatch::IntegrationTest
     assert page.has_selector? "#user_sign_in"
   end
 
-  test 'to_confirmed page should show confirmation message' do
-    visit '/home/to_confirmed'
-  end
-
   test "user sign in test" do
     assert !page.has_content?("signed in as")
 
