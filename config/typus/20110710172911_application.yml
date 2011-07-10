@@ -1,0 +1,14 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+Configuration:
+  fields:
+    default: start_date, end_date, name
+    form: start_date, end_date, name
+  order_by: 
+  relationships: 
+  filters: created_at
+  search: name
+  application: vote-de-valeur
+

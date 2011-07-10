@@ -17,6 +17,8 @@
         - if user_signed_in?
           = current_user.email
           |
+          = link_to "configuration", configurations_path
+          |
           = link_to t(:sign_out), destroy_user_session_path
         - else
           = link_to "Déjà enregistré ?", new_user_session_path

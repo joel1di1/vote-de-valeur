@@ -7,6 +7,8 @@ VoteDeValeur::Application.routes.draw do
 
   resources :candidates, :only => [:index]
 
+  resources :configurations
+
   match '/home/to_confirmed' => "home#to_confirmed"
 
   root :to => "home#index"

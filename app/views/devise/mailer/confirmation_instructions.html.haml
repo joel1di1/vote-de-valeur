@@ -1,0 +1,13 @@
+%p
+  Bonjour #{@resource.first_name} #{@resource.last_name},
+%p Pour confirmer votre inscription au vote de valeur, cliquez sur le lien suivant :
+%p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+%p
+  - if DateHelper.election_running?
+    Le bureau de vote virtuel est ouvert.
+  - elsif DateHelper.election_closed?
+    Merci de votre soutiens, e bureau de vote virtuel est fermé.
+  - else
+    Le bureau de vote virtuel ouvrira le #{DateHelper.election_starts_at.to_s(:long)}, nous vous préviendrons par mail de son ouverture.
+
+Cordialement.

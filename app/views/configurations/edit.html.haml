@@ -1,0 +1,7 @@
+%h1
+  Configuration de l'élection (visible pour les tests uniquement)
+
+= simple_form_for @configuration do |f|
+  = f.input :start_date
+  = f.input :end_date
+  = f.submit "Modifier la configuration"
