@@ -1,4 +1,5 @@
 fr:
+  sign_out: déconnexion
   simple_form:
     labels:
       user:

@@ -78,6 +78,6 @@ class HomeUiTest < ActionDispatch::IntegrationTest
 
     user = Factory :user
     ui_sign_in user
-    assert page.has_content?("signed in as #{user.email}")
+    assert page.has_content? user.email
   end
 end

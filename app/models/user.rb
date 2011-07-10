@@ -1,3 +1,21 @@
+# coding: utf-8
+
+class NoJunkMailValidator < ActiveModel::Validator
+  @@banned_mails = ['test.test', 'jetable.org']
+
+  def validate user
+    if user.email
+      @@banned_mails.each do |banned|
+        if user.email.end_with? banned
+          user.errors[:email] << "Ce mail n'est pas valide."
+          return
+        end
+      end
+    end
+  end
+end
+
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -7,6 +25,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :postal_code, :public
 
+  validates_with NoJunkMailValidator
 
   has_many :votes, :dependent => :destroy
   has_one :classic_vote, :dependent => :destroy
@@ -19,7 +38,7 @@ class User < ActiveRecord::Base
       when 0
         nil
       else
-        raise "le user #{self.id} possede plusieurs votes pour le candidat #{id}"
+        raise "le user #{self.id} possède plusieurs votes pour le candidat #{id}"
     end
   end
 
@@ -31,8 +50,6 @@ class User < ActiveRecord::Base
         super method_name, *args, &block
     end
   end
-
-
 
   def self.add_fake
     puts "toto"

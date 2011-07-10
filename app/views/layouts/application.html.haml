@@ -1,3 +1,4 @@
+-# coding: utf-8
 !!!
 %html
   %head
@@ -14,8 +15,9 @@
         = link_to "Accueil", root_path
       #user_sign_in
         - if user_signed_in?
-          = "signed in as #{current_user.email}"
-          = link_to "sign out", destroy_user_session_path
+          = current_user.email
+          |
+          = link_to t(:sign_out), destroy_user_session_path
         - else
           = link_to "Déjà enregistré ?", new_user_session_path
     .clear
