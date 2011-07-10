@@ -367,3 +367,17 @@ label.collection_check_boxes {
   vertical-align: -2px;
   margin-left:   2px;
 }
+
+
+#dev{
+  background: orange;
+  height: 30px;
+  #configuration{
+    padding: 5px;
+    float: right;
+  }
+  #date_election{
+    padding: 5px;
+    float: left;
+  }
+}

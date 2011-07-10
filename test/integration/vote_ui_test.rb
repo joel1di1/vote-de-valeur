@@ -9,6 +9,8 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     @candidate_2 = Factory :candidate
 
     ui_sign_in @user
+
+    DateHelper.set_election_time 1.day.ago, 1.day.from_now
   end
 
   def go_to_vote

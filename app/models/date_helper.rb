@@ -42,4 +42,8 @@ class DateHelper
      DateTime.now  > current_configuration.end_date
   end
 
+  def self.set_election_time start_date, end_date
+     current_configuration.update_attributes :start_date => start_date, :end_date => end_date
+  end
+
 end

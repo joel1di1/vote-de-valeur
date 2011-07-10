@@ -11,21 +11,39 @@
   %body
 
     #header
+      #dev
+        #date_election
+          L'élection commence le
+          - start = DateHelper.election_starts_at
+          = I18n.l(start.to_date, :format => :long, :locale => :fr)
+          à
+          = I18n.l(start.to_time, :format => :short, :locale => :fr)
+          et se finit le
+          - end_date = DateHelper.election_ends_at
+          = I18n.l(end_date.to_date, :format => :long, :locale => :fr)
+          à
+          = I18n.l(end_date.to_time, :format => :short, :locale => :fr)
+        #configuration
+          = link_to "configuration", configurations_path
+
       #logo
         = link_to "Accueil", root_path
       #user_sign_in
         - if user_signed_in?
           = current_user.email
           |
-          = link_to "configuration", configurations_path
-          |
+
           = link_to t(:sign_out), destroy_user_session_path
         - else
           = link_to "Déjà enregistré ?", new_user_session_path
+
+
     .clear
     #messages
-      %p.notice= notice
-      %p.alert= alert
+      - if !flash.empty?
+        - flash.each do |key, value|
+          %p(id="flash_#{key}" class=key)
+            = value
     #container
       = yield
 
