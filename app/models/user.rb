@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   after_create :send_confirmation_mail
 
-  before_save :add_access_token
+  before_validation :add_access_token
 
   def add_access_token
     self.access_token = User.generate_access_token unless self.access_token

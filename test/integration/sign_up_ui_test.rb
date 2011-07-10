@@ -17,7 +17,8 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     # actions
     visit '/'
     fill_sign_up_form user
-    assert_difference 'ActionMailer::Base.deliveries.count' do
+
+    assert_difference ['ActionMailer::Base.deliveries.count', 'User.count'] do
       click_on 'user_submit'
     end
 
@@ -37,7 +38,7 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     # actions
     visit '/'
     fill_sign_up_form user
-    assert_difference 'ActionMailer::Base.deliveries.count' do
+    assert_difference ['ActionMailer::Base.deliveries.count', 'User.count'] do
       click_on 'user_submit'
     end
 
