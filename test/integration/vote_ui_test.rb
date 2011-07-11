@@ -14,8 +14,7 @@ class VoteUiTest < ActionDispatch::IntegrationTest
   end
 
   def go_to_vote
-    visit '/'
-    click_on 'Votez'
+    ui_sign_in @user
   end
 
   def select_vote_for candidate, vote
@@ -118,10 +117,6 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     # assert
     assert page.has_selector? "#classic_vote input[checked]"
     assert_equal @candidate_2.id, page.find(:css, '#classic_vote input[checked]').value.to_i
-
   end
-
-
-
 
 end

@@ -1,14 +1,21 @@
+#coding: UTF-8
 class VotesController < ApplicationController
 
+  TOKEN_VALIDATED_KEY = 'token_validated'
   before_filter :authenticate_user!
 
   def index
     if DateHelper.election_running?
-      @candidates = Candidate.all
-      @user = current_user
+      if session[TOKEN_VALIDATED_KEY]
+        @candidates = Candidate.all
+        @user = current_user
 
-      respond_to do |format|
-        format.html
+        respond_to do |format|
+          format.html
+        end
+      else
+        flash[:error] = "Veuillez suivre le lien qui vous à été envoyé par mail."
+        redirect_to root_path
       end
     else
       flash[:error] = "Le bureau de vote n'est pas ouvert"

@@ -1,0 +1,15 @@
+-#coding: UTF-8
+
+- if DateHelper.election_running?
+  %p
+    L'expérimentation à commencé.
+  %p
+    D'ici quelques minutes, vous recevrez un mail comportant votre lien d'accès, veuillez le suivre pour accéder au vote.
+
+-else
+  %p
+    L'expérimentation commence
+    = DateHelper.format_start
+
+  %p
+    Un mail vous sera envoyé avec le lien vous permettant de vous connecter.

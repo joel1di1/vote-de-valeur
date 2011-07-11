@@ -7,6 +7,38 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     ui_sign_out
   end
 
+  test "sign up before election send to thanks page" do
+    # setup
+    user = Factory.build :user
+
+    DateHelper.election_starts_at = 1.days.from_now
+    DateHelper.election_ends_at = 2.days.from_now
+
+    # actions
+    visit '/'
+    fill_sign_up_form user
+    click_on 'user_submit'
+
+    assert page.has_content? 'Merci'
+  end
+
+
+  test "sign up during election send to thanks page" do
+    # setup
+    user = Factory.build :user
+
+    DateHelper.election_starts_at = 1.days.ago
+    DateHelper.election_ends_at = 2.days.from_now
+
+    # actions
+    visit '/'
+    fill_sign_up_form user
+    click_on 'user_submit'
+
+    assert page.has_content? 'Merci'
+  end
+
+
   test "sign up before election start must send confirmation message" do
     # setup
     user = Factory.build :user

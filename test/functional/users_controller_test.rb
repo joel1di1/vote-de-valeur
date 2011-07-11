@@ -12,12 +12,14 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
-  test 'user access with correct token should sign user' do
+  test 'user access with correct token should sign user and set key' do
     user = Factory :user
+    assert ! session[VotesController::TOKEN_VALIDATED_KEY]
 
     get :access, :id => user.access_token
 
     assert_user_signed_in user
+    assert session[VotesController::TOKEN_VALIDATED_KEY]
   end
 
   def assert_user_signed_in user
