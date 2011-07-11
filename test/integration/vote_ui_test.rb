@@ -49,6 +49,23 @@ class VoteUiTest < ActionDispatch::IntegrationTest
   end
 
 
+  test "when user vote he should see vote confirmation" do
+    # setup
+    assert !@user.a_vote?
+
+    # action
+    go_to_vote
+
+    select_vote_for @candidate_1, 1
+    select_vote_for @candidate_2, -2
+    select_classic_vote @candidate_2
+    submit_vote
+
+    # assert
+    @user.reload
+    assert @user.a_vote?
+  end
+
   test "user should create his vote" do
     go_to_vote
 

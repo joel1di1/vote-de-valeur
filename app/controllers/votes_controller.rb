@@ -32,7 +32,8 @@ class VotesController < ApplicationController
         current_user.votes.clear
 
         Candidate.all.each do |candidate|
-          value_string = params[:user]["vote_for_candidate_#{candidate.id}"]
+          value_string = nil
+          value_string = params[:user]["vote_for_candidate_#{candidate.id}"] if params[:user]
 
           vote_value = parse_vote_value value_string
 
@@ -41,8 +42,13 @@ class VotesController < ApplicationController
         end
 
         current_user.classic_vote = ClassicVote.create :user => current_user unless current_user.classic_vote
-        current_user.classic_vote.candidate = Candidate.find(params[:user][:classic_vote])
-        current_user.classic_vote.save
+        if params[:user] && params[:user][:classic_vote]
+          current_user.classic_vote.candidate = Candidate.find(params[:user][:classic_vote])
+          current_user.classic_vote.save
+        end
+
+        current_user.a_vote = true
+        current_user.save
 
         redirect_to votes_url, :notice => "modifications prise en compte"
       else
@@ -53,7 +59,6 @@ class VotesController < ApplicationController
       redirect_to root_path
     end
   end
-
 
   def parse_vote_value value_string
     vote_value = value_string.to_i if (value_string && value_string.match(/^[-+]?\d+$/))

@@ -1,8 +1,7 @@
 -# coding: utf-8
 %h1= 'Votre vote'
 
-
-= simple_form_for @user, :url => '/votes', :html => {:method => :post, :class => "application"} do |f|
+= simple_form_for @user, :url => '/votes', :html => {:method => :post, :class => "application", :id => "user_vote_form"} do |f|
   #user_votes
     %h2= 'Vote de valeur'
     - @candidates.each do |candidate|

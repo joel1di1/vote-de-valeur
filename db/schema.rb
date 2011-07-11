@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110710194827) do
+ActiveRecord::Schema.define(:version => 20110711020217) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20110710194827) do
     t.integer  "postal_code"
     t.boolean  "public",                                :default => false
     t.string   "access_token"
+    t.boolean  "a_vote"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
