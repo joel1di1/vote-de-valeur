@@ -17,12 +17,8 @@ gem 'typus'
 
 
 group :test do
-  gem 'autotest-fsevent'
-  gem 'autotest-growl'
-  gem 'autotest-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'mocha', :require => false
   gem 'test-unit'
-  gem 'ZenTest'
 end

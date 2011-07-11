@@ -3,9 +3,9 @@
 Bienvenue sur l'expérimentation du vote de valeur
 
 - if DateHelper.election_running?
-  = "Pour accèder au vote de valeur : #{user_access_url(:id => @user.access_token)}"
+  = "Pour accéder au vote de valeur : #{user_access_url(:id => @user.access_token)}"
 - elsif DateHelper.election_closed?
-  L'expérimenation est maintenant terminé.
+  L'expérimenation est maintenant terminée.
 - else
   = "Un mail vous sera envoyé à l'ouverture du bureau de vote (#{DateHelper.format_start})"
 Cordialement.
