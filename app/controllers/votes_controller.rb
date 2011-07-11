@@ -6,7 +6,7 @@ class VotesController < ApplicationController
   def index
     if user_signed_in?
       if DateHelper.election_running?
-        if session.include? TOKEN_VALIDATED_KEY && session[TOKEN_VALIDATED_KEY]
+        if session.include?(TOKEN_VALIDATED_KEY) && session[TOKEN_VALIDATED_KEY]
           @candidates = Candidate.all
           @user = current_user
 
