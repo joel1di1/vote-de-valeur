@@ -57,6 +57,7 @@ GEM
       warden (~> 1.0.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    escape_utils (0.2.3)
     factory_girl (2.1.0)
     factory_girl_rails (1.2.0)
       factory_girl (~> 2.1.0)
@@ -160,6 +161,7 @@ DEPENDENCIES
   compass (>= 0.11.1)
   delayed_job
   devise
+  escape_utils
   factory_girl_rails
   haml
   heroku

@@ -5,6 +5,7 @@ gem 'rails', '3.0.10'
 gem 'compass', ">= 0.11.1"
 gem 'delayed_job'
 gem 'devise'
+gem 'escape_utils'
 gem 'haml'
 gem 'heroku'
 gem 'hoptoad_notifier'
