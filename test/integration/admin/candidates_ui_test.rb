@@ -12,7 +12,7 @@ class Admin::CandidatesUiTest < ActionDispatch::IntegrationTest
 
     candidate = Factory.build :candidate
 
-    click_on 'Candidates'
+    click_on 'Candidate'
     click_link 'Ajouter nouveau'
     assert page.has_content? 'Nouveau Candidate'
 
@@ -26,14 +26,14 @@ class Admin::CandidatesUiTest < ActionDispatch::IntegrationTest
   test "admin should list candidates" do
     candidate = Factory :candidate
 
-    click_on 'Candidates'
+    click_on 'Candidate'
 
     assert page.has_content? candidate.name
   end
 
   test "admin should edit candidate" do
     candidate = Factory :candidate
-    click_on 'Candidates'
+    click_on 'Candidate'
     assert page.has_content? candidate.name
 
     visit "/admin/candidates/edit/#{candidate.id}"
