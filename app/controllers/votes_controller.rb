@@ -14,7 +14,7 @@ class VotesController < ApplicationController
             format.html
           end
         else
-          flash[:error] = "Veuillez suivre le lien qui vous à été envoyé par mail."
+          flash[:error] = "Veuillez suivre le lien qui vous a été envoyé par mail pour valider votre inscription."
           redirect_to root_path
         end
       else

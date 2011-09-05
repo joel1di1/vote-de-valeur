@@ -1,15 +1,17 @@
 -#coding: UTF-8
 
-- if DateHelper.election_running?
+#content.red
   %p
-    L'expérimentation à commencé.
-  %p
-    D'ici quelques minutes, vous recevrez un mail comportant votre lien d'accès, veuillez le suivre pour accéder au vote.
+    Votre carte électorale est validée.
+  - if DateHelper.election_running?
+    %p
+      L'élection est commencée.
+    %p
+      = link_to "Votez maintenant !", votes_path
 
--else
-  %p
-    L'expérimentation commence
-    = DateHelper.format_start
-
-  %p
-    Un mail vous sera envoyé avec le lien vous permettant de vous connecter.
+  -else
+    %p
+      L'élection est prévue le
+      = DateHelper.format_start
+    %p
+      Vous recevrez un mail pour vous prévenir de l'ouverture du bureau de vote.

@@ -1,9 +1,11 @@
-
-@import "compass/css3/border-radius";
+@import "compass/css3";
 
 $user_sign_up_margin: 90px;
 
-$width: 800px;
+$content_width: 580px;
+
+
+$width: 972px;
 
 $color_minus_2: #F43737;
 $color_minus_1: #E49F37;
@@ -11,10 +13,26 @@ $color_0: #D2D2D7;
 $color_1: #B5D43B;
 $color_2: #26B709;
 
+$default-box-shadow-color: #333333;
+$default-box-shadow-h-offset: 0px;
+$default-box-shadow-v-offset: 0px;
+$default-box-shadow-blur: 15px;
+$default-box-shadow-spread: false;
+$default-box-shadow-inset: false;
+
 html, body{
   margin: 0 0;
   padding: 0 0;
   font-family: "Lucida Grande", Verdana;
+}
+
+body{
+  &.home_index{
+    background: white url('/images/bgs/fondProcessus1-1.jpg') no-repeat center top;
+  }
+  &.registrations_new, &.registrations_create{
+    background: white url('/images/bgs/fondProcessus1-2.jpg') no-repeat center top;
+  }
 }
 
 .clear{
@@ -71,17 +89,56 @@ td.count, td.classic_count{
 #header{
     margin: 0 auto;
     width: $width;
-    #logo{
-        float: left;
-    }
-    #user_sign_in{
-        float: right;
-        text-align: right;
-    }
+}
+#logo{
+  float: left;
+  margin-top: 37px;
+}
+#user_sign_in{
+  float: right;
+  text-align: right;
 }
 
 .hidden{
   display: none;
+}
+
+#content, #next{
+  @include border-radius(20px);
+  background: white;
+  color: #2E2E2E;
+  @include single-box-shadow;
+  padding: 10px;
+
+  &.red{
+    border: 3px #EB4242 solid;
+  }
+  &.orange{
+    border: 3px #E49F37 solid;
+  }
+}
+
+#content{
+  width: $content_width;
+  margin: 0 auto 20px auto;
+}
+
+a#next{
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+#next{
+  float: right;
+  padding-right: 55px;
+  &.red{
+    background: white url('/images/fleches/flecheRouge.png') no-repeat right;
+  }
+  &.orange{
+    background: white url('/images/fleches/flecheOrange.png') no-repeat right;
+  }
 }
 
 $name_width: 175px;
@@ -301,7 +358,7 @@ label[for='user_public']{
 /* ----- SimpleForm Styles ----- */
 
 
-$label_width: 320px;
+$label_width: 250px;
 $label_margin: 10px;
 $label_inner_width: $label_width - 2*$label_margin;
 .simple_form div.input {

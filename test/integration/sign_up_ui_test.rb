@@ -15,9 +15,7 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     DateHelper.election_ends_at = 2.days.from_now
 
     # actions
-    visit '/'
-    fill_sign_up_form user
-    click_on 'user_submit'
+    sign_up(user)
 
     assert page.has_content? 'Merci'
   end
@@ -31,9 +29,7 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     DateHelper.election_ends_at = 2.days.from_now
 
     # actions
-    visit '/'
-    fill_sign_up_form user
-    click_on 'user_submit'
+    sign_up(user)
 
     assert page.has_content? 'Merci'
   end
@@ -47,11 +43,8 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     DateHelper.election_ends_at = 2.days.from_now
 
     # actions
-    visit '/'
-    fill_sign_up_form user
-
     assert_difference ['ActionMailer::Base.deliveries.count', 'User.count'] do
-      click_on 'user_submit'
+      sign_up(user)
     end
 
     mail = ActionMailer::Base.deliveries.last
@@ -68,10 +61,8 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     DateHelper.election_ends_at = 1.day.from_now
 
     # actions
-    visit '/'
-    fill_sign_up_form user
     assert_difference ['ActionMailer::Base.deliveries.count', 'User.count'] do
-      click_on 'user_submit'
+      sign_up(user)
     end
 
     mail = ActionMailer::Base.deliveries.last

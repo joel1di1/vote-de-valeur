@@ -1,11 +1,10 @@
-%h1
-  Enregistrement
-
 = simple_form_for(@user, :url => registration_path(@user)) do |f|
-  = f.input :email
-  = f.input :first_name
-  = f.input :last_name
-  = f.input :postal_code, :as => 'string'
-  = f.input :public
+  #content.orange
+    = f.input :email
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :postal_code, :as => 'string'
+    = f.input :public
 
-  = f.submit "Sign up"
+  = f.submit "Sign up", :id => 'next', :class => 'orange'
+

@@ -4,6 +4,13 @@ require 'capybara/rails'
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
+  def sign_up user
+    visit '/'
+    click_link 'Continuer'
+    fill_sign_up_form user
+    click_on 'next'
+  end
+
   def ui_sign_out
     visit '/users/sign_out'
   end

@@ -1,13 +1,8 @@
 -# coding: utf-8
-%h1
-  Vote De Valeur
+#content.red
+  %p
+    Le Vote De Valeur c'est...
+  %p
+    L'expérimentation consiste à...
 
-- if !user_signed_in?
-  = render :partial => "devise/registrations/sign_up_form", :locals => { :user => @user }
-
-- else
-  %h2
-    = link_to "Votez!", votes_path
-
-  %h4
-    = link_to "Resultats", candidates_path
+= link_to "Continuer", new_user_registration_path, :id => 'next', :class => 'red'

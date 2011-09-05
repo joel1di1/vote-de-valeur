@@ -7,8 +7,15 @@ class HomeUiTest < ActionDispatch::IntegrationTest
     ui_sign_out
   end
 
-  test 'home should show sign_up form for unauthenticated users' do
+  test 'home should show description text' do
     visit '/'
+    assert page.has_content? 'Le Vote De Valeur c\'est'
+  end
+
+
+  test 'sign_up page should show sign_up form for unauthenticated users' do
+    visit '/'
+    click_link 'Continuer'
     assert page.has_selector? '#new_user'
   end
 
@@ -19,19 +26,20 @@ class HomeUiTest < ActionDispatch::IntegrationTest
   end
 
   test 'home should not show sign_up form just sign up users' do
-
     user = Factory.build :user
     visit '/'
+    click_link 'Continuer'
+
     assert page.has_selector?('#new_user')
 
     fill_sign_up_form(user)
 
-    click_on 'user_submit'
+    click_on 'next'
   end
 
   test "home should display inscription fields" do
     visit '/'
-    assert page.has_content? 'Enregistrement'
+    click_link 'Continuer'
     assert page.has_field? 'user[email]'
     assert page.has_field? 'user[first_name]'
     assert page.has_field? 'user[last_name]'
