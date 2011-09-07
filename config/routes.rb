@@ -10,6 +10,9 @@ VoteDeValeur::Application.routes.draw do
   get   'users/access/:id'  =>  'users#access', :as => 'user_access'
 
   get 'votes' => 'votes#index'
+  get 'votes/classic' => 'votes#classic'
+  post 'votes/classic' => 'votes#update_classic'
+  get 'votes/explanations' => 'votes#explanations'
   post 'votes' => 'votes#update'
 
   root :to => "home#index"

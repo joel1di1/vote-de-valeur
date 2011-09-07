@@ -1,0 +1,10 @@
+-# coding: utf-8
+= simple_form_for @user, :url => '/votes/classic', :html => {:method => :post, :class => "application classic", :id => "user_vote_form"} do |f|
+  #content.grey
+    #classic_vote
+      %h2= 'Vote classique'
+      - values = @candidates.to_a.collect{|c| [c.id, c.name]}
+      - classic_vote = current_user.classic_vote.candidate.id if (current_user.classic_vote && current_user.classic_vote.candidate)
+      = f.collection_radio "classic_vote", values, :first, :last, :checked => classic_vote
+
+  = f.submit "Valider", :id => 'next', :class => 'grey'

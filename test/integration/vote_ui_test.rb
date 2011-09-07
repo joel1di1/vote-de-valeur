@@ -8,13 +8,12 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     @candidate_1 = Factory :candidate
     @candidate_2 = Factory :candidate
 
-    ui_sign_in @user
-
     DateHelper.set_election_time 1.day.ago, 1.day.from_now
   end
 
   def go_to_vote
     ui_sign_in @user
+    click_link 'Continuer'
   end
 
   def select_vote_for candidate, vote
@@ -29,17 +28,25 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     choose "user_classic_vote_#{candidate.id}"
   end
 
+  test "user should see explanation after signed in" do
+    ui_sign_in @user
+
+    assert page.has_content? "Bienvenue au bureau de vote virtuel, "
+
+  end
 
   test "vote form should display candidates form" do
     go_to_vote
 
-    assert page.has_content? 'Votre vote'
+    assert page.has_content? 'Vote de valeur'
     assert page.has_content? @candidate_1.name
     assert page.has_content? @candidate_2.name
 
     # vote de valeur
     assert page.has_field? "user[vote_for_candidate_#{@candidate_1.id}]"
     assert page.has_field? "user[vote_for_candidate_#{@candidate_2.id}]"
+
+    submit_vote
 
     # vote classique
     assert page.has_field? "user[classic_vote]"
@@ -58,6 +65,8 @@ class VoteUiTest < ActionDispatch::IntegrationTest
 
     select_vote_for @candidate_1, 1
     select_vote_for @candidate_2, -2
+    submit_vote
+
     select_classic_vote @candidate_2
     submit_vote
 
@@ -70,15 +79,16 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     go_to_vote
 
     assert_difference ["Vote.find_all_by_candidate_id(#{@candidate_1.id}).count",
-                       "Vote.find_all_by_candidate_id(#{@candidate_2.id}).count",
-                       "ClassicVote.count"] do
-      assert_difference ['Vote.count', "User.find(#{@user.id}).votes.count"], 2 do
-        select_vote_for @candidate_1, 1
-        select_vote_for @candidate_2, -2
+                       "Vote.find_all_by_candidate_id(#{@candidate_2.id}).count"
+                       ] do
+      select_vote_for @candidate_1, 1
+      select_vote_for @candidate_2, -2
+      submit_vote
+    end
 
-        select_classic_vote @candidate_2
-        submit_vote
-      end
+    assert_difference "ClassicVote.count" do
+      select_classic_vote @candidate_2
+      submit_vote
     end
 
     @user.reload
@@ -87,19 +97,21 @@ class VoteUiTest < ActionDispatch::IntegrationTest
 
     assert_not_nil @user.classic_vote
     assert_equal @candidate_2, @user.classic_vote.candidate
-
   end
 
 
-  test "user with existing votes should update his votes" do
+  test "user with existing votes should not be able to vote again" do
     go_to_vote
 
     select_vote_for @candidate_1, 1
     select_vote_for @candidate_2, -2
 
+    submit_vote
     select_classic_vote @candidate_2
 
     submit_vote
+
+    go_to_vote
 
     assert_no_difference ["Vote.find_all_by_candidate_id(#{@candidate_1.id}).count",
                           "Vote.find_all_by_candidate_id(#{@candidate_2.id}).count",
@@ -109,6 +121,7 @@ class VoteUiTest < ActionDispatch::IntegrationTest
       select_vote_for @candidate_1, 0
       select_vote_for @candidate_2, 2
 
+      submit_vote
       select_classic_vote @candidate_1
 
       submit_vote
@@ -125,11 +138,13 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     go_to_vote
     select_vote_for @candidate_1, 1
     select_vote_for @candidate_2, -2
+    submit_vote
     select_classic_vote @candidate_2
     submit_vote
 
     # action
     go_to_vote
+    submit_vote
 
     # assert
     assert page.has_selector? "#classic_vote input[checked]"

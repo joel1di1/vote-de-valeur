@@ -1,19 +1,13 @@
 -# coding: utf-8
-%h1= 'Votre vote'
-
 = simple_form_for @user, :url => '/votes', :html => {:method => :post, :class => "application", :id => "user_vote_form"} do |f|
-  #user_votes
-    %h2= 'Vote de valeur'
-    - @candidates.each do |candidate|
-      .row
-        = f.label "vote_for_candidate_#{candidate.id}", candidate.name
-        .input
-          - values = (-2..2).to_a.collect{|i| [i, (i==0) ? "%d" % i : "%+d" % i]}
-          = f.collection_radio "vote_for_candidate_#{candidate.id}", values, :first, :last
-    .clear
-  #classic_vote
-    %h2= 'Vote classique'
-    - values = @candidates.to_a.collect{|c| [c.id, c.name]}
-    - classic_vote = current_user.classic_vote.candidate.id if (current_user.classic_vote && current_user.classic_vote.candidate)
-    = f.collection_radio "classic_vote", values, :first, :last, :checked => classic_vote
-  = f.submit :value => "Valider", :html => {:tabindex => 2}
+  #content.blue
+    #user_votes
+      %h2= 'Vote de valeur'
+      - @candidates.each do |candidate|
+        .row
+          = f.label "vote_for_candidate_#{candidate.id}", candidate.name
+          .input
+            - values = (-2..2).to_a.collect{|i| [i, (i==0) ? "%d" % i : "%+d" % i]}
+            = f.collection_radio "vote_for_candidate_#{candidate.id}", values, :first, :last
+
+  = f.submit "Valider", :id => 'next', :class => 'blue'
