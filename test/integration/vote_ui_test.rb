@@ -52,13 +52,13 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     assert page.has_field? "user[classic_vote]"
     assert page.has_field? "user_classic_vote_#{@candidate_1.id}"
     assert page.has_field? "user_classic_vote_#{@candidate_2.id}"
-
   end
 
 
-  test "when user vote he should see vote confirmation" do
+  test "when user vote he should be marked" do
     # setup
     assert !@user.a_vote?
+    assert !@user.a_vote_classic?
 
     # action
     go_to_vote
@@ -66,13 +66,15 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     select_vote_for @candidate_1, 1
     select_vote_for @candidate_2, -2
     submit_vote
+    @user.reload
+    assert @user.a_vote?
 
     select_classic_vote @candidate_2
     submit_vote
 
     # assert
     @user.reload
-    assert @user.a_vote?
+    assert @user.a_vote_classic?
   end
 
   test "user should create his vote" do
@@ -99,56 +101,49 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     assert_equal @candidate_2, @user.classic_vote.candidate
   end
 
-
-  test "user with existing votes should not be able to vote again" do
+  test "user should be able to vote only once" do
+    # setup
     go_to_vote
-
-    select_vote_for @candidate_1, 1
-    select_vote_for @candidate_2, -2
-
     submit_vote
-    select_classic_vote @candidate_2
-
-    submit_vote
-
-    go_to_vote
-
-    assert_no_difference ["Vote.find_all_by_candidate_id(#{@candidate_1.id}).count",
-                          "Vote.find_all_by_candidate_id(#{@candidate_2.id}).count",
-                          'Vote.count',
-                          '@user.votes.count',
-                          'ClassicVote.count'] do
-      select_vote_for @candidate_1, 0
-      select_vote_for @candidate_2, 2
-
-      submit_vote
-      select_classic_vote @candidate_1
-
-      submit_vote
-    end
-
-    @user.reload
-    assert_equal 0, @user.vote_for_candidate(@candidate_1.id)
-    assert_equal 2, @user.vote_for_candidate(@candidate_2.id)
-
-    assert_equal @candidate_1, @user.classic_vote.candidate
-  end
-
-  test "classic vote should be already checked if classic_vote present" do
-    go_to_vote
-    select_vote_for @candidate_1, 1
-    select_vote_for @candidate_2, -2
-    submit_vote
-    select_classic_vote @candidate_2
     submit_vote
 
     # action
     go_to_vote
+
+    # assert
+    assert_equal root_path, page.current_path
+  end
+
+  test "user that have just vote for vdv should be able to vote classic" do
+    # setup
+    go_to_vote
+    submit_vote
+    visit "/"
+
+    # action
+    go_to_vote
+
+    # assert
+    assert_equal votes_classic_path, page.current_path
+  end
+
+  test "user that have just vote for classic vote should be able to vote for vdv" do
+    # setup
+    go_to_vote
+    visit votes_classic_path
+    submit_vote
+    visit "/"
+
+    # action
+    visit votes_classic_path
+    assert_equal votes_path, page.current_path
     submit_vote
 
     # assert
-    assert page.has_selector? "#classic_vote input[checked]"
-    assert_equal @candidate_2.id, page.find(:css, '#classic_vote input[checked]').value.to_i
+    visit votes_classic_path
+    assert_equal root_path, page.current_path
+
   end
+
 
 end
