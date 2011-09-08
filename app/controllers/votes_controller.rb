@@ -10,19 +10,17 @@ class VotesController < ApplicationController
       redirect_to root_path and return
     end
 
-    if current_user.a_vote?
-      if current_user.a_vote_classic?
-        flash[:error] = "Vous avez déjà voté."
-        redirect_to root_path
-      else
-        redirect_to votes_classic_path
-      end
-      return
-    end
-
     if session.include?(TOKEN_VALIDATED_KEY) && session[TOKEN_VALIDATED_KEY]
       @candidates = Candidate.all
       @user = current_user
+      if current_user.a_vote?
+        if current_user.a_vote_classic?
+          flash[:error] = "Vous avez déjà voté."
+          redirect_to root_path
+        else
+          redirect_to votes_classic_path
+        end
+      end
     else
       flash[:error] = "Veuillez suivre le lien qui vous a été envoyé par mail pour valider votre inscription."
       redirect_to root_path
