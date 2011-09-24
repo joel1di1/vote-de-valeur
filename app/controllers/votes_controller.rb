@@ -88,7 +88,7 @@ class VotesController < ApplicationController
 
     current_user.update_attribute :a_vote, true
 
-    redirect_to votes_classic_path, :notice => "modifications prises en compte"
+    redirect_to votes_classic_path
   end
 
   def update_classic
@@ -117,7 +117,7 @@ class VotesController < ApplicationController
 
     current_user.update_attribute :a_vote_classic, true
 
-    redirect_to root_path, :notice => "modifications prises en compte"
+    redirect_to thanks_path
   end
 
   def parse_vote_value value_string
