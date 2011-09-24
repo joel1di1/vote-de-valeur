@@ -17,6 +17,8 @@ VoteDeValeur::Application.routes.draw do
   get 'votes/explanations' => 'votes#explanations'
   post 'votes' => 'votes#update'
 
+  get 'thanks' => 'home#thanks'
+
   root :to => "home#index"
 
   # juste pour les tests

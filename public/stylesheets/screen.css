@@ -25,88 +25,92 @@ body.votes_index {
 body.votes_classic {
   background: white url("/images/bgs/fondProcessus3-3.jpg") no-repeat center top;
 }
+/* line 45, ../../app/stylesheets/screen.scss */
+body.home_thanks {
+  background: white url("/images/bgs/fondProcessus3-4.jpg") no-repeat center top;
+}
 
-/* line 47, ../../app/stylesheets/screen.scss */
+/* line 50, ../../app/stylesheets/screen.scss */
 .clear {
   clear: both;
 }
 
-/* line 51, ../../app/stylesheets/screen.scss */
+/* line 54, ../../app/stylesheets/screen.scss */
 h2, h1, h4 {
   text-align: center;
 }
 
-/* line 55, ../../app/stylesheets/screen.scss */
+/* line 58, ../../app/stylesheets/screen.scss */
 table {
   border-collapse: collapse;
 }
-/* line 57, ../../app/stylesheets/screen.scss */
+/* line 60, ../../app/stylesheets/screen.scss */
 table td {
   border: 1px solid;
 }
-/* line 60, ../../app/stylesheets/screen.scss */
+/* line 63, ../../app/stylesheets/screen.scss */
 table thead {
   font-weight: bold;
 }
 
-/* line 65, ../../app/stylesheets/screen.scss */
+/* line 68, ../../app/stylesheets/screen.scss */
 td.count, td.classic_count {
   text-align: right;
 }
 
-/* line 71, ../../app/stylesheets/screen.scss */
+/* line 74, ../../app/stylesheets/screen.scss */
 #user_new .input label {
   text-align: right;
   display: inline-block;
   width: 90px;
 }
-/* line 77, ../../app/stylesheets/screen.scss */
+/* line 80, ../../app/stylesheets/screen.scss */
 #user_new #user_remember_me {
   margin-left: 90px;
 }
-/* line 80, ../../app/stylesheets/screen.scss */
+/* line 83, ../../app/stylesheets/screen.scss */
 #user_new #user_submit {
   display: block;
   margin-left: 90px;
 }
 
-/* line 87, ../../app/stylesheets/screen.scss */
+/* line 90, ../../app/stylesheets/screen.scss */
 #container {
   margin: 0 auto;
   width: 972px;
 }
 
-/* line 92, ../../app/stylesheets/screen.scss */
+/* line 95, ../../app/stylesheets/screen.scss */
 #messages {
   margin: 0 auto;
   width: 972px;
   text-align: center;
 }
 
-/* line 98, ../../app/stylesheets/screen.scss */
+/* line 101, ../../app/stylesheets/screen.scss */
 #header {
   margin: 0 auto;
   width: 972px;
 }
 
-/* line 102, ../../app/stylesheets/screen.scss */
+/* line 105, ../../app/stylesheets/screen.scss */
 #logo {
   float: left;
   margin-top: 37px;
 }
 
-/* line 106, ../../app/stylesheets/screen.scss */
+/* line 109, ../../app/stylesheets/screen.scss */
 #user_sign_in {
   float: right;
   text-align: right;
 }
 
-/* line 111, ../../app/stylesheets/screen.scss */
+/* line 114, ../../app/stylesheets/screen.scss */
 .hidden {
   display: none;
 }
 
-/* line 115, ../../app/stylesheets/screen.scss */
+/* line 118, ../../app/stylesheets/screen.scss */
 #content, #next {
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -122,29 +126,33 @@ td.count, td.classic_count {
   box-shadow: 0px 0px 10px #333333;
   padding: 10px;
 }
-/* line 122, ../../app/stylesheets/screen.scss */
+/* line 125, ../../app/stylesheets/screen.scss */
 #content.red, #next.red {
   border: 3px #EB4242 solid;
 }
-/* line 125, ../../app/stylesheets/screen.scss */
+/* line 128, ../../app/stylesheets/screen.scss */
 #content.orange, #next.orange {
   border: 3px #E49F37 solid;
 }
-/* line 128, ../../app/stylesheets/screen.scss */
+/* line 131, ../../app/stylesheets/screen.scss */
 #content.grey, #next.grey {
   border: 3px #969696 solid;
 }
-/* line 131, ../../app/stylesheets/screen.scss */
+/* line 134, ../../app/stylesheets/screen.scss */
 #content.blue, #next.blue {
   border: 3px #4A6EAF solid;
 }
+/* line 137, ../../app/stylesheets/screen.scss */
+#content.green, #next.green {
+  border: 3px #3CB126 solid;
+}
 
-/* line 136, ../../app/stylesheets/screen.scss */
+/* line 142, ../../app/stylesheets/screen.scss */
 #content {
   width: 580px;
   margin: 0 auto 20px auto;
 }
-/* line 139, ../../app/stylesheets/screen.scss */
+/* line 145, ../../app/stylesheets/screen.scss */
 #content h2 {
   margin: 0 0;
   color: white;
@@ -156,75 +164,75 @@ td.count, td.classic_count {
   -khtml-border-radius: 15px 15px 0 0;
   border-radius: 15px 15px 0 0;
 }
-/* line 146, ../../app/stylesheets/screen.scss */
+/* line 152, ../../app/stylesheets/screen.scss */
 #content.blue {
   width: 735px;
   padding: 0 0;
 }
-/* line 149, ../../app/stylesheets/screen.scss */
+/* line 155, ../../app/stylesheets/screen.scss */
 #content.blue h2 {
   width: 735px;
   background: #4A6EAF;
 }
-/* line 154, ../../app/stylesheets/screen.scss */
+/* line 160, ../../app/stylesheets/screen.scss */
 #content.grey {
   width: 300px;
   padding: 0 0;
 }
-/* line 157, ../../app/stylesheets/screen.scss */
+/* line 163, ../../app/stylesheets/screen.scss */
 #content.grey h2 {
   width: 300px;
   background: #969696;
 }
 
-/* line 165, ../../app/stylesheets/screen.scss */
+/* line 171, ../../app/stylesheets/screen.scss */
 a#next {
   text-decoration: none;
 }
-/* line 167, ../../app/stylesheets/screen.scss */
+/* line 173, ../../app/stylesheets/screen.scss */
 a#next:hover {
   text-decoration: underline;
 }
 
-/* line 172, ../../app/stylesheets/screen.scss */
+/* line 178, ../../app/stylesheets/screen.scss */
 #next {
   float: right;
   padding-right: 55px;
 }
-/* line 175, ../../app/stylesheets/screen.scss */
+/* line 181, ../../app/stylesheets/screen.scss */
 #next.red {
   background: white url("/images/fleches/flecheRouge.png") no-repeat right;
 }
-/* line 178, ../../app/stylesheets/screen.scss */
+/* line 184, ../../app/stylesheets/screen.scss */
 #next.orange {
   background: white url("/images/fleches/flecheOrange.png") no-repeat right;
 }
-/* line 181, ../../app/stylesheets/screen.scss */
+/* line 187, ../../app/stylesheets/screen.scss */
 #next.grey {
   background: white url("/images/fleches/flecheGrise.png") no-repeat right;
 }
-/* line 184, ../../app/stylesheets/screen.scss */
+/* line 190, ../../app/stylesheets/screen.scss */
 #next.blue {
   background: white url("/images/fleches/flecheBleu.png") no-repeat right;
 }
 
-/* line 194, ../../app/stylesheets/screen.scss */
+/* line 200, ../../app/stylesheets/screen.scss */
 .application #classic_vote label {
   cursor: pointer;
 }
-/* line 197, ../../app/stylesheets/screen.scss */
+/* line 203, ../../app/stylesheets/screen.scss */
 .application #classic_vote span {
   display: block;
   clear: both;
   height: 45px;
   text-align: center;
 }
-/* line 203, ../../app/stylesheets/screen.scss */
+/* line 209, ../../app/stylesheets/screen.scss */
 .application #classic_vote span input {
   float: right;
   margin: 15px 65px 0 0;
 }
-/* line 207, ../../app/stylesheets/screen.scss */
+/* line 213, ../../app/stylesheets/screen.scss */
 .application #classic_vote span label {
   float: left;
   display: inline-block;
@@ -232,45 +240,45 @@ a#next:hover {
   width: 175px;
   margin: 11px 0 0 0;
 }
-/* line 214, ../../app/stylesheets/screen.scss */
+/* line 220, ../../app/stylesheets/screen.scss */
 .application #classic_vote span label.selected {
   padding: 12px 70px 12px 0;
   margin: 0 0;
   background: url(/images/radio-selected.png) no-repeat 200px 7px;
 }
-/* line 219, ../../app/stylesheets/screen.scss */
+/* line 225, ../../app/stylesheets/screen.scss */
 .application #classic_vote span label.unselected {
   padding: 12px 70px 12px 0;
   margin: 0 0;
   background: url(/images/radio-unselected.png) no-repeat 200px 7px;
 }
-/* line 231, ../../app/stylesheets/screen.scss */
+/* line 237, ../../app/stylesheets/screen.scss */
 .application #user_votes .row {
   width: 475px;
   height: 45px;
   vertical-align: top;
 }
-/* line 235, ../../app/stylesheets/screen.scss */
+/* line 241, ../../app/stylesheets/screen.scss */
 .application #user_votes .row > label {
   display: inline-block;
   text-align: right;
   width: 175px;
   padding-right: 10px;
 }
-/* line 241, ../../app/stylesheets/screen.scss */
+/* line 247, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input {
   display: inline-block;
   text-align: left;
 }
-/* line 244, ../../app/stylesheets/screen.scss */
+/* line 250, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span {
   display: inline-block;
 }
-/* line 248, ../../app/stylesheets/screen.scss */
+/* line 254, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span input {
   margin: 0 0;
 }
-/* line 252, ../../app/stylesheets/screen.scss */
+/* line 258, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label {
   display: inline-block;
   margin: 5px 5px 5px 0;
@@ -291,73 +299,73 @@ a#next:hover {
   z-index: 2;
   background-color: #EEE;
 }
-/* line 268, ../../app/stylesheets/screen.scss */
+/* line 274, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label.selected {
   font-weight: bold;
   color: black;
   border-color: black;
   margin-right: 15px;
 }
-/* line 274, ../../app/stylesheets/screen.scss */
+/* line 280, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label.unselected {
   margin-right: 15px;
 }
-/* line 278, ../../app/stylesheets/screen.scss */
+/* line 284, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-2"] {
   border-color: #f43737;
   color: #f43737;
 }
-/* line 281, ../../app/stylesheets/screen.scss */
+/* line 287, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-2"].selected {
   background-color: #F43737;
   color: black;
   border-color: black;
 }
-/* line 287, ../../app/stylesheets/screen.scss */
+/* line 293, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-1"] {
   border-color: #e49f37;
   color: #e49f37;
 }
-/* line 290, ../../app/stylesheets/screen.scss */
+/* line 296, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="-1"].selected {
   background-color: #E49F37;
   color: black;
   border-color: black;
 }
-/* line 296, ../../app/stylesheets/screen.scss */
+/* line 302, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="0"] {
   border-color: #d2d2d7;
   color: #d2d2d7;
 }
-/* line 299, ../../app/stylesheets/screen.scss */
+/* line 305, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="0"].selected {
   background-color: #D2D2D7;
   color: black;
   border-color: black;
 }
-/* line 305, ../../app/stylesheets/screen.scss */
+/* line 311, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_1"] {
   border-color: #b5d43b;
   color: #b5d43b;
 }
-/* line 308, ../../app/stylesheets/screen.scss */
+/* line 314, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_1"].selected {
   background-color: #B5D43B;
   color: black;
   border-color: black;
 }
-/* line 314, ../../app/stylesheets/screen.scss */
+/* line 320, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_2"] {
   border-color: #26b709;
   color: #26b709;
 }
-/* line 317, ../../app/stylesheets/screen.scss */
+/* line 323, ../../app/stylesheets/screen.scss */
 .application #user_votes .row .input span label[for$="_2"].selected {
   background-color: #26B709;
   color: black;
   border-color: black;
 }
-/* line 329, ../../app/stylesheets/screen.scss */
+/* line 335, ../../app/stylesheets/screen.scss */
 .application #user_submit {
   margin-top: 30px;
   -moz-border-radius: 20px;
@@ -375,19 +383,19 @@ a#next:hover {
   cursor: pointer;
 }
 
-/* line 343, ../../app/stylesheets/screen.scss */
+/* line 349, ../../app/stylesheets/screen.scss */
 .results {
   margin: 0 auto;
   width: 972px;
   text-align: center;
 }
-/* line 347, ../../app/stylesheets/screen.scss */
+/* line 353, ../../app/stylesheets/screen.scss */
 .results .candidate {
   display: inline-block;
   text-align: right;
   width: 476px;
 }
-/* line 352, ../../app/stylesheets/screen.scss */
+/* line 358, ../../app/stylesheets/screen.scss */
 .results .count {
   display: inline-block;
   text-align: left;
@@ -395,69 +403,69 @@ a#next:hover {
   font-weight: bold;
 }
 
-/* line 360, ../../app/stylesheets/screen.scss */
+/* line 366, ../../app/stylesheets/screen.scss */
 input#user_postal_code {
   width: 5em;
 }
 
-/* line 364, ../../app/stylesheets/screen.scss */
+/* line 370, ../../app/stylesheets/screen.scss */
 label[for='user_public'] {
   font-size: 12px;
 }
 
 /*********   SIMPLE FORM DEFAULTS   ************/
 /* ----- SimpleForm Styles ----- */
-/* line 375, ../../app/stylesheets/screen.scss */
+/* line 381, ../../app/stylesheets/screen.scss */
 .simple_form div.input {
   margin-bottom: 10px;
 }
-/* line 377, ../../app/stylesheets/screen.scss */
+/* line 383, ../../app/stylesheets/screen.scss */
 .simple_form div.input input.string {
   width: 200px;
 }
 
-/* line 382, ../../app/stylesheets/screen.scss */
+/* line 388, ../../app/stylesheets/screen.scss */
 .simple_form label {
   float: left;
   width: 230px;
   text-align: right;
   margin: 2px 10px;
 }
-/* line 387, ../../app/stylesheets/screen.scss */
+/* line 393, ../../app/stylesheets/screen.scss */
 .simple_form label abbr {
   display: none;
 }
 
-/* line 393, ../../app/stylesheets/screen.scss */
+/* line 399, ../../app/stylesheets/screen.scss */
 div.boolean, .simple_form input[type='submit'] {
   margin-left: 250px;
 }
 
-/* line 397, ../../app/stylesheets/screen.scss */
+/* line 403, ../../app/stylesheets/screen.scss */
 input[type='submit']:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-/* line 402, ../../app/stylesheets/screen.scss */
+/* line 408, ../../app/stylesheets/screen.scss */
 div.boolean label, label.collection_radio {
   float: none;
   margin: 0;
 }
 
-/* line 407, ../../app/stylesheets/screen.scss */
+/* line 413, ../../app/stylesheets/screen.scss */
 label.collection_radio {
   margin-right: 10px;
   vertical-align: -2px;
   margin-left: 2px;
 }
 
-/* line 413, ../../app/stylesheets/screen.scss */
+/* line 419, ../../app/stylesheets/screen.scss */
 .field_with_errors {
   background-color: #ff3333;
 }
 
-/* line 417, ../../app/stylesheets/screen.scss */
+/* line 423, ../../app/stylesheets/screen.scss */
 .simple_form .error {
   clear: left;
   color: black;
@@ -466,7 +474,7 @@ label.collection_radio {
   font-size: 12px;
 }
 
-/* line 425, ../../app/stylesheets/screen.scss */
+/* line 431, ../../app/stylesheets/screen.scss */
 .simple_form .hint {
   clear: left;
   margin-left: 120px;
@@ -476,19 +484,19 @@ label.collection_radio {
   font-style: italic;
 }
 
-/* line 434, ../../app/stylesheets/screen.scss */
+/* line 440, ../../app/stylesheets/screen.scss */
 input.radio {
   margin-right: 5px;
   vertical-align: -3px;
 }
 
-/* line 439, ../../app/stylesheets/screen.scss */
+/* line 445, ../../app/stylesheets/screen.scss */
 input.check_boxes {
   margin-left: 3px;
   vertical-align: -3px;
 }
 
-/* line 444, ../../app/stylesheets/screen.scss */
+/* line 450, ../../app/stylesheets/screen.scss */
 label.collection_check_boxes {
   float: none;
   margin: 0;
@@ -496,27 +504,27 @@ label.collection_check_boxes {
   margin-left: 2px;
 }
 
-/* line 452, ../../app/stylesheets/screen.scss */
+/* line 458, ../../app/stylesheets/screen.scss */
 #dev {
   background: orange;
   height: 30px;
 }
-/* line 455, ../../app/stylesheets/screen.scss */
+/* line 461, ../../app/stylesheets/screen.scss */
 #dev #configuration {
   padding: 5px;
   float: right;
 }
-/* line 459, ../../app/stylesheets/screen.scss */
+/* line 465, ../../app/stylesheets/screen.scss */
 #dev #date_election {
   padding: 5px;
   float: left;
 }
 
-/* line 465, ../../app/stylesheets/screen.scss */
+/* line 471, ../../app/stylesheets/screen.scss */
 #resend_instructions {
   text-align: center;
 }
-/* line 467, ../../app/stylesheets/screen.scss */
+/* line 473, ../../app/stylesheets/screen.scss */
 #resend_instructions input[name='email'] {
   width: 200px;
 }

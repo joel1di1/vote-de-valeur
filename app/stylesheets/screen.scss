@@ -42,6 +42,9 @@ body{
   &.votes_classic{
     background: white url('/images/bgs/fondProcessus3-3.jpg') no-repeat center top;
   }
+  &.home_thanks{
+    background: white url('/images/bgs/fondProcessus3-4.jpg') no-repeat center top;
+  }
 }
 
 .clear{
@@ -130,6 +133,9 @@ td.count, td.classic_count{
   }
   &.blue{
     border: 3px #4A6EAF solid;
+  }
+  &.green{
+    border: 3px #3CB126 solid;
   }
 }
 

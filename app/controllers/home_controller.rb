@@ -18,4 +18,8 @@ class HomeController < ApplicationController
 
     redirect_to root_path, :notice => t(:mail_send)
   end
+
+  def thanks
+
+  end
 end
