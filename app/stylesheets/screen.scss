@@ -384,7 +384,11 @@ $label_inner_width: $label_width - 2*$label_margin;
   width: $label_inner_width;
   text-align: right;
   margin: 2px $label_margin;
+  abbr{
+    display: none;
+  }
 }
+
 
 div.boolean, .simple_form input[type='submit'] {
   margin-left: $label_width;
