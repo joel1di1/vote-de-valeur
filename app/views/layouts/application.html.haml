@@ -1,5 +1,5 @@
 -# coding: utf-8
-!!!
+!!!5
 %html
   %head
     %title VoteDeValeur
@@ -19,7 +19,7 @@
           |
           = link_to t(:sign_out), destroy_user_session_path
         - else
-          = link_to "Déjà enregistré ?"
+          = link_to "Déjà enregistré ?", users_resend_instructions_path
       .clear
     #messages
       - if !flash.empty?

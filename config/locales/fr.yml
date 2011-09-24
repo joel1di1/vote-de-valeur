@@ -1,5 +1,6 @@
 fr:
   sign_out: déconnexion
+  mail_send:  'Le mail vous a été renvoyé'
   simple_form:
     labels:
       user:

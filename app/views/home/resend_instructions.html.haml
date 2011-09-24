@@ -1,0 +1,12 @@
+#content.red
+  %p
+    Si vous êtes déjà enregistré, vous devex vous connecter en suivant le lien contenu dans le mail qui vous a été envoyé.
+  %p
+    Si vous n'avez pas reçu le mail, vous pouvez le ré-envoyer :
+
+  %form#resend_instructions{:action => '/users/resend_instructions', :method => :post}
+    %input{:name => 'email', :type => :email}
+    %input{:type => :submit, :value => 'Renvoyez-moi le mail'}
+
+
+= link_to "Retour à l'accueil", new_user_registration_path, :id => 'next', :class => 'red'

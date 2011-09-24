@@ -6,7 +6,7 @@ html, body {
 }
 
 /* line 30, ../../app/stylesheets/screen.scss */
-body.home_index {
+body.home_index, body.home_resend_instructions {
   background: white url("/images/bgs/fondProcessus1-1.jpg") no-repeat center top;
 }
 /* line 33, ../../app/stylesheets/screen.scss */
@@ -510,4 +510,13 @@ label.collection_check_boxes {
 #dev #date_election {
   padding: 5px;
   float: left;
+}
+
+/* line 465, ../../app/stylesheets/screen.scss */
+#resend_instructions {
+  text-align: center;
+}
+/* line 467, ../../app/stylesheets/screen.scss */
+#resend_instructions input[name='email'] {
+  width: 200px;
 }

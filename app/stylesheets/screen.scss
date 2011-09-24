@@ -27,7 +27,7 @@ html, body{
 }
 
 body{
-  &.home_index{
+  &.home_index, &.home_resend_instructions{
     background: white url('/images/bgs/fondProcessus1-1.jpg') no-repeat center top;
   }
   &.registrations_new, &.registrations_create{
@@ -459,5 +459,12 @@ label.collection_check_boxes {
   #date_election{
     padding: 5px;
     float: left;
+  }
+}
+
+#resend_instructions{
+  text-align: center;
+  input[name='email']{
+    width: 200px;
   }
 }
