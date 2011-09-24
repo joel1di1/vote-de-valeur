@@ -374,6 +374,9 @@ $label_margin: 10px;
 $label_inner_width: $label_width - 2*$label_margin;
 .simple_form div.input {
   margin-bottom: 10px;
+  input.string{
+    width: 200px;
+  }
 }
 
 .simple_form label {
