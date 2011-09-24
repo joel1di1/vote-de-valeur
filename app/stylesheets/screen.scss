@@ -394,6 +394,11 @@ div.boolean, .simple_form input[type='submit'] {
   margin-left: $label_width;
 }
 
+input[type='submit']:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 div.boolean label, label.collection_radio {
   float: none;
   margin: 0;
