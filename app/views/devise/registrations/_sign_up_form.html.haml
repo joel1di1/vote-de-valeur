@@ -1,5 +1,6 @@
 = simple_form_for(@user, :url => registration_path(@user)) do |f|
   #content.orange
+    = render :partial => '/layouts/messages'
     = f.input :email
     = f.input :first_name
     = f.input :last_name

@@ -1,6 +1,7 @@
 -# coding: utf-8
 = simple_form_for @user, :url => '/votes/classic', :html => {:method => :post, :class => "application classic", :id => "user_vote_form"} do |f|
   #content.grey
+    = render :partial => '/layouts/messages'
     #classic_vote
       %h2= 'Vote classique'
       - values = @candidates.to_a.collect{|c| [c.id, c.name]}

@@ -1,5 +1,6 @@
 -# coding: utf-8
 = simple_form_for @user, :url => '/votes', :html => {:method => :post, :class => "application", :id => "user_vote_form"} do |f|
+  = render :partial => '/layouts/messages'
   #content.blue
     #user_votes
       %h2= 'Vote de valeur'

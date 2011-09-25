@@ -21,11 +21,6 @@
         - else
           = link_to "Déjà enregistré ?", users_resend_instructions_path
       .clear
-    #messages
-      - if !flash.empty?
-        - flash.each do |key, value|
-          %p(id="flash_#{key}" class=key)
-            = value
     #container
       = yield
     .clear

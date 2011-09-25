@@ -1,6 +1,6 @@
 -#coding: UTF-8
-
 #content.red
+  = render :partial => '/layouts/messages'
   %p
     Votre carte électorale est validée.
   - if DateHelper.election_running?

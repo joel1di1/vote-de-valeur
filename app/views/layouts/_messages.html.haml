@@ -1,0 +1,5 @@
+- if !flash.empty?
+  #messages
+    - flash.each do |key, value|
+      %p(id="flash_#{key}" class=key)
+        = value
