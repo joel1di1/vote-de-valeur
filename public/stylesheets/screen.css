@@ -560,3 +560,14 @@ label.collection_radio {
   margin: -116px auto 0 auto;
   display: block;
 }
+
+/* line 506, ../../app/stylesheets/screen.scss */
+#content a {
+  font-size: 12px;
+  float: right;
+  color: #2E2E2E;
+}
+/* line 510, ../../app/stylesheets/screen.scss */
+#content a:active, #content a:visited {
+  color: #2E2E2E;
+}

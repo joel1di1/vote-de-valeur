@@ -2,6 +2,8 @@ class HomeController < ApplicationController
 
   def index
     if user_signed_in?
+      sign_out
+      @user_signed_out = true
       render :election_soon
     else
       @user =  User.new

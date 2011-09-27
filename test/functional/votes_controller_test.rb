@@ -6,7 +6,7 @@ class VotesControllerTest < ActionController::TestCase
     @c = VotesController.new
   end
 
-  test 'Vote is not possible when election is not running' do
+  test 'vote is not possible when election is not running' do
     DateHelper.set_election_time 1.day.from_now, 2.days.from_now
 
     sign_in Factory :user

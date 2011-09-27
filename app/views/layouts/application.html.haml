@@ -14,12 +14,10 @@
         = link_to root_path do
           = image_tag 'logo-vote-de-valeur.png', :size => "157x155"
       #user_sign_in
-        - if user_signed_in?
+        - if user_signed_in? && (!@user_signed_out)
           = current_user.email
           |
           = link_to t(:sign_out), destroy_user_session_path
-        - else
-          = link_to "Déjà enregistré ?", users_resend_instructions_path
       .clear
     #container
       = yield

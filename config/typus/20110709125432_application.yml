@@ -4,8 +4,8 @@
 
 ClassicVote:
   fields:
-    default: user_id, candidate_id, user, candidate
-    form: user_id, candidate_id, user, candidate
+    default: user, candidate
+    form: user, candidate
   order_by: 
   relationships: candidate, user
   filters: created_at

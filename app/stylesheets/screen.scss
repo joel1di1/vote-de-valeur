@@ -502,3 +502,12 @@ label.collection_radio{
   margin: -116px auto 0 auto;
   display: block;
 }
+
+#content a{
+  font-size: 12px;
+  float: right;
+  color: #2E2E2E;
+  &:active, &:visited{
+    color: #2E2E2E;
+  }
+}

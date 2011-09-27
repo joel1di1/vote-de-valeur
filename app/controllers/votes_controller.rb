@@ -4,7 +4,7 @@ class VotesController < ApplicationController
   TOKEN_VALIDATED_KEY = 'token_validated'
 
   def index
-    redirect_to root_path unless user_signed_in?
+    redirect_to root_path and return unless user_signed_in?
     unless DateHelper.election_running?
       flash[:error] = "Le bureau de vote n'est pas ouvert"
       redirect_to root_path and return

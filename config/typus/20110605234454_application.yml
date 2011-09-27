@@ -17,15 +17,15 @@ User:
     default: id, email, first_name, last_name, postal_code, public, a_vote, a_vote_classic, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, confirmation_token, confirmed_at, confirmation_sent_at, failed_attempts, unlock_token, locked_at
     form: email, first_name, last_name, postal_code, public, a_vote, a_vote_classic, reset_password_token, reset_password_sent_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, confirmation_token, confirmed_at, confirmation_sent_at, failed_attempts, unlock_token, locked_at
   order_by:
-  relationships: votes
+  relationships: votes, classic_vote
   filters: created_at
   search: 
   application: vote-de-valeur
 
 Vote:
   fields:
-    default: candidate_id, user_id, vote, candidate, user
-    form: candidate_id, user_id, vote, candidate, user
+    default: user, candidate, vote
+    form: user, candidate, vote
   order_by: 
   relationships: candidate, user
   filters: created_at
