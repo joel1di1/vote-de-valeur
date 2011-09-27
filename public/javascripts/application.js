@@ -15,17 +15,18 @@ $(function(){
 function highlight_label(for_s){
     $("label[for='"+for_s+"']")
         .addClass("selected")
-        .removeClass("unselected")
+        .removeClass("unselected nonselected")
 }
 function unhighlight_label(for_s){
     $("label[for='"+for_s+"']")
-        .addClass("unselected")
-        .removeClass("selected")
+        .addClass("nonselected")
+        .removeClass("selected unselected")
 }
 
 // transformer les radios du vote classique
 $(function(){
     $("label.collection_radio").addClass('unselected')
+    $("#user_votes label.collection_radio").html('')
     $("input[type='radio']").addClass('hidden')
         .filter("[checked]").each(function(){
             highlight_label(this.id)

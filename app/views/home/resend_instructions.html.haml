@@ -1,12 +1,12 @@
 #content.red
   = render :partial => '/layouts/messages'
   %p
-    Si vous êtes déjà enregistré, vous devex vous connecter en suivant le lien contenu dans le mail qui vous a été envoyé.
+    Si vous êtes déjà enregistré, vous devez vous connecter en suivant le lien contenu dans le mail qui vous a été envoyé.
   %p
-    Si vous n'avez pas reçu le mail, vous pouvez le ré-envoyer :
+    Si vous n'avez pas reçu le mail ou si vous ne le retrouvez pas :
 
   %form#resend_instructions{:action => '/users/resend_instructions', :method => :post}
-    %input{:name => 'email', :type => :email}
+    %input{:name => 'email', :type => :email, :placeholder => 'Votre email'}
     %input{:type => :submit, :value => 'Renvoyez-moi le mail'}
 
 

@@ -149,10 +149,10 @@ td.count, td.classic_count{
   }
 
   &.blue{
-    width: 735px;
+    width: 790px;
     padding: 0 0;
     h2{
-      width: 735px;
+      width: 790px;
       background: #4A6EAF;
     }
   }
@@ -221,7 +221,7 @@ $name_width: 175px;
           margin: 0 0;
           background: url(/images/radio-selected.png) no-repeat 200px 7px;
         }
-        &.unselected{
+        &.unselected, &.nonselected{
           padding: 12px 70px 12px 0;
           margin: 0 0;
           background: url(/images/radio-unselected.png) no-repeat 200px 7px;
@@ -229,107 +229,6 @@ $name_width: 175px;
       }
     }
   }
-
-  #user_votes{
-      $vote_width: 475px;
-
-      .row{
-          width: $vote_width;
-          height: $row_height;
-          vertical-align: top;
-          > label{
-              display: inline-block;
-              text-align: right;
-              width: $name_width;
-              padding-right: 10px;
-          }
-          .input {
-              display: inline-block;
-              text-align: left;
-              span {
-
-                display: inline-block;
-
-                input{
-                   margin: 0 0;
-
-                }
-                label{
-                    display: inline-block;
-                    $label_radius: 17px;
-                    margin: 5px 5px 5px 0;
-                    width: (2 * $label_radius) - 4px;
-                    height: (2 * $label_radius) - 4px - 5px;
-                    @include border-radius($label_radius);
-                    border: 1px solid black;
-                    font-size: 15px;
-                    font-family: Verdana;
-                    cursor: pointer;
-                    text-align: center;
-                    padding: 5px 0 0 0;
-                    z-index: 2;
-                    background-color: #EEE;
-
-                    &.selected{
-                      font-weight: bold;
-                      color: black;
-                      border-color: black;
-                      margin-right: 15px;
-                    }
-                    &.unselected{
-                      margin-right: 15px;
-                    }
-                }
-                label[for$="-2"] {
-                    border-color: $color_minus_2;
-                    color: $color_minus_2;
-                    &.selected{
-                      background-color: #F43737;
-                      color: black;
-                      border-color: black;
-                    }
-                }
-                label[for$="-1"] {
-                    border-color: $color_minus_1;
-                    color: $color_minus_1;
-                    &.selected{
-                      background-color: #E49F37;
-                      color: black;
-                      border-color: black;
-                    }
-                }
-                label[for$="0"] {
-                    border-color: $color_0;
-                    color: $color_0;
-                    &.selected{
-                      background-color: #D2D2D7;
-                      color: black;
-                      border-color: black;
-                    }
-                }
-                label[for$="_1"] {
-                    border-color: $color_1;
-                    color: $color_1;
-                    &.selected{
-                      background-color: #B5D43B;
-                      color: black;
-                      border-color: black;
-                    }
-                }
-                label[for$="_2"] {
-                    border-color: $color_2;
-                    color: $color_2;
-                    &.selected{
-                      background-color: #26B709;
-                      color: black;
-                      border-color: black;
-                    }
-                }
-              }
-          }
-      }
-  }
-
 
   #user_submit{
       margin-top: 30px;
@@ -472,4 +371,134 @@ label.collection_check_boxes {
   input[name='email']{
     width: 200px;
   }
+}
+
+.head_row{
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+$cell_width: 100px;
+.vote_head{
+  display: inline-block;
+  width: $cell_width;
+  font-size: 10px;
+  float:left;
+  color: #EEE;
+  padding: 5px 0;
+  &.minus_two{
+    margin-left: 250px;
+    background: rgb(219, 67, 67);
+  }
+  &.minus_one{
+    background: rgb(228, 159, 55);
+  }
+  &.zero{
+    background: rgb(180, 180, 180);
+  }
+  &.plus_one{
+    background: rgb(177, 208, 57);
+  }
+  &.plus_two{
+    background: rgb(32, 183, 86);
+  }
+  .legend{
+    display: inline-block;
+    width: 49px;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .value{
+    display: inline-block;
+    width: 17px;
+    font-size: 14px;
+    vertical-align: middle;
+    text-align: center;
+  }
+  img{
+    vertical-align: middle;
+  }
+
+}
+
+#user_vote_form{
+  .input span{
+    width: $cell_width;
+    display: inline-block;
+    /*padding: 5px 0;*/
+    text-align: center;
+    /*background: lightgrey;*/
+  }
+}
+label[for^=user_vote_for_candidate]{
+  padding-top: 4px;
+}
+label.collection_radio{
+  width: 100px;
+  height: 33px;
+  display: inline-block;
+  margin-left: 0;
+  cursor: pointer;
+}
+#user_votes{
+  label[for$='-2'].collection_radio{
+    &.unselected{
+      background: url(/images/votes/moins2.png);
+    }
+    &.selected{
+      background: url(/images/votes/smileyMoins2On.png);
+    }
+    &.nonselected{
+      background: url(/images/votes/moins2seul.png);
+    }
+  }
+  label[for$='-1'].collection_radio{
+    &.unselected{
+      background: url(/images/votes/moins1.png);
+    }
+    &.selected{
+      background: url(/images/votes/smileyMoins1On.png);
+    }
+    &.nonselected{
+      background: url(/images/votes/moins1seul.png);
+    }
+  }
+  label[for$='0'].collection_radio{
+    &.unselected{
+      background: url(/images/votes/0.png);
+    }
+    &.selected{
+      background: url(/images/votes/smiley0On.png);
+    }
+    &.nonselected{
+      background: url(/images/votes/0seul.png);
+    }
+  }
+  label[for$='_1'].collection_radio{
+    &.unselected{
+      background: url(/images/votes/plus1.png);
+    }
+    &.selected{
+      background: url(/images/votes/smileyPlus1On.png);
+    }
+    &.nonselected{
+      background: url(/images/votes/plus1seul.png);
+    }
+  }
+  label[for$='_2'].collection_radio{
+    &.unselected{
+      background: url(/images/votes/plus2.png);
+    }
+    &.selected{
+      background: url(/images/votes/smileyPlus2On.png);
+    }
+    &.nonselected{
+      background: url(/images/votes/plus2seul.png);
+    }
+  }
+}
+
+#pastille_a_vote{
+  margin: -116px auto 0 auto;
+  display: block;
 }
