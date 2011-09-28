@@ -1,6 +1,6 @@
 # coding: utf-8
 class UserMailer < ActionMailer::Base
-  default :from => "joel1di1+vote-de-valeur@gmail.com"
+  default :from => "no-reply@votedevaleur.org"
 
   def send_confirmation user
     @user = user
