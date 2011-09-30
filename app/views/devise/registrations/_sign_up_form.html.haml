@@ -7,7 +7,7 @@
     = f.input :postal_code, :as => 'string'
     = f.input :public
 
-    = link_to "Déjà enregistré ?", users_resend_instructions_path
+    = link_to "Déjà enregistré ?", users_resend_instructions_path, :id => 'alreadyRegistered'
     .clear
 
   = f.submit "S'enregistrer", :id => 'next', :class => 'orange'
