@@ -2,8 +2,18 @@
 #content.red
   = render :partial => '/layouts/messages'
   %p
-    Le Vote De Valeur c'est...
+    Nous, (compteur automatique : 10342) citoyens inscrits sur ce site, souhaitons l'amélioration du système de vote français.
   %p
-    L'expérimentation consiste à...
+    Nous nous intéressons au système du Vote de Valeur : l'électeur donne une valeur à chaque candidat, 
+    de -2 (très hostile) à +2 (très favorable), 
+    et le candidat qui obtient le plus de points est élu en un seul tour. 
+    Au vu des avantages présentés sur 
+    %a{:href => "http://www.votedevaleur.org"}www.votedevaleur.org
+    , ce système nous paraît suffisamment prometteur pour mériter d'être expérimenté largement.
+  %p
+  	Nous participerons à l'expérimentation en ligne du Vote de Valeur pour les élections présidentielles de 2012 : 
+  	en plus de voter à notre bureau de vote officiel, dans les jours précédant le scrutin, nous voterons sur ce site internet, 
+  	où nous exprimerons notre opinion à la fois par un vote classique et par un vote de valeur, 
+  	afin de permettre une analyse statistique anonyme des résultats.
 
 = link_to "Continuer", new_user_registration_path, :id => 'next', :class => 'red'
