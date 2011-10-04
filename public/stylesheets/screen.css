@@ -561,13 +561,13 @@ label.collection_radio {
   display: block;
 }
 
-/* line 506, ../../app/stylesheets/screen.scss */
-#content a {
+/* line 507, ../../app/stylesheets/screen.scss */
+#alreadyRegistered {
   font-size: 12px;
   float: right;
   color: #2E2E2E;
 }
-/* line 510, ../../app/stylesheets/screen.scss */
-#content a:active, #content a:visited {
+/* line 511, ../../app/stylesheets/screen.scss */
+#alreadyRegistered:active, #alreadyRegistered:visited {
   color: #2E2E2E;
 }
