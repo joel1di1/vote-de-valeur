@@ -25,10 +25,18 @@
           = current_user.email
           |
           = link_to t(:sign_out), destroy_user_session_path
+      #social
+        %span.st_twitter
+        %span.st_facebook
+        %span.st_email
+        %span.st_sharethis
+
       .clear
     #container
       = yield
+
     .clear
+
     #dev
       #date_election
         L'élection commence

@@ -98,8 +98,11 @@ td.count, td.classic_count{
 }
 
 #header{
-    margin: 0 auto;
-    width: $width;
+  margin: 0 auto;
+  width: $width;
+  #social{
+    float: right;
+  }
 }
 #logo{
   float: left;
@@ -512,3 +515,4 @@ label.collection_radio{
     color: #2E2E2E;
   }
 }
+
