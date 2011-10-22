@@ -92,19 +92,13 @@ class VoteUiTest < ActionDispatch::IntegrationTest
       select_classic_vote @candidate_2
       submit_vote
     end
-
-    @user.reload
-    assert_equal +1, @user.vote_for_candidate(@candidate_1.id)
-    assert_equal -2, @user.vote_for_candidate(@candidate_2.id)
-
-    assert_not_nil @user.classic_vote
-    assert_equal @candidate_2, @user.classic_vote.candidate
   end
 
   test "user should be able to vote only once" do
     # setup
     go_to_vote
     submit_vote
+
     submit_vote
 
     # action
@@ -136,13 +130,14 @@ class VoteUiTest < ActionDispatch::IntegrationTest
 
     # action
     visit votes_classic_path
-    assert_equal votes_path, page.current_path
+    assert_equal root_path, page.current_path
+
+    go_to_vote
     submit_vote
 
     # assert
     visit votes_classic_path
     assert_equal root_path, page.current_path
-
   end
 
 

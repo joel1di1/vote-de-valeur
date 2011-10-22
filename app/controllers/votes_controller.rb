@@ -82,8 +82,7 @@ class VotesController < ApplicationController
 
       vote_value = parse_vote_value value_string
 
-      vote = Vote.new :user => current_user, :candidate => candidate, :vote => vote_value
-      current_user.votes << vote
+      Vote.create :candidate => candidate, :vote => vote_value
     end
 
     current_user.update_attribute :a_vote, true
@@ -109,11 +108,8 @@ class VotesController < ApplicationController
       return
     end
 
-    current_user.classic_vote = ClassicVote.create :user => current_user unless current_user.classic_vote
-    if params[:user] && params[:user][:classic_vote]
-      current_user.classic_vote.candidate = Candidate.find(params[:user][:classic_vote])
-      current_user.classic_vote.save
-    end
+    candidate = Candidate.find(params[:user][:classic_vote]) if params[:user] && params[:user][:classic_vote]
+    ClassicVote.create :candidate => candidate if candidate
 
     current_user.update_attribute :a_vote_classic, true
 

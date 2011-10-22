@@ -8,7 +8,7 @@ class CandidateTest < ActiveSupport::TestCase
     user = Factory :user
 
     # action
-    Factory :vote, :user => user, :candidate => candidate, :vote => nil
+    Factory :vote, :candidate => candidate, :vote => nil
 
     # assert
     candidate.reload
@@ -22,7 +22,7 @@ class CandidateTest < ActiveSupport::TestCase
     assert_equal 0, candidate.classic_votes_total
 
     # action
-    Factory :classic_vote, :user => user, :candidate => candidate
+    Factory :classic_vote, :candidate => candidate
 
     # assert
     candidate.reload

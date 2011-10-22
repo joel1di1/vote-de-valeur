@@ -17,9 +17,8 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     # actions
     sign_up(user)
 
-    assert page.has_content? 'Merci'
+    assert_equal root_path, page.current_path
   end
-
 
   test "sign up during election send to thanks page" do
     # setup
@@ -31,9 +30,8 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     # actions
     sign_up(user)
 
-    assert page.has_content? 'Merci'
+    assert_equal root_path, page.current_path
   end
-
 
   test "sign up before election start must send confirmation message" do
     # setup
@@ -51,7 +49,6 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
     assert ! mail.body.to_s.match(/#{User.find_by_email(user.email).access_token}/)
     assert_match /Un mail vous sera envoy. . l'ouverture du bureau de vote/, mail.body
   end
-
 
   test "sign up in election time must send confirmation message" do
     # setup

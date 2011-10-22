@@ -7,12 +7,6 @@ class HomeUiTest < ActionDispatch::IntegrationTest
     ui_sign_out
   end
 
-  test 'home should show description text' do
-    visit '/'
-    assert page.has_content? 'Le Vote De Valeur c\'est'
-  end
-
-
   test 'sign_up page should show sign_up form for unauthenticated users' do
     visit '/'
     click_link 'Continuer'
@@ -47,10 +41,6 @@ class HomeUiTest < ActionDispatch::IntegrationTest
     assert page.has_field? 'user[public]'
   end
 
-  test "home should say vote de valeur" do
-    visit '/'
-    assert page.has_content? 'Vote De Valeur'
-  end
 
   test "home should display sign in" do
     visit '/'

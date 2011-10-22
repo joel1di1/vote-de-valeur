@@ -5,7 +5,9 @@
     #classic_vote
       %h2= 'Vote classique'
       - values = @candidates.to_a.collect{|c| [c.id, c.name]}
-      - classic_vote = current_user.classic_vote.candidate.id if (current_user.classic_vote && current_user.classic_vote.candidate)
-      = f.collection_radio "classic_vote", values, :first, :last, :checked => classic_vote
+      - values.each do |v|
+        %span
+          %input{:type =>'radio', :id => "user_classic_vote_#{v[0]}", :name => 'user[classic_vote]', :value => v[0], :class => 'hidden'}
+          %label{:class =>"collection_radio unselected", :for => "user_classic_vote_#{v[0]}"}= v[1]
 
   = f.submit "Valider", :id => 'next', :class => 'grey'

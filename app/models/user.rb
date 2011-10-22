@@ -28,7 +28,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :access_token
   validates_with NoJunkMailValidator
 
-  has_many :votes, :dependent => :destroy
   has_one :classic_vote, :dependent => :destroy
 
   after_create :send_confirmation_mail
@@ -39,22 +38,10 @@ class User < ActiveRecord::Base
     self.access_token = User.generate_access_token unless self.access_token
   end
 
-  def vote_for_candidate id
-    tmp = votes.select { |v| v.candidate_id == id.to_i }
-    case tmp.count
-      when 1
-        tmp.first.vote
-      when 0
-        nil
-      else
-        raise "le user #{self.id} possède plusieurs votes pour le candidat #{id}"
-    end
-  end
-
   def method_missing method_name, *args, &block
     case method_name
       when /^vote_for_candidate_(\d*)$/ then
-        vote_for_candidate $1
+        nil
       else
         super method_name, *args, &block
     end
