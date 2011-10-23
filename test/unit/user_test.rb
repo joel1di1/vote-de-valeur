@@ -2,6 +2,10 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
+  setup do
+    @u = User.new
+  end
+
   test 'user create should call send confirmation on user mailer' do
     user = Factory.build :user
     mail = mock
@@ -25,6 +29,30 @@ class UserTest < ActiveSupport::TestCase
     assert !Factory.build(:user, :email => 'test@test.test').valid?
     assert !Factory.build(:user, :email => nil).valid?
     assert !Factory.build(:user, :email => 'toto@jetable.org').valid?
+  end
+
+  test 'parse_vote_value' do
+
+    assert_parse_equal 1, '1'
+    assert_parse_equal 1, '+1'
+    assert_parse_equal 2, '2'
+    assert_parse_equal 2, '+2'
+    assert_parse_equal -1, '-1'
+    assert_parse_equal -2, '-2'
+
+    assert_parse_nil '22po'
+    assert_parse_nil '22po432'
+    assert_parse_nil ''
+    assert_parse_nil '   '
+    assert_parse_nil nil
+  end
+
+  def assert_parse_equal expected, value
+    assert_equal expected, @u.parse_vote_value(value)
+  end
+
+  def assert_parse_nil value
+    assert_nil @u.parse_vote_value(value)
   end
 
 end

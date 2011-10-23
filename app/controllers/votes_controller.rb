@@ -76,16 +76,7 @@ class VotesController < ApplicationController
       redirect_to root_path and return
     end
 
-    Candidate.all.each do |candidate|
-      value_string = nil
-      value_string = params[:user]["vote_for_candidate_#{candidate.id}"] if params[:user]
-
-      vote_value = parse_vote_value value_string
-
-      Vote.create :candidate => candidate, :vote => vote_value
-    end
-
-    current_user.update_attribute :a_vote, true
+    current_user.vote! params[:user]
 
     redirect_to votes_classic_path
   end
@@ -108,17 +99,9 @@ class VotesController < ApplicationController
       return
     end
 
-    candidate = Candidate.find(params[:user][:classic_vote]) if params[:user] && params[:user][:classic_vote]
-    ClassicVote.create :candidate => candidate if candidate
-
-    current_user.update_attribute :a_vote_classic, true
+    current_user.classic_vote! params[:user]
 
     redirect_to thanks_path
-  end
-
-  def parse_vote_value value_string
-    vote_value = value_string.to_i if (value_string && value_string.match(/^[-+]?\d+$/))
-    vote_value ||= nil
   end
 
   def explanations

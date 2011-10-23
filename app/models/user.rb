@@ -57,4 +57,29 @@ class User < ActiveRecord::Base
     token
   end
 
+  def vote! votes_hash
+    Candidate.all.each do |candidate|
+      value_string = nil
+      value_string = votes_hash["vote_for_candidate_#{candidate.id}"] if votes_hash
+
+      vote_value = parse_vote_value value_string
+
+      Vote.create :candidate => candidate, :vote => vote_value
+    end
+
+    self.update_attribute :a_vote, true
+  end
+
+  def classic_vote! classic_vote_hash
+    candidate = Candidate.find(classic_vote_hash[:classic_vote]) if classic_vote_hash && classic_vote_hash[:classic_vote]
+    ClassicVote.create :candidate => candidate if candidate
+
+    self.update_attribute :a_vote_classic, true
+  end
+
+  def parse_vote_value value_string
+    vote_value = value_string.to_i if (value_string && value_string.match(/^[-+]?\d+$/))
+    vote_value ||= nil
+  end
+
 end
