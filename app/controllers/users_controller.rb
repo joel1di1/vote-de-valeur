@@ -13,4 +13,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def count
+    render :json => {:users => {:count => User.count}}
+  end
+
 end

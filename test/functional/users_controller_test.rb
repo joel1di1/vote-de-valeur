@@ -28,4 +28,23 @@ class UsersControllerTest < ActionController::TestCase
     assert_equal user.id, warden_session_key[1][0], 'user not signed in, warden key is not user id'
   end
 
+  def count_users_with_json_call
+    get :count, :format => :json
+
+    assert_response :success
+    json = JSON.parse(response.body).with_indifferent_access
+    count = json[:users][:count]
+    count
+  end
+
+  test 'count json should return user count' do
+    count = count_users_with_json_call()
+    assert_not_nil count
+
+    assert_difference 'count_users_with_json_call()' do
+      Factory :user
+    end
+
+  end
+
 end
