@@ -17,6 +17,10 @@ gem 'sqlite3'
 gem 'ssl_requirement'
 gem 'typus'
 
+group :production do
+  gem 'pg'
+end
+
 group :assets do
   gem 'coffee-rails'
   gem 'sass-rails'
