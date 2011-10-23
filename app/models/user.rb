@@ -28,8 +28,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :access_token
   validates_with NoJunkMailValidator
 
-  has_one :classic_vote, :dependent => :destroy
-
   after_create :send_confirmation_mail
 
   before_validation :add_access_token
