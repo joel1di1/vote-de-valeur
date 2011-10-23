@@ -52,4 +52,13 @@ VoteDeValeur::Application.configure do
 
   config.middleware.use "ForceSSL"
 
+  # Compress JavaScript and CSS
+  config.assets.compress = true
+
+  # Don't fallback to assets pipeline
+  config.assets.compile = false
+
+  # Generate digests for assets URLs
+  config.assets.digest = true
+
 end

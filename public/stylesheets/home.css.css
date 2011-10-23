@@ -1,119 +1,119 @@
-/* line 23, ../../app/stylesheets/screen.scss */
+/* line 23, ../../app/assets/stylesheets/home.css.scss */
 html, body {
   margin: 0 0;
   padding: 0 0;
   font-family: "Lucida Grande", Verdana;
 }
 
-/* line 30, ../../app/stylesheets/screen.scss */
+/* line 30, ../../app/assets/stylesheets/home.css.scss */
 body.home_index, body.home_resend_instructions {
   background: white url("/images/bgs/fondProcessus1-1.jpg") no-repeat center top;
 }
-/* line 33, ../../app/stylesheets/screen.scss */
+/* line 33, ../../app/assets/stylesheets/home.css.scss */
 body.registrations_new, body.registrations_create {
   background: white url("/images/bgs/fondProcessus1-2.jpg") no-repeat center top;
 }
-/* line 36, ../../app/stylesheets/screen.scss */
+/* line 36, ../../app/assets/stylesheets/home.css.scss */
 body.votes_explanations {
   background: white url("/images/bgs/fondProcessus3-1.jpg") no-repeat center top;
 }
-/* line 39, ../../app/stylesheets/screen.scss */
+/* line 39, ../../app/assets/stylesheets/home.css.scss */
 body.votes_index {
   background: white url("/images/bgs/fondProcessus3-2.jpg") no-repeat center top;
 }
-/* line 42, ../../app/stylesheets/screen.scss */
+/* line 42, ../../app/assets/stylesheets/home.css.scss */
 body.votes_classic {
   background: white url("/images/bgs/fondProcessus3-3.jpg") no-repeat center top;
 }
-/* line 45, ../../app/stylesheets/screen.scss */
+/* line 45, ../../app/assets/stylesheets/home.css.scss */
 body.home_thanks {
   background: white url("/images/bgs/fondProcessus3-4.jpg") no-repeat center top;
 }
 
-/* line 50, ../../app/stylesheets/screen.scss */
+/* line 50, ../../app/assets/stylesheets/home.css.scss */
 .clear {
   clear: both;
 }
 
-/* line 54, ../../app/stylesheets/screen.scss */
+/* line 54, ../../app/assets/stylesheets/home.css.scss */
 h2, h1, h4 {
   text-align: center;
 }
 
-/* line 58, ../../app/stylesheets/screen.scss */
+/* line 58, ../../app/assets/stylesheets/home.css.scss */
 table {
   border-collapse: collapse;
 }
-/* line 60, ../../app/stylesheets/screen.scss */
+/* line 60, ../../app/assets/stylesheets/home.css.scss */
 table td {
   border: 1px solid;
 }
-/* line 63, ../../app/stylesheets/screen.scss */
+/* line 63, ../../app/assets/stylesheets/home.css.scss */
 table thead {
   font-weight: bold;
 }
 
-/* line 68, ../../app/stylesheets/screen.scss */
+/* line 68, ../../app/assets/stylesheets/home.css.scss */
 td.count, td.classic_count {
   text-align: right;
 }
 
-/* line 74, ../../app/stylesheets/screen.scss */
+/* line 74, ../../app/assets/stylesheets/home.css.scss */
 #user_new .input label {
   text-align: right;
   display: inline-block;
   width: 90px;
 }
-/* line 80, ../../app/stylesheets/screen.scss */
+/* line 80, ../../app/assets/stylesheets/home.css.scss */
 #user_new #user_remember_me {
   margin-left: 90px;
 }
-/* line 83, ../../app/stylesheets/screen.scss */
+/* line 83, ../../app/assets/stylesheets/home.css.scss */
 #user_new #user_submit {
   display: block;
   margin-left: 90px;
 }
 
-/* line 90, ../../app/stylesheets/screen.scss */
+/* line 90, ../../app/assets/stylesheets/home.css.scss */
 #container {
   margin: 0 auto;
   width: 972px;
 }
 
-/* line 95, ../../app/stylesheets/screen.scss */
+/* line 95, ../../app/assets/stylesheets/home.css.scss */
 #messages {
   text-align: center;
   font-weight: bold;
 }
 
-/* line 100, ../../app/stylesheets/screen.scss */
+/* line 100, ../../app/assets/stylesheets/home.css.scss */
 #header {
   margin: 0 auto;
   width: 972px;
 }
-/* line 103, ../../app/stylesheets/screen.scss */
+/* line 103, ../../app/assets/stylesheets/home.css.scss */
 #header #social {
   float: right;
 }
 
-/* line 107, ../../app/stylesheets/screen.scss */
+/* line 107, ../../app/assets/stylesheets/home.css.scss */
 #logo {
   float: left;
   margin-top: 37px;
 }
 
-/* line 111, ../../app/stylesheets/screen.scss */
+/* line 111, ../../app/assets/stylesheets/home.css.scss */
 #user_sign_in {
   float: right;
   text-align: right;
 }
 
-/* line 116, ../../app/stylesheets/screen.scss */
+/* line 116, ../../app/assets/stylesheets/home.css.scss */
 .hidden {
   display: none;
 }
 
-/* line 120, ../../app/stylesheets/screen.scss */
+/* line 120, ../../app/assets/stylesheets/home.css.scss */
 #content, #next {
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -129,33 +129,33 @@ td.count, td.classic_count {
   box-shadow: 0px 0px 10px #333333;
   padding: 10px;
 }
-/* line 127, ../../app/stylesheets/screen.scss */
+/* line 127, ../../app/assets/stylesheets/home.css.scss */
 #content.red, #next.red {
   border: 3px #EB4242 solid;
 }
-/* line 130, ../../app/stylesheets/screen.scss */
+/* line 130, ../../app/assets/stylesheets/home.css.scss */
 #content.orange, #next.orange {
   border: 3px #E49F37 solid;
 }
-/* line 133, ../../app/stylesheets/screen.scss */
+/* line 133, ../../app/assets/stylesheets/home.css.scss */
 #content.grey, #next.grey {
   border: 3px #969696 solid;
 }
-/* line 136, ../../app/stylesheets/screen.scss */
+/* line 136, ../../app/assets/stylesheets/home.css.scss */
 #content.blue, #next.blue {
   border: 3px #4A6EAF solid;
 }
-/* line 139, ../../app/stylesheets/screen.scss */
+/* line 139, ../../app/assets/stylesheets/home.css.scss */
 #content.green, #next.green {
   border: 3px #3CB126 solid;
 }
 
-/* line 144, ../../app/stylesheets/screen.scss */
+/* line 144, ../../app/assets/stylesheets/home.css.scss */
 #content {
   width: 580px;
   margin: 0 auto 20px auto;
 }
-/* line 147, ../../app/stylesheets/screen.scss */
+/* line 147, ../../app/assets/stylesheets/home.css.scss */
 #content h2 {
   margin: 0 0;
   color: white;
@@ -167,75 +167,75 @@ td.count, td.classic_count {
   -khtml-border-radius: 15px 15px 0 0;
   border-radius: 15px 15px 0 0;
 }
-/* line 154, ../../app/stylesheets/screen.scss */
+/* line 154, ../../app/assets/stylesheets/home.css.scss */
 #content.blue {
   width: 790px;
   padding: 0 0;
 }
-/* line 157, ../../app/stylesheets/screen.scss */
+/* line 157, ../../app/assets/stylesheets/home.css.scss */
 #content.blue h2 {
   width: 790px;
   background: #4A6EAF;
 }
-/* line 162, ../../app/stylesheets/screen.scss */
+/* line 162, ../../app/assets/stylesheets/home.css.scss */
 #content.grey {
   width: 300px;
   padding: 0 0;
 }
-/* line 165, ../../app/stylesheets/screen.scss */
+/* line 165, ../../app/assets/stylesheets/home.css.scss */
 #content.grey h2 {
   width: 300px;
   background: #969696;
 }
 
-/* line 173, ../../app/stylesheets/screen.scss */
+/* line 173, ../../app/assets/stylesheets/home.css.scss */
 a#next {
   text-decoration: none;
 }
-/* line 175, ../../app/stylesheets/screen.scss */
+/* line 175, ../../app/assets/stylesheets/home.css.scss */
 a#next:hover {
   text-decoration: underline;
 }
 
-/* line 180, ../../app/stylesheets/screen.scss */
+/* line 180, ../../app/assets/stylesheets/home.css.scss */
 #next {
   float: right;
   padding-right: 55px;
 }
-/* line 183, ../../app/stylesheets/screen.scss */
+/* line 183, ../../app/assets/stylesheets/home.css.scss */
 #next.red {
   background: white url("/images/fleches/flecheRouge.png") no-repeat right;
 }
-/* line 186, ../../app/stylesheets/screen.scss */
+/* line 186, ../../app/assets/stylesheets/home.css.scss */
 #next.orange {
   background: white url("/images/fleches/flecheOrange.png") no-repeat right;
 }
-/* line 189, ../../app/stylesheets/screen.scss */
+/* line 189, ../../app/assets/stylesheets/home.css.scss */
 #next.grey {
   background: white url("/images/fleches/flecheGrise.png") no-repeat right;
 }
-/* line 192, ../../app/stylesheets/screen.scss */
+/* line 192, ../../app/assets/stylesheets/home.css.scss */
 #next.blue {
   background: white url("/images/fleches/flecheBleu.png") no-repeat right;
 }
 
-/* line 202, ../../app/stylesheets/screen.scss */
+/* line 202, ../../app/assets/stylesheets/home.css.scss */
 .application #classic_vote label {
   cursor: pointer;
 }
-/* line 205, ../../app/stylesheets/screen.scss */
+/* line 205, ../../app/assets/stylesheets/home.css.scss */
 .application #classic_vote span {
   display: block;
   clear: both;
   height: 45px;
   text-align: center;
 }
-/* line 211, ../../app/stylesheets/screen.scss */
+/* line 211, ../../app/assets/stylesheets/home.css.scss */
 .application #classic_vote span input {
   float: right;
   margin: 15px 65px 0 0;
 }
-/* line 215, ../../app/stylesheets/screen.scss */
+/* line 215, ../../app/assets/stylesheets/home.css.scss */
 .application #classic_vote span label {
   float: left;
   display: inline-block;
@@ -243,19 +243,19 @@ a#next:hover {
   width: 175px;
   margin: 11px 0 0 0;
 }
-/* line 222, ../../app/stylesheets/screen.scss */
+/* line 222, ../../app/assets/stylesheets/home.css.scss */
 .application #classic_vote span label.selected {
   padding: 12px 70px 12px 0;
   margin: 0 0;
   background: url(/images/radio-selected.png) no-repeat 200px 7px;
 }
-/* line 227, ../../app/stylesheets/screen.scss */
+/* line 227, ../../app/assets/stylesheets/home.css.scss */
 .application #classic_vote span label.unselected, .application #classic_vote span label.nonselected {
   padding: 12px 70px 12px 0;
   margin: 0 0;
   background: url(/images/radio-unselected.png) no-repeat 200px 7px;
 }
-/* line 236, ../../app/stylesheets/screen.scss */
+/* line 236, ../../app/assets/stylesheets/home.css.scss */
 .application #user_submit {
   margin-top: 30px;
   -moz-border-radius: 20px;
@@ -273,19 +273,19 @@ a#next:hover {
   cursor: pointer;
 }
 
-/* line 250, ../../app/stylesheets/screen.scss */
+/* line 250, ../../app/assets/stylesheets/home.css.scss */
 .results {
   margin: 0 auto;
   width: 972px;
   text-align: center;
 }
-/* line 254, ../../app/stylesheets/screen.scss */
+/* line 254, ../../app/assets/stylesheets/home.css.scss */
 .results .candidate {
   display: inline-block;
   text-align: right;
   width: 476px;
 }
-/* line 259, ../../app/stylesheets/screen.scss */
+/* line 259, ../../app/assets/stylesheets/home.css.scss */
 .results .count {
   display: inline-block;
   text-align: left;
@@ -293,69 +293,69 @@ a#next:hover {
   font-weight: bold;
 }
 
-/* line 267, ../../app/stylesheets/screen.scss */
+/* line 267, ../../app/assets/stylesheets/home.css.scss */
 input#user_postal_code {
   width: 5em;
 }
 
-/* line 271, ../../app/stylesheets/screen.scss */
+/* line 271, ../../app/assets/stylesheets/home.css.scss */
 label[for='user_public'] {
   font-size: 12px;
 }
 
 /*********   SIMPLE FORM DEFAULTS   ************/
 /* ----- SimpleForm Styles ----- */
-/* line 282, ../../app/stylesheets/screen.scss */
+/* line 282, ../../app/assets/stylesheets/home.css.scss */
 .simple_form div.input {
   margin-bottom: 10px;
 }
-/* line 284, ../../app/stylesheets/screen.scss */
+/* line 284, ../../app/assets/stylesheets/home.css.scss */
 .simple_form div.input input.string {
   width: 200px;
 }
 
-/* line 289, ../../app/stylesheets/screen.scss */
+/* line 289, ../../app/assets/stylesheets/home.css.scss */
 .simple_form label {
   float: left;
   width: 230px;
   text-align: right;
   margin: 2px 10px;
 }
-/* line 294, ../../app/stylesheets/screen.scss */
+/* line 294, ../../app/assets/stylesheets/home.css.scss */
 .simple_form label abbr {
   display: none;
 }
 
-/* line 300, ../../app/stylesheets/screen.scss */
+/* line 300, ../../app/assets/stylesheets/home.css.scss */
 div.boolean, .simple_form input[type='submit'] {
   margin-left: 250px;
 }
 
-/* line 304, ../../app/stylesheets/screen.scss */
+/* line 304, ../../app/assets/stylesheets/home.css.scss */
 input[type='submit']:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-/* line 309, ../../app/stylesheets/screen.scss */
+/* line 309, ../../app/assets/stylesheets/home.css.scss */
 div.boolean label, label.collection_radio {
   float: none;
   margin: 0;
 }
 
-/* line 314, ../../app/stylesheets/screen.scss */
+/* line 314, ../../app/assets/stylesheets/home.css.scss */
 label.collection_radio {
   margin-right: 10px;
   vertical-align: -2px;
   margin-left: 2px;
 }
 
-/* line 320, ../../app/stylesheets/screen.scss */
+/* line 320, ../../app/assets/stylesheets/home.css.scss */
 .field_with_errors {
   background-color: #ff3333;
 }
 
-/* line 324, ../../app/stylesheets/screen.scss */
+/* line 324, ../../app/assets/stylesheets/home.css.scss */
 .simple_form .error {
   clear: left;
   color: black;
@@ -364,7 +364,7 @@ label.collection_radio {
   font-size: 12px;
 }
 
-/* line 332, ../../app/stylesheets/screen.scss */
+/* line 332, ../../app/assets/stylesheets/home.css.scss */
 .simple_form .hint {
   clear: left;
   margin-left: 120px;
@@ -374,19 +374,19 @@ label.collection_radio {
   font-style: italic;
 }
 
-/* line 341, ../../app/stylesheets/screen.scss */
+/* line 341, ../../app/assets/stylesheets/home.css.scss */
 input.radio {
   margin-right: 5px;
   vertical-align: -3px;
 }
 
-/* line 346, ../../app/stylesheets/screen.scss */
+/* line 346, ../../app/assets/stylesheets/home.css.scss */
 input.check_boxes {
   margin-left: 3px;
   vertical-align: -3px;
 }
 
-/* line 351, ../../app/stylesheets/screen.scss */
+/* line 351, ../../app/assets/stylesheets/home.css.scss */
 label.collection_check_boxes {
   float: none;
   margin: 0;
@@ -394,38 +394,38 @@ label.collection_check_boxes {
   margin-left: 2px;
 }
 
-/* line 359, ../../app/stylesheets/screen.scss */
+/* line 359, ../../app/assets/stylesheets/home.css.scss */
 #dev {
   background: orange;
   height: 30px;
 }
-/* line 362, ../../app/stylesheets/screen.scss */
+/* line 362, ../../app/assets/stylesheets/home.css.scss */
 #dev #configuration {
   padding: 5px;
   float: right;
 }
-/* line 366, ../../app/stylesheets/screen.scss */
+/* line 366, ../../app/assets/stylesheets/home.css.scss */
 #dev #date_election {
   padding: 5px;
   float: left;
 }
 
-/* line 372, ../../app/stylesheets/screen.scss */
+/* line 372, ../../app/assets/stylesheets/home.css.scss */
 #resend_instructions {
   text-align: center;
 }
-/* line 374, ../../app/stylesheets/screen.scss */
+/* line 374, ../../app/assets/stylesheets/home.css.scss */
 #resend_instructions input[name='email'] {
   width: 200px;
 }
 
-/* line 379, ../../app/stylesheets/screen.scss */
+/* line 379, ../../app/assets/stylesheets/home.css.scss */
 .head_row {
   text-align: left;
   margin-bottom: 10px;
 }
 
-/* line 385, ../../app/stylesheets/screen.scss */
+/* line 385, ../../app/assets/stylesheets/home.css.scss */
 .vote_head {
   display: inline-block;
   width: 100px;
@@ -434,35 +434,35 @@ label.collection_check_boxes {
   color: #EEE;
   padding: 5px 0;
 }
-/* line 392, ../../app/stylesheets/screen.scss */
+/* line 392, ../../app/assets/stylesheets/home.css.scss */
 .vote_head.minus_two {
   margin-left: 250px;
   background: #db4343;
 }
-/* line 396, ../../app/stylesheets/screen.scss */
+/* line 396, ../../app/assets/stylesheets/home.css.scss */
 .vote_head.minus_one {
   background: #e49f37;
 }
-/* line 399, ../../app/stylesheets/screen.scss */
+/* line 399, ../../app/assets/stylesheets/home.css.scss */
 .vote_head.zero {
   background: #b4b4b4;
 }
-/* line 402, ../../app/stylesheets/screen.scss */
+/* line 402, ../../app/assets/stylesheets/home.css.scss */
 .vote_head.plus_one {
   background: #b1d039;
 }
-/* line 405, ../../app/stylesheets/screen.scss */
+/* line 405, ../../app/assets/stylesheets/home.css.scss */
 .vote_head.plus_two {
   background: #20b756;
 }
-/* line 408, ../../app/stylesheets/screen.scss */
+/* line 408, ../../app/assets/stylesheets/home.css.scss */
 .vote_head .legend {
   display: inline-block;
   width: 49px;
   vertical-align: middle;
   text-align: center;
 }
-/* line 414, ../../app/stylesheets/screen.scss */
+/* line 414, ../../app/assets/stylesheets/home.css.scss */
 .vote_head .value {
   display: inline-block;
   width: 17px;
@@ -470,12 +470,12 @@ label.collection_check_boxes {
   vertical-align: middle;
   text-align: center;
 }
-/* line 421, ../../app/stylesheets/screen.scss */
+/* line 421, ../../app/assets/stylesheets/home.css.scss */
 .vote_head img {
   vertical-align: middle;
 }
 
-/* line 428, ../../app/stylesheets/screen.scss */
+/* line 428, ../../app/assets/stylesheets/home.css.scss */
 #user_vote_form .input span {
   width: 100px;
   display: inline-block;
@@ -484,12 +484,12 @@ label.collection_check_boxes {
   /*background: lightgrey;*/
 }
 
-/* line 436, ../../app/stylesheets/screen.scss */
+/* line 436, ../../app/assets/stylesheets/home.css.scss */
 label[for^=user_vote_for_candidate] {
   padding-top: 4px;
 }
 
-/* line 439, ../../app/stylesheets/screen.scss */
+/* line 439, ../../app/assets/stylesheets/home.css.scss */
 label.collection_radio {
   width: 100px;
   height: 33px;
@@ -498,80 +498,80 @@ label.collection_radio {
   cursor: pointer;
 }
 
-/* line 448, ../../app/stylesheets/screen.scss */
+/* line 448, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='-2'].collection_radio.unselected {
   background: url(/images/votes/moins2.png);
 }
-/* line 451, ../../app/stylesheets/screen.scss */
+/* line 451, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='-2'].collection_radio.selected {
   background: url(/images/votes/smileyMoins2On.png);
 }
-/* line 454, ../../app/stylesheets/screen.scss */
+/* line 454, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='-2'].collection_radio.nonselected {
   background: url(/images/votes/moins2seul.png);
 }
-/* line 459, ../../app/stylesheets/screen.scss */
+/* line 459, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='-1'].collection_radio.unselected {
   background: url(/images/votes/moins1.png);
 }
-/* line 462, ../../app/stylesheets/screen.scss */
+/* line 462, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='-1'].collection_radio.selected {
   background: url(/images/votes/smileyMoins1On.png);
 }
-/* line 465, ../../app/stylesheets/screen.scss */
+/* line 465, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='-1'].collection_radio.nonselected {
   background: url(/images/votes/moins1seul.png);
 }
-/* line 470, ../../app/stylesheets/screen.scss */
+/* line 470, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='0'].collection_radio.unselected {
   background: url(/images/votes/0.png);
 }
-/* line 473, ../../app/stylesheets/screen.scss */
+/* line 473, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='0'].collection_radio.selected {
   background: url(/images/votes/smiley0On.png);
 }
-/* line 476, ../../app/stylesheets/screen.scss */
+/* line 476, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='0'].collection_radio.nonselected {
   background: url(/images/votes/0seul.png);
 }
-/* line 481, ../../app/stylesheets/screen.scss */
+/* line 481, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='_1'].collection_radio.unselected {
   background: url(/images/votes/plus1.png);
 }
-/* line 484, ../../app/stylesheets/screen.scss */
+/* line 484, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='_1'].collection_radio.selected {
   background: url(/images/votes/smileyPlus1On.png);
 }
-/* line 487, ../../app/stylesheets/screen.scss */
+/* line 487, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='_1'].collection_radio.nonselected {
   background: url(/images/votes/plus1seul.png);
 }
-/* line 492, ../../app/stylesheets/screen.scss */
+/* line 492, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='_2'].collection_radio.unselected {
   background: url(/images/votes/plus2.png);
 }
-/* line 495, ../../app/stylesheets/screen.scss */
+/* line 495, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='_2'].collection_radio.selected {
   background: url(/images/votes/smileyPlus2On.png);
 }
-/* line 498, ../../app/stylesheets/screen.scss */
+/* line 498, ../../app/assets/stylesheets/home.css.scss */
 #user_votes label[for$='_2'].collection_radio.nonselected {
   background: url(/images/votes/plus2seul.png);
 }
 
-/* line 504, ../../app/stylesheets/screen.scss */
+/* line 504, ../../app/assets/stylesheets/home.css.scss */
 #pastille_a_vote {
   margin: -116px auto 0 auto;
   display: block;
 }
 
-/* line 510, ../../app/stylesheets/screen.scss */
+/* line 510, ../../app/assets/stylesheets/home.css.scss */
 #alreadyRegistered {
   font-size: 12px;
   float: right;
   color: #2E2E2E;
 }
-/* line 514, ../../app/stylesheets/screen.scss */
+/* line 514, ../../app/assets/stylesheets/home.css.scss */
 #alreadyRegistered:active, #alreadyRegistered:visited {
   color: #2E2E2E;
 }

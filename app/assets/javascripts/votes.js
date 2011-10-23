@@ -1,3 +1,4 @@
+
 // Lorsqu'une valeur est choisie, on affiche la selection
 $(function(){
     $("input[type='radio']").change(function(){

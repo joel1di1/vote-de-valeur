@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 
-gem 'compass', ">= 0.11.1"
+gem 'compass', :require => false
 gem 'delayed_job'
 gem 'devise'
 gem 'escape_utils'
@@ -11,11 +11,17 @@ gem 'heroku'
 gem 'hoptoad_notifier'
 gem "jquery-rails"
 gem 'sass'
+gem 'sass-rails'
 gem 'simple_form'
 gem 'sqlite3'
 gem 'ssl_requirement'
 gem 'typus'
 
+group :assets do
+  gem 'coffee-rails'
+  gem 'sass-rails'
+  gem 'uglifier'
+end
 
 group :test do
   gem 'capybara'
