@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111022143752) do
+ActiveRecord::Schema.define(:version => 20111023123945) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -36,9 +36,7 @@ ActiveRecord::Schema.define(:version => 20111022143752) do
   end
 
   create_table "classic_votes", :force => true do |t|
-    t.integer  "candidate_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "candidate_id"
   end
 
   create_table "configurations", :force => true do |t|
@@ -107,10 +105,8 @@ ActiveRecord::Schema.define(:version => 20111022143752) do
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.integer  "candidate_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "vote"
+    t.integer "candidate_id"
+    t.integer "vote"
   end
 
 end
