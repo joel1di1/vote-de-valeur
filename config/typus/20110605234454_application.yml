@@ -24,10 +24,10 @@ User:
 
 Vote:
   fields:
-    default: user, candidate, vote
-    form: user, candidate, vote
+    default: candidate, vote
+    form: candidate, vote
   order_by: 
-  relationships: candidate, user
+  relationships: candidate
   filters: created_at
   search: 
   application: vote-de-valeur

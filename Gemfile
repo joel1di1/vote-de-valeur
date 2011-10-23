@@ -13,7 +13,6 @@ gem "jquery-rails"
 gem 'sass'
 gem 'sass-rails'
 gem 'simple_form'
-gem 'sqlite3'
 gem 'ssl_requirement'
 gem 'typus'
 
@@ -28,6 +27,7 @@ group :assets do
 end
 
 group :test do
+  gem 'sqlite3'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'mocha', :require => false

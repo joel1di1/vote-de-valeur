@@ -4,10 +4,10 @@
 
 ClassicVote:
   fields:
-    default: user, candidate
-    form: user, candidate
+    default: candidate
+    form: candidate
   order_by: 
-  relationships: candidate, user
+  relationships: candidate
   filters: created_at
   search: 
   application: vote-de-valeur
