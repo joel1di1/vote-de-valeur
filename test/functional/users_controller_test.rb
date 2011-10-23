@@ -47,4 +47,18 @@ class UsersControllerTest < ActionController::TestCase
 
   end
 
+  test 'count js should return user count with user_count as prefix' do
+    get :count, :format => :js
+
+    assert_response :success
+    assert response.body.start_with? 'user_count({'
+  end
+
+  test 'count js with jsonp param should return user count with param as prefix' do
+    get :count, :format => :js, :jsonp => 'prefix'
+
+    assert_response :success
+    assert response.body.start_with? 'prefix({'
+  end
+
 end

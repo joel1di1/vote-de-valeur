@@ -14,7 +14,16 @@ class UsersController < ApplicationController
   end
 
   def count
-    render :json => {:users => {:count => User.count}}
+    respond_to do |format|
+      format.js do
+        var = params[:jsonp]
+        var ||= "user_count"
+        json = {:users => {:count => User.count}}.to_json
+        render :js => "#{var}(#{json})"
+      end
+      format.json {render :json => {:users => {:count => User.count}}}
+    end
+
   end
 
 end
