@@ -98,7 +98,7 @@ class VotesControllerTest < ActionController::TestCase
     get :index
     assert_redirected_to root_path
 
-    get :index, nil, session.merge!(VotesController::TOKEN_VALIDATED_KEY => '1')
+    get :index, nil, {VotesController::TOKEN_VALIDATED_KEY => '1'}
     assert_response :success
   end
 

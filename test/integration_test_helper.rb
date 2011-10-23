@@ -29,7 +29,7 @@ class ActionDispatch::IntegrationTest
     visit '/admin'
     fill_in 'typus_user[email]', :with => @admin.email
     fill_in 'typus_user[password]', :with => @admin.password
-    click_on 'Entrer'
+    click_on 'Sign in'
   end
 
   def fill_sign_up_form(user)

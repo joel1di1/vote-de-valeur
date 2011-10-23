@@ -9,8 +9,8 @@ class DateHelperTest < ActiveSupport::TestCase
     Configuration.delete_all
     Configuration.create :name => 'current', :start_date => start_date, :end_date => end_date
 
-    assert_equal start_date,DateHelper.election_starts_at
-    assert_equal end_date,DateHelper.election_ends_at
+    assert_equal start_date, DateHelper.election_starts_at
+    assert_equal end_date ,  DateHelper.election_ends_at
   end
 
   test "election closed" do

@@ -14,11 +14,11 @@ class Admin::CandidatesUiTest < ActionDispatch::IntegrationTest
 
     click_on 'Candidate'
     click_link 'Ajouter nouveau'
-    assert page.has_content? 'Nouveau Candidate'
+    assert page.has_content? 'Add New'
 
     assert_difference 'Candidate.count' do
       fill_in 'candidate_name', :with => candidate.name
-      click_on 'Créer Candidate'
+      click_on 'Save'
     end
 
   end
@@ -42,7 +42,7 @@ class Admin::CandidatesUiTest < ActionDispatch::IntegrationTest
     assert_difference "Candidate.find_all_by_name('#{new_name}').count" do
       assert_difference "Candidate.find_all_by_name('#{candidate.name}').count", -1 do
         fill_in 'candidate_name', :with => new_name
-        click_button 'Sauvegarder Candidate'
+        click_button 'Save'
       end
     end
   end
