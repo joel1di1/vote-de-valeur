@@ -11,6 +11,15 @@
     %script{:src => "http://w.sharethis.com/button/buttons.js", :type => "text/javascript"}
     :javascript
       stLight.options({publisher:'5f610d6c-d6ad-4d9f-86e9-c960f0353955'});
+    :css
+      a img{
+      border: none;
+      }
+      #title{
+      padding-top:55px;
+      font-weight: bold;
+      font-size: 1.2em;
+      }
 
   %body{:class => "#{controller_name}_#{action_name}"}
     #header
@@ -27,7 +36,12 @@
         %span.st_facebook
         %span.st_email
         %span.st_sharethis
-
+      #title
+        %div
+          %i
+            Présidentielles 2012
+        %div
+          Expérimentons un nouveau système de vote !
       .clear
     #container
       = yield
