@@ -1,23 +1,24 @@
-ï»¿-# coding: utf-8
+-# coding: utf-8
+stylesheet_link_tag("tooltip")
 #content.red
   = render :partial => '/layouts/messages'
   %p
     %center
       A l'occasion des
-      %b Ã©lections prÃ©sidentielles
-      franÃ§aises de 2012,
+      %b élections présidentielles
+      françaises de 2012,
       %br
       ce site va vous permettre
-      %b d'expÃ©rimenter le Vote de Valeur
+      %b d'expérimenter le Vote de Valeur
       %br
-      et de le comparer au systÃ¨me actuel.
+      et de le comparer au système actuel.
   %table{:style => "padding:10px 5px; width:100%"}
     %tr
       %td{:valign => "top"}
         %h4
           %center
-            Le systÃ¨me actuel
-            %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Le systÃ¨me actuel"}
+            Le système actuel
+            %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Le système actuel"}
               = image_tag("boutonInfo.png")
             %sup.txt_def_ref.tt_ref
               %a{:href => "#footNotesN1"} [1]
@@ -34,14 +35,14 @@
   %div
     %center
       %i
-        S'interroger sur notre systÃ¨me de vote,
+        S'interroger sur notre système de vote,
         %br
-        câ€™est faire avancer la dÃ©mocratie.
+        c'est faire avancer la démocratie.
 
 #footer
   %ol.footNotes
     %li#footNotesN1.footNotes_it
-      .footNotes_itti Le systÃ¨me actuel
+      .footNotes_itti Le système actuel
       .footNotes_itco
         %p.txt_p
           Je choisis un seul candidat au 1
@@ -53,12 +54,12 @@
       .footNotes_itti Le Vote de Valeur
       .footNotes_itco
         %p.txt_p
-          Je valorise chaque candidat de -2 Â« trÃ¨s hostile Â» Ã  +2 Â« trÃ¨s favorable Â». Le candidat qui reÃ§oit le plus de points est Ã©lu en un seul tour.
+          Je valorise chaque candidat de -2 « très hostile » à +2 « très favorable ». Le candidat qui reçoit le plus de points est élu en un seul tour.
         %p
           Consultez le site du
           %a.txt_url_ul{:href => "http://www.votedevaleur.org", :target => "_blank", :title => "Site officiel du Vote de Valeur"} Vote de Valeur
           pour une
-          prÃ©sentation dÃ©taillÃ©e.
+          présentation détaillée.
 :javascript
   try{
     for(var i=1; i<=2; i++) { 
@@ -67,4 +68,4 @@
   } catch(e){alert(e);}
 
 #container
-  = link_to "Participer Ã  l'expÃ©rience", new_user_registration_path, :id => 'next', :class => 'red'
+  = link_to "Participer à l'expérience", new_user_registration_path, :id => 'next', :class => 'red'
