@@ -2,27 +2,69 @@
 #content.red
   = render :partial => '/layouts/messages'
   %p
-    Nous, (compteur automatique : 10342) citoyens inscrits sur ce site, souhaitons l'amélioration du système de vote français.
-  %p
-    Nous nous intéressons au système du Vote de Valeur : l'électeur donne une valeur à chaque candidat, 
-    de -2 (très hostile) à +2 (très favorable), 
-    et le candidat qui obtient le plus de points est élu en un seul tour. 
-    Au vu des avantages présentés sur 
-    %a{:href => "http://www.votedevaleur.org"}www.votedevaleur.org
-    , ce système nous paraît suffisamment prometteur pour mériter d'être expérimenté largement.
-  %p
-    Nous participerons à l'expérimentation en ligne du Vote de Valeur pour les élections présidentielles de 2012 : 
-    en plus de voter à notre bureau de vote officiel, dans les jours précédant le scrutin, nous voterons sur ce site internet, 
-    où nous exprimerons notre opinion à la fois par un vote classique et par un vote de valeur, 
-    afin de permettre une analyse statistique anonyme des résultats.
+    %center
+      A l'occasion des
+      %b élections présidentielles
+      françaises de 2012,
+      %br
+      ce site va vous permettre
+      %b d'expérimenter le Vote de Valeur
+      %br
+      et de le comparer au système actuel.
+  %table{:style => "padding:10px 5px; width:100%"}
+    %tr
+      %td{:valign => "top"}
+        %h4
+          %center
+            Le système actuel
+            %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Le système actuel"}
+              = image_tag("boutonInfo.png")
+            %sup.txt_def_ref.tt_ref
+              %a{:href => "#footNotesN1"} [1]
+      %td{:valign => "top"}
+        %h4
+          %center
+            Le Vote de Valeur
+            %a#i2.txt_def_ul.tt_a{:href => "#footNotesN2", :title => "Le Vote de Valeur"}
+              = image_tag("boutonInfo.png"}
+            %sup.txt_def_ref.tt_ref
+              %a{:href => "#footNotesN2"} [2]
+  %div{:style => "text-align:center"}
+    %img{:src => "classique-vdv.png"}
+  %div
+    %center
+      %i
+        S'interroger sur notre système de vote,
+        %br
+        c’est faire avancer la démocratie.
 
-  %p
-    Parlez du vote de valeur autour de vous :
+#footer
+  %ol.footNotes
+    %li#footNotesN1.footNotes_it
+      .footNotes_itti Le système actuel
+      .footNotes_itco
+        %p.txt_p
+          Je choisis un seul candidat au 1
+          %sup er
+          tour, puis un au seçond tour parmi les 2 gagnants du 1
+          %sup er
+          tour.
+    %li#footNotesN2.footNotes_it
+      .footNotes_itti Le Vote de Valeur
+      .footNotes_itco
+        %p.txt_p
+          Je valorise chaque candidat de -2 « très hostile » à +2 « très favorable ». Le candidat qui reçoit le plus de points est élu en un seul tour.
+        %p
+          Consultez le site du
+          %a.txt_url_ul{:href => "http://www.votedevaleur.org", :target => "_blank", :title => "Site officiel du Vote de Valeur"} Vote de Valeur
+          pour une
+          présentation détaillée.
+:javascript
+  try{
+    for(var i=1; i<=2; i++) { 
+      scTooltipMgr.registerTooltip("i"+i,"footNotesN"+i,"onmouseover","txt_def tt","",{STICKY:true,FIXTYPE:"node",FIX:[0,0], MAXWIDTH:500, MAXHEIGHT: 400, HPOS:"leftAlign",VPOS:"belowElement",CLSBTN:true,CLSBTNCAP:"x",CLSBTNTI:"Fermer"});
+    }
+  } catch(e){alert(e);}
 
-  .social
-    %span.st_twitter_large
-    %span.st_facebook_large
-    %span.st_email_large
-    %span.st_sharethis_large
-
-= link_to "Continuer", new_user_registration_path, :id => 'next', :class => 'red'
+#container
+  = link_to "Participer à l'expérience", new_user_registration_path, :id => 'next', :class => 'red'
