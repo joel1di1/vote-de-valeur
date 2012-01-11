@@ -26,7 +26,7 @@
           %center
             Le Vote de Valeur
             %a#i2.txt_def_ul.tt_a{:href => "#footNotesN2", :title => "Le Vote de Valeur"}
-              = image_tag("boutonInfo.png"}
+              = image_tag("boutonInfo.png")
             %sup.txt_def_ref.tt_ref
               %a{:href => "#footNotesN2"} [2]
   %div{:style => "text-align:center"}
@@ -38,35 +38,35 @@
         %br
         c'est faire avancer la d&eacute;mocratie.
 
--##footer
--#  %ol.footNotes
--#    %li#footNotesN1.footNotes_it
--#      .footNotes_itti Le syst&egrave;me actuel
--#      .footNotes_itco
--#        %p.txt_p
--#          Je choisis un seul candidat au 1
--#          %sup er
--#          tour, puis un au second tour parmi les 2 gagnants du 1
--#          %sup er
--#          tour.
--#    %li#footNotesN2.footNotes_it
--#      .footNotes_itti Le Vote de Valeur
--#      .footNotes_itco
--#        %p.txt_p
--#          Je valorise chaque candidat de -2 &laquo; tr&egrave;s hostile &raquo; &agrave; +2 &laquo; tr&egrave;s favorable &raquo;. Le candidat qui re&ccedil;oit le plus de points est &eacute;lu en un seul tour.
--#        %p
--#          Consultez le site du
--#          %a.txt_url_ul{:href => "http://www.votedevaleur.org", :target => "_blank", :title => "Site officiel du Vote de Valeur"} Vote de Valeur
--#          pour une
--#          pr&eacute;sentation d&eacute;taill&eacute;e.
--#
--#:javascript
--#  try{
--#    for(var i=1; i<=2; i++) { 
--#      scTooltipMgr.registerTooltip("i"+i,"footNotesN"+i,"onmouseover","txt_def tt","",{STICKY:true,FIXTYPE:"node",FIX:[0,0], MAXWIDTH:500, MAXHEIGHT: 400, HPOS:"leftAlign",VPOS:"belowElement",CLSBTN:true,CLSBTNCAP:"x",CLSBTNTI:"Fermer"});
--#    }
--#  } catch(e){alert(e);}
--#
--##container
--#  = link_to "Participer &agrave; l'exp&eacute;rience", new_user_registration_path, :id => 'next', :class => 'red'
--#  = stylesheet_link_tag("tooltip")
+#footer
+  %ol.footNotes
+    %li#footNotesN1.footNotes_it
+      .footNotes_itti Le syst&egrave;me actuel
+      .footNotes_itco
+        %p.txt_p
+          Je choisis un seul candidat au 1
+          %sup er
+          tour, puis un au second tour parmi les 2 gagnants du 1
+          %sup er
+          tour.
+    %li#footNotesN2.footNotes_it
+      .footNotes_itti Le Vote de Valeur
+      .footNotes_itco
+        %p.txt_p
+          Je valorise chaque candidat de -2 &laquo; tr&egrave;s hostile &raquo; &agrave; +2 &laquo; tr&egrave;s favorable &raquo;. Le candidat qui re&ccedil;oit le plus de points est &eacute;lu en un seul tour.
+        %p
+          Consultez le site du
+          %a.txt_url_ul{:href => "http://www.votedevaleur.org", :target => "_blank", :title => "Site officiel du Vote de Valeur"} Vote de Valeur
+          pour une
+          pr&eacute;sentation d&eacute;taill&eacute;e.
+
+:javascript
+  try{
+    for(var i=1; i<=2; i++) { 
+      scTooltipMgr.registerTooltip("i"+i,"footNotesN"+i,"onmouseover","txt_def tt","",{STICKY:true,FIXTYPE:"node",FIX:[0,0], MAXWIDTH:500, MAXHEIGHT: 400, HPOS:"leftAlign",VPOS:"belowElement",CLSBTN:true,CLSBTNCAP:"x",CLSBTNTI:"Fermer"});
+    }
+  } catch(e){alert(e);}
+
+#container
+  = link_to "Participer &agrave; l'exp&eacute;rience", new_user_registration_path, :id => 'next', :class => 'red'
+  = stylesheet_link_tag("tooltip")
