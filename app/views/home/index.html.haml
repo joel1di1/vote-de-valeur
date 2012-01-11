@@ -1,26 +1,26 @@
 -# coding: utf-8
 #content.red
   = render :partial => '/layouts/messages'
-  %p(style="text-align:center")
+  %p(style="text-align:center; margin:none")
     A l'occasion des
     %b &eacute;lections pr&eacute;sidentielles
-    fran&ccedil;aises de 2012,
+    françaises de 2012,
     %br
     ce site va vous permettre
     %b d'exp&eacute;rimenter le Vote de Valeur
     %br
     et de le comparer au syst&egrave;me actuel.
-  %table{:style => "padding:10px 5px; width:100%; border: 1px solid; border-collapse: collapse"}
+  %table{:style => "padding:10px 5px; width:100%; border: 0px solid; border-collapse: collapse"}
     %tr
       %td(style="vertical-align:top")
-        %h4(style="text-align:center")
+        %h4(style="text-align:center; margin:none")
           Le syst&egrave;me actuel
           %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Le syst&egrave;me actuel"}
             = image_tag("boutonInfo.png")
           %sup.txt_def_ref.tt_ref
             %a{:href => "#footNotesN1"} [1]
       %td(style="vertical-align:top")
-        %h4(style="text-align:center")
+        %h4(style="text-align:center; margin:none")
           Le Vote de Valeur
           %a#i2.txt_def_ul.tt_a{:href => "#footNotesN2", :title => "Le Vote de Valeur"}
             = image_tag("boutonInfo.png")
