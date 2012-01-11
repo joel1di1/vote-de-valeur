@@ -10,24 +10,22 @@
     %b d'exp&eacute;rimenter le Vote de Valeur
     %br
     et de le comparer au syst&egrave;me actuel.
-  %table{:style => "padding:10px 5px; width:100%"}
+  %table{:style => "padding:10px 5px; width:100%; border: 1px solid; border-collapse: collapse"}
     %tr
-      %td{:valign => "top"}
-        %h4
-          %center
-            Le syst&egrave;me actuel
-            %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Le syst&egrave;me actuel"}
-              = image_tag("boutonInfo.png")
-            %sup.txt_def_ref.tt_ref
-              %a{:href => "#footNotesN1"} [1]
-      %td{:valign => "top"}
-        %h4
-          %center
-            Le Vote de Valeur
-            %a#i2.txt_def_ul.tt_a{:href => "#footNotesN2", :title => "Le Vote de Valeur"}
-              = image_tag("boutonInfo.png")
-            %sup.txt_def_ref.tt_ref
-              %a{:href => "#footNotesN2"} [2]
+      %td(style="vertical-align:top")
+        %h4(style="text-align:center")
+          Le syst&egrave;me actuel
+          %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Le syst&egrave;me actuel"}
+            = image_tag("boutonInfo.png")
+          %sup.txt_def_ref.tt_ref
+            %a{:href => "#footNotesN1"} [1]
+      %td(style="vertical-align:top")
+        %h4(style="text-align:center")
+          Le Vote de Valeur
+          %a#i2.txt_def_ul.tt_a{:href => "#footNotesN2", :title => "Le Vote de Valeur"}
+            = image_tag("boutonInfo.png")
+          %sup.txt_def_ref.tt_ref
+            %a{:href => "#footNotesN2"} [2]
   %div{:style => "text-align:center"}
     = image_tag("classique-vdv.png")
   %div
@@ -67,4 +65,4 @@
   } catch(e){alert(e);}
 
 #nextcontainer
-  = link_to "Participer &agrave; l'exp&eacute;rience", new_user_registration_path, :id => 'next', :class => 'red'
+  = link_to( "Participer à l'exp&eacute;rience", new_user_registration_path, :id => 'next', :class => 'red').encode("utf-8")
