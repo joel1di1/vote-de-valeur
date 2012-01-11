@@ -3,19 +3,19 @@
   = render :partial => '/layouts/messages'
   %p(style="text-align:center; margin:none")
     A l'occasion des
-    %b &eacute;lections pr&eacute;sidentielles
+    %b élections présidentielles
     françaises de 2012,
     %br
     ce site va vous permettre
-    %b d'exp&eacute;rimenter le Vote de Valeur
+    %b d'expérimenter le Vote de Valeur
     %br
-    et de le comparer au syst&egrave;me actuel.
+    et de le comparer au système actuel.
   %table{:style => "padding:10px 5px; width:100%; border: 0px solid; border-collapse: collapse"}
     %tr
       %td(style="vertical-align:top")
         %h4(style="text-align:center; margin:none")
-          Le syst&egrave;me actuel
-          %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Le syst&egrave;me actuel"}
+          Le système actuel
+          %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Le système actuel"}
             = image_tag("boutonInfo.png")
           %sup.txt_def_ref.tt_ref
             %a{:href => "#footNotesN1"} [1]
@@ -28,17 +28,16 @@
             %a{:href => "#footNotesN2"} [2]
   %div{:style => "text-align:center"}
     = image_tag("classique-vdv.png")
-  %div
-    %center
-      %i
-        S'interroger sur notre syst&egrave;me de vote,
-        %br
-        c'est faire avancer la d&eacute;mocratie.
+  %div{:style => "text-align:center"}
+    %i
+      S'interroger sur notre système de vote,
+      %br
+      c'est faire avancer la démocratie.
 
 #footer
   %ol.footNotes
     %li#footNotesN1.footNotes_it
-      .footNotes_itti Le syst&egrave;me actuel
+      .footNotes_itti Le système actuel
       .footNotes_itco
         %p.txt_p
           Je choisis un seul candidat au 1
@@ -50,12 +49,12 @@
       .footNotes_itti Le Vote de Valeur
       .footNotes_itco
         %p.txt_p
-          Je valorise chaque candidat de -2 &laquo; tr&egrave;s hostile &raquo; &agrave; +2 &laquo; tr&egrave;s favorable &raquo;. Le candidat qui re&ccedil;oit le plus de points est &eacute;lu en un seul tour.
+          Je valorise chaque candidat de -2 « très hostile » à +2 « très favorable ». Le candidat qui reçoit le plus de points est élu en un seul tour.
         %p
           Consultez le site du
           %a.txt_url_ul{:href => "http://www.votedevaleur.org", :target => "_blank", :title => "Site officiel du Vote de Valeur"} Vote de Valeur
           pour une
-          pr&eacute;sentation d&eacute;taill&eacute;e.
+          présentation détaillée.
 
 :javascript
   try{
