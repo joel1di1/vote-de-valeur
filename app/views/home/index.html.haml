@@ -1,16 +1,15 @@
 -# coding: utf-8
 #content.red
   = render :partial => '/layouts/messages'
-  %p
-    %center
-      A l'occasion des
-      %b &eacute;lections pr&eacute;sidentielles
-      fran&ccedil;aises de 2012,
-      %br
-      ce site va vous permettre
-      %b d'exp&eacute;rimenter le Vote de Valeur
-      %br
-      et de le comparer au syst&egrave;me actuel.
+  %p(style="text-align:center")
+    A l'occasion des
+    %b &eacute;lections pr&eacute;sidentielles
+    fran&ccedil;aises de 2012,
+    %br
+    ce site va vous permettre
+    %b d'exp&eacute;rimenter le Vote de Valeur
+    %br
+    et de le comparer au syst&egrave;me actuel.
   %table{:style => "padding:10px 5px; width:100%"}
     %tr
       %td{:valign => "top"}
@@ -67,6 +66,5 @@
     }
   } catch(e){alert(e);}
 
-#container
+#nextcontainer
   = link_to "Participer &agrave; l'exp&eacute;rience", new_user_registration_path, :id => 'next', :class => 'red'
--#  = stylesheet_link_tag("tooltip")
