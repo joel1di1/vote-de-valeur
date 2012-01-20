@@ -29,6 +29,11 @@ a {
 
 /* ---------- tooltips ---------- */
 
+p.tooltip { text-align: center; margin:none; }
+div.tooltip { text-align: center; margin:none; }
+h4.tooltip { text-align: center; margin:none; }
+table.tooltip { padding: 10px 5px; width: 100%; border: 0px solid; border-collapse: collapse; }
+
 .tt_a {
   /*	color:#55365c;*/
   text-decoration: none;

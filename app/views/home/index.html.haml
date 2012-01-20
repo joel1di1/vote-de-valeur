@@ -1,7 +1,7 @@
 -# coding: utf-8
 #content.red
   = render :partial => '/layouts/messages'
-  %p(style="text-align:center; margin:none")
+  %p.tooltip
     A l'occasion des
     %b élections présidentielles
     françaises de 2012,
@@ -10,25 +10,25 @@
     %b d'expérimenter le Vote de Valeur
     %br
     et de le comparer au système actuel.
-  %table{:style => "padding:10px 5px; width:100%; border: 0px solid; border-collapse: collapse"}
+  %table.tooltip
     %tr
       %td(style="vertical-align:top")
-        %h4(style="text-align:center; margin:none")
+        %h4.tooltip
           Le système actuel
           %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Le système actuel"}
             = image_tag("boutonInfo.png")
           %sup.txt_def_ref.tt_ref
             %a{:href => "#footNotesN1"} [1]
       %td(style="vertical-align:top")
-        %h4(style="text-align:center; margin:none")
+        %h4.tooltip
           Le Vote de Valeur
           %a#i2.txt_def_ul.tt_a{:href => "#footNotesN2", :title => "Le Vote de Valeur"}
             = image_tag("boutonInfo.png")
           %sup.txt_def_ref.tt_ref
             %a{:href => "#footNotesN2"} [2]
-  %div{:style => "text-align:center"}
+  %div.tooltip
     = image_tag("classique-vdv.png")
-  %div{:style => "text-align:center"}
+  %div.tooltip
     %i
       S'interroger sur notre système de vote,
       %br
