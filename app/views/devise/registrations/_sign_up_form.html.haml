@@ -10,7 +10,7 @@
     
     %p.inscription
       Votre vote sera strictement
-      %b anonyme
+      %b anonyme<
       \.
       %a#i2.txt_def_ul.tt_a{:href => "#footNotesN2", :title => "Détails du système de vote en ligne"}
         = image_tag("boutonInfo.png")
@@ -35,10 +35,7 @@
     %sup.txt_def_ref.tt_ref
       %a{:href => "#footNotesN4"} [4]
     
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :postal_code, :as => 'string'
-    = f.input :public
+    = f.input :engagement
 
     = link_to "Déjà enregistré ?", users_resend_instructions_path, :id => 'alreadyRegistered'
     .clear
