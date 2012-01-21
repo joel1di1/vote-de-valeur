@@ -42,10 +42,10 @@
     = f.input :public
     
     %div(style = "text-align:right;")
-      = link_to "Déjà enregistré ?", users_resend_instructions_path, :id => 'alreadyRegistered'
+      = link_to "Déjà inscrit ?", users_resend_instructions_path, :id => 'alreadyRegistered'
   
   #nextcontainer
-    = f.submit "S'enregistrer", :id => 'next', :class => 'orange'
+    = f.submit "Valider", :id => 'next', :class => 'orange'
 
   #footer
   %ol.footNotes
