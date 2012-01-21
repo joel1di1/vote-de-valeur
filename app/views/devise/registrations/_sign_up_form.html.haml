@@ -40,8 +40,9 @@
     = f.input :email
     
     = f.input :public
-
-    = link_to "Déjà enregistré ?", users_resend_instructions_path, :id => 'alreadyRegistered'
+    
+    %div
+      = link_to "Déjà enregistré ?", users_resend_instructions_path, :id => 'alreadyRegistered'
   
   #nextcontainer
     = f.submit "S'enregistrer", :id => 'next', :class => 'orange'
