@@ -1,14 +1,14 @@
 = simple_form_for(@user, :url => registration_path(@user)) do |f|
   #content.orange
     %h4.inscription Comment participer ?
-    %p
+    %p.inscription
       Inscrivez-vous dès maintenant, le bureau de vote virtuel sera ouvert du 20 au 22 avril 2012 inclus.
       %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Détails du déroulement de l'expérience"}
         = image_tag("boutonInfo.png")
       %sup.txt_def_ref.tt_ref
         %a{:href => "#footNotesN1"} [1]
     
-    %p
+    %p.inscription
       Votre vote sera strictement
       %b anonyme
       \.
@@ -17,7 +17,7 @@
       %sup.txt_def_ref.tt_ref
         %a{:href => "#footNotesN2"} [2]
     %h4.inscription Qui sommes-nous ?
-    %p
+    %p.inscription
       Cette expérience est organisée par une association
       apolitique avec le soutien de plusieurs chercheurs universitaires français
       %a#i3.txt_def_ul.tt_a{:href => "#footNotesN3", :title => "Qui organise cette expérience ?"}
@@ -39,8 +39,6 @@
     = f.input :last_name
     = f.input :postal_code, :as => 'string'
     = f.input :public
-    
-    Cette expérience vous est proposée pour évaluer un nouveau un système de vote et faire progresser la démocratie, indépendamment de toute démarche partisane. Je m'engage à ne m'inscrire qu'une fois et à voter sincèrement, conformément à mes opinions politiques.
 
     = link_to "Déjà enregistré ?", users_resend_instructions_path, :id => 'alreadyRegistered'
     .clear

@@ -4,13 +4,8 @@ fr:
   simple_form:
     labels:
       user:
-        email: 'Adresse mail'
-        first_name: Prénom
-        last_name: Nom
-        postal_code: Code postal
-        password: Mot de passe
-        password_confirmation: Confirmation du mot de passe
-        public: En cochant cette case vous accepter que vos nom et code postal puissent être afficher publiquement
+        email: 'Mon adresse électronique'
+        engagement: Cette expérience vous est proposée pour évaluer un nouveau un système de vote et faire progresser la démocratie, indépendamment de toute démarche partisane. Je m'engage à ne m'inscrire qu'une fois et à voter sincèrement, conformément à mes opinions politiques.
     hints:
       user:
         username: 'User name to sign in.'
