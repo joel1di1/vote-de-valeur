@@ -1,6 +1,6 @@
 = simple_form_for(@user, :url => registration_path(@user)) do |f|
   #content.orange
-    %h4 Comment participer ?
+    %h4.inscription Comment participer ?
     %p
       Inscrivez-vous dès maintenant, le bureau de vote virtuel sera ouvert du 20 au 22 avril 2012 inclus.
       %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Détails du déroulement de l'expérience"}
@@ -16,7 +16,7 @@
         = image_tag("boutonInfo.png")
       %sup.txt_def_ref.tt_ref
         %a{:href => "#footNotesN2"} [2]
-    %h4 Qui sommes-nous ?
+    %h4.inscription Qui sommes-nous ?
     %p
       Cette expérience est organisée par une association
       apolitique avec le soutien de plusieurs chercheurs universitaires français
@@ -25,7 +25,7 @@
       %sup.txt_def_ref.tt_ref
         %a{:href => "#footNotesN3"} [3]
         
-    %h4 Je participe à l'expérience, je m'inscris...
+    %h4.inscription Je participe à l'expérience, je m'inscris...
   
     = render :partial => '/layouts/messages'
     = f.input :email
@@ -133,7 +133,7 @@
           
 :javascript
   try{
-    for(var i=1; i<=2; i++) { 
+    for(var i=1; i<=4; i++) { 
       scTooltipMgr.registerTooltip("i"+i,"footNotesN"+i,"onmouseover","txt_def tt","",{STICKY:true,FIXTYPE:"node",FIX:[0,0], MAXWIDTH:500, MAXHEIGHT: 400, HPOS:"leftAlign",VPOS:"belowElement",CLSBTN:true,CLSBTNCAP:"x",CLSBTNTI:"Fermer"});
     }
   } catch(e){alert(e);}
