@@ -29,6 +29,12 @@
   
     = render :partial => '/layouts/messages'
     = f.input :email
+    
+    %a#i4.txt_def_ul.tt_a{:href => "#footNotesN4", :title => "Quels usages sera fait de de mon adresse mail ?"}
+      = image_tag("boutonInfo.png")
+    %sup.txt_def_ref.tt_ref
+      %a{:href => "#footNotesN4"} [4]
+    
     = f.input :first_name
     = f.input :last_name
     = f.input :postal_code, :as => 'string'
@@ -42,3 +48,92 @@
   #nextcontainer
     = f.submit "S'enregistrer", :id => 'next', :class => 'orange'
 
+  #footer
+  %ol.footNotes
+    %li#footNotesN1.footNotes_it
+      .footNotes_itti Déroulement de l'expérience
+      .footNotes_itco
+        %p.txt_p
+          Pour vous inscrire, il vous suffit de fournir votre adresse de courrier électronique. Votre inscription vous sera confirmée par un courriel.
+      %ol.txt_ol
+        %li.txt_oli
+          %p.txt_p
+            A partir du 20 avril 2012 vous recevrez un courriel vous invitant à accéder au bureau de vote virtuel.
+            Nous vous proposerons alors de voter 2 fois : selon le 1
+            %sup er
+            tour du système actuel 
+            et selon le Vote de Valeur. Vous pourrez ensuite donner votre avis sur cette première expérience.
+
+        %li.txt_oli
+          %p.txt_p
+            A partir du 4 mai 2012, vous pourrez accéder à nouveau au bureau de vote pour voter au 2ème tour
+            du système actuel pour l'un des 2 vainqueurs du 1
+            %sup er
+            tour de notre élection virtuelle.
+
+        %li.txt_oli
+          %p.txt_p
+            Après les résultats de l'élection présidentielle française, nous publierons ceux de notre expérience.
+            Vous pourrez alors donner votre avis sur ces résultats.
+
+    %li#footNotesN2.footNotes_it
+      .footNotes_itti Détails sur le système de vote en ligne
+      .footNotes_itco
+        %p.txt_p
+          Nous mettons tout en oeuvre pour assurer l'anonymat des votes de chaque participant.
+        %p.txt_p
+          La seule information personnelle que vous fournissez est une adresse de courrier électronique.
+          Comme avec un vote traditionnel et sa liste d'émargement, nous enregistrons pour chaque inscrit uniquement sa participation ou non
+          à chaque étape.	Le contenu des votes et les réponses aux sondages sont enregistrés indépendamment de l'inscription (comme s'ils étaient mélangés dans l'urne).
+        %p
+          Avec ce système, il est donc impossible de retrouver quel inscrit a émis quel vote.
+        %p
+          Consultez la
+          %a.txt_url_ul(href="http://www.votedevaleur.org/co/charte.html" title="Charte de l'expérience" target="_blank") charte
+          complète de l'expérience.
+    %li#footNotesN3.footNotes_it
+      .footNotes_itti Qui organise cette expérience ?
+      .footNotes_itco
+         %p
+						Cette élection fictive et virtuelle est organisée par l'association à but non lucratif “
+            %b Citoyens pour le Vote de Valeur
+            ” dont l'objet est 
+						de regrouper des citoyens qui ont en commun :
+					%ul
+						%li le souci de leur démocratie, 
+						%li le constat des défauts des systèmes de vote les plus couramment pratiqués, en particulier le scrutin uninominal majoritaire à deux tours, 
+						%li l'objectif de promouvoir des systèmes de vote plus expressifs, moins sensibles à l'émiettement des voix, plus représentatifs, qui permettent de voter plus sincèrement, en particulier le système de Vote de Valeur.
+					%p.txt_p
+						Cette expérience a été élaborée avec le concours de chercheurs spécialistes des systèmes de vote (théorie du choix social), qui ont étudié ce type de système et déjà mené des expériences de terrain :
+					%ul
+            %li
+              %a.txt_url_ul(target="_blank" href="https://sites.google.com/site/jflaslierhomepage/") %b Jean-François Laslier
+              , Directeur de Recherche au CNRS, Laboratoire d'Econométrie de l'Ecole Polytechnique.
+            %li
+              %a.txt_url_ul(target="_blank" href="http://www.unicaen.fr/crem/baujard.php") %b Antoinette Baujard
+              , Chaire CNRS "Economie du bien-être", Université Jean Monnet à Saint-Etienne.
+            %li
+              %a.txt_url_ul(target="_blank" href="http://www.beta-umr7522.fr/-IGERSHEIM-Herrade-") %b Herrade Igersheim
+              , Chargée de Recherche CNRS, Université de Strasbourg.
+					%p.txt_p
+            Consultez le site
+            %a.txt_url_ul(href="http://www.votedevaleur.org/co/contact.html") www.votedevaleur.org
+            pour plus d'informations.
+				
+    %li#footNotesN4.footNotes_it
+      .footNotes_itti Quels usages seront faits de mon adresse électronique ?
+      .footNotes_itco
+        %p.txt_p
+          Je valorise chaque candidat de -2 « très hostile » à +2 « très favorable ». Le candidat qui reçoit le plus de points est élu en un seul tour.
+        %p
+          Consultez le site du
+          %a.txt_url_ul{:href => "http://www.votedevaleur.org", :target => "_blank", :title => "Site officiel du Vote de Valeur"} Vote de Valeur
+          pour une
+          présentation détaillée.
+          
+:javascript
+  try{
+    for(var i=1; i<=2; i++) { 
+      scTooltipMgr.registerTooltip("i"+i,"footNotesN"+i,"onmouseover","txt_def tt","",{STICKY:true,FIXTYPE:"node",FIX:[0,0], MAXWIDTH:500, MAXHEIGHT: 400, HPOS:"leftAlign",VPOS:"belowElement",CLSBTN:true,CLSBTNCAP:"x",CLSBTNTI:"Fermer"});
+    }
+  } catch(e){alert(e);}
