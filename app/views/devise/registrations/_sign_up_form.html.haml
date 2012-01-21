@@ -10,7 +10,7 @@
     
     %p.inscription
       Votre vote sera strictement
-      %b anonyme<
+      %b< anonyme
       \.
       %a#i2.txt_def_ul.tt_a{:href => "#footNotesN2", :title => "Détails du système de vote en ligne"}
         = image_tag("boutonInfo.png")
@@ -28,12 +28,14 @@
     %h4.inscription Je participe à l'expérience, je m'inscris...
   
     = render :partial => '/layouts/messages'
-    = f.input :email
     
-    %a#i4.txt_def_ul.tt_a{:href => "#footNotesN4", :title => "Quels usages sera fait de de mon adresse mail ?"}
-      = image_tag("boutonInfo.png")
-    %sup.txt_def_ref.tt_ref
-      %a{:href => "#footNotesN4"} [4]
+    %p.inscription
+      = f.input :email
+      %div(style = "float:right;")
+        %a#i4.txt_def_ul.tt_a{:href => "#footNotesN4", :title => "Quels usages sera fait de de mon adresse mail ?"}
+          = image_tag("boutonInfo.png")
+        %sup.txt_def_ref.tt_ref
+          %a{:href => "#footNotesN4"} [4]
     
     = f.input :public
 
