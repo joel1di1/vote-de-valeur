@@ -121,8 +121,9 @@ td.count, td.classic_count{
   @include border-radius(20px);
   background: white;
   color: #2E2E2E;
-  @include single-box-shadow;
+  single-box-shadow();
   padding: 10px;
+
 
   &.red{
     border: 3px #EB4242 solid;
