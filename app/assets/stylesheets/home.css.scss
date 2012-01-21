@@ -92,9 +92,8 @@ td.count, td.classic_count{
     width: $width;
 }
 
-#nextbutton{
-	position: absolute;
-	right: 0;
+#nextcontainer{
+	text-align: right;
 }
 
 #messages{
@@ -184,7 +183,6 @@ a#next{
 }
 
 #next{
-  float: right;
   padding-right: 55px;
   &.red{
     background: white asset-url('fleches/flecheRouge.png', image) no-repeat right;
