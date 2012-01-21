@@ -34,6 +34,9 @@
       %br
       c'est faire avancer la démocratie.
 
+#nextbutton
+  = link_to( "Participer à l'expérience", new_user_registration_path, :id => 'next', :class => 'red').encode("utf-8")
+	  
 #footer
   %ol.footNotes
     %li#footNotesN1.footNotes_it
@@ -62,6 +65,3 @@
       scTooltipMgr.registerTooltip("i"+i,"footNotesN"+i,"onmouseover","txt_def tt","",{STICKY:true,FIXTYPE:"node",FIX:[0,0], MAXWIDTH:500, MAXHEIGHT: 400, HPOS:"leftAlign",VPOS:"belowElement",CLSBTN:true,CLSBTNCAP:"x",CLSBTNTI:"Fermer"});
     }
   } catch(e){alert(e);}
-
-#nextcontainer
-  = link_to( "Participer à l'expérience", new_user_registration_path, :id => 'next', :class => 'red').encode("utf-8")

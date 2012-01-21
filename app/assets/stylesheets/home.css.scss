@@ -92,6 +92,11 @@ td.count, td.classic_count{
     width: $width;
 }
 
+#nextbutton{
+	position: absolute;
+	right: 0;
+}
+
 #messages{
     text-align: center;
     font-weight: bold;
