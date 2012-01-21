@@ -360,10 +360,22 @@ label.collection_check_boxes {
 }
 
 /* user sign_up form */
-#new_user div.input.boolean.optional {
-  margin-left: 0px;
+#new_user {
+	label.email.required {
+		margin-left: 0px;
+		text-align: left;
+		width: auto;
+	}
+	
+	input#user_email {
+		margin-left: 0px;
+		width: auto;
+	}
+	
+	div.input.boolean.optional {
+		margin-left: 0px;
+	}
 }
-
 
 #dev{
   background: orange;

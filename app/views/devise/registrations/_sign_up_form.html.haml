@@ -27,9 +27,9 @@
         
     %h4.inscription Je participe à l'expérience, je m'inscris...
   
-    = render :partial => '/layouts/messages'
-    
     %p.inscription
+      = render :partial => '/layouts/messages'  
+      
       = f.input :email
       %div(style = "float:right;")
         %a#i4.txt_def_ul.tt_a{:href => "#footNotesN4", :title => "Quels usages sera fait de de mon adresse mail ?"}
@@ -37,10 +37,10 @@
         %sup.txt_def_ref.tt_ref
           %a{:href => "#footNotesN4"} [4]
     
-    = f.input :public
+      = f.input :public
 
-    = link_to "Déjà enregistré ?", users_resend_instructions_path, :id => 'alreadyRegistered'
-    .clear
+      = link_to "Déjà enregistré ?", users_resend_instructions_path, :id => 'alreadyRegistered'
+      .clear
   
   #nextcontainer
     = f.submit "S'enregistrer", :id => 'next', :class => 'orange'
