@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :postal_code, :public
 
-  validates_presence_of :email, :first_name, :last_name, :postal_code
+  validates_presence_of :email
   validates_uniqueness_of :email, :access_token
   validates_with NoJunkMailValidator
 
