@@ -38,9 +38,12 @@
         %a{:href => "#footNotesN4"} [4]
     
     = f.input :email
-    
-    = f.input :public
-    
+
+    .disclaimer
+      Cette expérience vous est proposée pour évaluer un nouveau système de vote et faire progresser la démocratie,
+      indépendamment de toute démarche partisane.
+      Je m'engage à ne m'inscrire qu'une fois et à voter sincèrement, conformément à mes opinions politiques.
+
     %div(style = "text-align:right;")
       = link_to "Déjà inscrit ?", users_resend_instructions_path, :id => 'alreadyRegistered'
   
