@@ -1,15 +1,15 @@
 Bonjour,
-
+\
 Bienvenue et merci de participer à cette expérience du Vote de Valeur.
-
+\
 - if DateHelper.election_running?
   = "Pour accéder au vote de valeur : #{user_access_url(:id => @user.access_token)}"
 - elsif DateHelper.election_closed?
   L'expérimenation est maintenant terminée.
 - else
   = "Un courriel vous sera envoyé à l'ouverture du bureau de vote (#{DateHelper.format_start}) pour vous inviter à voter."
-
+\
 Cordialement.
-L'équippe "Vote de Valeur, expérience 2012"
-
+L'équipe "Vote de Valeur, expérience 2012"
+\
 PS: Si vous souhaitez vous désinscrire de cette expérience, vous pouvez le faire à tout moment en envoyant un courriel à contact@votedevaleur.org.
