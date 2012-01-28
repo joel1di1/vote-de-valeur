@@ -2,7 +2,9 @@
 #content.red
   = render :partial => '/layouts/messages'
   %p
-    Votre carte électorale est validée.
+    Votre inscription pour cette expérience du Vote de Valeur a été validée.
+  %p
+    Un courriel vous a été envoyé vous confirmant cette inscription. 
   - if DateHelper.election_running?
     %p
       L'élection est commencée.
@@ -11,13 +13,12 @@
 
   -else
     %p
-      L'élection est prévue le
-      = DateHelper.format_start
+      Notre bureau de vote sera ouvert du vendredi 20 avril 2012 au dimanche 22 avril 2012.
     %p
-      Vous recevrez un mail pour vous prévenir de l'ouverture du bureau de vote.
+      Vous recevrez un courriel dès l'ouverture qui vous invitera à voter.
 
   %p
-    Invitez vos amis à s'inscrire sur le vote de valeur:
+    Invitez vos amis à s'inscrire pour cette expérience du Vote de Valeur :
 
   .social
     %span.st_twitter_large
