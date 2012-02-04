@@ -215,6 +215,7 @@ a#contact {
 
 #next{
   padding-right: 55px;
+  padding-left: 10px;
   &.red{
     background: white asset-url('fleches/flecheRouge.png', image) no-repeat right;
   }
@@ -226,6 +227,12 @@ a#contact {
   }
   &.blue{
     background: white asset-url('fleches/flecheBleu.png', image) no-repeat right;
+  }
+  
+  &.left{
+    padding-left: 55px;
+    padding-right: 10px;
+    background: white asset-url('fleches/flecheArriere.png', image) no-repeat left;
   }
 }
 
