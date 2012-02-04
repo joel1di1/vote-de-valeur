@@ -86,6 +86,14 @@ td.count, td.classic_count{
   }
 }
 
+#title {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-bottom: 30px;
+  padding-top: 60px;
+  text-align: center;
+  text-shadow: 2px 2px 1px white;
+}
 
 #container{
     margin: 0 auto;
@@ -116,10 +124,12 @@ td.count, td.classic_count{
     float: right;
   }
 }
-#logo{
-  float: left;
-  margin-top: 37px;
+
+#logo {
+    top: 17px;
+    position: absolute;
 }
+
 #user_sign_in{
   float: right;
   text-align: right;
@@ -189,6 +199,15 @@ a#next, a#contact {
     text-decoration: underline;
   }
 }
+
+a#contact {
+  border-width: 1px;
+  bottom: 10px;
+  font-size: 12px;
+  padding: 3px 5px;
+  position: absolute;
+}
+
 
 #next{
   padding-right: 55px;
