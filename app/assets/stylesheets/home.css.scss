@@ -139,7 +139,7 @@ td.count, td.classic_count{
   display: none;
 }
 
-#content, #next, #contact {
+#content, #next {
   @include border-radius(20px);
   background: white;
   color: #2E2E2E;
@@ -202,10 +202,8 @@ a#next, a#contact {
 
 a#contact {
   border-width: 1px;
-  bottom: 10px;
   font-size: 12px;
   padding: 3px 5px;
-  position: absolute;
 }
 
 
