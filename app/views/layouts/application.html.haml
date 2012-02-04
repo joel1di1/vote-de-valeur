@@ -45,9 +45,11 @@
       .clear
     #container
       = yield
+      #nextcontainer
+        = link_to( "Un problème ? contact@votedevaleur.org", "contact@votedevaleur.org", :id => 'contact', :class => 'green').encode("utf-8")
 
     .clear
-
+    
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-23743742-1']);

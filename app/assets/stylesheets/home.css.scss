@@ -123,7 +123,7 @@ td.count, td.classic_count{
   display: none;
 }
 
-#content, #next{
+#content, #next, #contact {
   @include border-radius(20px);
   background: white;
   color: #2E2E2E;
