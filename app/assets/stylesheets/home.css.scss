@@ -201,9 +201,15 @@ a#next, a#contact {
 }
 
 a#contact {
-  border-width: 1px;
   font-size: 12px;
   padding: 3px 5px;
+  
+  @include border-radius(20px);
+  background: white;
+  color: #2E2E2E;
+  box-shadow: 0px 0px 10px #333333;
+
+  border: 1px #3CB126 solid;
 }
 
 
