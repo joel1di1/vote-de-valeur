@@ -98,6 +98,12 @@ td.count, td.classic_count{
 	padding-bottom: 10px;
 }
 
+#contactcontainer{
+	text-align: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 #messages{
     text-align: center;
     font-weight: bold;
@@ -177,7 +183,7 @@ td.count, td.classic_count{
   }
 }
 
-a#next{
+a#next, a#contact {
   text-decoration: none;
   &:hover{
     text-decoration: underline;

@@ -10,7 +10,7 @@
       var switchTo5x=true;
     %script{:src => "https://ws.sharethis.com/button/buttons.js", :type => "text/javascript"}
     :javascript
-      stLight.options({publisher:'5f610d6c-d6ad-4d9f-86e9-c960f0353955'});
+      stLight.options({publiher:'5f610d6c-d6ad-4d9f-86e9-c960f0353955'});
     :css
       a img{
       border: none;
@@ -45,8 +45,8 @@
       .clear
     #container
       = yield
-      #nextcontainer
-        = link_to( "Un problème ? contact@votedevaleur.org", "contact@votedevaleur.org", :id => 'contact', :class => 'green').encode("utf-8")
+      #contactcontainer
+        = link_to( "Un problème ? contact@votedevaleur.org", "mailto:contact@votedevaleur.org", :id => 'contact', :class => 'green').encode("utf-8")
 
     .clear
     
