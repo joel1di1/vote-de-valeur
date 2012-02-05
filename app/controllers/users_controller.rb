@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         var = params[:jsonp]
         var ||= "user_count"
         json = {:users => {:count => User.count}}.to_json
-        render :js => "#{var}(#{json})"
+        render :js => "function #{var}(){return #{json};}"
       end
       format.json {render :json => {:users => {:count => User.count}}}
     end
