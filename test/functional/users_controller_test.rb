@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'test_helper' unless eval "begin; Spork.using_spork?; rescue; false; end"
 
 class UsersControllerTest < ActionController::TestCase
 
@@ -51,14 +51,14 @@ class UsersControllerTest < ActionController::TestCase
     get :count, :format => :js
 
     assert_response :success
-    assert response.body.start_with? 'user_count({'
+    assert response.body.start_with? 'function user_count(){'
   end
 
   test 'count js with jsonp param should return user count with param as prefix' do
     get :count, :format => :js, :jsonp => 'prefix'
 
     assert_response :success
-    assert response.body.start_with? 'prefix({'
+    assert response.body.start_with? 'function prefix(){'
   end
 
 end

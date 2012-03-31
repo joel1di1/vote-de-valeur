@@ -32,4 +32,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'mocha', :require => false
   gem 'test-unit'
+  gem 'spork-testunit'
 end

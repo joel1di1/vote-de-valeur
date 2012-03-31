@@ -1,5 +1,5 @@
 # coding: utf-8
-require "integration_test_helper"
+require 'test_helper' unless eval "begin; Spork.using_spork?; rescue; false; end"
 
 class HomeUiTest < ActionDispatch::IntegrationTest
 
@@ -9,7 +9,7 @@ class HomeUiTest < ActionDispatch::IntegrationTest
 
   test 'sign_up page should show sign_up form for unauthenticated users' do
     visit '/'
-    click_link 'Continuer'
+    click_link 'next'
     assert page.has_selector? '#new_user'
   end
 
@@ -22,7 +22,7 @@ class HomeUiTest < ActionDispatch::IntegrationTest
   test 'home should not show sign_up form just sign up users' do
     user = Factory.build :user
     visit '/'
-    click_link 'Continuer'
+    click_link 'next'
 
     assert page.has_selector?('#new_user')
 
@@ -33,14 +33,9 @@ class HomeUiTest < ActionDispatch::IntegrationTest
 
   test "home should display inscription fields" do
     visit '/'
-    click_link 'Continuer'
+    click_link 'next'
     assert page.has_field? 'user[email]'
-    assert page.has_field? 'user[first_name]'
-    assert page.has_field? 'user[last_name]'
-    assert page.has_field? 'user[postal_code]'
-    assert page.has_field? 'user[public]'
   end
-
 
   test "home should display sign in" do
     visit '/'

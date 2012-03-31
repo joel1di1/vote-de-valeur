@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'test_helper' unless eval "begin; Spork.using_spork?; rescue; false; end"
 
 class UserMailerTest < ActionMailer::TestCase
 
@@ -31,7 +31,7 @@ class UserMailerTest < ActionMailer::TestCase
     assert mail.to.include?(user.email)
 
     assert ! mail.body.to_s.match(/#{user.access_token}/)
-    assert_match /Un mail vous sera envoy. . l'ouverture du bureau de vote/, mail.body
+    assert_match /Un courriel vous sera envoy. . l'ouverture du bureau de vote/, mail.body
   end
 
   test 'election_open_mail ' do

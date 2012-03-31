@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'test_helper' unless eval "begin; Spork.using_spork?; rescue; false; end"
 
 class CandidateTest < ActiveSupport::TestCase
 
@@ -26,7 +26,7 @@ class CandidateTest < ActiveSupport::TestCase
 
     # assert
     candidate.reload
-    assert_equal 1, candidate.classic_votes_total
+    assert_equal 1, candidate.classic_votes_total 
   end
 
 end

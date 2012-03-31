@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'test_helper' unless eval "begin; Spork.using_spork?; rescue; false; end"
 
 class ClassicVoteTest < ActiveSupport::TestCase
   # Replace this with your real tests.

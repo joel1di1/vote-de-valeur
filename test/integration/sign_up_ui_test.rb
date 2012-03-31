@@ -1,5 +1,5 @@
 # coding: utf-8
-require 'integration_test_helper'
+require 'test_helper' unless eval "begin; Spork.using_spork?; rescue; false; end"
 
 class SignUpUiTest < ActionDispatch::IntegrationTest
 
@@ -47,7 +47,7 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
 
     mail = ActionMailer::Base.deliveries.last
     assert ! mail.body.to_s.match(/#{User.find_by_email(user.email).access_token}/)
-    assert_match /Un mail vous sera envoy. . l'ouverture du bureau de vote/, mail.body
+    assert_match /Un courriel vous sera envoy. . l'ouverture du bureau de vote/, mail.body
   end
 
   test "sign up in election time must send confirmation message" do
