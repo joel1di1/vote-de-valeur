@@ -39,14 +39,12 @@ Spork.prefork do
       visit "/users/access/#{user.access_token}"
     end
 
-
     def ui_sign_out_admin
-      visit '/admin/session/'
+      click_link 'Sign out'
     end
 
     def ui_sign_as_admin admin
-      ui_sign_out_admin
-      visit '/admin'
+      visit '/admin/session/new'
       fill_in 'typus_user[email]', :with => @admin.email
       fill_in 'typus_user[password]', :with => @admin.password
       click_on 'Sign in'
