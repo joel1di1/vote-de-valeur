@@ -20,7 +20,7 @@
         .vote_head.zero
           .legend
             indifférent
-          = image_tag 'votes/smiley0Seul.png', :size => '25x25'
+          = image_tag 'votes/smiley0seul.png', :size => '25x25'
           .value
             0
         .vote_head.plus_one
@@ -41,6 +41,6 @@
           = f.label "vote_for_candidate_#{candidate.id}", candidate.name
           .input
             - values = (-2..2).to_a.collect{|i| [i, (i==0) ? "%d" % i : "%+d" % i]}
-            = f.collection_radio "vote_for_candidate_#{candidate.id}", values, :first, :last
+            = f.collection_radio_buttons "vote_for_candidate_#{candidate.id}", values, :first, :last
 
   = f.submit "Valider", :id => 'next', :class => 'blue'

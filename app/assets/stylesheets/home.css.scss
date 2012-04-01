@@ -348,12 +348,12 @@ input[type='submit']:hover{
   text-decoration: underline;
 }
 
-div.boolean label, label.collection_radio {
+div.boolean label, label.collection_radio_buttons {
   float: none;
   margin: 0;
 }
 
-label.collection_radio {
+label.collection_radio_buttons {
   margin-right: 10px;
   vertical-align: -2px;
   margin-left:   2px;
@@ -496,7 +496,7 @@ $cell_width: 100px;
 label[for^=user_vote_for_candidate]{
   padding-top: 4px;
 }
-label.collection_radio{
+label.collection_radio_buttons{
   width: 100px;
   height: 33px;
   display: inline-block;
@@ -504,7 +504,7 @@ label.collection_radio{
   cursor: pointer;
 }
 #user_votes{
-  label[for$='-2'].collection_radio{
+  label[for$='-2'].collection_radio_buttons{
     &.unselected{
       background: asset-url('votes/moins2.png', image);
     }
@@ -515,7 +515,7 @@ label.collection_radio{
       background: asset-url('votes/moins2seul.png', image);
     }
   }
-  label[for$='-1'].collection_radio{
+  label[for$='-1'].collection_radio_buttons{
     &.unselected{
       background: asset-url('votes/moins1.png', image);
     }
@@ -526,7 +526,7 @@ label.collection_radio{
       background: asset-url('votes/moins1seul.png', image);
     }
   }
-  label[for$='0'].collection_radio{
+  label[for$='0'].collection_radio_buttons{
     &.unselected{
       background: asset-url('votes/0.png', image);
     }
@@ -537,7 +537,7 @@ label.collection_radio{
       background: asset-url('votes/0seul.png', image);
     }
   }
-  label[for$='_1'].collection_radio{
+  label[for$='_1'].collection_radio_buttons{
     &.unselected{
       background: asset-url('votes/plus1.png', image);
     }
@@ -548,7 +548,7 @@ label.collection_radio{
       background: asset-url('votes/plus1seul.png', image);
     }
   }
-  label[for$='_2'].collection_radio{
+  label[for$='_2'].collection_radio_buttons{
     &.unselected{
       background: asset-url('votes/plus2.png', image);
     }

@@ -26,8 +26,8 @@ function unhighlight_label(for_s){
 
 // transformer les radios du vote classique
 $(function(){
-    $("label.collection_radio").addClass('unselected')
-    $("#user_votes label.collection_radio").html('')
+    $("label.collection_radio_buttons").addClass('unselected')
+    $("#user_votes label.collection_radio_buttons").html('')
     $("input[type='radio']").addClass('hidden')
         .filter("[checked]").each(function(){
             highlight_label(this.id)
