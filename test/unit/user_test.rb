@@ -7,7 +7,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'user create should call send confirmation on user mailer' do
-    user = Factory.build :user
+    user = FactoryGirl.build :user
     mail = mock
     mail.expects :deliver
     UserMailer.expects(:send_confirmation).with(user).returns(mail)
@@ -16,7 +16,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'user create should send confirmation mail' do
-    user = Factory.build :user
+    user = FactoryGirl.build :user
 
     assert_difference 'ActionMailer::Base.deliveries.count' do
       user.save
@@ -25,10 +25,10 @@ class UserTest < ActiveSupport::TestCase
 
 
   test "filter junks mails" do
-    assert Factory.build(:user).valid?
-    assert !Factory.build(:user, :email => 'test@test.test').valid?
-    assert !Factory.build(:user, :email => nil).valid?
-    assert !Factory.build(:user, :email => 'toto@jetable.org').valid?
+    assert FactoryGirl.build(:user).valid?
+    assert !FactoryGirl.build(:user, :email => 'test@test.test').valid?
+    assert !FactoryGirl.build(:user, :email => nil).valid?
+    assert !FactoryGirl.build(:user, :email => 'toto@jetable.org').valid?
   end
 
   test 'parse_vote_value' do

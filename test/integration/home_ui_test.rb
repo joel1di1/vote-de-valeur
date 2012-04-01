@@ -14,13 +14,13 @@ class HomeUiTest < ActionDispatch::IntegrationTest
   end
 
   test 'home should not show sign_up form for authenticated users' do
-    ui_sign_in Factory :user
+    ui_sign_in FactoryGirl.create :user
     visit '/'
     assert !page.has_selector?('#new_user')
   end
 
   test 'home should not show sign_up form just sign up users' do
-    user = Factory.build :user
+    user = FactoryGirl.build :user
     visit '/'
     click_link 'next'
 
@@ -45,7 +45,7 @@ class HomeUiTest < ActionDispatch::IntegrationTest
   test "user sign in test" do
     assert !page.has_content?("signed in as")
 
-    user = Factory :user
+    user = FactoryGirl.create :user
     ui_sign_in user
     assert page.has_content? user.email
   end

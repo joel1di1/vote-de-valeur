@@ -13,7 +13,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'user access with correct token should sign user and set key' do
-    user = Factory :user
+    user = FactoryGirl.create :user
     assert ! session[VotesController::TOKEN_VALIDATED_KEY]
 
     get :access, :id => user.access_token
@@ -42,7 +42,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_not_nil count
 
     assert_difference 'count_users_with_json_call()' do
-      Factory :user
+      FactoryGirl.create :user
     end
 
   end

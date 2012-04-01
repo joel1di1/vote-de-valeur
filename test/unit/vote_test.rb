@@ -17,7 +17,7 @@ class VoteTest < ActiveSupport::TestCase
   end
 
   def vote_valid_with? value
-    vote = Factory.build :vote, :vote => value
+    vote = FactoryGirl.build :vote, :vote => value
     vote.valid?
   end
 

@@ -4,11 +4,11 @@ class CandidateTest < ActiveSupport::TestCase
 
   test "addition" do
     # setup
-    candidate = Factory :candidate
-    user = Factory :user
+    candidate = FactoryGirl.create :candidate
+    user = FactoryGirl.create :user
 
     # action
-    Factory :vote, :candidate => candidate, :vote => nil
+    FactoryGirl.create :vote, :candidate => candidate, :vote => nil
 
     # assert
     candidate.reload
@@ -17,12 +17,12 @@ class CandidateTest < ActiveSupport::TestCase
 
   test "classic_addition" do
     # setup
-    candidate = Factory :candidate
-    user = Factory :user
+    candidate = FactoryGirl.create :candidate
+    user = FactoryGirl.create :user
     assert_equal 0, candidate.classic_votes_total
 
     # action
-    Factory :classic_vote, :candidate => candidate
+    FactoryGirl.create :classic_vote, :candidate => candidate
 
     # assert
     candidate.reload

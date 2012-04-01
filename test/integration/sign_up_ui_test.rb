@@ -9,7 +9,7 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
 
   test "sign up before election send to thanks page" do
     # setup
-    user = Factory.build :user
+    user = FactoryGirl.build :user
 
     DateHelper.election_starts_at = 1.days.from_now
     DateHelper.election_ends_at = 2.days.from_now
@@ -22,7 +22,7 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
 
   test "sign up during election send to thanks page" do
     # setup
-    user = Factory.build :user
+    user = FactoryGirl.build :user
 
     DateHelper.election_starts_at = 1.days.ago
     DateHelper.election_ends_at = 2.days.from_now
@@ -35,7 +35,7 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
 
   test "sign up before election start must send confirmation message" do
     # setup
-    user = Factory.build :user
+    user = FactoryGirl.build :user
 
     DateHelper.election_starts_at = 1.days.from_now
     DateHelper.election_ends_at = 2.days.from_now
@@ -52,7 +52,7 @@ class SignUpUiTest < ActionDispatch::IntegrationTest
 
   test "sign up in election time must send confirmation message" do
     # setup
-    user = Factory.build :user
+    user = FactoryGirl.build :user
 
     DateHelper.election_starts_at = 1.day.ago
     DateHelper.election_ends_at = 1.day.from_now

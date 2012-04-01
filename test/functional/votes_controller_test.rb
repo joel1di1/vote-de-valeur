@@ -5,7 +5,7 @@ class VotesControllerTest < ActionController::TestCase
   test 'vote is not possible when election is not running' do
     DateHelper.set_election_time 1.day.from_now, 2.days.from_now
 
-    sign_in Factory :user
+    sign_in FactoryGirl.create :user
     post :update
 
     assert_redirected_to root_path
@@ -14,8 +14,8 @@ class VotesControllerTest < ActionController::TestCase
   test 'user can vote only once' do
     # setup
     DateHelper.set_election_time 1.day.ago, 2.days.from_now
-    sign_in Factory :user
-    candidate = Factory :candidate
+    sign_in FactoryGirl.create :user
+    candidate = FactoryGirl.create :candidate
 
     # action
     post :update, :user => {"vote_for_candidate_#{candidate.id}".to_sym => "2"}
@@ -36,9 +36,9 @@ class VotesControllerTest < ActionController::TestCase
   test 'user can vote classic only once' do
     # setup
     DateHelper.set_election_time 1.day.ago, 2.days.from_now
-    sign_in Factory :user
-    candidate = Factory :candidate
-    candidate_2 = Factory :candidate
+    sign_in FactoryGirl.create :user
+    candidate = FactoryGirl.create :candidate
+    candidate_2 = FactoryGirl.create :candidate
     assert_equal 0, candidate.classic_votes_total
     assert_equal 0, candidate_2.classic_votes_total
 
@@ -64,7 +64,7 @@ class VotesControllerTest < ActionController::TestCase
   test 'accessing votes is not possible when election is not running' do
     DateHelper.set_election_time 1.day.from_now, 2.days.from_now
 
-    sign_in Factory :user
+    sign_in FactoryGirl.create :user
     get :index
 
     assert_redirected_to root_path
@@ -72,7 +72,7 @@ class VotesControllerTest < ActionController::TestCase
 
   test 'user can access vote only if not marked in session' do
     DateHelper.set_election_time 1.day.ago, 1.day.from_now
-    user = Factory :user
+    user = FactoryGirl.create :user
     sign_in user
 
     get :index

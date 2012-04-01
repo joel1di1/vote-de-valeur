@@ -5,7 +5,7 @@ class UserMailerTest < ActionMailer::TestCase
   test "when election started, send confirmation mail should give link to vote" do
     # setup
     DateHelper.set_election_time 1.day.ago, 1.day.from_now
-    user = Factory.build :user
+    user = FactoryGirl.build :user
 
     # action
     mail = UserMailer.send_confirmation(user).deliver
@@ -21,7 +21,7 @@ class UserMailerTest < ActionMailer::TestCase
 
     # setup
     DateHelper.set_election_time 1.day.from_now, 2.days.from_now
-    user = Factory.build :user
+    user = FactoryGirl.build :user
 
     # action
     mail = UserMailer.send_confirmation(user).deliver
@@ -36,7 +36,7 @@ class UserMailerTest < ActionMailer::TestCase
 
   test 'election_open_mail ' do
     # setup
-    user = Factory :user
+    user = FactoryGirl.create :user
 
     # action
     mail = UserMailer.election_open_mail(user).deliver

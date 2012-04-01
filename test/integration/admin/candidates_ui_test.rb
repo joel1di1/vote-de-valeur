@@ -4,13 +4,13 @@ require 'test_helper' unless eval "begin; Spork.using_spork?; rescue; false; end
 class Admin::CandidatesUiTest < ActionDispatch::IntegrationTest
 
   setup do
-    @admin = Factory :admin_user
+    @admin = FactoryGirl.create :admin_user
     ui_sign_as_admin @admin
   end
 
   test "admin should create candidate" do
 
-    candidate = Factory.build :candidate
+    candidate = FactoryGirl.build :candidate
 
     click_on 'Candidate'
     click_link 'Ajouter nouveau'
@@ -24,7 +24,7 @@ class Admin::CandidatesUiTest < ActionDispatch::IntegrationTest
   end
 
   test "admin should list candidates" do
-    candidate = Factory :candidate
+    candidate = FactoryGirl.create :candidate
 
     click_on 'Candidate'
 
@@ -32,7 +32,7 @@ class Admin::CandidatesUiTest < ActionDispatch::IntegrationTest
   end
 
   test "admin should edit candidate" do
-    candidate = Factory :candidate
+    candidate = FactoryGirl.create :candidate
     click_on 'Candidate'
     assert page.has_content? candidate.name
 

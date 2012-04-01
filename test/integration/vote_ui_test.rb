@@ -4,9 +4,9 @@ require 'test_helper' unless eval "begin; Spork.using_spork?; rescue; false; end
 class VoteUiTest < ActionDispatch::IntegrationTest
 
   setup do
-    @user = Factory :user
-    @candidate_1 = Factory :candidate
-    @candidate_2 = Factory :candidate
+    @user = FactoryGirl.create :user
+    @candidate_1 = FactoryGirl.create :candidate
+    @candidate_2 = FactoryGirl.create :candidate
 
     DateHelper.set_election_time 1.day.ago, 1.day.from_now
   end

@@ -1,52 +1,54 @@
-Factory.sequence :email do |n|
-  "email_#{n}@factory.com"
-end
+FactoryGirl.define do 
 
-Factory.sequence :first_name do |n|
-  "John_#{n}"
-end
+  sequence :email do |n|
+    "email_#{n}@factory.com"
+  end
 
-Factory.sequence :last_name do |n|
-  "Smith_#{n}"
-end
+  sequence :first_name do |n|
+    "John_#{n}"
+  end
 
-Factory.sequence :postal_code do |n|
-  rand(99999)
-end
+  sequence :last_name do |n|
+    "Smith_#{n}"
+  end
 
-Factory.sequence :public do |n|
-  n%2 == 0
-end
+  sequence :postal_code do |n|
+    rand(99999)
+  end
 
-Factory.define :user do |u|
-  u.email {Factory.next :email}
-  u.first_name {Factory.next :first_name}
-  u.last_name {Factory.next :last_name}
-  u.postal_code {Factory.next :postal_code}
-  u.public {Factory.next :public}
-  u.access_token {User.generate_access_token}
-end
+  sequence :public do |n|
+    n%2 == 0
+  end
 
-Factory.define :admin_user do |a|
-  a.email {Factory.next :email}
-  a.password "secret"
-  a.role 'admin'
-  a.status true
-end
+  factory :user do |u|
+    u.email {FactoryGirl.generate :email}
+    u.first_name {FactoryGirl.generate :first_name}
+    u.last_name {FactoryGirl.generate :last_name}
+    u.postal_code {FactoryGirl.generate :postal_code}
+    u.public {FactoryGirl.generate :public}
+    u.access_token {User.generate_access_token}
+  end
 
-Factory.sequence :candidate_name do |n|
-  "Candidate_#{n}"
-end
+  factory :admin_user do |a|
+    a.email {FactoryGirl.generate :email}
+    a.password "secret"
+    a.role 'admin'
+    a.status true
+  end
 
-Factory.define :candidate do |c|
-  c.name {Factory.next :candidate_name}
-end
+  sequence :candidate_name do |n|
+    "Candidate_#{n}"
+  end
 
-Factory.define :vote do |v|
-  v.candidate {Factory :candidate}
-end
+  factory :candidate do |c|
+    c.name {FactoryGirl.generate :candidate_name}
+  end
 
-Factory.define :classic_vote do |v|
-  v.candidate {Factory :candidate}
-end
+  factory :vote do |v|
+    v.candidate {FactoryGirl.create :candidate}
+  end
 
+  factory :classic_vote do |v|
+    v.candidate {FactoryGirl.create :candidate}
+  end
+end
