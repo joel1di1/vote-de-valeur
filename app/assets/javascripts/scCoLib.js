@@ -79,7 +79,8 @@ window.onresize = scOnResize;
 
 
 function sc$(pId) {return document.getElementById(pId);}
-function $(pId) {return sc$(pId);}
+// DO NOT HAD THE FOLLOWING LINE AS IT BREAK JQUERY !!!
+// function $(pId) {return sc$(pId);}
 
 
 scCoLib.addOnLoadHandler = function(pHanlder){
