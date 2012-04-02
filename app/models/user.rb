@@ -57,24 +57,30 @@ class User < ActiveRecord::Base
     token
   end
 
+  def self.generate_vote_key
+    token = rand(36**64).to_s(36)
+    while Vote.find_by_key(token)
+      token = rand(36**64).to_s(36)
+    end
+    token
+  end
+
   def vote! votes_hash
+    votes_hash = votes_hash.with_indifferent_access
+    key = User.generate_vote_key
     Candidate.all.each do |candidate|
       value_string = nil
       value_string = votes_hash["vote_for_candidate_#{candidate.id}"] if votes_hash
 
       vote_value = parse_vote_value value_string
 
-      Vote.create :candidate => candidate, :vote => vote_value
+      Vote.create :candidate => candidate, :vote => vote_value, :key => key
     end
 
-    self.update_attribute :a_vote, true
-  end
+    candidate = Candidate.find(votes_hash[:classic_vote]) if votes_hash && votes_hash[:classic_vote]
+    ClassicVote.create :candidate => candidate, :key => key if candidate
 
-  def classic_vote! classic_vote_hash
-    candidate = Candidate.find(classic_vote_hash[:classic_vote]) if classic_vote_hash && classic_vote_hash[:classic_vote]
-    ClassicVote.create :candidate => candidate if candidate
-
-    self.update_attribute :a_vote_classic, true
+    self.update_attributes :a_vote => true, :a_vote_classic => true
   end
 
   def parse_vote_value value_string

@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'spork'
 
+
 Spork.prefork do
   ENV["RAILS_ENV"] = "test"
   require File.expand_path('../../config/environment', __FILE__)
@@ -56,4 +57,25 @@ Spork.prefork do
 
   end
 
+  def mute_already_initialized_constant_warnings(&block)
+    warn_level = $VERBOSE
+    $VERBOSE = nil
+    v = yield
+    $VERBOSE = warn_level
+    v
+  end
+
+
 end
+
+
+Spork.each_run do
+  # This code will be run each time you run your specs.
+  mute_already_initialized_constant_warnings do
+    Dir["#{Rails.root}/app/models/**/*.rb"].each do |model|
+      load model
+    end
+  end
+  
+end
+

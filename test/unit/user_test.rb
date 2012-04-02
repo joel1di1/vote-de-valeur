@@ -47,6 +47,34 @@ class UserTest < ActiveSupport::TestCase
     assert_parse_nil nil
   end
 
+  test 'votes should add new votes' do
+    candidate_1 = FactoryGirl.create :candidate
+    candidate_2 = FactoryGirl.create :candidate
+
+    assert_difference ["Vote.find_all_by_candidate_id(#{candidate_1.id}).count",
+                       "Vote.find_all_by_candidate_id(#{candidate_2.id}).count",
+                       "ClassicVote.count"] do
+      @u.vote! "vote_for_candidate_#{candidate_2.id}" => '1', 
+               "vote_for_candidate_#{candidate_1.id}" => '-1', 
+               "classic_vote" => candidate_2.id.to_s
+    end
+  end
+
+  test 'votes should add new votes with same generated key' do
+    candidate_1 = FactoryGirl.create :candidate
+    candidate_2 = FactoryGirl.create :candidate
+
+    key = FactoryGirl.generate(:email)
+    User.expects(:generate_vote_key).returns(key)
+
+    @u.vote! "vote_for_candidate_#{candidate_2.id}" => '1', 
+             "vote_for_candidate_#{candidate_1.id}" => '-1', 
+             "classic_vote" => candidate_2.id.to_s
+
+    assert_equal key, Vote.last.key 
+    assert_equal key, ClassicVote.last.key 
+  end
+
   def assert_parse_equal expected, value
     assert_equal expected, @u.parse_vote_value(value)
   end

@@ -16,12 +16,16 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     click_link 'Continuer'
   end
 
+  def go_to_classic
+    click_on 'next_to_classic'
+  end
+
   def select_vote_for candidate, vote
     choose "user_vote_for_candidate_#{candidate.id}_#{vote}"
   end
 
   def submit_vote
-    click_on 'Valider'
+    click_on 'next'
   end
 
   def select_classic_vote candidate
@@ -32,7 +36,6 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     ui_sign_in @user
 
     assert page.has_content? "Bienvenue au bureau de vote virtuel, "
-
   end
 
   test "vote form should display candidates form" do
@@ -46,14 +49,11 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     assert page.has_field? "user[vote_for_candidate_#{@candidate_1.id}]"
     assert page.has_field? "user[vote_for_candidate_#{@candidate_2.id}]"
 
-    submit_vote
-
     # vote classique
     assert page.has_field? "user[classic_vote]"
     assert page.has_field? "user_classic_vote_#{@candidate_1.id}"
     assert page.has_field? "user_classic_vote_#{@candidate_2.id}"
   end
-
 
   test "when user vote he should be marked" do
     # setup
@@ -65,14 +65,15 @@ class VoteUiTest < ActionDispatch::IntegrationTest
 
     select_vote_for @candidate_1, 1
     select_vote_for @candidate_2, -2
-    submit_vote
-    @user.reload
-    assert @user.a_vote?
+
+    go_to_classic
 
     select_classic_vote @candidate_2
     submit_vote
-
+    
     # assert
+    @user.reload
+    assert @user.a_vote?
     @user.reload
     assert @user.a_vote_classic?
   end
@@ -81,14 +82,12 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     go_to_vote
 
     assert_difference ["Vote.find_all_by_candidate_id(#{@candidate_1.id}).count",
-                       "Vote.find_all_by_candidate_id(#{@candidate_2.id}).count"
-                       ] do
+                       "Vote.find_all_by_candidate_id(#{@candidate_2.id}).count",
+                       "ClassicVote.count"] do
       select_vote_for @candidate_1, 1
       select_vote_for @candidate_2, -2
-      submit_vote
-    end
+      go_to_classic
 
-    assert_difference "ClassicVote.count" do
       select_classic_vote @candidate_2
       submit_vote
     end
@@ -97,8 +96,7 @@ class VoteUiTest < ActionDispatch::IntegrationTest
   test "user should be able to vote only once" do
     # setup
     go_to_vote
-    submit_vote
-
+    go_to_classic
     submit_vote
 
     # action
@@ -107,38 +105,5 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     # assert
     assert_equal root_path, page.current_path
   end
-
-  test "user that have just vote for vdv should be able to vote classic" do
-    # setup
-    go_to_vote
-    submit_vote
-    visit "/"
-
-    # action
-    go_to_vote
-
-    # assert
-    assert_equal votes_classic_path, page.current_path
-  end
-
-  test "user that have just vote for classic vote should be able to vote for vdv" do
-    # setup
-    go_to_vote
-    visit votes_classic_path
-    submit_vote
-    visit "/"
-
-    # action
-    visit votes_classic_path
-    assert_equal root_path, page.current_path
-
-    go_to_vote
-    submit_vote
-
-    # assert
-    visit votes_classic_path
-    assert_equal root_path, page.current_path
-  end
-
 
 end

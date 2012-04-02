@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023123945) do
+ActiveRecord::Schema.define(:version => 20120402000719) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -37,7 +37,10 @@ ActiveRecord::Schema.define(:version => 20111023123945) do
 
   create_table "classic_votes", :force => true do |t|
     t.integer "candidate_id"
+    t.string  "key"
   end
+
+  add_index "classic_votes", ["key"], :name => "index_classic_votes_on_key", :unique => true
 
   create_table "configurations", :force => true do |t|
     t.datetime "start_date"
@@ -107,6 +110,9 @@ ActiveRecord::Schema.define(:version => 20111023123945) do
   create_table "votes", :force => true do |t|
     t.integer "candidate_id"
     t.integer "vote"
+    t.string  "key"
   end
+
+  add_index "votes", ["key"], :name => "index_votes_on_key"
 
 end

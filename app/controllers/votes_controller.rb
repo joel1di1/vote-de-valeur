@@ -14,45 +14,8 @@ class VotesController < ApplicationController
       @candidates = Candidate.all
       @user = current_user
       if current_user.a_vote?
-        if current_user.a_vote_classic?
-          flash[:error] = "Vous avez déjà voté."
-          redirect_to root_path
-        else
-          redirect_to votes_classic_path
-        end
-      end
-    else
-      flash[:error] = "Veuillez suivre le lien qui vous a été envoyé par mail pour valider votre inscription."
-      redirect_to root_path
-    end
-  end
-
-  def classic
-    unless user_signed_in?
-      redirect_to root_path and return
-    end
-
-    unless DateHelper.election_running?
-      flash[:error] = "Le bureau de vote n'est pas ouvert"
-      redirect_to root_path and return
-    end
-
-    if current_user.a_vote_classic?
-      if current_user.a_vote?
-        flash[:error] = "Vous avez déjà voté"
+        flash[:error] = "Vous avez déjà voté."
         redirect_to root_path
-      else
-        redirect_to votes_path
-      end
-      return
-    end
-
-    if session.include?(TOKEN_VALIDATED_KEY) && session[TOKEN_VALIDATED_KEY]
-      @candidates = Candidate.all
-      @user = current_user
-
-      respond_to do |format|
-        format.html
       end
     else
       flash[:error] = "Veuillez suivre le lien qui vous a été envoyé par mail pour valider votre inscription."
@@ -60,11 +23,10 @@ class VotesController < ApplicationController
     end
   end
 
-  def update
+  def create
     unless user_signed_in?
       redirect_to root_path and return
     end
-
 
     unless DateHelper.election_running?
       flash[:error] = "Le bureau de vote n'est pas ouvert"
@@ -78,31 +40,52 @@ class VotesController < ApplicationController
 
     current_user.vote! params[:user]
 
-    redirect_to votes_classic_path
-  end
-
-  def update_classic
-    unless user_signed_in?
-      redirect_to root_path
-      return
-    end
-
-    unless DateHelper.election_running?
-      flash[:error] = "Le bureau de vote n'est pas ouvert"
-      redirect_to root_path
-      return
-    end
-
-    if current_user.a_vote_classic?
-      flash[:error] = "Vous avez déjà voté"
-      redirect_to root_path
-      return
-    end
-
-    current_user.classic_vote! params[:user]
-
     redirect_to thanks_path
   end
+
+  # def update
+  #   unless user_signed_in?
+  #     redirect_to root_path and return
+  #   end
+
+
+  #   unless DateHelper.election_running?
+  #     flash[:error] = "Le bureau de vote n'est pas ouvert"
+  #     redirect_to root_path and return
+  #   end
+
+  #   if current_user.a_vote?
+  #     flash[:error] = "Vous avez déjà voté"
+  #     redirect_to root_path and return
+  #   end
+
+  #   current_user.vote! params[:user]
+
+  #   redirect_to votes_classic_path
+  # end
+
+  # def update_classic
+  #   unless user_signed_in?
+  #     redirect_to root_path
+  #     return
+  #   end
+
+  #   unless DateHelper.election_running?
+  #     flash[:error] = "Le bureau de vote n'est pas ouvert"
+  #     redirect_to root_path
+  #     return
+  #   end
+
+  #   if current_user.a_vote_classic?
+  #     flash[:error] = "Vous avez déjà voté"
+  #     redirect_to root_path
+  #     return
+  #   end
+
+  #   current_user.classic_vote! params[:user]
+
+  #   redirect_to thanks_path
+  # end
 
   def explanations
 

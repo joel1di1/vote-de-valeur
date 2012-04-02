@@ -9,17 +9,17 @@ VoteDeValeur::Application.routes.draw do
     post  '/users/resend_instructions' => 'home#do_resend_instructions'
   end
 
-  resource :users, :only => [] do
+  resources :users, :only => [] do
     get 'count'
   end
 
-  get   'users/access/:id'  =>  'users#access', :as => 'user_access'
+  get 'users/access/:id'  =>  'users#access', :as => 'user_access'
 
-  get 'votes' => 'votes#index'
-  get 'votes/classic' => 'votes#classic'
-  post 'votes/classic' => 'votes#update_classic'
-  get 'votes/explanations' => 'votes#explanations'
-  post 'votes' => 'votes#update'
+  resources :votes, :only => [:index, :create] do
+    collection do
+      get 'explanations'
+    end
+  end
 
   get 'thanks' => 'home#thanks'
 

@@ -1,4 +1,5 @@
 -# coding: utf-8
+
 = simple_form_for @user, :url => '/votes', :html => {:method => :post, :class => "application", :id => "user_vote_form"} do |f|
   = render :partial => '/layouts/messages'
   #content.blue
@@ -43,4 +44,13 @@
             - values = (-2..2).to_a.collect{|i| [i, (i==0) ? "%d" % i : "%+d" % i]}
             = f.collection_radio_buttons "vote_for_candidate_#{candidate.id}", values, :first, :last
 
-  = f.submit "Valider", :id => 'next', :class => 'blue'
+    #classic_vote
+      %h2= 'Vote classique'
+      - values = @candidates.to_a.collect{|c| [c.id, c.name]}
+      - values.each do |v|
+        %span
+          %input{:type =>'radio', :id => "user_classic_vote_#{v[0]}", :name => 'user[classic_vote]', :value => v[0], :class => 'hidden'}
+          %label{:class =>"collection_radio_buttons unselected", :for => "user_classic_vote_#{v[0]}"}= v[1]
+
+  = link_to "Valider", '#classic', :id => 'next_to_classic', :class => 'blue'
+  = f.submit "Valider", :id => 'submit_votes', :class => 'grey'
