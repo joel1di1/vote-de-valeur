@@ -10,7 +10,9 @@ VoteDeValeur::Application.routes.draw do
   end
 
   resources :users, :only => [] do
-    get 'count'
+    collection do 
+      get 'count'
+    end
   end
 
   get 'users/access/:id'  =>  'users#access', :as => 'user_access'
