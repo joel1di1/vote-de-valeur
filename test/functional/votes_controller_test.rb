@@ -14,23 +14,24 @@ class VotesControllerTest < ActionController::TestCase
   test 'user can vote only once' do
     # setup
     DateHelper.set_election_time 1.day.ago, 2.days.from_now
-    sign_in FactoryGirl.create :user
+    user = FactoryGirl.create :user
+    sign_in user
     candidate = FactoryGirl.create :candidate
 
     # action
-    put :create, :user => {"vote_for_candidate_#{candidate.id}".to_sym => "2"}
+    assert_difference "candidate.reload.votes_total", 2 do
+      put :create, :user => {"vote_for_candidate_#{candidate.id}".to_sym => "2"}
+    end
 
     # assert
     assert_redirected_to thanks_path
-    candidate.reload
-    assert_equal 2, candidate.votes_total
 
     # action
-    put :create, :user => {"vote_for_candidate_#{candidate.id}".to_sym => "-1"}
+    assert_no_difference "candidate.reload.votes_total" do
+      put :create, :user => {"vote_for_candidate_#{candidate.id}".to_sym => "-1"}
+    end
     # assert
     assert_redirected_to root_path
-    candidate.reload
-    assert_equal 2, candidate.votes_total
   end
 
   test 'accessing votes is not possible when election is not running' do

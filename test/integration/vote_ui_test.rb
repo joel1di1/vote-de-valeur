@@ -25,7 +25,7 @@ class VoteUiTest < ActionDispatch::IntegrationTest
   end
 
   def submit_vote
-    click_on 'next'
+    click_on 'submit_votes'
   end
 
   def select_classic_vote candidate
@@ -96,6 +96,7 @@ class VoteUiTest < ActionDispatch::IntegrationTest
   test "user should be able to vote only once" do
     # setup
     go_to_vote
+    select_vote_for @candidate_1, 1
     go_to_classic
     submit_vote
 

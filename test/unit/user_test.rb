@@ -3,7 +3,7 @@ require 'test_helper' unless eval "begin; Spork.using_spork?; rescue; false; end
 class UserTest < ActiveSupport::TestCase
 
   setup do
-    @u = User.new
+    @u = FactoryGirl.create :user
   end
 
   test 'user create should call send confirmation on user mailer' do

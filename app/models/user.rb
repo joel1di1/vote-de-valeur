@@ -66,6 +66,8 @@ class User < ActiveRecord::Base
   end
 
   def vote! votes_hash
+    raise "#{self.email} has already vote!" if a_vote?
+
     votes_hash = votes_hash.with_indifferent_access
     key = User.generate_vote_key
     Candidate.all.each do |candidate|
@@ -80,7 +82,9 @@ class User < ActiveRecord::Base
     candidate = Candidate.find(votes_hash[:classic_vote]) if votes_hash && votes_hash[:classic_vote]
     ClassicVote.create :candidate => candidate, :key => key if candidate
 
-    self.update_attributes :a_vote => true, :a_vote_classic => true
+    self.a_vote = true
+    self.a_vote_classic = true
+    self.save!
   end
 
   def parse_vote_value value_string
