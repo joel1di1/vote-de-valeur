@@ -21,6 +21,8 @@ User:
   filters: created_at
   search: 
   application: vote-de-valeur
+  options:
+    export: csv, json, xml
 
 Vote:
   fields:
