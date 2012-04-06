@@ -15,6 +15,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'ssl_requirement'
 gem 'typus'
+gem 'will_paginate'
 
 group :production do
   gem 'pg'
