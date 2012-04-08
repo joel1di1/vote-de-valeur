@@ -85,6 +85,7 @@ class User < ActiveRecord::Base
     self.a_vote = true
     self.a_vote_classic = true
     self.save!
+    key
   end
 
   def parse_vote_value value_string

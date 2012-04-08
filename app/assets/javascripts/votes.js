@@ -1,7 +1,7 @@
 
 // Lorsqu'une valeur est choisie, on affiche la selection
 $(function(){
-    $("input[type='radio']").change(function(){
+    $("#user_votes input[type='radio'], #classic_vote input[type='radio']").change(function(){
         $("input[name='"+this.name+"']")
             .each(function (){
                 unhighlight_label(this.id)
@@ -28,7 +28,7 @@ function unhighlight_label(for_s){
 $(function(){
     $("label.collection_radio_buttons").addClass('unselected')
     $("#user_votes label.collection_radio_buttons").html('')
-    $("input[type='radio']").addClass('hidden')
+    $("#user_votes input[type='radio'], #classic_vote input[type='radio']").addClass('hidden')
         .filter("[checked]").each(function(){
             highlight_label(this.id)
         })

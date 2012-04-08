@@ -325,13 +325,15 @@ $label_inner_width: $label_width - 2*$label_margin;
   }
 }
 
-.simple_form label {
-  float: left;
-  width: $label_inner_width;
-  text-align: right;
-  margin: 2px $label_margin;
-  abbr{
-    display: none;
+#classic_vote, #user_votes{
+  .simple_form label {
+    float: left;
+    width: $label_inner_width;
+    text-align: right;
+    margin: 2px $label_margin;
+    abbr{
+      display: none;
+    }
   }
 }
 

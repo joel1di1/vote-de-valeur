@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120408183813) do
+ActiveRecord::Schema.define(:version => 20120408185024) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(:version => 20120408183813) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "feedbacks", :force => true do |t|
+    t.text     "answers"
+    t.string   "key"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "feedbacks", ["key"], :name => "index_feedbacks_on_key"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

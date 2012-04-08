@@ -23,6 +23,9 @@ VoteDeValeur::Application.routes.draw do
     end
   end
 
+  get 'feedbacks' => 'feedbacks#new'
+  post 'feedbacks' => 'feedbacks#create'
+
   get 'thanks' => 'home#thanks'
 
   root :to => "home#index"

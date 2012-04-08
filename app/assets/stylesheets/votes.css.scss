@@ -11,6 +11,14 @@
   display: none;  
 }
 
+.row > label{
+  float: left;
+  margin: 2px 10px;
+  padding-top: 4px;
+  text-align: right;
+  width: 230px;
+}
+
 .next{
   text-decoration: none;
   &:hover{

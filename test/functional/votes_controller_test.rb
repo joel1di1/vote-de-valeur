@@ -24,7 +24,7 @@ class VotesControllerTest < ActionController::TestCase
     end
 
     # assert
-    assert_redirected_to thanks_path
+    assert_redirected_to feedback_path
 
     # action
     assert_no_difference "candidate.reload.votes_total" do

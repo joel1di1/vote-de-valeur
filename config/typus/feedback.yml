@@ -1,0 +1,10 @@
+# Use the README file as a reference to customize settings.
+
+Feedback:
+  fields:
+    default: answers, key
+    form: answers, key
+  relationships: 
+  application: vote-de-valeur
+  options:
+    export: csv, json, xml

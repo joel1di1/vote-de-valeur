@@ -3,6 +3,8 @@ class VotesController < ApplicationController
 
   TOKEN_VALIDATED_KEY = 'token_validated'
 
+  before_filter :set_cache_buster
+
   def index
     redirect_to root_path and return unless user_signed_in?
     unless DateHelper.election_running?
@@ -38,9 +40,11 @@ class VotesController < ApplicationController
       redirect_to root_path and return
     end
 
-    current_user.vote! params[:user]
+    key = current_user.vote! params[:user]
 
-    redirect_to thanks_path
+    session[:uniq_key] ||= key
+
+    redirect_to feedbacks_path
   end
 
   # def update
