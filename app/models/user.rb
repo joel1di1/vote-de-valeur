@@ -92,4 +92,12 @@ class User < ActiveRecord::Base
     vote_value ||= nil
   end
 
+  def self.send_opening_mails
+    User.where(:mailed_status => 0).each do |user|
+      UserMailer.election_open_mail(user).deliver
+      user.update_attribute :mailed_status, 1
+      p user.email
+    end
+  end
+
 end

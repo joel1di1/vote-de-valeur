@@ -74,7 +74,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal key, Vote.last.key 
     assert_equal key, ClassicVote.last.key 
   end
-
+  
   def assert_parse_equal expected, value
     assert_equal expected, @u.parse_vote_value(value)
   end
