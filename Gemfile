@@ -35,3 +35,8 @@ group :test do
   gem 'test-unit'
   gem 'spork-testunit'
 end
+
+group :development do
+  gem 'wirble'
+  gem 'hirb'
+end
