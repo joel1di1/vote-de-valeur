@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+VoteSecondTour:
+  fields:
+    default: key, first_candidate, second_candidate, chosen_candidate, original_fight_id
+    form: key, original_fight_id
+  relationships: first_candidate, second_candidate, chosen_candidate
+  application: vote-de-valeur

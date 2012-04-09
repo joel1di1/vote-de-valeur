@@ -222,6 +222,11 @@ fr:
 
   activerecord:
     errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Cette adresse mail a déjà été enregistrée, vous recevrez un courriel dès l'ouverture du bureau de vote."
       messages:
         taken: "Cette adresse mail a déjà été enregistrée, vous recevrez un courriel dès l'ouverture du bureau de vote."
         record_invalid: "La validation a échoué : %{errors}"

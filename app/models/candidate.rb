@@ -20,6 +20,7 @@ class Candidate < ActiveRecord::Base
 
     res = []
     candidates.combination(2) do |t|
+      t.shuffle!
       res << Fight.new(t[0], t[1])
     end
     res
@@ -32,7 +33,6 @@ class Fight
     @candidates = []
     @candidates << first
     @candidates << second
-    @candidates.shuffle!
   end
 
   def candidates

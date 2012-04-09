@@ -25,6 +25,7 @@ VoteDeValeur::Application.routes.draw do
     collection do
       get 'explanations'
       get 'second_tour'
+      post 'second_tour' => 'votes#vote_second_tour'
     end
   end
 

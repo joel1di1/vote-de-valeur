@@ -51,52 +51,18 @@ class VotesController < ApplicationController
     @fights = Candidate.get_versus
   end
 
-  # def update
-  #   unless user_signed_in?
-  #     redirect_to root_path and return
-  #   end
+  def vote_second_tour
+    votes_params = params.except(:action, :controller, :utf8, :authenticity_token, :commit)
+    begin
+      votes_params.keys.select{|k| k.start_with?('f_')}.each do |key|
+        VoteSecondTour.create_with(key, votes_params[key], session[:uniq_key])
+      end
+    rescue Exception => e
+      HoptoadNotifier.notify e
+    end
+    current_user.update_attribute :a_vote_second_tour, true
 
-
-  #   unless DateHelper.election_running?
-  #     flash[:error] = "Le bureau de vote n'est pas ouvert"
-  #     redirect_to root_path and return
-  #   end
-
-  #   if current_user.a_vote?
-  #     flash[:error] = "Vous avez déjà voté"
-  #     redirect_to root_path and return
-  #   end
-
-  #   current_user.vote! params[:user]
-
-  #   redirect_to votes_classic_path
-  # end
-
-  # def update_classic
-  #   unless user_signed_in?
-  #     redirect_to root_path
-  #     return
-  #   end
-
-  #   unless DateHelper.election_running?
-  #     flash[:error] = "Le bureau de vote n'est pas ouvert"
-  #     redirect_to root_path
-  #     return
-  #   end
-
-  #   if current_user.a_vote_classic?
-  #     flash[:error] = "Vous avez déjà voté"
-  #     redirect_to root_path
-  #     return
-  #   end
-
-  #   current_user.classic_vote! params[:user]
-
-  #   redirect_to thanks_path
-  # end
-
-  def explanations
-
+    redirect_to feedbacks_path
   end
 
 end
