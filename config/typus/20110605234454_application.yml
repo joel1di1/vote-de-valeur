@@ -4,8 +4,8 @@
 
 Candidate:
   fields:
-    default: name
-    form: name
+    default: name, favorite
+    form: name, favorite
   action:
     index: test
     edit: test

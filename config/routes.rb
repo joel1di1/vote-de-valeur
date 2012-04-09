@@ -24,6 +24,7 @@ VoteDeValeur::Application.routes.draw do
   resources :votes, :only => [:index, :create] do
     collection do
       get 'explanations'
+      get 'second_tour'
     end
   end
 

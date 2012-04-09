@@ -24,7 +24,7 @@ class VotesControllerTest < ActionController::TestCase
     end
 
     # assert
-    assert_redirected_to feedbacks_path
+    assert_redirected_to second_tour_votes_path
 
     # action
     assert_no_difference "candidate.reload.votes_total" do
@@ -53,6 +53,17 @@ class VotesControllerTest < ActionController::TestCase
 
     get :index, nil, {VotesController::TOKEN_VALIDATED_KEY => '1'}
     assert_response :success
+  end
+
+  test 'second_tour should display secondtour form' do
+    DateHelper.set_election_time 1.day.ago, 1.day.from_now
+    user = FactoryGirl.create :user
+    sign_in user
+
+    get :second_tour
+
+    assert_response :success
+    assert_not_nil assigns[:fights]
   end
 
 end

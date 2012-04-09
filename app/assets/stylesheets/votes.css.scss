@@ -42,3 +42,26 @@
     border: 3px #969696 solid;
   }
 }
+
+$fight_width: 400px;
+$candidate_width: $fight_width / 2;
+#second_tour_form{
+  .fight{
+    padding: 20px;
+    width: $fight_width;
+    margin: 10px auto; 
+  }
+  .versus{
+    float: left;
+    color: #AAA;
+    padding-top: 7px;
+  }
+  .candidate{
+    width: $candidate_width - 20px;
+    text-align: center;
+    float: left;
+    label{
+      display: block;
+    }
+  }
+}

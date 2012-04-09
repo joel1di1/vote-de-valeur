@@ -44,7 +44,11 @@ class VotesController < ApplicationController
 
     session[:uniq_key] ||= key
 
-    redirect_to feedbacks_path
+    redirect_to second_tour_votes_path
+  end
+
+  def second_tour
+    @fights = Candidate.get_versus
   end
 
   # def update
