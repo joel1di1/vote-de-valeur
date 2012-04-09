@@ -13,7 +13,7 @@ class VotesController < ApplicationController
     end
 
     if session.include?(TOKEN_VALIDATED_KEY) && session[TOKEN_VALIDATED_KEY]
-      @candidates = Candidate.all
+      @candidates = Candidate.all.shuffle
       @user = current_user
       if current_user.a_vote?
         flash[:error] = "Vous avez déjà voté."
