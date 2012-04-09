@@ -47,7 +47,7 @@ VoteDeValeur::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'experience2012.votedevaleur.org' }
+  config.action_mailer.default_url_options = { :host => 'vote-de-valeur.herokuapp.com' }
 
 
   config.middleware.use "ForceSSL"

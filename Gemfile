@@ -17,7 +17,7 @@ gem 'ssl_requirement'
 gem 'typus'
 gem 'will_paginate'
 
-group :production do
+group :production, :demo do
   gem 'pg'
 end
 

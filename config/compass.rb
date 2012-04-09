@@ -21,4 +21,4 @@ http_path = "/"
 # and then run:
 # sass-convert -R --from scss --to sass app/stylesheets scss && rm -rf sass && mv scss sass
 
-Compass.configuration.sass_options = { :never_update => true } if Rails.env.production?
+Compass.configuration.sass_options = { :never_update => true } if Rails.env.production? || Rails.env.demo?
