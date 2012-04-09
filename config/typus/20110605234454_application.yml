@@ -17,8 +17,8 @@ Candidate:
 
 Vote:
   fields:
-    default: candidate, vote
-    form: candidate, vote
+    default: candidate, vote, key
+    form: candidate, vote, key
   order_by: 
   relationships: candidate
   search: 
