@@ -19,7 +19,10 @@ class FeedbacksController < ApplicationController
 
   protected
     def has_no_feedbacks
-      redirect_to thanks_path if current_user.feedbacks
+      if current_user.feedbacks
+        flash[:error] = t(:questionnaire_rempli)
+        redirect_to thanks_path 
+      end
     end
 
 end
