@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120408185024) do
+ActiveRecord::Schema.define(:version => 20120409094630) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20120408185024) do
     t.boolean  "a_vote"
     t.boolean  "a_vote_classic"
     t.integer  "mailed_status",                         :default => 0
+    t.boolean  "feedbacks"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

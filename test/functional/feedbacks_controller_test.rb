@@ -28,4 +28,24 @@ class FeedbacksControllerTest < ActionController::TestCase
     assert_equal some_email, answers['test_2']
   end
 
+  test 'create feedback should mark feedbacks on user and do accept feedback after that' do
+    user = FactoryGirl.create :user
+    sign_in user
+    some_email = FactoryGirl.generate :email
+    assert ! user.reload.feedbacks
+
+    assert_difference 'Feedback.count' do
+      post :create, :test_1 => 'test 1 value', :test_2 => some_email
+    end
+
+    assert_redirected_to thanks_path
+    assert user.reload.feedbacks
+
+    assert_no_difference 'Feedback.count' do
+      post :create, :test_1 => 'test 1 value', :test_2 => some_email
+    end
+    assert_redirected_to thanks_path
+  end
+
+
 end
