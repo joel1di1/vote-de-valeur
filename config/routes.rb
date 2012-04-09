@@ -14,6 +14,10 @@ VoteDeValeur::Application.routes.draw do
       get 'count'
     end
   end
+  constraints :id => /[^\/]+/ do
+    get 'users/opening_email'
+    post 'users/send_opening_email' => 'users#send_opening_email'
+  end
 
   get 'users/access/:id'  =>  'users#access', :as => 'user_access'
 
