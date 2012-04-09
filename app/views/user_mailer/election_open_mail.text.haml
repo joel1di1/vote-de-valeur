@@ -7,7 +7,8 @@ L'enjeu de cette expérience est de vous permettre de découvrir un nouveau syst
 Comme pour l'élection réelle, nous vous rappelons que ce vote est totalement anonyme. 
 Vous recevrez un compte-rendu de notre expérience après les résultats officiels de l'élection présidentielle.
 \
-= "Vous pouvez dès maintenant voter en accédant avec votre navigateur internet à cette url qui vous est personnelle&nbsp;: #{user_access_url(:id => @user.access_token)}"
+Vous pouvez dès maintenant voter en accédant avec votre navigateur internet à cette url qui vous est personnelle : 
+= user_access_url(:id => @user.access_token)
 
 \
 Cordialement.
