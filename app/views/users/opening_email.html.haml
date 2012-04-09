@@ -1,3 +1,5 @@
+= render :partial => '/layouts/messages'
+
 = simple_form_for @users.first, :url => '/users/send_opening_email', :method => :post do |f|
   = f.input :email, :value => nil, :collection => @users.collect(&:email).sort 
   = f.submit "envoyer le mail d'ouverture"

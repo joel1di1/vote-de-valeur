@@ -35,7 +35,8 @@ class UsersController < ApplicationController
   def send_opening_email
     user = User.find_by_email params[:user][:email]
     UserMailer.election_open_mail(user).deliver
-    render :inline => "email sent to #{user.email}"
+    flash[:notice] = "email sent to #{user.email}"
+    redirect_to :back
   end
 
   def is_demo
