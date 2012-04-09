@@ -68,6 +68,7 @@ class User < ActiveRecord::Base
   def vote! votes_hash
     raise "#{self.email} has already vote!" if a_vote?
 
+    votes_hash ||= {}
     votes_hash = votes_hash.with_indifferent_access
     key = User.generate_vote_key
     Candidate.all.each do |candidate|
