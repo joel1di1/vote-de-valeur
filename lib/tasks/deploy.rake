@@ -1,10 +1,10 @@
 #Deploy and rollback on Heroku in staging and production
-task :deploy_staging => ['deploy:set_staging_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:tag']
+task :deploy_demo => ['deploy:set_staging_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:tag']
 task :deploy_production => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:tag']
 
 namespace :deploy do
-  PRODUCTION_APP = 'evening-moon-670'
-  STAGING_APP = 'YOUR_STAGING_APP_NAME_ON_HEROKU'
+  PRODUCTION_APP = 'vote-de-valeur-prod'
+  STAGING_APP = 'vote-de-valeur'
 
   task :staging_migrations => [:set_staging_app, :push, :off, :migrate, :restart, :on, :tag]
   task :staging_rollback => [:set_staging_app, :off, :push_previous, :restart, :on]
@@ -39,7 +39,7 @@ namespace :deploy do
 
   task :migrate do
     puts 'Running database migrations ...'
-    puts `heroku rake db:migrate --app #{APP}`
+    puts `heroku run rake db:migrate --app #{APP}`
   end
 
   task :off do
