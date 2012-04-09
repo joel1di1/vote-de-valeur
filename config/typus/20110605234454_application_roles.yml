@@ -4,5 +4,4 @@
 
 admin:
   Candidate: create, read, update, delete
-  User: create, read, update, delete
   Vote: create, read, update, delete
