@@ -1,8 +1,12 @@
 User:
   fields:
     default: id, email, a_vote, mailed_status, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip
-    form: email, a_vote, mailed_status
-  order_by:
+    form: email, a_vote, mailed_status, feedbacks
+  actions:
+    index: cleanup
+    edit: send_as_newsletter
+    show: rebuild  
+  order_by: id
   relationships:
   filters: created_at
   search: email

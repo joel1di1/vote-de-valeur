@@ -6,6 +6,9 @@ Candidate:
   fields:
     default: name
     form: name
+  action:
+    index: test
+    edit: test
   order_by: 
   relationships: 
   filters: created_at
@@ -18,7 +21,6 @@ Vote:
     form: candidate, vote
   order_by: 
   relationships: candidate
-  filters: created_at
   search: 
   application: vote-de-valeur
 

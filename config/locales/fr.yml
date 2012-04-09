@@ -6,7 +6,7 @@ fr:
     labels:
       user:
         email: 'Mon adresse électronique'
-        public: Cette expérience vous est proposée pour évaluer un nouveau un système de vote et faire progresser la démocratie, indépendamment de toute démarche partisane. Je m'engage à ne m'inscrire qu'une fois et à voter sincèrement, conformément à mes opinions politiques.
+        public: "Cette expérience vous est proposée pour évaluer un nouveau un système de vote et faire progresser la démocratie, indépendamment de toute démarche partisane. Je m'engage à ne m'inscrire qu'une fois et à voter sincèrement, conformément à mes opinions politiques."
     hints:
       user:
         username: 'User name to sign in.'
