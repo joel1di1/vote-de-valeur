@@ -22,6 +22,6 @@ class HomeController < ApplicationController
   end
 
   def thanks
-
+    sign_out
   end
 end
