@@ -183,10 +183,10 @@ td.count, td.classic_count{
     }
   }
   &.grey{
-    width: 300px;
+    width: 400px;
     padding: 0 0;
     h2{
-      width: 300px;
+      width: 400px;
       background: #969696;
     }
 
@@ -233,7 +233,7 @@ a#contact {
   }
 }
 
-$name_width: 175px;
+$name_width: 240px;
 .application{
   $row_height: 45px;
 
@@ -261,12 +261,12 @@ $name_width: 175px;
         &.selected{
           padding: 12px 70px 12px 0;
           margin: 0 0;
-          background: asset-url('radio-selected.png', image) no-repeat 200px 7px;
+          background: asset-url('radio-selected.png', image) no-repeat 250px 7px;
         }
         &.unselected, &.nonselected{
           padding: 12px 70px 12px 0;
           margin: 0 0;
-          background: asset-url('radio-unselected.png', image) no-repeat 200px 7px;
+          background: asset-url('radio-unselected.png', image) no-repeat 250px 7px;
         }
       }
     }
