@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_filter :is_demo, :only => [:opening_email, :send_opening_email]
+
   def access
     token = params[:id]
     user = User.find_by_access_token token
@@ -34,6 +36,10 @@ class UsersController < ApplicationController
     user = User.find_by_email params[:user][:email]
     UserMailer.election_open_mail(user).deliver
     render :inline => "email sent to #{user.email}"
+  end
+
+  def is_demo
+    redirect_to root_path if Rails.env.production? 
   end
 
 end
