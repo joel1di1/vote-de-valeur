@@ -1,11 +1,13 @@
 #content.grey
   = render :partial => '/layouts/messages'
-  %p Bienvenue au bureau de vote virtuel, vous allez...
-  %p &nbsp;
-  %p &nbsp;
-  %p &nbsp;
-  %p &nbsp;
-  %p &nbsp;
+  %p Bienvenue dans notre bureau de vote virtuel.
+  %p Voici le déroulement de l'expérience que nous vous avons préparé :
+  %ol
+    %li Vous allez voter pour les 10 candidats de l'élection présidentielle en utilisant le Vote de Valeur.
+    %li A des fins de comparaisons, nous vous demanderons ensuite de voter comme au 1er tour de l'élection classique...
+    %li ... puis au second tour avec les duels les plus probables de cette élection.
+    %li Enfin, nous vous proposerons de nous donner votre avis sur cette expérience et ce système du Vote de Valeur.
+  %p Cliquez sur le bouton "suivant" pour continuer.
 
 #nextcontainer
   = link_to "Continuer", votes_path, :id => 'next', :class => 'grey'
