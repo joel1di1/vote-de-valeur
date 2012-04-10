@@ -1,0 +1,4 @@
+- input_id ="#{fight.id}_#{candidate.id}"
+%label{:for => input_id}
+  = candidate.name
+= tag("input", :type => 'radio', :name => fight.id, :value => candidate.id, :id => input_id)

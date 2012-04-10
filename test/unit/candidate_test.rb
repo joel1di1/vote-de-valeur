@@ -29,4 +29,28 @@ class CandidateTest < ActiveSupport::TestCase
     assert_equal 1, candidate.classic_votes_total 
   end
 
+  test 'get_versus should returns combination between favorites' do
+    candidate_1 = FactoryGirl.create :candidate, :favorite => true
+    candidate_2 = FactoryGirl.create :candidate, :favorite => true
+    candidate_3 = FactoryGirl.create :candidate, :favorite => false
+
+    tab = Candidate.get_versus
+    assert_equal 1, tab.size
+    fight = tab.first
+    candidates = fight.candidates
+    assert [candidate_1, candidate_2].include? candidates.first
+    assert [candidate_1, candidate_2].include? candidates.second
+    assert candidates.first != candidates.second
+  end
+
+  test 'get_versus should returns combination between favorites when more than 2 favorites' do
+    candidate_1 = FactoryGirl.create :candidate, :favorite => true
+    candidate_2 = FactoryGirl.create :candidate, :favorite => true
+    candidate_3 = FactoryGirl.create :candidate, :favorite => false
+    candidate_4 = FactoryGirl.create :candidate, :favorite => true
+
+    tab = Candidate.get_versus
+    assert_equal 3, tab.size
+  end
+
 end

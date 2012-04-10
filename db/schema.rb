@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120409094630) do
+ActiveRecord::Schema.define(:version => 20120409153552) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120409094630) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "favorite",   :default => false
   end
 
   create_table "classic_votes", :force => true do |t|
@@ -121,12 +122,23 @@ ActiveRecord::Schema.define(:version => 20120409094630) do
     t.boolean  "a_vote_classic"
     t.integer  "mailed_status",                         :default => 0
     t.boolean  "feedbacks"
+    t.boolean  "a_vote_second_tour",                    :default => false
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "vote_second_tours", :force => true do |t|
+    t.string   "key"
+    t.integer  "first_candidate_id"
+    t.integer  "second_candidate_id"
+    t.integer  "chosen_candidate_id"
+    t.string   "original_fight_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "votes", :force => true do |t|
     t.integer "candidate_id"
