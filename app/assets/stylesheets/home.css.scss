@@ -242,7 +242,7 @@ a#contact {
   }
 }
 
-$name_width: 240px;
+$name_width: 320px;
 .application{
   $row_height: 45px;
 
@@ -270,12 +270,12 @@ $name_width: 240px;
         &.selected{
           padding: 12px 70px 12px 0;
           margin: 0 0;
-          background: asset-url('radio-selected.png', image) no-repeat 250px 7px;
+          background: asset-url('radio-selected.png', image) no-repeat 320px 7px;
         }
         &.unselected, &.nonselected{
           padding: 12px 70px 12px 0;
           margin: 0 0;
-          background: asset-url('radio-unselected.png', image) no-repeat 250px 7px;
+          background: asset-url('radio-unselected.png', image) no-repeat 320px 7px;
         }
       }
     }
@@ -453,7 +453,9 @@ $cell_width: 108px;
 .vote_head{
   display: inline-block;
   width: $cell_width;
-  font-size: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
   float:left;
   color: #EEE;
   padding: 5px 0;
@@ -474,16 +476,11 @@ $cell_width: 108px;
     background: rgb(32, 183, 86);
   }
   .legend{
-    display: inline-block;
-    width: 54px;
     vertical-align: middle;
-    text-align: center;
   }
   .value{
     display: inline-block;
     width: 17px;
-    font-size: 12px;
-    font-weight: bold;
     vertical-align: middle;
     text-align: center;
   }
@@ -507,9 +504,9 @@ label[for^=user_vote_for_candidate]{
 }
 label.collection_radio_buttons{
   width: 100px;
+  margin: 0 4px;
   height: 33px;
   display: inline-block;
-  margin-left: 0;
   cursor: pointer;
 }
 #user_votes{
