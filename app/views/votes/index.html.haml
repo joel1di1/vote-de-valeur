@@ -45,7 +45,7 @@
             = f.collection_radio_buttons "vote_for_candidate_#{candidate.id}", values, :first, :last
 
     #classic_vote
-      %h2= 'Vote classique'
+      %h2= 'Vote classique, premier tour'
       - values = @candidates.to_a.collect{|c| [c.id, c.name]}
       - values.each do |v|
         %span
