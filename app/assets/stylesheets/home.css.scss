@@ -45,6 +45,9 @@ body{
   &.home_thanks{
     background: white asset-url('bgs/fondProcessus3-4.jpg', image) no-repeat center top;
   }
+  &.feedbacks_new{
+    background: white asset-url('bgs/fondQuestionnaire.png', image) no-repeat center top;
+  }
 }
 
 .clear{
