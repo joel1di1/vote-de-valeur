@@ -39,7 +39,7 @@ function user_checked_all(){
 }
 
 function user_force_zeros(){
-    return confirm("Vous navez pas voter pour tous les candidats, les votes vides seront comptabilisés comme '0', êtes-vous surs de vouloir laisser les chois x vides ?")
+    return confirm("Vous n'avez pas attribué de valeur à certains candidats. Là où vous ne vous êtes pas exprimé nous attribuerons automatiquement la valeur 'indifférent 0'. Êtes-vous sûr(e) de vouloir laisser le(les) choix vides ?")
 }
 // toggle vdv et classic
 $(function(){
