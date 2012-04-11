@@ -52,6 +52,3 @@ $(function(){
         }
     })
 })
-$(window).bind( 'hashchange', function( event ) {
-    // alert('coucou')
-});
