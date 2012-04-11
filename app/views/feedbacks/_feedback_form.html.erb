@@ -167,10 +167,7 @@ scPaLib.xCheckNode = function(pFilter, pNode){
 				//]]></script>
 				
 				<style>
-html{
-	background: url(fondQuestionnaire.png) top center no-repeat;	
-	background-attachment:fixed;
-}
+
 #feedbackContent{
   width: 800px;
   border: 3px solid #c000ff;
@@ -251,6 +248,18 @@ p{
 
 input:hover {
 	text-decoration: underline;
+}
+
+input[type="submit"] {
+    background: url("flecheViolette.png") no-repeat scroll right center #FFFFFF;
+    border: 3px solid #c000ff;
+    padding:10px;
+    padding-left: 10px;
+    padding-right: 55px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 10px #333333;
+    color: #2E2E2E;
+    float: right;
 }
 
 #contactcontainer {
@@ -830,3 +839,4 @@ input:hover {
 				}catch(e){alert(e);}
 				//]]></script>
 				
+<input id="next" type='submit' value='Valider' class="purple"/>
