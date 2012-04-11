@@ -228,6 +228,9 @@ a#contact {
   &.grey{
     background: white asset-url('fleches/flecheGrise.png', image) no-repeat right;
   }
+  &.purple{
+    background: white asset-url('fleches/flecheViolette.png', image) no-repeat right;
+  }
   
   &.left{
     padding-left: 55px;
