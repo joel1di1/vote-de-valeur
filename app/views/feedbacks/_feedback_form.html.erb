@@ -1,45 +1,832 @@
+				<script>//<![CDATA[[
+var scPaLib = {};
+scPaLib.findNode= function(pPath, pFrom) {
+	return this.xFindNode(pPath.scPath ? pPath : this.compilePath(pPath), pFrom || document, 0);
+}
+scPaLib.findNodes = function(pPath, pFrom) {
+	var vResult = [];
+	this.xFindNodes(pPath.scPath ? pPath : this.compilePath(pPath), pFrom || document, 0, vResult);
+	return vResult;
+}
+scPaLib.checkNode = function(pFilter, pNode){
+	var vFilter = pFilter.scFilter ? pFilter : this.compileFilter(pFilter);
+	if (vFilter.scFilter == 1) return this.xCheckNode(vFilter,pNode);
+	else {
+		var vMatch = false;
+		for(var i = 0; i < vFilter.length; i++) {
+			if (vMatch = this.xCheckNode(vFilter[i],pNode)) break; 
+		}	
+		return vMatch;
+	}
+}
+scPaLib.containWord = function(pString, pWord){
+	var vIdx = pString.indexOf(pWord);
+	while(vIdx >= 0) {
+		var vEnd = vIdx+pWord.length;
+		if( (vIdx == 0 || pString.charCodeAt(vIdx-1) < 48) && (vEnd==pString.length || pString.charCodeAt(vEnd) < 48) ) return true;
+		vIdx = pString.indexOf(pWord, vEnd);
+	}
+	return false;
+}
+scPaLib.compilePath = function(pPath){
+	var vPath = pPath.split("/");
+	for(var i in vPath) {
+		var vPart = vPath[i] = new String(vPath[i]);
+		var vAxisCd = vPart.substring(0, 3);
+		vPart.axis = this.xAxis[vAxisCd];
+		if(vAxisCd == "ide") {
+			if(vPart.length>4) vPart.filterId = vPart.substring(4);
+		} else {
+			if(vPart.length>4) vPart.filter = this.compileFilter(vPart.substring(4));
+		}
+	}
+	vPath.scPath = true;
+	return vPath;
+}
+scPaLib.compileFilter = function(pFilter){
+	var vFilter = pFilter.split("|");
+	if(vFilter.length>1){
+		for(var i = 0; i < vFilter.length; i++) {
+			vFilter[i] = vFilter[i].split(".");
 
-<div class='feedback_tile'>
-  Dans le système du Vote de Valeur, trouvez-vous l’utilisation du bulletin de vote...
-</div>
+			if(vFilter[i].length>0 && vFilter[i][0].length>0) vFilter[i][0] = new RegExp("^(.*:)?"+vFilter[i][0]+"$", "i");
+			vFilter.scFilter = 2;
+		}
+	}else{
+		vFilter = pFilter.split(".");
 
-<div class='feeback_answer_block'>
-  <div class='feeback_answer'>
-    <input name='q_1' type='radio' value='1' id='q_1_1'/>
-    <label for='q_1_1'>très facile à comprendre ?</label>
-  </div>
-  <div class='feeback_answer'>
-    <input name='q_1' type='radio' value='2' id='q_1_2'/>
-    <label for='q_1_2'>plutôt facile à comprendre ?</label>
-  </div>
-  <div class='feeback_answer'>
-    <input name='q_1' type='radio' value='3' id='q_1_3'/>
-    <label for='q_1_3'>plutôt difficile à comprendre ?</label>
-  </div>
-  <div class='feeback_answer'>
-    <input name='q_1' type='radio' value='4' id='q_1_4'/>
-    <label for='q_1_4'>très difficile à comprendre ?</label>
-  </div>
-</div>
+		if(vFilter.length>0 && vFilter[0].length>0) vFilter[0] = new RegExp("^(.*:)?"+vFilter[0]+"$", "i");
+		vFilter.scFilter = 1;
+	}
+	return vFilter;
+}
+scPaLib.xAxis= {
+	anc:{
+		first:function(pFrom){return pFrom.parentNode;}
+	},
+	par:{
+		next:function (){return null;}
+	},
+	chi:{
+		first:function(pFrom){return pFrom.firstChild;},
+		next:function(pFrom){return pFrom.nextSibling;}
+	},
+	chl:{
+		first:function(pFrom){return pFrom.lastChild;}
+	},
+	nsi:{
+	},
+	psi:{
+		first:function(pFrom){return pFrom.previousSibling;}
+	},
+	cde:{
+		first:function(pFrom){return pFrom;},
+		next:function(pFrom, pOri){
+			if(pFrom.hasChildNodes()) return pFrom.firstChild;
+			if(pFrom.nextSibling) return pFrom.nextSibling;
+			while(pFrom != pOri && (pFrom = pFrom.parentNode) != null && pFrom != pOri) {
+				var vNext = pFrom.nextSibling;
+				if(vNext) return vNext;
+			}
+			return null;
+		}
+	},
+	des:{
+	},
+	bod:{
+		first:function(pFrom){
+			if(pFrom.ownerDocument) return pFrom.ownerDocument.body;
+			else if (pFrom.document) return pFrom.document.body;
+			else return document.body;
+		}
+	},
+	ide:{
+ 		first:function(pFrom, pPart){
+			if(pFrom.ownerDocument) return pFrom.ownerDocument.getElementById(pPart.filterId);
+			else if (pFrom.document) return pFrom.document.getElementById(pPart.filterId);
+			else if (pFrom.getElementById) return pFrom.getElementById(pPart.filterId);
+			else document.getElementById(pPart.filterId);
+		}
+	},
+	init: function(){
+		this.anc.next = this.anc.first;
+		this.des.first = this.chi.first;
+		this.des.next = this.cde.next;
+		this.par.first = this.anc.first;
+		this.nsi.first = this.chi.next;
+		this.nsi.next = this.chi.next;
+		this.psi.next = this.psi.first;
+		this.chl.next = this.psi.next;
+		this.bod.next = this.par.next;
+		this.ide.next = this.par.next;
+	}
+}
+scPaLib.xAxis.init();
+scPaLib.xFindNode= function(pPath, pFrom, pOffset) {
+	var vPart = pPath[pOffset++];
+	var vCurr = vPart.axis.first(pFrom, vPart);
+	while(vCurr) {
+		if( ! vPart.filter || this.checkNode(vPart.filter, vCurr)) {
+			if(pOffset < pPath.length) {
+				var vRes = this.xFindNode(pPath, vCurr, pOffset);
+				if(vRes) return vRes;
+			} else {
+				return vCurr;
+			} 
+		}
+		vCurr = vPart.axis.next(vCurr, pFrom);
+	}
+	return null;
+}
+scPaLib.xFindNodes = function(pPath, pFrom, pOffset, pArrayRes) {
+	var vPart = pPath[pOffset++];
+	var vCurr = vPart.axis.first(pFrom, vPart);
+	while(vCurr) {
+		if( ! vPart.filter || this.checkNode(vPart.filter, vCurr)) {
+			if(pOffset < pPath.length) {
+				this.xFindNodes(pPath, vCurr, pOffset, pArrayRes);
+			} else {
+				pArrayRes[pArrayRes.length] = vCurr;
+			} 
+		}
+		vCurr = vPart.axis.next(vCurr, pFrom);
+	}
+}
+scPaLib.xCheckNode = function(pFilter, pNode){
+	var vLen = pFilter.length;
+	if(vLen==0) return true;
+	var vStep0 = pFilter[0];
+	if(vStep0.test && ! vStep0.test(pNode.nodeName)) return false;
+	if(vLen>1) {
+		var vClasses = pNode.nodeType==1 ? pNode.className : null;
+		if( ! vClasses) return false;
+		for(var i = 1; i < vLen; i++) if( ! this.containWord(vClasses, pFilter[i])) return false;
+	}
+	return true;
+}
+				//]]></script>
+				
+				<style>
+html{
+	background: url(fondQuestionnaire.png) top center no-repeat;	
+	background-attachment:fixed;
+}
+#feedbackContent{
+  width: 800px;
+  border: 3px solid #c000ff;
+  margin: 0 auto 20px;
+  background: none repeat scroll 0 0 white;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0 0 10px #333333;
+  color: #2E2E2E;
+  padding: 10px;
+	font-size: 10pt;
+}
 
-  
-<div class='feedback_tile'>
-  Avez vous le sentiment de mieux exprimer votre opinion par... 
-</div>
+.info{
+  margin: 0px 0px 20px 0px;
+}
+p{
+	margin: .5em 0;
+}
 
-<div class='feeback_answer_block'>
-  <div class='feeback_answer'>
-    <input name='q_2' type='radio' value='1' id='q_2_1'/>
-    <label for='q_2_1'>le système de vote classique ?</label>
-  </div>
-  <div class='feeback_answer'>
-    <input name='q_2' type='radio' value='1' id='q_2_2'/>
-    <label for='q_2_2'>le système de Vote de Valeur ?</label>
-  </div>
-  <div class='feeback_answer'>
-    <input name='q_2' type='radio' value='1' id='q_2_3'/>
-    <label for='q_2_3'>les deux systèmes de manière égale</label>
-  </div>
-</div>
+.counter{
+	font-weight: bold;
+}
+.feedback_tile{
+	font-weight: bold;	
+}
+.feedback_block{
+	margin: 2em 0;
+  border-radius: 10px;
+  background-color: #FCEEFF;
+  padding:10px;
+  margin: 0px 0px 20px 0px;
+}
+.feeback_answer_block{
+	margin: 0.5em 0 0 1em;
+}
+.feeback_answer{
+	margin: 0.2em 0;
+}
 
-<input type='submit' value='Valider' />
+.feeback_answer_table{
+	margin: 0.5em 0 0 1em;
+	border-collapse: separate;
+}
+.feeback_answer_table td{
+	border:0px;
+	border-radius: 5px;
+}
+.headOption{
+	width: 15em;
+	font-weight: normal;
+	font-size: 0.8em;
+	text-align: center;
+	background-color: white;
+}
+.headLabel{
+	width: 50em;
+}
+.cellAnswer{
+	padding: 0.2em;
+}
+.cellOption{
+	text-align: center;
+	background-color: #FFF8FF;
+}
+.cellOption>label{
+	display: block;
+}
+
+.citation{
+	border-left: 1px solid grey;
+	padding-left: .5em;
+	margin: .5em 0 1em 1em;
+	font-style: italic;
+}
+.subQuestion{
+	margin: 1em;
+}
+
+input:hover {
+	text-decoration: underline;
+}
+
+#contactcontainer {
+    padding-bottom: 20px;
+    padding-top: 10px;
+    text-align: left;
+}
+				</style>
+				<div id="feedbackContent">
+					
+					<div class="info">
+						<p>
+							Pour finir, nous vous proposons de répondre à quelques questions relatives à cette expérience.
+							Ces réponses nous aideront dans l'interprétation des résultats de l'expérience.
+						</p>
+					</div>
+						
+					<div class="feedback_block">
+						<div class="feedback_tile">
+							<span class="counter">1.</span>
+							Dans le système du Vote de Valeur, trouvez-vous <u>l'utilisation du bulletin de vote</u>...
+						</div>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="q_1" type="radio" value="1" id="q_1_1"/>
+								<label for="q_1_1">... très facile à comprendre ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_1" type="radio" value="2" id="q_1_2"/>
+								<label for="q_1_2">... plutôt facile à comprendre ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_1" type="radio" value="3" id="q_1_3"/>
+								<label for="q_1_3">... plutôt difficile à comprendre ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_1" type="radio" value="4" id="q_1_4"/>
+								<label for="q_1_4">... très difficile à comprendre ?</label>
+							</div>
+						</div>
+					</div>
+	
+	  
+					<div class="feedback_block">
+						<div class="feedback_tile">
+							<span class="counter">2.</span>
+							Avez vous le sentiment que votre opinion est <u>mieux pris en compte</u> avec...
+						</div>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="q_2" type="radio" value="1" id="q_2_1"/>
+								<label for="q_2_1">... le système de vote classique ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_2" type="radio" value="1" id="q_2_2"/>
+								<label for="q_2_2">... le système de Vote de Valeur ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_2" type="radio" value="1" id="q_2_3"/>
+								<label for="q_2_3">... les deux systèmes de manière égale</label>
+							</div>
+						</div>
+					</div>
+					
+	  
+					<div class="feedback_block">
+						<div class="feedback_tile">
+							<span class="counter">3.</span>
+							Dans le système du Vote de Valeur, diriez-vous que la manière de <u>comptabiliser les résultats</u> est...
+						</div>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="q_3" type="radio" value="1" id="q_3_1"/>
+								<label for="q_3_1">... très facile à comprendre ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_3" type="radio" value="2" id="q_3_2"/>
+								<label for="q_3_2">... plutôt facile à comprendre ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_3" type="radio" value="3" id="q_3_3"/>
+								<label for="q_3_3">... plutôt difficile à comprendre ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_3" type="radio" value="4" id="q_3_4"/>
+								<label for="q_3_4">... très difficile à comprendre ?</label>
+							</div>
+						</div>
+					</div>
+	  
+					<div class="feedback_block">
+						<div class="feedback_tile">
+							<span class="counter">4.</span>
+							Êtes-vous favorable à la mise en place du Vote de Valeur pour…
+						</div>
+						<table class="feeback_answer_table">
+							<thead>
+								<tr>
+									<td class="headLabel">&nbsp;</td>
+									<td class="headOption">Très favorable</td>
+									<td class="headOption">Plutôt favorable</td>
+									<td class="headOption">Ni favorable<br/>ni défavorable</td>
+									<td class="headOption">Plutôt défavorable</td>
+									<td class="headOption">Très défavorable</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="cellAnswer">… les élections présidentielles ?</td>
+									<td class="cellOption"><label for="q_4_1"><input name="q_4" type="radio" value="1" id="q_4_1"/></label></td>
+									<td class="cellOption"><label for="q_4_2"><input name="q_4" type="radio" value="2" id="q_4_2"/></label></td>
+									<td class="cellOption"><label for="q_4_3"><input name="q_4" type="radio" value="3" id="q_4_3"/></label></td>
+									<td class="cellOption"><label for="q_4_4"><input name="q_4" type="radio" value="4" id="q_4_4"/></label></td>
+									<td class="cellOption"><label for="q_4_5"><input name="q_4" type="radio" value="5" id="q_4_5"/></label></td>
+								</tr>
+								<tr>
+									<td class="cellAnswer">… les élections législatives ?</td>
+									<td class="cellOption"><label for="q_5_1"><input name="q_5" type="radio" value="1" id="q_5_1"/></label></td>
+									<td class="cellOption"><label for="q_5_2"><input name="q_5" type="radio" value="2" id="q_5_2"/></label></td>
+									<td class="cellOption"><label for="q_5_3"><input name="q_5" type="radio" value="3" id="q_5_3"/></label></td>
+									<td class="cellOption"><label for="q_5_4"><input name="q_5" type="radio" value="4" id="q_5_4"/></label></td>
+									<td class="cellOption"><label for="q_5_5"><input name="q_5" type="radio" value="5" id="q_5_5"/></label></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+	
+					<div class="feedback_block">
+						<div class="feedback_tile">
+							<span class="counter">5.</span>
+							Dites-nous dans quelle mesure vous êtes d'accord avec les propositions suivantes :
+						</div>
+						<table class="feeback_answer_table">
+							<thead>
+								<tr>
+									<td class="headLabel">&nbsp;</td>
+									<td class="headOption">Tout à fait d'accord</td>
+									<td class="headOption">Plutôt d'accord</td>
+									<td class="headOption">Ni d'accord<br/>ni pas d'accord</td>
+									<td class="headOption">Plutôt pas d'accord</td>
+									<td class="headOption">Pas du tout d'accord</td>
+								</tr>
+							</thead>
+							<tbody class="randomOrder">
+								<tr>
+									<td class="cellAnswer"><u>Avant même</u> de participer à cette expérience, j’étais déjà convaincu de la pertinence du Vote de Valeur.</td>
+									<td class="cellOption"><label for="q_6_1"><input name="q_6" type="radio" value="1" id="q_6_1"/></label></td>
+									<td class="cellOption"><label for="q_6_2"><input name="q_6" type="radio" value="2" id="q_6_2"/></label></td>
+									<td class="cellOption"><label for="q_6_3"><input name="q_6" type="radio" value="3" id="q_6_3"/></label></td>
+									<td class="cellOption"><label for="q_6_4"><input name="q_6" type="radio" value="4" id="q_6_4"/></label></td>
+									<td class="cellOption"><label for="q_6_5"><input name="q_6" type="radio" value="5" id="q_6_5"/></label></td>
+								</tr>
+								<tr>
+									<td class="cellAnswer"><u>Après cette expérience</u>, je suis convaincu de la pertinence du Vote de Valeur.</td>
+									<td class="cellOption"><label for="q_7_1"><input name="q_7" type="radio" value="1" id="q_7_1"/></label></td>
+									<td class="cellOption"><label for="q_7_2"><input name="q_7" type="radio" value="2" id="q_7_2"/></label></td>
+									<td class="cellOption"><label for="q_7_3"><input name="q_7" type="radio" value="3" id="q_7_3"/></label></td>
+									<td class="cellOption"><label for="q_7_4"><input name="q_7" type="radio" value="4" id="q_7_4"/></label></td>
+									<td class="cellOption"><label for="q_7_5"><input name="q_7" type="radio" value="5" id="q_7_5"/></label></td>
+								</tr>
+								<tr>
+									<td class="cellAnswer">Je crains que le Vote de Valeur ne favorise les programmes politiques peu ambitieux.</td>
+									<td class="cellOption"><label for="q_8_1"><input name="q_8" type="radio" value="1" id="q_8_1"/></label></td>
+									<td class="cellOption"><label for="q_8_2"><input name="q_8" type="radio" value="2" id="q_8_2"/></label></td>
+									<td class="cellOption"><label for="q_8_3"><input name="q_8" type="radio" value="3" id="q_8_3"/></label></td>
+									<td class="cellOption"><label for="q_8_4"><input name="q_8" type="radio" value="4" id="q_8_4"/></label></td>
+									<td class="cellOption"><label for="q_8_5"><input name="q_8" type="radio" value="5" id="q_8_5"/></label></td>
+								</tr>
+								<tr>
+									<td class="cellAnswer">Je parle beaucoup du vote de valeur à mon entourage proche.</td>
+									<td class="cellOption"><label for="q_9_1"><input name="q_9" type="radio" value="1" id="q_9_1"/></label></td>
+									<td class="cellOption"><label for="q_9_2"><input name="q_9" type="radio" value="2" id="q_9_2"/></label></td>
+									<td class="cellOption"><label for="q_9_3"><input name="q_9" type="radio" value="3" id="q_9_3"/></label></td>
+									<td class="cellOption"><label for="q_9_4"><input name="q_9" type="radio" value="4" id="q_9_4"/></label></td>
+									<td class="cellOption"><label for="q_9_5"><input name="q_9" type="radio" value="5" id="q_9_5"/></label></td>
+								</tr>
+								<tr>
+									<td class="cellAnswer">Le vote de valeur est un «&nbsp;truc de matheux&nbsp;».</td>
+									<td class="cellOption"><label for="q_10_1"><input name="q_10" type="radio" value="1" id="q_10_1"/></label></td>
+									<td class="cellOption"><label for="q_10_2"><input name="q_10" type="radio" value="2" id="q_10_2"/></label></td>
+									<td class="cellOption"><label for="q_10_3"><input name="q_10" type="radio" value="3" id="q_10_3"/></label></td>
+									<td class="cellOption"><label for="q_10_4"><input name="q_10" type="radio" value="4" id="q_10_4"/></label></td>
+									<td class="cellOption"><label for="q_10_5"><input name="q_10" type="radio" value="5" id="q_10_5"/></label></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+					<div class="info">
+						<p>
+							Les questions qui suivent sont destinées à évaluer les arguments en faveur du Vote de Valeur.
+						</p>
+					</div>
+					
+
+					<div class="feedback_block" id="arg1_Classic">
+						<div class="feedback_tile">
+							<span class="counter">6.</span>
+								Trouvez-vous cet inconvénient du vote classique…
+						</div>
+						<div class="citation" id="cit1_Classic">
+							Avec le <u>vote classique</u>, il n’y a pas de nuance possible : je dois soutenir un seul candidat et rejeter tous les autres.
+						</div>
+						<input name="arg1" type="hidden" value="A" id="arg1"/>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="q_11b" type="radio" value="1" id="q_11b_1"/>
+								<label for="q_11b_1">... très gênant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_11b" type="radio" value="2" id="q_11b_2"/>
+								<label for="q_11b_2">... assez gênant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_11b" type="radio" value="3" id="q_11b_3"/>
+								<label for="q_11b_3">... pas très gênant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_11b" type="radio" value="4" id="q_11b_4"/>
+								<label for="q_11b_4">... pas du tout gênant ?</label>
+							</div>
+						</div>
+					</div>
+					<div class="feedback_block" id="arg1_VdV">
+						<div class="feedback_tile">
+							<span class="counter">7.</span>
+								Trouvez-vous cet argument en faveur du Vote de Valeur...
+						</div>
+						<div class="citation" id="cit1_VdV">
+							Avec le <u>Vote de Valeur</u>, je peux soutenir plusieurs candidats, plus ou moins fortement, et en même temps, je peux rejeter plusieurs candidats, plus ou moins fortement.
+						</div>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="q_11d" type="radio" value="1" id="q_11d_1"/>
+								<label for="q_11d_1">... très convaincant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_11d" type="radio" value="2" id="q_11d_2"/>
+								<label for="q_11d_2">... assez convaincant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_11d" type="radio" value="3" id="q_11d_3"/>
+								<label for="q_11d_3">... pas très convaincant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_11d" type="radio" value="4" id="q_11d_4"/>
+								<label for="q_11d_4">... pas du tout convaincant ?</label>
+							</div>
+						</div>
+					</div>
+					
+
+					<div class="feedback_block" id="arg2_Classic">
+						<div class="feedback_tile">
+							<span class="counter">8.</span>
+								Trouvez-vous cet inconvénient du vote classique…
+						</div>
+						<div class="citation" id="cit2_Classic">
+							Avec le <u>vote classique</u>, un candidat de plus ou de moins, cela peut changer les résultats du 1er tour. Deux candidats proches peuvent se faire perdre mutuellement.
+						</div>
+						<input name="arg2" type="hidden" value="B" id="arg2"/>
+							<div class="feeback_answer_block">
+								<div class="feeback_answer">
+									<input name="q_12b" type="radio" value="1" id="q_12b_1"/>
+									<label for="q_12b_1">... très gênant ?</label>
+								</div>
+								<div class="feeback_answer">
+									<input name="q_12b" type="radio" value="2" id="q_12b_2"/>
+									<label for="q_12b_2">... assez gênant ?</label>
+								</div>
+								<div class="feeback_answer">
+									<input name="q_12b" type="radio" value="3" id="q_12b_3"/>
+									<label for="q_12b_3">... pas très gênant ?</label>
+								</div>
+								<div class="feeback_answer">
+									<input name="q_12b" type="radio" value="4" id="q_12b_4"/>
+									<label for="q_12b_4">... pas du tout gênant ?</label>
+								</div>
+							</div>
+					</div>
+					<div class="feedback_block" id="arg2_VdV">
+						<div class="feedback_tile">
+							<span class="counter">9.</span>
+								Trouvez-vous cet argument en faveur du Vote de Valeur...
+						</div>
+						<div class="citation" id="cit2_VdV">
+							Avec le <u>Vote de Valeur</u>, un candidat de plus ou de moins ne change pas vraiment mon opinion sur les autres candidats, et donc les points attribués. Le résultat est plus stable, même en cas de candidats proches.
+						</div>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="q_12d" type="radio" value="1" id="q_12d_1"/>
+								<label for="q_12d_1">... très convaincant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_12d" type="radio" value="2" id="q_12d_2"/>
+								<label for="q_12d_2">... assez convaincant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_12d" type="radio" value="3" id="q_12d_3"/>
+								<label for="q_12d_3">... pas très convaincant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_12d" type="radio" value="4" id="q_12d_4"/>
+								<label for="q_12d_4">... pas du tout convaincant ?</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="feedback_block" id="arg3_Classic">
+						<div class="feedback_tile">
+							<span class="counter">10.</span>
+								Trouvez-vous cet inconvénient du vote classique…
+						</div>
+						<div class="citation" id="cit3_Classic">
+							Le <u>vote classique</u> incite au vote utile : à cause de l'émiettement des voix, je préfère A, mais je vote B par peur que C soit élu.
+						</div>
+						<input name="arg3" type="hidden" value="C" id="arg3"/>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="q_13b" type="radio" value="1" id="q_13b_1"/>
+								<label for="q_13b_1">... très gênant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_13b" type="radio" value="2" id="q_13b_2"/>
+								<label for="q_13b_2">... assez gênant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_13b" type="radio" value="3" id="q_13b_3"/>
+								<label for="q_13b_3">... pas très gênant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_13b" type="radio" value="4" id="q_13b_4"/>
+								<label for="q_13b_4">... pas du tout gênant ?</label>
+							</div>
+						</div>
+					</div>
+					<div class="feedback_block" id="arg3_VdV">
+						<div class="feedback_tile">
+							<span class="counter">11.</span>
+								Trouvez-vous cet argument en faveur du Vote de Valeur...
+						</div>
+						<div class="citation" id="cit3_VdV">
+							Le <u>Vote de Valeur</u> est fidèle à mes opinions : l'émiettement ayant disparu, je peux exprimer une préférence pour A, soutenir aussi B, et rejeter C.
+						</div>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="q_13d" type="radio" value="1" id="q_13d_1"/>
+								<label for="q_13d_1">... très convaincant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_13d" type="radio" value="2" id="q_13d_2"/>
+								<label for="q_13d_2">... assez convaincant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_13d" type="radio" value="3" id="q_13d_3"/>
+								<label for="q_13d_3">... pas très convaincant ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="q_13d" type="radio" value="4" id="q_13d_4"/>
+								<label for="q_13d_4">... pas du tout convaincant ?</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="info">
+						<p>
+							Afin de comprendre qui est notre panel d'électeurs, nous aimerions recueillir quelques informations complémentaires.
+						</p>
+						<p>
+							Nous vous rappelons que ces données sont traitées de manière anonyme, 
+							pour un usage purement statistique, et qu’elles ne peuvent être rapprochées de votre adresse email.
+						</p>
+					</div>
+						
+					<div class="feedback_block">
+						<div class="feedback_tile">
+							Vous êtes :
+						</div>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="rs_1" type="radio" value="1" id="rs_1_1"/>
+								<label for="rs_1_1">Un homme</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_1" type="radio" value="2" id="rs_1_2"/>
+								<label for="rs_1_2">Une femme</label>
+							</div>
+						</div>
+					</div>
+						
+					<div class="feedback_block">
+						<div class="feedback_tile">
+							Vous avez :
+						</div>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="rs_2" type="radio" value="1" id="rs_2_1"/>
+								<label for="rs_2_1">Moins de 18 ans</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_2" type="radio" value="2" id="rs_2_2"/>
+								<label for="rs_2_2">Entre 18 et 25 ans</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_2" type="radio" value="3" id="rs_2_3"/>
+								<label for="rs_2_3">Entre 26 et 49 ans</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_2" type="radio" value="4" id="rs_2_4"/>
+								<label for="rs_2_4">Entre 50 et 65 ans</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_2" type="radio" value="5" id="rs_2_5"/>
+								<label for="rs_2_5">Plus de 65 ans</label>
+							</div>
+						</div>
+					</div>
+						
+					<div class="feedback_block">
+						<div class="feedback_tile">
+							Quelle est votre profession ?
+						</div>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="rs_3" type="radio" value="1" id="rs_3_1"/>
+								<label for="rs_3_1">agriculteur</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_3" type="radio" value="2" id="rs_3_2"/>
+								<label for="rs_3_2">artisan, commerçant, chef d’entreprise</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_3" type="radio" value="3" id="rs_3_3"/>
+								<label for="rs_3_3">cadre, profession intellectuelle supérieure</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_3" type="radio" value="4" id="rs_3_4"/>
+								<label for="rs_3_4">profession intermédiaire</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_3" type="radio" value="5" id="rs_3_5"/>
+								<label for="rs_3_5">employé, ouvrier</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_3" type="radio" value="6" id="rs_3_6"/>
+								<label for="rs_3_6">retraité</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_3" type="radio" value="7" id="rs_3_7"/>
+								<label for="rs_3_7">étudiant</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_3" type="radio" value="8" id="rs_3_8"/>
+								<label for="rs_3_8">autre inactif</label>
+							</div>
+						</div>
+					</div>
+						
+					<div class="feedback_block">
+						<div class="feedback_tile">
+							Êtes-vous généralement plus attiré par…
+						</div>
+						<div class="feeback_answer_block">
+							<div class="feeback_answer">
+								<input name="rs_4" type="radio" value="1" id="rs_4_1"/>
+								<label for="rs_4_1">... les sciences ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_4" type="radio" value="2" id="rs_4_2"/>
+								<label for="rs_4_2">... les arts ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_4" type="radio" value="3" id="rs_4_3"/>
+								<label for="rs_4_3">... la littérature ?</label>
+							</div>
+							<div class="feeback_answer">
+								<input name="rs_4" type="radio" value="4" id="rs_4_4"/>
+								<label for="rs_4_4">... les nouvelles technologies ?</label>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				<script>//<![CDATA[[
+				try{
+					//RANDOM
+					var vRoot = document.getElementById("feedbackContent");
+					var vRandomRoots = scPaLib.findNodes("des:.randomOrder", vRoot);
+					for (var i=0; i < vRandomRoots.length; i++) {
+						var vList = [];
+						var vRandomRoot = vRandomRoots[i];
+						while (vRandomRoot.hasChildNodes()) {
+							if(vRandomRoot.lastChild.nodeType==1) vList.push({pos:Math.random(), elt:vRandomRoot.removeChild(vRandomRoot.lastChild)});
+							else vRandomRoot.removeChild(vRandomRoot.lastChild);
+						}
+						vList.sort(function(p1, p2){return p1.pos-p2.pos});
+						for(var k=0; k<vList.length; k++) vRandomRoot.appendChild(vList[k].elt);
+					}
+					
+					//PLAN d'expérience
+					var vOffset = location.href.indexOf("?p=");
+					var vPlanIndex = Math.max(0, Math.min(6, vOffset>0 ? parseInt(location.href.substring(vOffset+3)) : Math.floor(Math.random() * 7)));
+					var vCitClassic = [
+						"Avec le <u>vote classique</u>, il n’y a pas de nuance possible : je dois soutenir un seul candidat et rejeter tous les autres.",
+						"Avec le <u>vote classique</u>, un candidat de plus ou de moins, cela peut changer les résultats du 1er tour. Deux candidats proches peuvent se faire perdre mutuellement.",
+						"Le <u>vote classique</u> incite au vote utile : à cause de l'émiettement des voix, je préfère A, mais je vote B par peur que C soit élu.",
+						"Le <u>vote classique</u> est dépendant des sondages: Quand, légitimement, je ne veux pas donner ma voix à un candidat qui n'a aucune chance de passer au second tour, je dois m'appuyer sur les sondages pour faire mon choix.",
+						"Avec <u>vote classique</u>, le 1er tour peut éliminer un candidat capable de l'emporter au 2ème tour, et sélectionner à sa place un candidat suscitant un fort rejet (comme en 2002). Pire, le 1er tour pourrait sélectionner deux candidats fortement rejetés.",
+						"Pour être élu avec le <u>vote classique</u>, peu importe d'être haï par 49% des électeurs, pourvu qu'on soit préféré par 51%. Des stratégies électorales fondées sur la dissension et le conflit peuvent être gagnantes.",
+						"Avec le <u>vote classique</u>, les idées nouvelles des outsiders sont étouffées, bridées par le vote utile."
+					];
+					var vCitVdV = [
+						"Avec le <u>Vote de Valeur</u>, je peux soutenir plusieurs candidats, plus ou moins fortement, et en même temps, je peux rejeter plusieurs candidats, plus ou moins fortement.",
+						"Avec le <u>Vote de Valeur</u>, un candidat de plus ou de moins ne change pas vraiment mon opinion sur les autres candidats, et donc les points attribués. Le résultat est plus stable, même en cas de candidats proches.",
+						"Le <u>Vote de Valeur</u> est fidèle à mes opinions : l'émiettement ayant disparu, je peux exprimer une préférence pour A, soutenir aussi B, et rejeter C.",
+						"Avec <u>Vote de Valeur</u>, je n'ai pas besoin de savoir comment votent les autres électeurs pour décider ce que je dois faire.",
+						"Avec <u>Vote de Valeur</u>, un candidat moins apprécié qu'un autre reçoit tout simplement moins de points que lui. Il ne peut pas être élu à sa place.",
+						"Avec le <u>Vote de Valeur</u>, les rejets comptent autant que les soutiens, un candidat de clivage est battu par un candidat soutenu moins fortement mais par plus d'électeurs. Le Vote de Valeur favorise la cohésion de la société.",
+						"Le <u>Vote de Valeur</u> favorise le renouvellement des idées : Avec un vote utile réduit, les idées et les personnes nouvelles pourraient prendre de l'importance et influer sur le programme des partis dominants."
+					];
+					var vArgLetters = ["A", "B", "C", "D", "E", "F", "G"];
+					
+					var vArgs = [{random:Math.random()}, {random:Math.random()}, {random:Math.random()}];
+					switch(vPlanIndex) {
+					case 0:
+						vArgs[0].v = 0;
+						vArgs[1].v = 1;
+						vArgs[2].v = 2;
+						break;
+					case 1:
+						vArgs[0].v = 3;
+						vArgs[1].v = 4;
+						vArgs[2].v = 5;
+						break;
+					case 2:
+						vArgs[0].v = 0;
+						vArgs[1].v = 3;
+						vArgs[2].v = 6;
+						break;
+					case 3:
+						vArgs[0].v = 1;
+						vArgs[1].v = 4;
+						vArgs[2].v = 6;
+						break;
+					case 4:
+						vArgs[0].v = 2;
+						vArgs[1].v = 5;
+						vArgs[2].v = 6;
+						break;
+					case 5:
+						vArgs[0].v = 0;
+						vArgs[1].v = 4;
+						vArgs[2].v = 5;
+						break;
+					case 6:
+						vArgs[0].v = 1;
+						vArgs[1].v = 2;
+						vArgs[2].v = 3;
+						break;
+					}
+					vArgs.sort(function(p1, p2){return p1.random - p2.random;});
+					
+					document.getElementById("arg1").setAttribute("value", vArgLetters[vArgs[0].v]);
+					document.getElementById("cit1_Classic").innerHTML = vCitClassic[vArgs[0].v];
+					document.getElementById("cit1_VdV").innerHTML = vCitVdV[vArgs[0].v];
+					
+					document.getElementById("arg2").setAttribute("value", vArgLetters[vArgs[1].v]);
+					document.getElementById("cit2_Classic").innerHTML = vCitClassic[vArgs[1].v];
+					document.getElementById("cit2_VdV").innerHTML = vCitVdV[vArgs[1].v];
+					
+					document.getElementById("arg3").setAttribute("value", vArgLetters[vArgs[2].v]);
+					document.getElementById("cit3_Classic").innerHTML = vCitClassic[vArgs[2].v];
+					document.getElementById("cit3_VdV").innerHTML = vCitVdV[vArgs[2].v];
+					
+					
+				}catch(e){alert(e);}
+				//]]></script>
+				
