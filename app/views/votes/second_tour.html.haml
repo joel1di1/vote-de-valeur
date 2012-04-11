@@ -1,4 +1,9 @@
-= form_tag({}, :id => 'second_tour_form') do
-  - @fights.each do |f| 
-    = render :partial => 'fight', :locals => {:fight => f}
-  = submit_tag("Voter pour le second tour")   
+-# coding: utf-8
+
+#classic_vote
+  %h2
+    = 'Vote classique, second tour'
+    = form_tag({}, :id => 'second_tour_form') do
+      - @fights.each do |f| 
+        = render :partial => 'fight', :locals => {:fight => f}
+      = submit_tag("Valider")
