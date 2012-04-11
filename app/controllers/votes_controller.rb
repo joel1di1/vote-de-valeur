@@ -17,7 +17,7 @@ class VotesController < ApplicationController
       @user = current_user
       if current_user.a_vote?
         flash[:error] = "Vous avez déjà voté."
-        redirect_to root_path
+        redirect_to second_tour_votes_path
       end
     else
       flash[:error] = "Veuillez suivre le lien qui vous a été envoyé par mail pour valider votre inscription."
@@ -27,6 +27,7 @@ class VotesController < ApplicationController
 
   def create
     unless user_signed_in?
+      flash[:error] = "Veuillez suivre le lien qui vous a été envoyé par mail pour valider votre inscription."
       redirect_to root_path and return
     end
 
@@ -35,23 +36,21 @@ class VotesController < ApplicationController
       redirect_to root_path and return
     end
 
-    if current_user.a_vote?
-      flash[:error] = "Vous avez déjà voté"
-      redirect_to root_path and return
+    unless current_user.a_vote?
+      key = current_user.vote! params[:user]
+      session[:uniq_key] ||= key
     end
-
-    key = current_user.vote! params[:user]
-
-    session[:uniq_key] ||= key
 
     redirect_to second_tour_votes_path
   end
 
   def second_tour
+    redirect_to feedbacks_path and return if current_user.a_vote_second_tour?
     @fights = Candidate.get_versus
   end
 
   def vote_second_tour
+    redirect_to feedbacks_path and return if current_user.a_vote_second_tour?
     votes_params = params.except(:action, :controller, :utf8, :authenticity_token, :commit)
     begin
       votes_params.keys.select{|k| k.start_with?('f_')}.each do |key|

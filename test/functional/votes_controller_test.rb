@@ -31,7 +31,7 @@ class VotesControllerTest < ActionController::TestCase
       put :create, :user => {"vote_for_candidate_#{candidate.id}".to_sym => "-1"}
     end
     # assert
-    assert_redirected_to root_path
+    assert_redirected_to second_tour_votes_path
   end
 
   test 'accessing votes is not possible when election is not running' do
@@ -64,6 +64,25 @@ class VotesControllerTest < ActionController::TestCase
 
     assert_response :success
     assert_not_nil assigns[:fights]
+  end
+
+  test 'second tour should be accessed only when user has nott vote for second tour' do
+    DateHelper.set_election_time 1.day.ago, 1.day.from_now
+    user = FactoryGirl.create :user, :a_vote_second_tour => true
+    sign_in user
+
+    get :second_tour
+
+    assert_redirected_to feedbacks_path
+
+    candidate_1 = FactoryGirl.create :candidate, :favorite => true
+    candidate_2 = FactoryGirl.create :candidate, :favorite => true
+
+    fight = Fight.new(candidate_1, candidate_2)
+    assert_no_difference 'VoteSecondTour.count' do
+      post :vote_second_tour, {fight.id => candidate_1.id}
+    end
+    assert_redirected_to feedbacks_path
   end
 
   test 'vote for second tour' do

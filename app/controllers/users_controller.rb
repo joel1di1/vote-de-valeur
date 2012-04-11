@@ -6,9 +6,13 @@ class UsersController < ApplicationController
     token = params[:id]
     user = User.find_by_access_token token
     if user
-      sign_in user
-      session[VotesController::TOKEN_VALIDATED_KEY] = 'true'
-      redirect_to explanations_votes_path
+      if user.a_vote? 
+        redirect_to thanks_path
+      else  
+        sign_in user
+        session[VotesController::TOKEN_VALIDATED_KEY] = 'true'
+        redirect_to explanations_votes_path
+      end
     else
       sign_out :user
       redirect_to root_path

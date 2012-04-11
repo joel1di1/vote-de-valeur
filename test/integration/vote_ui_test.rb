@@ -35,13 +35,12 @@ class VoteUiTest < ActionDispatch::IntegrationTest
   test "user should see explanation after signed in" do
     ui_sign_in @user
 
-    assert page.has_content? "Bienvenue au bureau de vote virtuel, "
+    assert page.has_content? "bureau de vote virtuel"
   end
 
   test "vote form should display candidates form" do
     go_to_vote
 
-    assert page.has_content? 'Vote de valeur'
     assert page.has_content? @candidate_1.name
     assert page.has_content? @candidate_2.name
 
@@ -104,7 +103,7 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     go_to_vote
 
     # assert
-    assert_equal root_path, page.current_path
+    assert_equal second_tour_votes_path, page.current_path
   end
 
 end
