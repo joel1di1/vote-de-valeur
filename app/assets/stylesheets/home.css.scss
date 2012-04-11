@@ -440,7 +440,7 @@ label.collection_check_boxes {
   margin-bottom: 10px;
 }
 
-$cell_width: 100px;
+$cell_width: 108px;
 .vote_head{
   display: inline-block;
   width: $cell_width;
@@ -466,14 +466,15 @@ $cell_width: 100px;
   }
   .legend{
     display: inline-block;
-    width: 49px;
+    width: 54px;
     vertical-align: middle;
     text-align: center;
   }
   .value{
     display: inline-block;
     width: 17px;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: bold;
     vertical-align: middle;
     text-align: center;
   }
