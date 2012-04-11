@@ -14,7 +14,7 @@ fr:
   devise:
     failure:
       already_authenticated: 'You are already signed in.'
-      unauthenticated: 'You need to sign in or sign up before continuing.'
+      unauthenticated: "Vous devez vous enregistrer pour participer à l'expérience, puis cliquer sur le lien que vous recevrez par mail."
       unconfirmed: 'You have to confirm your account before continuing.'
       locked: 'Your account is locked.'
       invalid: 'Invalid email or password.'
