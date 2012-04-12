@@ -21,6 +21,11 @@ group :production, :demo do
   gem 'pg'
 end
 
+group :production do
+  gem 'newrelic_rpm'
+end
+
+
 group :assets do
   gem 'coffee-rails'
   gem 'sass-rails'
