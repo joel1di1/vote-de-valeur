@@ -8,7 +8,7 @@ User:
     show: rebuild  
   order_by: id
   relationships:
-  filters: created_at
+  filters:
   search: email
   application: vote-de-valeur
   options:
