@@ -39,7 +39,8 @@ function user_checked_all(){
 }
 
 function user_force_zeros(){
-    return confirm("Vous n'avez pas attribué de valeur à certains candidats. Là où vous ne vous êtes pas exprimé nous attribuerons automatiquement la valeur 'indifférent 0'. Êtes-vous sûr(e) de vouloir laisser le(les) choix vides ?")
+	return true;
+    //return confirm("Vous n'avez pas attribué de valeur à certains candidats. Là où vous ne vous êtes pas exprimé nous attribuerons automatiquement la valeur 'indifférent 0'. Êtes-vous sûr(e) de vouloir laisser le(les) choix vides ?")
 }
 // toggle vdv et classic
 $(function(){
