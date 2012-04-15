@@ -7,10 +7,10 @@
   Nous avons retenu les 10 duels avec les 5 candidats
   %br
   qui dépassent les 10% d'intention de vote au second tour.
-#content.grey
-  %h2
-    = 'Vote classique, second tour'
-  = form_tag({}, :id => 'second_tour_form') do
+= form_tag({}, :id => 'second_tour_form') do
+  #content.grey
+    %h2
+      Vote classique, second tour
     - @fights.each do |f| 
       = render :partial => 'fight', :locals => {:fight => f}
-    = submit_tag("Valider")
+  = submit_tag("Valider")
