@@ -193,6 +193,7 @@ td.count, td.classic_count{
   }
   &.grey{
     width: 600px;
+    padding: 0 0;
     h2{
       width: 600px;
       background: #969696;
@@ -600,4 +601,8 @@ td.accueil { border: none; }
 .inlineIcon{
 	display:inline-block;
 	vertical-align:middle;
+}
+
+.social{
+  text-align: center; 
 }
