@@ -615,8 +615,8 @@ try{
 	
 	//PLAN d'expérience
 	var vPlanIndex = <%= current_user.id %> % 7;
-	var vOffset = location.href.indexOf("?p=");
-	var vPlanIndex = Math.max(0, Math.min(6, vOffset>0 ? parseInt(location.href.substring(vOffset+3)) : Math.floor(Math.random() * 7)));
+	//var vOffset = location.href.indexOf("?p=");
+	//var vPlanIndex = Math.max(0, Math.min(6, vOffset>0 ? parseInt(location.href.substring(vOffset+3)) : Math.floor(Math.random() * 7)));
 	var vCitClassic = [
 		"«&nbsp;Avec le <u>vote classique</u>, il n’y a pas de nuance possible&nbsp;: je dois soutenir un seul candidat et rejeter tous les autres.&nbsp;»",
 		"«&nbsp;Avec le <u>vote classique</u>, un candidat de plus ou de moins, cela peut changer les résultats du 1er tour. Deux candidats proches peuvent se faire perdre mutuellement.&nbsp;»",
