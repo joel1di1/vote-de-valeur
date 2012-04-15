@@ -39,7 +39,7 @@ body{
   &.votes_index{
     background: white asset-url('bgs/fondProcessus3-2.jpg', image) no-repeat center top;
   }
-  &.votes_classic{
+  &.votes_classic, &.votes_second_tour{
     background: white asset-url('bgs/fondProcessus3-3.jpg', image) no-repeat center top;
   }
   &.home_thanks{
@@ -193,7 +193,6 @@ td.count, td.classic_count{
   }
   &.grey{
     width: 600px;
-    padding: 1em;
     h2{
       width: 600px;
       background: #969696;
@@ -596,4 +595,9 @@ td.accueil { border: none; }
 
 .disclaimer{
   font-size: 12px;
+}
+
+.inlineIcon{
+	display:inline-block;
+	vertical-align:middle;
 }

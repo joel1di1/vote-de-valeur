@@ -1,27 +1,26 @@
 -#coding: UTF-8
 #content.red
   = render :partial => '/layouts/messages'
-  %p
-    Votre inscription pour cette expérience du Vote de Valeur a été validée.
-  %p
-    Un courriel vous a été envoyé vous confirmant cette inscription. 
   - if DateHelper.election_running?
     %p
-      L'élection est commencée.
+      Merci pour votre inscription.
     %p
-      Pour confirmer votre inscription et accéder à l'espace de vote, veuillez cliquez sur le lien contenu dans le mail qui vous à été envoyé.
-
+      Un courriel vous a été envoyé avec un lien qui vous permet d'accéder à l'espace de vote.
   -else
+    %p
+      Votre inscription pour cette expérience du Vote de Valeur a été validée.
+    %p
+      Un courriel vous a été envoyé vous confirmant cette inscription. 
     %p
       Notre bureau de vote sera ouvert du vendredi 20 avril 2012 au dimanche 22 avril 2012.
     %p
       Vous recevrez un courriel dès l'ouverture qui vous invitera à voter.
 
   %p
-    Invitez vos amis à s'inscrire pour cette expérience du Vote de Valeur&nbsp;:
+    Invitez vos amis à participer à cette expérience du Vote de Valeur&nbsp;:
 
   .social
-    %span.st_twitter_large
-    %span.st_facebook_large
-    %span.st_email_large
-    %span.st_sharethis_large
+    %span.st_twitter_large(st_url="https://experience2012.votedevaleur.org")
+    %span.st_facebook_large(st_url="https://experience2012.votedevaleur.org")
+    %span.st_email_large(st_url="https://experience2012.votedevaleur.org")
+    %span.st_sharethis_large(st_url="https://experience2012.votedevaleur.org")

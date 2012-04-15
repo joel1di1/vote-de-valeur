@@ -4,11 +4,14 @@
   = image_tag 'a_vote.png', :id => 'pastille_a_vote'
   = render :partial => '/layouts/messages'
   %p
-    Vos votes ont bien été pris en compte et nous vous remercions de votre participation.
+    Merci pour votre participation.
   %p
     Vous recevrez un compte-rendu de notre expérience après les résultats officiels de l'élection présidentielle. 
   %p
-    Invitez vos amis à participer à l'expérience qui est ouverte jusqu'à dimanche 20h :
-    %span.st_twitter_large
-    %span.st_facebook_large
-    %span.st_email_large
+    Invitez vos amis à participer à l'expérience (jusqu'à dimanche 20h)&nbsp;:
+    %span.st_twitter_large.inlineIcon(st_url="https://experience2012.votedevaleur.org")
+    %span.st_facebook_large.inlineIcon(st_url="https://experience2012.votedevaleur.org")
+    %span.st_email_large.inlineIcon(st_url="https://experience2012.votedevaleur.org")
+  %p
+    Vous pouvez également expérimenter d'autres systèmes de vote originaux grâce à cette expérience en ligne&nbsp;:
+    %a.txt_url_ul{:href => "http://voteaupluriel.org", :target => "_blank", :title => "Expérience 'Vote au pluriel'"} http://voteaupluriel.org
