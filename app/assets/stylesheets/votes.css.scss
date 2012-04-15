@@ -49,12 +49,15 @@ $candidate_width: $fight_width / 2;
   .fight{
     padding: 20px;
     width: $fight_width;
+    height: 30px;
     margin: 15px auto; 
+    border: 1px solid grey;
+    @include border-radius(10px);
   }
   .versus{
     float: left;
     width: 20px;
-    height: 20px;
+    height: 30px;
     background: white asset-url('votes/croixDuel.png', image) no-repeat center center;
   }
   .candidate{
