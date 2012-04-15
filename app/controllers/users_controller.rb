@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     user = User.find_by_access_token token
     if user
       if user.a_vote? 
+        flash[:error] = t(:questionnaire_rempli)
         redirect_to thanks_path
       else  
         sign_in user

@@ -116,8 +116,16 @@ td.count, td.classic_count{
 }
 
 #messages{
-    text-align: center;
-    font-weight: bold;
+  text-align: center;
+  font-weight: bold;
+  .error{
+    color: #9E1516;
+    @include border-radius(10px);
+    border: 2px #9E1516 solid;
+    padding: 5px;
+    display: inline-block;
+    margin-left: 0px;
+  }    
 }
 
 #header{
@@ -198,7 +206,9 @@ td.count, td.classic_count{
       width: 600px;
       background: #969696;
     }
-
+    &.with_padding{
+      padding: 10px;
+    }
   }
 }
 
@@ -273,12 +283,12 @@ $name_width: 320px;
         &.selected{
           padding: 12px 70px 12px 0;
           margin: 0 0;
-          background: asset-url('radio-selected.png', image) no-repeat 320px 7px;
+          background: asset-url('radio-selected.png', image) no-repeat 340px 7px;
         }
         &.unselected, &.nonselected{
           padding: 12px 70px 12px 0;
           margin: 0 0;
-          background: asset-url('radio-unselected.png', image) no-repeat 320px 7px;
+          background: asset-url('radio-unselected.png', image) no-repeat 340px 7px;
         }
       }
     }

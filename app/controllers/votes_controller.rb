@@ -16,7 +16,7 @@ class VotesController < ApplicationController
       @candidates = Candidate.all.shuffle
       @user = current_user
       if current_user.a_vote?
-        flash[:error] = "Vous avez déjà voté."
+        flash[:error] = "Vous avez déjà validé l'étape précédente."
         redirect_to second_tour_votes_path
       end
     else
@@ -45,12 +45,12 @@ class VotesController < ApplicationController
   end
 
   def second_tour
-    redirect_to feedbacks_path and return if current_user.a_vote_second_tour?
+    flash[:error] = 'Vous avez déjà validé votre vote' and redirect_to feedbacks_path and return if current_user.a_vote_second_tour?
     @fights = Candidate.get_versus
   end
 
   def vote_second_tour
-    redirect_to feedbacks_path and return if current_user.a_vote_second_tour?
+    flash[:error] = 'Vous avez déjà validé votre vote' and redirect_to feedbacks_path and return if current_user.a_vote_second_tour?
     begin
       fights = Candidate.get_versus
       fights.each do |f|

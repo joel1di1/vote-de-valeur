@@ -1,7 +1,7 @@
 fr:
   sign_out: déconnexion
   mail_send:  'Le mail vous a été renvoyé'
-  questionnaire_rempli: 'Vous avez déjà répondu au questionnaire.'
+  questionnaire_rempli: "Vous avez déjà participé à l'expérience."
   simple_form:
     labels:
       user:

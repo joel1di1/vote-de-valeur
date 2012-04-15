@@ -36,10 +36,23 @@ $(function(){
 
 // toggle vdv et classic
 $(function(){
-    $("#next_to_classic").click(function(){
-        // alerte sur les votes vides
-        $("#classic_vote, #user_votes, #submit_votes").toggle()
-        $("#content").removeClass('blue').addClass('grey')
-        $(this).toggle()
+    $(window).bind( 'hashchange', function(e) {
+        if ('/votes' == e.target.location.pathname){
+            var hash = e.target.location.hash
+            if ('#classic' == hash){
+                $("#user_votes, #next_to_classic").hide()
+                $("#classic_vote, #submit_votes").show()
+                $("#content").removeClass('blue').addClass('grey')
+            } else if ('' == hash){
+                $("#classic_vote, #submit_votes").hide()
+                $("#user_votes, #next_to_classic").show()
+                $("#content").removeClass('grey').addClass('blue')
+            }
+        }
     })
+    $(window).trigger( 'hashchange' );
 })
+
+if (window.location.hash == '#classic'){
+    window.location.href = '/votes'
+}
