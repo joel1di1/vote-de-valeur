@@ -9,6 +9,6 @@ class UserMailer < ActionMailer::Base
 
   def election_open_mail user
     @user = user
-    mail(:to => user.email, :subject => "Le Vote de Valeur est ouvert")
+    mail(:to => user.email, :subject => "Le bureau de vote virtuel du Vote de Valeur est ouvert !")
   end
 end
