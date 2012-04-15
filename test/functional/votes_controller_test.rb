@@ -99,8 +99,7 @@ class VotesControllerTest < ActionController::TestCase
     end
     
     assert user.reload.a_vote_second_tour?
-    vst = VoteSecondTour.last
-    assert_equal fight.id, vst.original_fight_id
+    vst = VoteSecondTour.find_with_original_fight_id fight.id
     assert_equal candidate_1, vst.chosen_candidate
     assert_equal candidate_1, vst.first_candidate
     assert_equal candidate_2, vst.second_candidate
@@ -122,7 +121,9 @@ class VotesControllerTest < ActionController::TestCase
     fight_2 = Fight.new(candidate_1, candidate_3)
     fight_3 = Fight.new(candidate_3, candidate_2)
     assert_difference 'VoteSecondTour.count', 3 do
-      post :vote_second_tour, {fight_1.id => candidate_1.id, fight_2.id => candidate_3.id, fight_3.id => candidate_3.id}
+      post :vote_second_tour, {fight_1.id => candidate_1.id, 
+                               fight_2.id => candidate_3.id, 
+                               fight_3.id => candidate_3.id}
     end
     
     assert_fight fight_1.id, candidate_1, candidate_2, candidate_1, uniq_key
@@ -130,10 +131,36 @@ class VotesControllerTest < ActionController::TestCase
     assert_fight fight_3.id, candidate_3, candidate_2, candidate_3, uniq_key
   end
 
+
+  test 'vote for second tour with several blank responses' do
+    DateHelper.set_election_time 1.day.ago, 1.day.from_now
+    user = FactoryGirl.create :user
+    sign_in user
+
+    uniq_key = User.generate_vote_key
+    session[:uniq_key] = uniq_key
+
+    candidate_1 = FactoryGirl.create :candidate, :favorite => true
+    candidate_2 = FactoryGirl.create :candidate, :favorite => true
+    candidate_3 = FactoryGirl.create :candidate, :favorite => true
+
+    fight_1 = Fight.new(candidate_1, candidate_2)
+    fight_2 = Fight.new(candidate_1, candidate_3)
+    fight_3 = Fight.new(candidate_3, candidate_2)
+    assert_difference 'VoteSecondTour.count', 3 do
+      post :vote_second_tour, {fight_1.id => candidate_1.id}
+    end
+    
+    assert_fight fight_1.id, candidate_1, candidate_2, candidate_1, uniq_key
+    assert_fight fight_2.id, candidate_1, candidate_3, nil, uniq_key
+    assert_fight fight_3.id, candidate_2, candidate_3, nil, uniq_key
+  end
+
+
   def assert_fight fight_id, c1, c2, chosen_candidate, uniq_key
-    vst = VoteSecondTour.find_by_original_fight_id fight_id
-    assert_equal c1, vst.first_candidate
-    assert_equal c2, vst.second_candidate
+    vst = VoteSecondTour.find_with_original_fight_id fight_id
+    assert c1 == vst.first_candidate || c1 == vst.second_candidate
+    assert c2 == vst.first_candidate || c2 == vst.second_candidate
     assert_equal chosen_candidate, vst.chosen_candidate
     assert_equal uniq_key, vst.key
   end
