@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   def index
     if user_signed_in?
       if session[VotesController::TOKEN_VALIDATED_KEY]
-        if currrent_user.a_vote?
+        if current_user.a_vote?
           redirect_to second_tour_votes_path
         else
           redirect_to explanations_votes_path  
