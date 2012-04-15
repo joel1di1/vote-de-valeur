@@ -11,7 +11,17 @@
   #content.grey
     %h2
       Vote classique, second tour
-    - @fights.each do |f| 
-      = render :partial => 'fight', :locals => {:fight => f}
+    #fights
+      - @fights.each do |f| 
+        = render :partial => 'fight', :locals => {:fight => f}
   #nextcontainer
     = submit_tag "Valider", :class => "next grey"
+:javascript
+  var vList = [];
+  var vFightRoot = document.getElementById("fights");
+  while (vFightRoot.hasChildNodes()) {
+    if(vFightRoot.lastChild.nodeType==1) vList.push({pos:Math.random(), elt:vFightRoot.lastChild});
+    vFightRoot.removeChild(vFightRoot.lastChild);
+  }
+  vList.sort(function(p1, p2){return p1.pos - p2.pos});
+  for(var k=0; k<vList.length; k++) vFightRoot.appendChild(vList[k].elt);
