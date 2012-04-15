@@ -16,6 +16,7 @@ class FeedbacksController < ApplicationController
     current_user.update_attribute :feedbacks, true
 
     redirect_to thanks_path
+    sign_out
   end
 
   protected

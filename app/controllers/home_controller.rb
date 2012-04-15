@@ -30,5 +30,6 @@ class HomeController < ApplicationController
   end
 
   def thanks
+    render
   end
 end
