@@ -3,11 +3,14 @@ Bonjour,
 Bienvenue et merci de participer à cette expérience du Vote de Valeur.
 \
 - if DateHelper.election_running?
-  = "Pour accéder au bureau de vote virtuel et tester le Vote de Valeur cliquez sur ce lien : #{user_access_url(:id => @user.access_token)}"
+  Pour accéder au bureau de vote virtuel et tester le Vote de Valeur cliquez sur ce lien : 
+  = "#{user_access_url(:id => @user.access_token)}"
 - elsif DateHelper.election_closed?
-  L'expérimentation est maintenant terminée.
+  L'expérience à l'occasion de l'élection présidentielle est maintenant terminée. 
+  Nous vous transmettrons le compte-rendu de notre expérience après les résultats officiels de l'élection présidentielle.
 - else
   = "Un courriel vous sera envoyé à l'ouverture du bureau de vote (#{DateHelper.format_start}) pour vous inviter à voter."
+\
 \
 Cordialement.
 L'équipe "Vote de Valeur, expérience 2012"
