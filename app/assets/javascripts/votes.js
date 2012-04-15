@@ -52,3 +52,7 @@ $(function(){
     })
     $(window).trigger( 'hashchange' );
 })
+
+if (window.location.hash == '#classic'){
+    window.location.href = '/votes'
+}
