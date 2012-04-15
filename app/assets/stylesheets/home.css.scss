@@ -283,12 +283,12 @@ $name_width: 320px;
         &.selected{
           padding: 12px 70px 12px 0;
           margin: 0 0;
-          background: asset-url('radio-selected.png', image) no-repeat 320px 7px;
+          background: asset-url('radio-selected.png', image) no-repeat 340px 7px;
         }
         &.unselected, &.nonselected{
           padding: 12px 70px 12px 0;
           margin: 0 0;
-          background: asset-url('radio-unselected.png', image) no-repeat 320px 7px;
+          background: asset-url('radio-unselected.png', image) no-repeat 340px 7px;
         }
       }
     }
