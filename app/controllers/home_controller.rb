@@ -2,9 +2,17 @@ class HomeController < ApplicationController
 
   def index
     if user_signed_in?
-      render :election_soon
-      sign_out
-      @user_signed_out = true
+      if session[VotesController::TOKEN_VALIDATED_KEY]
+        if user.a_vote?
+          redirect_to second_tour_votes_path
+        else
+          redirect_to explanations_votes_path  
+        end
+      else
+        render :election_soon
+        sign_out
+        @user_signed_out = true
+      end
     else
       @user =  User.new
     end

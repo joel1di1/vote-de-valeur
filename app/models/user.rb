@@ -94,8 +94,8 @@ class User < ActiveRecord::Base
     vote_value ||= nil
   end
 
-  def self.send_opening_mails
-    User.where(:mailed_status => 0).each do |user|
+  def self.send_opening_mails start_id=0, end_id=0
+    User.where("id >= ?", start_id).where("id <= ?", end_id).where(:mailed_status => 0).each do |user|
       UserMailer.election_open_mail(user).deliver
       user.update_attribute :mailed_status, 1
       p user.email

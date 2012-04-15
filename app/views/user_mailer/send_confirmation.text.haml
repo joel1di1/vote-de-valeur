@@ -3,6 +3,7 @@ Bonjour,
 Bienvenue et merci de participer à cette expérience du Vote de Valeur.
 \
 - if DateHelper.election_running?
+  - @user.update_attribute :mailed_status, 1
   Pour accéder au bureau de vote virtuel et tester le Vote de Valeur cliquez sur ce lien : 
   = "#{user_access_url(:id => @user.access_token)}"
   \
