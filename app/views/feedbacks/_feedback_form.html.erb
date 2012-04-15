@@ -605,7 +605,6 @@ p{
 					//RANDOM
 					$("#feedbackContent .randomOrder").each(function(){
 						var vList = [];
-						var this = thiss[i];
 						while (this.hasChildNodes()) {
 							if(this.lastChild.nodeType==1) vList.push({pos:Math.random(), elt:this.lastChild});
 							this.removeChild(this.lastChild);
