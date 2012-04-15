@@ -35,9 +35,4 @@ VoteDeValeur::Application.routes.draw do
   get 'thanks' => 'home#thanks'
 
   root :to => "home#index"
-
-  # juste pour les tests
-  resources :candidates, :only => [:index]
-  match '/test/start_mail' => 'configurations#start_mail'
-
 end
