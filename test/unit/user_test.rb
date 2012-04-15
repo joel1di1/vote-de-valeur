@@ -50,9 +50,11 @@ class UserTest < ActiveSupport::TestCase
   test 'votes should add new votes' do
     candidate_1 = FactoryGirl.create :candidate
     candidate_2 = FactoryGirl.create :candidate
+    candidate_3 = FactoryGirl.create :candidate
 
     assert_difference ["Vote.find_all_by_candidate_id(#{candidate_1.id}).count",
                        "Vote.find_all_by_candidate_id(#{candidate_2.id}).count",
+                       "Vote.find_all_by_candidate_id(#{candidate_3.id}).count",
                        "ClassicVote.count"] do
       @u.vote! "vote_for_candidate_#{candidate_2.id}" => '1', 
                "vote_for_candidate_#{candidate_1.id}" => '-1', 

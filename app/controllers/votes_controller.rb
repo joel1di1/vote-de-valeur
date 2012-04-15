@@ -51,10 +51,11 @@ class VotesController < ApplicationController
 
   def vote_second_tour
     redirect_to feedbacks_path and return if current_user.a_vote_second_tour?
-    votes_params = params.except(:action, :controller, :utf8, :authenticity_token, :commit)
     begin
-      votes_params.keys.select{|k| k.start_with?('f_')}.each do |key|
-        VoteSecondTour.create_with(key, votes_params[key], session[:uniq_key])
+      fights = Candidate.get_versus
+      fights.each do |f|
+        key = find_key_in_params f.id
+        VoteSecondTour.create_with(key, params[key], session[:uniq_key])
       end
     rescue Exception => e
       HoptoadNotifier.notify e
@@ -62,6 +63,12 @@ class VotesController < ApplicationController
     current_user.update_attribute :a_vote_second_tour, true
 
     redirect_to feedbacks_path
+  end
+
+  def find_key_in_params id
+    return id if params[id]
+    m = /f_(\d+)_(\d+)/.match id
+    "f_#{m[2]}_#{m[1]}"
   end
 
 end

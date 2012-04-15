@@ -34,22 +34,12 @@ $(function(){
         })
 })
 
-function user_checked_all(){
-    return $("#user_votes input[type='radio']").size()/5 == $("#user_votes input[type='radio']:checked").size()
-}
-
-function user_force_zeros(){
-	return true;
-    //return confirm("Vous n'avez pas attribué de valeur à certains candidats. Là où vous ne vous êtes pas exprimé nous attribuerons automatiquement la valeur 'indifférent 0'. Êtes-vous sûr(e) de vouloir laisser le(les) choix vides ?")
-}
 // toggle vdv et classic
 $(function(){
     $("#next_to_classic").click(function(){
         // alerte sur les votes vides
-        if (user_checked_all() || user_force_zeros()){
-                $("#classic_vote, #user_votes, #submit_votes").toggle()
-                $("#content").removeClass('blue').addClass('grey')
-                $(this).toggle()
-        }
+        $("#classic_vote, #user_votes, #submit_votes").toggle()
+        $("#content").removeClass('blue').addClass('grey')
+        $(this).toggle()
     })
 })

@@ -100,10 +100,16 @@ class VoteUiTest < ActionDispatch::IntegrationTest
     submit_vote
 
     # action
-    go_to_vote
+    visit '/votes'
 
     # assert
     assert_equal second_tour_votes_path, page.current_path
+
+    # action
+    ui_sign_in @user
+
+    # assert
+    assert_equal thanks_path, page.current_path
   end
 
 end
