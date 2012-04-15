@@ -6,13 +6,17 @@ class UsersController < ApplicationController
     token = params[:id]
     user = User.find_by_access_token token
     if user
-      if user.a_vote? 
+      if user.a_vote? && user.a_vote_second_tour? &&user.feedbacks?
         flash[:error] = t(:questionnaire_rempli)
         redirect_to thanks_path
-      else  
+      else
         sign_in user
         session[VotesController::TOKEN_VALIDATED_KEY] = 'true'
-        redirect_to explanations_votes_path
+        if user.a_vote?
+          redirect_to second_tour_votes_path
+        else
+          redirect_to explanations_votes_path  
+        end
       end
     else
       sign_out :user

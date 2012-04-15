@@ -51,6 +51,7 @@ class VotesController < ApplicationController
 
   def vote_second_tour
     flash[:error] = 'Vous avez déjà validé votre vote' and redirect_to feedbacks_path and return if current_user.a_vote_second_tour?
+    session[:uniq_key] ||= User.generate_vote_key
     begin
       fights = Candidate.get_versus
       fights.each do |f|

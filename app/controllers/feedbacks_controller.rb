@@ -9,6 +9,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
+    session[:uniq_key] ||= User.generate_vote_key
     json = params.except(:controller, :action, :commit, :utf8, :authenticity_token).to_json
 
     Feedback.create :answers => json, :key => session[:uniq_key]
