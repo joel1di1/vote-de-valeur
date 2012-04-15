@@ -43,18 +43,19 @@
   }
 }
 
-$fight_width: 400px;
+$fight_width: 450px;
 $candidate_width: $fight_width / 2;
 #second_tour_form{
   .fight{
     padding: 20px;
     width: $fight_width;
-    margin: 10px auto; 
+    margin: 15px auto; 
   }
   .versus{
     float: left;
-    color: #AAA;
-    padding-top: 7px;
+    width: 20px;
+    height: 20px;
+    background: white asset-url('votes/croixDuel.png', image) no-repeat center center;
   }
   .candidate{
     width: $candidate_width - 20px;
