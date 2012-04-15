@@ -116,8 +116,16 @@ td.count, td.classic_count{
 }
 
 #messages{
-    text-align: center;
-    font-weight: bold;
+  text-align: center;
+  font-weight: bold;
+  .error{
+    color: #9E1516;
+    @include border-radius(10px);
+    border: 2px #9E1516 solid;
+    padding: 5px;
+    display: inline-block;
+    margin-left: 0px;
+  }    
 }
 
 #header{
@@ -198,7 +206,9 @@ td.count, td.classic_count{
       width: 600px;
       background: #969696;
     }
-
+    &.with_padding{
+      padding: 10px;
+    }
   }
 }
 

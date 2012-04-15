@@ -11,6 +11,7 @@
   #content.grey
     %h2
       Vote classique, second tour
+    = render :partial => '/layouts/messages'
     #fights
       - @fights.each do |f| 
         = render :partial => 'fight', :locals => {:fight => f}
