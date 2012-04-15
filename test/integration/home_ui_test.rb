@@ -39,7 +39,7 @@ class HomeUiTest < ActionDispatch::IntegrationTest
 
   test "home should display sign in" do
     visit '/'
-    assert page.has_selector? "#user_sign_in"
+    assert page.has_selector? "#next.red"
   end
 
   test "user sign in test" do
@@ -47,6 +47,7 @@ class HomeUiTest < ActionDispatch::IntegrationTest
 
     user = FactoryGirl.create :user
     ui_sign_in user
-    assert page.has_content? user.email
+    assert_equal '/votes/explanations', page.current_path
+    assert page.has_content? 'Bienvenue'
   end
 end
