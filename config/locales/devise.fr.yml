@@ -31,7 +31,7 @@ fr:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
       confirmed: Votre compte est confimé
     registrations:
-      signed_up: Merci de vous être enregistré sur le vote de valeur.
+      signed_up: Merci pour votre participation à cette expérience.
       signed_up_but_unconfirmed: 'Vous êtes bien enregistré. Pour accéder à l''expérimentation, vous devez d''abord confirmer votre inscription.'
       signed_up_but_inactive: 'Vous êtes bien enregistré. Pour accéder à l''expérimentation, vous devez d''abord confirmer votre inscription.'
       updated: 'You updated your account successfully.'
