@@ -2,11 +2,14 @@
   #content.orange
     %h4.inscription Comment participer ?
     %p.inscription
-      Inscrivez-vous dès maintenant, le bureau de vote virtuel sera ouvert du 20 au 22 avril 2012 inclus.
-      %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Détails du déroulement de l'expérience"}
-        = image_tag("boutonInfo.png")
-      %sup.txt_def_ref.tt_ref
-        %a{:href => "#footNotesN1"} [1]
+      - if DateHelper.election_running?
+        Pour vous inscrire, il vous suffit de fournir votre adresse de courrier électronique. Votre inscription vous sera confirmée par un courriel.
+      - else
+        Inscrivez-vous dès maintenant, le bureau de vote virtuel sera ouvert du 20 au 22 avril 2012 inclus.
+        %a#i1.txt_def_ul.tt_a{:href => "#footNotesN1", :title => "Détails du déroulement de l'expérience"}
+          = image_tag("boutonInfo.png")
+        %sup.txt_def_ref.tt_ref
+          %a{:href => "#footNotesN1"} [1]
     
     %p.inscription
       Votre vote sera strictement&nbsp;
@@ -52,31 +55,32 @@
 
   #footer
   %ol.footNotes
-    %li#footNotesN1.footNotes_it
-      .footNotes_itti Déroulement de l'expérience
-      .footNotes_itco
-        %p.txt_p
-          Pour vous inscrire, il vous suffit de fournir votre adresse de courrier électronique. Votre inscription vous sera confirmée par un courriel.
-      %ol.txt_ol
-        %li.txt_oli
+    - unless DateHelper.election_running?
+      %li#footNotesN1.footNotes_it
+        .footNotes_itti Déroulement de l'expérience
+        .footNotes_itco
           %p.txt_p
-            A partir du 20 avril 2012 vous recevrez un courriel vous invitant à accéder au bureau de vote virtuel.
-            Nous vous proposerons alors de voter 2 fois&nbsp;: selon le 1
-            %sup er
-            tour du système actuel 
-            et selon le Vote de Valeur. Vous pourrez ensuite donner votre avis sur cette première expérience.
+            Pour vous inscrire, il vous suffit de fournir votre adresse de courrier électronique. Votre inscription vous sera confirmée par un courriel.
+        %ol.txt_ol
+          %li.txt_oli
+            %p.txt_p
+              A partir du 20 avril 2012 vous recevrez un courriel vous invitant à accéder au bureau de vote virtuel.
+              Nous vous proposerons alors de voter 2 fois&nbsp;: selon le 1
+              %sup er
+              tour du système actuel 
+              et selon le Vote de Valeur. Vous pourrez ensuite donner votre avis sur cette première expérience.
 
-        %li.txt_oli
-          %p.txt_p
-            A partir du 4 mai 2012, vous pourrez accéder à nouveau au bureau de vote pour voter au 2ème tour
-            du système actuel pour l'un des 2 vainqueurs du 1
-            %sup er
-            tour de notre élection virtuelle.
+          %li.txt_oli
+            %p.txt_p
+              A partir du 4 mai 2012, vous pourrez accéder à nouveau au bureau de vote pour voter au 2ème tour
+              du système actuel pour l'un des 2 vainqueurs du 1
+              %sup er
+              tour de notre élection virtuelle.
 
-        %li.txt_oli
-          %p.txt_p
-            Après les résultats de l'élection présidentielle française, nous publierons ceux de notre expérience.
-            Vous pourrez alors donner votre avis sur ces résultats.
+          %li.txt_oli
+            %p.txt_p
+              Après les résultats de l'élection présidentielle française, nous publierons ceux de notre expérience.
+              Vous pourrez alors donner votre avis sur ces résultats.
 
     %li#footNotesN2.footNotes_it
       .footNotes_itti Détails sur le système de vote en ligne
@@ -148,10 +152,11 @@
           Consultez la
           %a.txt_url_ul(href="http://www.votedevaleur.org/co/charte.html" title="Charte de l'expérience" target="_blank") charte
           complète de l'expérience.
-          
+
+- i_tool_tip = DateHelper.election_running? ? 2 : 1          
 :javascript
   try{
-    for(var i=1; i<=4; i++) { 
+    for(var i=#{i_tool_tip}; i<=4; i++) { 
       scTooltipMgr.registerTooltip("i"+i,"footNotesN"+i,"onmouseover","txt_def tt","",{STICKY:true,FIXTYPE:"node",FIX:[0,0], MAXWIDTH:500, MAXHEIGHT: 400, HPOS:"leftAlign",VPOS:"belowElement",CLSBTN:true,CLSBTNCAP:"x",CLSBTNTI:"Fermer"});
     }
   } catch(e){alert(e);}
