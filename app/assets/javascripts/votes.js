@@ -1,8 +1,9 @@
 
 // Lorsqu'une valeur est choisie, on affiche la selection
 $(function(){
-    $("#user_votes input[type='radio'], #classic_vote input[type='radio']").click(function(){
-    	alert("click:::"+this.name);
+    $("#user_votes input[type='radio'], #classic_vote input[type='radio']").each(function(){
+    	this.onclick = function() {
+    		alert("click:::"+this.name);
         $("input[name='"+this.name+"']")
             .each(function (){
                 unhighlight_label(this.id)
@@ -11,6 +12,7 @@ $(function(){
             .each(function (){
                 highlight_label(this.id)
             })
+      }
     })
 })
 
