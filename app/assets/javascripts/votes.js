@@ -2,6 +2,7 @@
 // Lorsqu'une valeur est choisie, on affiche la selection
 $(function(){
     $("#user_votes input[type='radio'], #classic_vote input[type='radio']").each(function(){
+    	alert("init : "+this);
     	this.onclick = function() {
     		alert("click:::"+this.name);
         $("input[name='"+this.name+"']")
