@@ -1,19 +1,18 @@
 
 // Lorsqu'une valeur est choisie, on affiche la selection
 $(function(){
-    $("#user_votes input[type='radio'], #classic_vote input[type='radio']").each(function(){
-    	alert("init : "+this);
-    	this.onclick = function() {
-    		alert("click:::"+this.name);
-        $("input[name='"+this.name+"']")
-            .each(function (){
-                unhighlight_label(this.id)
-            })
-            .filter("[checked]")
-            .each(function (){
-                highlight_label(this.id)
-            })
-      }
+    $("#user_votes label, #classic_vote label").click(function(){
+    		//alert("click:::"+this.getAttribute("for"));
+    		var vInput = document.getElementById(this.getAttribute("for"));
+    		vInput.checked = ! vInput.checked;
+      $("input[name='"+vInput.name+"']")
+          .each(function (){
+              unhighlight_label(this.id)
+          })
+          .filter("[checked]")
+          .each(function (){
+              highlight_label(this.id)
+          })
     })
 })
 
