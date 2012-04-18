@@ -50,6 +50,10 @@
 
     #classic_vote.premier_tour
       %h2= 'Vote classique, premier tour'
+      %p
+        %center
+          %b
+            Ne cochez aucun candidat pour vous abstenir.
       - values = @candidates.to_a.collect{|c| [c.id, c.name]}
       - values.each do |v|
         %span

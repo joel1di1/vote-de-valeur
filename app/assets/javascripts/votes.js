@@ -3,7 +3,8 @@
 $(function(){
     $("#user_votes label, #classic_vote label").click(function(){
       var vInput = document.getElementById(this.getAttribute("for"));
-      vInput.checked = ! vInput.checked;
+      if(vInput.checked) return;
+      vInput.checked = true;
       $("input[name='"+vInput.name+"']")
           .each(function (){
               unhighlight_label(this.id)
