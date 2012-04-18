@@ -1,7 +1,21 @@
 
 // Lorsqu'une valeur est choisie, on affiche la selection
 $(function(){
-    $("#user_votes input[type='radio'], #classic_vote input[type='radio']").change(function(){
+    $("#user_votes input[type='radio']").change(function(){
+    	alert("CHANGE:::"+this);
+        $("input[name='"+this.name+"']")
+            .each(function (){
+                unhighlight_label(this.id)
+            })
+            .filter("[checked]")
+            .each(function (){
+                highlight_label(this.id)
+            })
+    })
+})
+
+$(function(){
+    $("#classic_vote input[type='radio']").change(function(){
     	alert("CHANGE:::"+this);
         $("input[name='"+this.name+"']")
             .each(function (){
