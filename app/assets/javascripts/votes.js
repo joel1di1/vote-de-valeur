@@ -2,6 +2,7 @@
 // Lorsqu'une valeur est choisie, on affiche la selection
 $(function(){
     $("#user_votes input[type='radio'], #classic_vote input[type='radio']").change(function(){
+    	alert("CHANGE:::"+this);
         $("input[name='"+this.name+"']")
             .each(function (){
                 unhighlight_label(this.id)
@@ -14,6 +15,8 @@ $(function(){
 })
 
 function highlight_label(for_s){
+	alert("HIGHLIGHT:::"+for_s);
+	alert("HIGHLIGHT:::"+$("label[for='"+for_s+"']"));
     $("label[for='"+for_s+"']")
         .addClass("selected")
         .removeClass("unselected nonselected")
