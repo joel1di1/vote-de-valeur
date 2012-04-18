@@ -2,9 +2,8 @@
 // Lorsqu'une valeur est choisie, on affiche la selection
 $(function(){
     $("#user_votes label, #classic_vote label").click(function(){
-    		//alert("click:::"+this.getAttribute("for"));
-    		var vInput = document.getElementById(this.getAttribute("for"));
-    		vInput.checked = ! vInput.checked;
+      var vInput = document.getElementById(this.getAttribute("for"));
+      vInput.checked = ! vInput.checked;
       $("input[name='"+vInput.name+"']")
           .each(function (){
               unhighlight_label(this.id)
