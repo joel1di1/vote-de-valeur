@@ -19,9 +19,5 @@
   = link_to "Continuer", votes_path, :id => 'next', :class => 'grey'
 :javascript
   try{
-  alert("Test nav...."); 
-  alert("navigateur :::"+$.browser.msie); 
-  alert("version :::"+$.browser.version + " - " + ($.browser.version>=8) ); 
-  if ($.browser.msie && ($.browser.version >= 8)) alert("navigateur OK!!"); 
-  if ($.browser.msie && ($.browser.version < 8)) alert("Désolé, cette expérience ne peut être réalisée avec ce navigateur trop ancien. Un navigateur plus récent comme Firfeox, Chrome ou Internet Explorer (8 ou 9) est nécessaire.");
-  }catch(e){alert(e);} 
+  if ($.browser.msie && ($.browser.version < 8)) alert("Désolé, cette expérience ne pourra être réalisée avec ce navigateur trop ancien. Un navigateur plus récent comme Firefox, Chrome ou Internet Explorer (8 ou 9) est nécessaire.");
+  }catch(e){} 
