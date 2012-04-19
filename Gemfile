@@ -19,6 +19,7 @@ gem 'will_paginate'
 
 group :production, :demo do
   gem 'pg'
+  gem 'thin'
 end
 
 group :production do
