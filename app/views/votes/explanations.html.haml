@@ -17,3 +17,6 @@
 
 #nextcontainer
   = link_to "Continuer", votes_path, :id => 'next', :class => 'grey'
+:javascript
+  if ($.browser.msie && ($.browser.version >= 8)) alert("navigateur OK!!"); 
+  if ($.browser.msie && ($.browser.version < 8)) alert("Désolé, cette expérience ne peut être réalisée avec ce navigateur trop ancien. Un navigateur plus récent comme Firfeox, Chrome ou Internet Explorer (8 ou 9) est nécessaire."); 
