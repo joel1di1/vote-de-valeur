@@ -12,7 +12,7 @@ class UserMailer < ActionMailer::Base
     mail(:to => user.email, :subject => "Le bureau de vote virtuel du Vote de Valeur est ouvert !")
   end
 
-  def relance_i user
+  def relance_1 user
     @user = user 
     mail(:to => user.email, :subject => "Rappel : plus que 2 jours et demi pour participer à l'expérience du Vote de Valeur ")
   end
