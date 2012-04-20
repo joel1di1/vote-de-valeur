@@ -25,17 +25,36 @@ class UsersController < ApplicationController
   end
 
   def count
+    nb = User.count
+    nb_votants = User.where(:a_vote => true).count
+    json = {:users => {:count => nb, :votants => nb_votants}}
+
     respond_to do |format|
       format.js do
         var = params[:jsonp]
         var ||= "user_count"
-        json = {:users => {:count => User.count}}.to_json
+        json.to_json
         render :js => "function #{var}(){return #{json};}"
       end
-      format.json {render :json => {:users => {:count => User.count}}}
+      format.json {render :json => json}
     end
   end
 
+  def votants
+    render_nb_users User.where(:a_vote => true).count
+  end
+
+  def render_nb_users(nb)
+    respond_to do |format|
+      format.js do
+        var = params[:jsonp]
+        var ||= "user_count"
+        json = {:users => {:count => nb}}.to_json
+        render :js => "function #{var}(){return #{json};}"
+      end
+      format.json {render :json => {:users => {:count => nb}}}
+    end
+  end
 
   def opening_email
     @users = User.all
