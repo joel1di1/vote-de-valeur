@@ -25,14 +25,17 @@ class UsersController < ApplicationController
   end
 
   def count
+
+    user_count = {:users => {:count => User.count, :votants => User.where(:a_vote => true).count}}
+
     respond_to do |format|
       format.js do
         var = params[:jsonp]
         var ||= "user_count"
-        json = {:users => {:count => User.count}}.to_json
+        json = user_count.to_json
         render :js => "function #{var}(){return #{json};}"
       end
-      format.json {render :json => {:users => {:count => User.count}}}
+      format.json {render :json => user_count}
     end
   end
 
