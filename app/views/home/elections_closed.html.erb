@@ -1,9 +1,16 @@
 <%= simple_form_for(@user, :url => registration_path(@user)) do |f| %>
 	<style>
-		#next{
+		#user_email{
+			width: 480px;
+		}
+		#subscribe{
 			border: 2px solid #20B755;
-			-moz-border-radius: 20px 20px 20px 20px;
+			-webkit-border-radius: 20px;
+			-moz-border-radius: 20px;
+			border-radius: 20px;
 			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;
 			color: #2E2E2E;
 			background-image: none;
 			text-decoration: none;
@@ -11,11 +18,10 @@
 			padding: 5px;
 			margin-top: 15px
 		}
-	
-		#next:hover{
+		#subscribe:hover{
 			background-color:#E5F4EA ;
 		}
-		#back{
+		#next{
 			border: 3px solid #FF3A3C;
 			-webkit-border-radius: 20px;
 			-moz-border-radius: 20px;
@@ -24,7 +30,6 @@
 			-webkit-box-shadow: 0px 0px 5px #333333;
 			box-shadow: 0px 0px 5px #333333;
 			color: #2E2E2E;
-			background: url("flecheRouge.png") no-repeat scroll right center white;
 			text-decoration: none;
 			padding: 10px;
 			padding-right: 55px;
@@ -35,6 +40,15 @@
 			color:#20B755;
 			font-weight: bold;
 			text-align: center;
+		}
+		abbr{
+			display: none;
+		}
+		#contactcontainer{
+			display:none;
+		}
+		#votes_count{
+			display:none;
 		}
 	</style>	
 	<div id="content" class="green" style="margin-top: 0; margin-bottom: 10px">
@@ -54,11 +68,8 @@
 		</p>
 		<p style="margin:20px 0">
 			<div style="float:right;">
-				<%= f.submit "S'inscrire", :id => 'next', :class => 'green' %>
+				<%= f.submit "S'inscrire", :id => 'subscribe', :class => 'green' %>
 			</div>
-			<label for="user_email" class="email">
-				Mon adresse électronique
-			</label>
 			<div>
 				<%= f.input :email %>
 			</div>
@@ -66,7 +77,7 @@
 		<div class="clear"/>
 		<div style="margin:30px">
 			<center>
-				<a id="back" href="http://www.votedevaleur.org">Visiter le site du Vote de Valeur</a>
+				<a id="next" class="red" href="http://www.votedevaleur.org">Visiter le site du Vote de Valeur</a>
 			</center>
 		</div>
 	</div>
