@@ -145,6 +145,7 @@ td.count, td.classic_count{
   position: relative;
   top: 5px;
   left: 340px;
+  display: inline;
   background: none repeat scroll 0 0 white;
   border: 1px solid #3CB126;
   @include border-radius(20px);
