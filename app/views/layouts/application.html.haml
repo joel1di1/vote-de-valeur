@@ -39,9 +39,11 @@
         %span.st_linkedin(st_url="https://experience2012.votedevaleur.org")
         %span.st_sharethis(st_url="https://experience2012.votedevaleur.org")
       #votes_count
-        Déjà
+        Déjà 
+        = User.count
+        inscrits et 
         = User.votants.count
-        personnes ont déjà voté !
+        ont voté !
       #title
         %div
           %i
