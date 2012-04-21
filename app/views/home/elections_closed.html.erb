@@ -1,13 +1,5 @@
 <%= simple_form_for(@user, :url => registration_path(@user)) do |f| %>
 	<style>
-		#content{
-			border-color: #20B755;
-			margin-bottom: 10px
-		}
-		
-		input{
-			width: 480px	
-		}
 		#next{
 			border: 2px solid #20B755;
 			-moz-border-radius: 20px 20px 20px 20px;
@@ -23,6 +15,21 @@
 		#next:hover{
 			background-color:#E5F4EA ;
 		}
+		#back{
+			border: 3px solid #FF3A3C;
+			-webkit-border-radius: 20px;
+			-moz-border-radius: 20px;
+			border-radius: 20px;
+			-moz-box-shadow: 0px 0px 5px #333333;
+			-webkit-box-shadow: 0px 0px 5px #333333;
+			box-shadow: 0px 0px 5px #333333;
+			color: #2E2E2E;
+			background: url("flecheRouge.png") no-repeat scroll right center white;
+			text-decoration: none;
+			padding: 10px;
+			padding-right: 55px;
+			margin-top: 10px
+		}
 		
 		.texteImp{
 			color:#20B755;
@@ -30,7 +37,7 @@
 			text-align: center;
 		}
 	</style>	
-	<div id="content">
+	<div id="content" class="green" style="margin-top: 0; margin-bottom: 10px">
 		<p style="text-align:center;">
 			<%= image_tag 'merciParticipation.png', :size => '314x202'%>
 		</p>
@@ -59,7 +66,7 @@
 		<div class="clear"/>
 		<div style="margin:30px">
 			<center>
-				<a id="back" class="next red" href="http://www.votedevaleur.org">Visiter le site du Vote de Valeur</a>
+				<a id="back" href="http://www.votedevaleur.org">Visiter le site du Vote de Valeur</a>
 			</center>
 		</div>
 	</div>

@@ -36,6 +36,9 @@ body{
   &.votes_explanations{
     background: white asset-url('bgs/fondProcessus3-1.jpg', image) no-repeat center top;
   }
+  &.home_elections_closed{
+    background: white asset-url('bgs/fondProcessus1-2.jpg', image) no-repeat center top;
+  }
   &.votes_index{
     background: white asset-url('bgs/fondProcessus3-2.jpg', image) no-repeat center top;
   }
