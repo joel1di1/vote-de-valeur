@@ -3,6 +3,13 @@
 		#user_email{
 			width: 480px;
 		}
+		#new_user input#user_email{
+			margin-left: 10px;
+		}
+		#new_user .input.email{
+			float: left;
+			margin-top: 4px;
+		}
 		#subscribe{
 			border: 2px solid #20B755;
 			-webkit-border-radius: 20px;
@@ -14,9 +21,9 @@
 			color: #2E2E2E;
 			background-image: none;
 			text-decoration: none;
-			float: right;
+			float: left;
 			padding: 5px;
-			margin-top: 15px
+			margin-left : 15px;
 		}
 		#subscribe:hover{
 			background-color:#E5F4EA ;
@@ -67,15 +74,11 @@
 			des évolutions du Vote de Valeur ou des prochaines expériences, vous pouvez vous inscrire ici&nbsp;:
 		</p>
 		<p style="margin:20px 0">
-			<div style="float:right;">
-				<%= f.submit "S'inscrire", :id => 'subscribe', :class => 'green' %>
-			</div>
-			<div>
-				<%= f.input :email %>
-			</div>
+			<%= f.input :email %>
+			<%= f.submit "S'inscrire", :id => 'subscribe', :class => 'green' %>
 		</p>
-		<div class="clear"/>
-		<div style="margin:30px">
+		<div class="clear" > </div>
+		<div style="margin:20px">
 			<center>
 				<a id="next" class="red" href="http://www.votedevaleur.org">Visiter le site du Vote de Valeur</a>
 			</center>
