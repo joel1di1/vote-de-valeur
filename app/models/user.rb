@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
 
   before_validation :add_access_token
 
+  scope :votants, where(:a_vote => true)
+
   def add_access_token
     self.access_token = User.generate_access_token unless self.access_token
   end

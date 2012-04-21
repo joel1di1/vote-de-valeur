@@ -141,6 +141,12 @@ td.count, td.classic_count{
     position: absolute;
 }
 
+#votes_count {
+  position: relative;
+  top: 0px;
+  left: 350px;
+}
+
 #user_sign_in{
   float: right;
   text-align: right;
