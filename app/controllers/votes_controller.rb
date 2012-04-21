@@ -3,8 +3,6 @@ class VotesController < ApplicationController
   before_filter :authenticate_user!
   TOKEN_VALIDATED_KEY = 'token_validated'
 
-  before_filter :set_cache_buster
-
   def index
     redirect_to root_path and return unless user_signed_in?
     unless DateHelper.election_started?
