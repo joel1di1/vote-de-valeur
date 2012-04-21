@@ -1,39 +1,36 @@
-<style>
-	#content{
-		border-color: #20B755;
-		margin-bottom: 10px
-	}
-	
-	input{
-		width: 480px	
-	}
-	#next{
-		border: 2px solid #20B755;
-		-moz-border-radius: 20px 20px 20px 20px;
-		-moz-box-shadow: none;
-		color: #2E2E2E;
-		background-image: none;
-		text-decoration: none;
-		float: right;
-		padding: 5px;
-		margin-top: 15px
-	}
-
-	#next:hover{
-		background-color:#E5F4EA ;
-	}
-	
-	.texteImp{
-		color:#20B755;
-		font-weight: bold;
-		text-align: center;
-	}
-</style>	
 <%= simple_form_for(@user, :url => registration_path(@user)) do |f| %>
+	<style>
+		#content{
+			border-color: #20B755;
+			margin-bottom: 10px
+		}
+		
+		input{
+			width: 480px	
+		}
+		#next{
+			border: 2px solid #20B755;
+			-moz-border-radius: 20px 20px 20px 20px;
+			-moz-box-shadow: none;
+			color: #2E2E2E;
+			background-image: none;
+			text-decoration: none;
+			float: right;
+			padding: 5px;
+			margin-top: 15px
+		}
+	
+		#next:hover{
+			background-color:#E5F4EA ;
+		}
+		
+		.texteImp{
+			color:#20B755;
+			font-weight: bold;
+			text-align: center;
+		}
+	</style>	
 	<div id="content">
-		<p style="text-align:center;">
-			<%= image_tag 'merciParticipation.png', :size => '314x202'%>
-		</p>
 		<p class="texteImp">
 			Le premier tour de l'élection présidentielle française 2012<br/>
 			a été l'occasion d'expérimenter le Vote de Valeur.
