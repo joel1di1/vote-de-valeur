@@ -41,6 +41,10 @@
     background: white asset-url('fleches/flecheGrise.png', image) no-repeat right;
     border: 3px #969696 solid;
   }
+  &.red{
+    background: white asset-url('fleches/flecheRouge.png', image) no-repeat right;
+    border: 3px #969696 solid;
+  }
 }
 
 $fight_width: 450px;

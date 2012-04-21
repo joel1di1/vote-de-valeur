@@ -1,4 +1,66 @@
+<style>
+	#content{
+		border-color: #20B755;
+		margin-bottom: 10px
+	}
+	
+	input{
+		width: 480px	
+	}
+	#next{
+		border: 2px solid #20B755;
+		-moz-border-radius: 20px 20px 20px 20px;
+		-moz-box-shadow: none;
+		color: #2E2E2E;
+		background-image: none;
+		text-decoration: none;
+		float: right;
+		padding: 5px;
+		margin-top: 15px
+	}
+
+	#next:hover{
+		background-color:#E5F4EA ;
+	}
+	
+	.texteImp{
+		color:#20B755;
+		font-weight: bold;
+		text-align: center;
+	}
+</style>	
 <%= simple_form_for(@user, :url => registration_path(@user)) do |f| %>
-  <%= f.input :email %>
-  <%= f.submit "Valider", :id => 'next', :class => 'orange' %>
+	<div id="content">
+		<p style="text-align:center;">
+			<%= image_tag 'merciParticipation.png', :size => '314x202'%>
+		</p>
+		<p class="texteImp">
+			Le premier tour de l'élection présidentielle française 2012<br/>
+			a été l'occasion d'expérimenter le Vote de Valeur.
+		</p>
+		<p>
+			Cette expérience est à présent terminée. Les premiers résultats seront publiés après le deuxième tour de l'élection officielle.
+		</p>
+		<p>
+			Si vous n'êtes pas déjà inscrit et si vous souhaitez être informé des résultats de cette expérience, 
+			des évolutions du Vote de Valeur ou des prochaines expériences, vous pouvez vous inscrire ici&nbsp;:
+		</p>
+		<p style="margin:20px 0">
+			<div style="float:right;">
+				<%= f.submit "Valider", :id => 'next', :class => 'green' %>
+			</div>
+			<label for="user_email" class="email">
+				Mon adresse électronique
+			</label>
+			<div>
+				<%= f.input :email %>
+			</div>
+		</p>
+		<div class="clear"/>
+		<div style="margin:30px">
+			<center>
+				<a id="back" class="next red" href="http://www.votedevaleur.org">Visiter le site du Vote de Valeur</a>
+			</center>
+		</div>
+	</div>
 <% end %>
