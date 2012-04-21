@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :is_demo, :only => [:opening_email, :send_opening_email]
+  before_filter :redirect_when_closed, :access
 
   def access
     token = params[:id]

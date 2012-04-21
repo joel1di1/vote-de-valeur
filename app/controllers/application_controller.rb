@@ -13,4 +13,15 @@ class ApplicationController < ActionController::Base
     I18n.locale = I18n.default_locale
   end
 
+  def redirect_when_closed
+    if DateHelper.election_closed? && !user_signed_in?
+      render_closed
+    end
+  end
+
+  def render_closed
+    @user =  User.new
+    render 'devise/registrations/new'
+    sign_out
+  end
 end
