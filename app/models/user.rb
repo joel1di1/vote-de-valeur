@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def send_confirmation_mail
-    UserMailer.send_confirmation(self).deliver
+    UserMailer.send_confirmation(self).deliver unless DateHelper.election_closed?
   end
 
   def self.generate_access_token

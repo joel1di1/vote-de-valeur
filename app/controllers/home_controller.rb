@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
 
+  before_filter :redirect_when_closed, :only => :index
+
   def index
-    if user_signed_in?
+    if user_signed_in? 
       if session[VotesController::TOKEN_VALIDATED_KEY]
         if current_user.a_vote?
           redirect_to second_tour_votes_path
@@ -9,7 +11,12 @@ class HomeController < ApplicationController
           redirect_to explanations_votes_path  
         end
       else
-        render :election_soon
+        if DateHelper.election_closed?
+          flash.now[:notice] = t(:email_registered, :mail => current_user.email)
+          render_closed
+        else
+          render :election_soon
+        end
         sign_out
         @user_signed_out = true
       end
@@ -36,4 +43,17 @@ class HomeController < ApplicationController
   def thanks
     render
   end
+
+  def redirect_when_closed
+    if DateHelper.election_closed? && !user_signed_in?
+      render_closed
+    end
+  end
+
+  def render_closed
+    @user =  User.new
+    render 'devise/registrations/new'
+    sign_out
+  end
+
 end
