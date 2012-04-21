@@ -1,0 +1,4 @@
+<%= simple_form_for(@user, :url => registration_path(@user)) do |f| %>
+  <%= f.input :email %>
+  <%= f.submit "Valider", :id => 'next', :class => 'orange' %>
+<% end %>

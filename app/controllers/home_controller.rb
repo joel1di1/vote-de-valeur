@@ -18,6 +18,10 @@ class HomeController < ApplicationController
     end
   end
 
+  def elections_closed
+    @user =  User.new
+  end
+
   def resend_instructions
   end
 

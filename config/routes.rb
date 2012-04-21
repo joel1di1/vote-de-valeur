@@ -34,5 +34,7 @@ VoteDeValeur::Application.routes.draw do
 
   get 'thanks' => 'home#thanks'
 
+  get 'elections_closed' => 'home#elections_closed'
+
   root :to => "home#index"
 end
