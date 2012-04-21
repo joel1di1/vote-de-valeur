@@ -143,8 +143,15 @@ td.count, td.classic_count{
 
 #votes_count {
   position: relative;
-  top: 0px;
-  left: 350px;
+  top: 5px;
+  left: 340px;
+  background: none repeat scroll 0 0 white;
+  border: 1px solid #3CB126;
+  @include border-radius(20px);
+  box-shadow: 0 0 10px #333333;
+  color: #2E2E2E;
+  font-size: 12px;
+  padding: 3px 5px;
 }
 
 #user_sign_in{
