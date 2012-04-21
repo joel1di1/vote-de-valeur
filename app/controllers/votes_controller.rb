@@ -7,7 +7,7 @@ class VotesController < ApplicationController
 
   def index
     redirect_to root_path and return unless user_signed_in?
-    unless DateHelper.election_running?
+    unless DateHelper.election_started?
       flash[:error] = "Le bureau de vote n'est pas ouvert"
       redirect_to root_path and return
     end
@@ -31,7 +31,7 @@ class VotesController < ApplicationController
       redirect_to root_path and return
     end
 
-    unless DateHelper.election_running?
+    unless DateHelper.election_started?
       flash[:error] = "Le bureau de vote n'est pas ouvert"
       redirect_to root_path and return
     end

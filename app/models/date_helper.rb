@@ -39,7 +39,11 @@ class DateHelper
   end
 
   def self.election_closed?
-     DateTime.now  > current_configuration.end_date
+     DateTime.now > current_configuration.end_date
+  end
+
+  def self.election_started?
+     DateTime.now > current_configuration.start_date
   end
 
   def self.set_election_time start_date, end_date
