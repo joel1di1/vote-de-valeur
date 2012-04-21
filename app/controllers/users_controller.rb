@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def count
 
-    user_count = {:users => {:count => User.count, :votants => Vote.count / 10}}
+    user_count = {:users => {:count => User.count, :votants => Vote.count / Candidate.count}}
 
     respond_to do |format|
       format.js do
