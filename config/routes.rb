@@ -36,5 +36,9 @@ VoteDeValeur::Application.routes.draw do
 
   # get 'elections_closed' => 'home#elections_closed'
 
-  root :to => "home#index"
+  # get 'users/access/:id'  =>  'users#access', :as => 'user_access'
+
+  get 'users/access/:id'  =>  redirect('/')
+
+  # root :to => "home#index"
 end
