@@ -17,4 +17,9 @@ class UserMailer < ActionMailer::Base
     mail(:to => user.email, :subject => "Rappel : plus que 2 jours et demi pour participer à l'expérience du Vote de Valeur ")
   end
 
+  def relance_2 user
+    @user = user 
+    mail(:to => user.email, :subject => "Rappel : plus que quelques heures pour participer à l'expérience du Vote de Valeur")
+  end
+
 end

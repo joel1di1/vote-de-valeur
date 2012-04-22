@@ -112,5 +112,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.send_relance_2 start_id=0, end_id=0
+    User.where("id >= ?", start_id).where("id <= ?", end_id).where('mailed_status < 3').where(:a_vote => false).each do |user|
+      UserMailer.relance_2(user).deliver
+      user.update_attribute :mailed_status, 3
+      p user.email
+    end
+  end
+
 
 end

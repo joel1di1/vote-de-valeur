@@ -10,5 +10,11 @@ namespace :mails do
     end_id = ENV['end']
     User.send_relance_1(start_id, end_id)
   end
+
+  task :send_relance_2 => :environment  do |t, args|
+    start_id = ENV['start']
+    end_id = ENV['end']
+    User.send_relance_2(start_id, end_id)
+  end
 end
 
